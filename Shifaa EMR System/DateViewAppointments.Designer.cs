@@ -32,7 +32,7 @@
             // 
             // DateViewAppointments
             // 
-            this.ClientSize = new System.Drawing.Size(742, 521);
+            this.ClientSize = new System.Drawing.Size(814, 521);
             this.Name = "DateViewAppointments";
             this.Load += new System.EventHandler(this.DateViewAppointments_Load_1);
             this.ResumeLayout(false);
