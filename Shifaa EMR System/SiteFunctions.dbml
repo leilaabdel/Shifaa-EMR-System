@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DataSource" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-HOE3NSI\MSSQLSERVER01;Integrated Security=True" SettingsObjectName="Shifaa_EMR_System.Properties.Settings" SettingsPropertyName="DataSourceConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Patient_Appointment" Member="Patient_Appointments">
+    <Type Name="Patient_Appointment">
+      <Column Name="appID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateAppointment" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TimeAppointment" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Duration" Member="DurationAppointment" Storage="_Duration" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Created" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Details" Parameter="details" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="DateAppointment" Parameter="dateAppointment" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TimeAppointment" Parameter="timeAppointment" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Duration" Parameter="duration" Type="System.String" DbType="NChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
