@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 
 namespace Shifaa_EMR_System
@@ -14,7 +15,7 @@ namespace Shifaa_EMR_System
 {
     public partial class NewAppointment : Form 
     {
-        DataClasses1DataContext doAction = new DataClasses1DataContext();
+        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext();
         DateTime superAppointmentDate; 
 
 
@@ -28,7 +29,7 @@ namespace Shifaa_EMR_System
 
         private void NewAppointment_Load(object sender, EventArgs e)
         {
-         DateTime newAppointmentDate = ((SchedulerMain)this.MdiParent).getDate();
+         DateTime newAppointmentDate = ((ProviderMain)this.MdiParent).getDate();
 
 
             int h = 1;
@@ -41,7 +42,7 @@ namespace Shifaa_EMR_System
 
             }
 
-            for (m = 1; m <= 59; m++)
+            for (m = 0; m <= 59; m++)
             {
                 minuteBox1.Items.Add(m);
                 minuteBox2.Items.Add(m);
@@ -70,9 +71,17 @@ namespace Shifaa_EMR_System
 
             try
             {
-                doAction.CreateAppointment(AppointmentTitle.Text, AppointmentDetails.Text, superAppointmentDate, hourBox1.SelectedValue + ":" +
-                    minuteBox1.SelectedValue, hourBox2.SelectedValue + ":" + minuteBox2.SelectedValue);
+          
 
+                string makeTime = hourBox1.SelectedItem.ToString() + ":" + minuteBox1.SelectedItem.ToString();
+                string makeDuration = hourBox2.SelectedItem.ToString() + ":" + minuteBox2.SelectedItem.ToString();
+
+                Debug.WriteLine(makeTime);
+                Debug.WriteLine(makeDuration);
+                doAction.CreateAppointment(AppointmentTitle.Text, AppointmentDetails.Text, superAppointmentDate, makeTime, makeDuration);
+
+                this.Close();
+                
             }
             catch
             {
@@ -89,7 +98,7 @@ namespace Shifaa_EMR_System
 
         private void AppointmentTitle_TextChanged(object sender, EventArgs e)
         {
-
+         
         }
 
         private void minuteBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,6 +112,11 @@ namespace Shifaa_EMR_System
         }
 
         private void minuteBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AppointmentDescriptionLabel_Click(object sender, EventArgs e)
         {
 
         }

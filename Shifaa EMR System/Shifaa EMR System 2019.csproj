@@ -56,24 +56,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
+    <Compile Include="EMRDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DateViewAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DateViewAppointments.Designer.cs">
       <DependentUpon>DateViewAppointments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SiteFunctions.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SiteFunctions.dbml</DependentUpon>
     </Compile>
     <Compile Include="NewAppointment.cs">
       <SubType>Form</SubType>
@@ -86,6 +78,11 @@
     </Compile>
     <Compile Include="SchedulerMain.Designer.cs">
       <DependentUpon>SchedulerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SiteFunctions.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SiteFunctions.dbml</DependentUpon>
     </Compile>
     <Compile Include="WelcomeHomePage.cs">
       <SubType>Form</SubType>
@@ -143,26 +140,18 @@
     <EmbeddedResource Include="WelcomeHomePage.resx">
       <DependentUpon>WelcomeHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="EMRDatabaseDataSet.xsc">
+      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsd">
+    <None Include="EMRDatabaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>EMRDatabaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="EMRDatabaseDataSet.xss">
+      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="SiteFunctions.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>SiteFunctions.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SiteFunctions.dbml.layout">
-      <DependentUpon>SiteFunctions.dbml</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -172,6 +161,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SiteFunctions.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SiteFunctions.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SiteFunctions.dbml.layout">
+      <DependentUpon>SiteFunctions.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

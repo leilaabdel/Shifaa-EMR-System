@@ -17,16 +17,16 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
-        public DataClasses1DataContext doAction = new DataClasses1DataContext();
+        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext();
         private void DateViewAppointments_Load(object sender, EventArgs e)
         {
           
             DateTime clickedAppointmentDate = ((SchedulerMain)this.MdiParent).getDate();
 
             // TODO: This line of code loads data into the 'dataSet1.Patient_Appointment' table. You can move, or remove it, as needed.
-            this.patient_AppointmentTableAdapter.Fill(this.dataSet1.Patient_Appointment);
+            this.appointmentTableAdapter.Fill(this.eMRDatabaseDataSet.Appointment);
 
-            foreach (Patient_Appointment app in doAction.Patient_Appointments)
+            foreach (Appointment app in doAction.Appointments)
             {
                 if (app.DateAppointment == clickedAppointmentDate)
                 {
@@ -55,6 +55,13 @@ namespace Shifaa_EMR_System
         }
 
         private void DateViewAppointments_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed.
+            this.appointmentTableAdapter.Fill(this.eMRDatabaseDataSet.Appointment);
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

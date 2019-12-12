@@ -52,6 +52,7 @@
             this.AppointmentDescriptionLabel.Size = new System.Drawing.Size(241, 25);
             this.AppointmentDescriptionLabel.TabIndex = 1;
             this.AppointmentDescriptionLabel.Text = "Appointment Description";
+            this.AppointmentDescriptionLabel.Click += new System.EventHandler(this.AppointmentDescriptionLabel_Click);
             // 
             // AppointmentDetails
             // 
@@ -154,12 +155,13 @@
             // 
             // AppointmentTitle
             // 
+            this.AppointmentTitle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.AppointmentTitle.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
             this.AppointmentTitle.Location = new System.Drawing.Point(62, 64);
             this.AppointmentTitle.Name = "AppointmentTitle";
             this.AppointmentTitle.Size = new System.Drawing.Size(414, 26);
             this.AppointmentTitle.TabIndex = 17;
-            this.AppointmentTitle.Text = "Appointment Title";
+            this.AppointmentTitle.Text = "Patient Name";
             this.AppointmentTitle.TextChanged += new System.EventHandler(this.AppointmentTitle_TextChanged);
             // 
             // NewAppointment

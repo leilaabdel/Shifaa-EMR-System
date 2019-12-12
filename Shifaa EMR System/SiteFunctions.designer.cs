@@ -22,74 +22,74 @@ namespace Shifaa_EMR_System
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DataSource")]
-	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="EMRDatabase")]
+	public partial class SiteFunctionsDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertPatient_Appointment(Patient_Appointment instance);
-    partial void UpdatePatient_Appointment(Patient_Appointment instance);
-    partial void DeletePatient_Appointment(Patient_Appointment instance);
+    partial void InsertAppointment(Appointment instance);
+    partial void UpdateAppointment(Appointment instance);
+    partial void DeleteAppointment(Appointment instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
-				base(global::Shifaa_EMR_System.Properties.Settings.Default.DataSourceConnectionString, mappingSource)
+		public SiteFunctionsDataContext() : 
+				base(global::Shifaa_EMR_System.Properties.Settings.Default.EMRDatabaseConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection) : 
+		public SiteFunctionsDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
+		public SiteFunctionsDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public SiteFunctionsDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public SiteFunctionsDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Patient_Appointment> Patient_Appointments
+		public System.Data.Linq.Table<Appointment> Appointments
 		{
 			get
 			{
-				return this.GetTable<Patient_Appointment>();
+				return this.GetTable<Appointment>();
 			}
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CreateAppointment")]
-		public int CreateAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(50)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="NVarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateAppointment", DbType="Date")] System.Nullable<System.DateTime> dateAppointment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeAppointment", DbType="NChar(10)")] string timeAppointment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Duration", DbType="NChar(10)")] string duration)
+		public int CreateAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientName", DbType="NVarChar(50)")] string patientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="NVarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateAppointment", DbType="Date")] System.Nullable<System.DateTime> dateAppointment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TimeAppointment", DbType="NVarChar(10)")] string timeAppointment, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DurationAppointment", DbType="NVarChar(10)")] string durationAppointment)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), title, details, dateAppointment, timeAppointment, duration);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientName, details, dateAppointment, timeAppointment, durationAppointment);
 			return ((int)(result.ReturnValue));
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Patient_Appointment")]
-	public partial class Patient_Appointment : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Appointment")]
+	public partial class Appointment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _appID;
 		
-		private string _Title;
+		private string _PatientName;
 		
 		private string _Details;
 		
@@ -97,11 +97,11 @@ namespace Shifaa_EMR_System
 		
 		private string _TimeAppointment;
 		
-		private string _Duration;
-		
-		private string _Created;
+		private string _DurationAppointment;
 		
 		private string _Status;
+		
+		private string _Created;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -109,8 +109,8 @@ namespace Shifaa_EMR_System
     partial void OnCreated();
     partial void OnappIDChanging(int value);
     partial void OnappIDChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
+    partial void OnPatientNameChanging(string value);
+    partial void OnPatientNameChanged();
     partial void OnDetailsChanging(string value);
     partial void OnDetailsChanged();
     partial void OnDateAppointmentChanging(System.Nullable<System.DateTime> value);
@@ -119,13 +119,13 @@ namespace Shifaa_EMR_System
     partial void OnTimeAppointmentChanged();
     partial void OnDurationAppointmentChanging(string value);
     partial void OnDurationAppointmentChanged();
-    partial void OnCreatedChanging(string value);
-    partial void OnCreatedChanged();
     partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
+    partial void OnCreatedChanging(string value);
+    partial void OnCreatedChanged();
     #endregion
 		
-		public Patient_Appointment()
+		public Appointment()
 		{
 			OnCreated();
 		}
@@ -150,27 +150,27 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50)")]
-		public string Title
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientName", DbType="NVarChar(50)")]
+		public string PatientName
 		{
 			get
 			{
-				return this._Title;
+				return this._PatientName;
 			}
 			set
 			{
-				if ((this._Title != value))
+				if ((this._PatientName != value))
 				{
-					this.OnTitleChanging(value);
+					this.OnPatientNameChanging(value);
 					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
+					this._PatientName = value;
+					this.SendPropertyChanged("PatientName");
+					this.OnPatientNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(MAX)")]
 		public string Details
 		{
 			get
@@ -210,7 +210,7 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeAppointment", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeAppointment", DbType="NVarChar(10)")]
 		public string TimeAppointment
 		{
 			get
@@ -230,42 +230,22 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Duration", Storage="_Duration", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DurationAppointment", DbType="NVarChar(10)")]
 		public string DurationAppointment
 		{
 			get
 			{
-				return this._Duration;
+				return this._DurationAppointment;
 			}
 			set
 			{
-				if ((this._Duration != value))
+				if ((this._DurationAppointment != value))
 				{
 					this.OnDurationAppointmentChanging(value);
 					this.SendPropertyChanging();
-					this._Duration = value;
+					this._DurationAppointment = value;
 					this.SendPropertyChanged("DurationAppointment");
 					this.OnDurationAppointmentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="NVarChar(50)")]
-		public string Created
-		{
-			get
-			{
-				return this._Created;
-			}
-			set
-			{
-				if ((this._Created != value))
-				{
-					this.OnCreatedChanging(value);
-					this.SendPropertyChanging();
-					this._Created = value;
-					this.SendPropertyChanged("Created");
-					this.OnCreatedChanged();
 				}
 			}
 		}
@@ -286,6 +266,26 @@ namespace Shifaa_EMR_System
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="NVarChar(50)")]
+		public string Created
+		{
+			get
+			{
+				return this._Created;
+			}
+			set
+			{
+				if ((this._Created != value))
+				{
+					this.OnCreatedChanging(value);
+					this.SendPropertyChanging();
+					this._Created = value;
+					this.SendPropertyChanged("Created");
+					this.OnCreatedChanged();
 				}
 			}
 		}
