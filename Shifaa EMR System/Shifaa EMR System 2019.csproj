@@ -67,6 +67,7 @@
     <Compile Include="DateViewAppointments.Designer.cs">
       <DependentUpon>DateViewAppointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface.cs" />
     <Compile Include="NewPatient.cs">
       <SubType>Form</SubType>
     </Compile>

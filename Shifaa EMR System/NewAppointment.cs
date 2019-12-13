@@ -87,8 +87,8 @@ namespace Shifaa_EMR_System
             {
           
 
-                string makeTime = hourBox1.SelectedValue + ":" + minuteBox1.SelectedValue;
-                string makeDuration = hourBox2.SelectedValue + ":" + minuteBox2.SelectedValue;
+                string makeTime = hourBox1.SelectedItem.ToString() + ":" + minuteBox1.SelectedItem.ToString();
+                string makeDuration = hourBox2.SelectedValue.ToString() + ":" + minuteBox2.SelectedValue.ToString();
 
                 Debug.WriteLine(makeTime);
                 Debug.WriteLine(makeDuration);

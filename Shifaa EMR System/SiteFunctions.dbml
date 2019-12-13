@@ -12,12 +12,38 @@
       <Column Name="Created" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Patient" Member="Patients">
+    <Type Name="Patient">
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Age" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Height" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BMI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Nationality" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
     <Parameter Name="PatientName" Parameter="patientName" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="Details" Parameter="details" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="DateAppointment" Parameter="dateAppointment" Type="System.DateTime" DbType="Date" />
     <Parameter Name="TimeAppointment" Parameter="timeAppointment" Type="System.String" DbType="NVarChar(10)" />
     <Parameter Name="DurationAppointment" Parameter="durationAppointment" Type="System.String" DbType="NVarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.createNewPatient" Method="createNewPatient">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Age" Parameter="age" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="Weight" Parameter="weight" Type="System.Double" DbType="Float" />
+    <Parameter Name="Height" Parameter="height" Type="System.Double" DbType="Float" />
+    <Parameter Name="BMI" Parameter="bMI" Type="System.Double" DbType="Float" />
+    <Parameter Name="Nationality" Parameter="nationality" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
