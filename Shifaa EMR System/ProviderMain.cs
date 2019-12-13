@@ -32,6 +32,8 @@ namespace Shifaa_EMR_System
             return monthCalendar1.SelectionStart;
         }
 
+     
+
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 

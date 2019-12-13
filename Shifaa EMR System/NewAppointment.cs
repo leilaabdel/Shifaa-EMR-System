@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-
+using System.Data.SqlClient;
 
 namespace Shifaa_EMR_System
-  
+
 {
+
+
     public partial class NewAppointment : Form 
     {
+        
         public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext();
         DateTime superAppointmentDate; 
 
@@ -28,8 +31,16 @@ namespace Shifaa_EMR_System
 
 
         private void NewAppointment_Load(object sender, EventArgs e)
+
         {
-         DateTime newAppointmentDate = ((ProviderMain)this.MdiParent).getDate();
+            DateTime newAppointmentDate;
+
+            if(((ProviderMain)this.MdiParent).Visible) {
+                 newAppointmentDate = ((ProviderMain)this.MdiParent).getDate();
+            } else 
+            {
+                 newAppointmentDate = ((SchedulerMain)this.MdiParent).getDate();
+            }
 
 
             int h = 1;
@@ -78,14 +89,41 @@ namespace Shifaa_EMR_System
 
                 Debug.WriteLine(makeTime);
                 Debug.WriteLine(makeDuration);
+
+                SqlConnection con = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+
                 doAction.CreateAppointment(AppointmentTitle.Text, AppointmentDetails.Text, superAppointmentDate, makeTime, makeDuration);
+                Appointment newAppointment = new Appointment()
+                {
+                    appID = 0,
+                    PatientName = AppointmentTitle.Text,
+                    Details = AppointmentDetails.Text,
+                    DateAppointment = superAppointmentDate,
+                    TimeAppointment = makeTime,
+                    DurationAppointment = makeDuration,
+                    Status = "0",
+                    Created = "1"
+
+                };
+
+
+                doAction.Appointments.InsertOnSubmit(newAppointment);
+                doAction.SubmitChanges();
 
                 this.Close();
                 
             }
-            catch
+            catch (Exception ex)
             {
-                Exception ex; 
+
+                Exception ex2 = ex;
+                while (ex2.InnerException != null)
+                {
+                    ex2 = ex2.InnerException;
+                }
+                Console.WriteLine(ex.InnerException);
+                throw;
+               
             }
                 
 
