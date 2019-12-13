@@ -10,20 +10,23 @@
       <Column Name="DurationAppointment" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Created" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Patient_Appointment" Member="Patient" ThisKey="appID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Patient" Member="Patients">
     <Type Name="Patient">
+      <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Age" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="Weight" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Height" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="BMI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="BMI" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Nationality" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Patient_Appointment" Member="Appointment" ThisKey="PatientID" OtherKey="appID" Type="Appointment" Cardinality="One" />
     </Type>
   </Table>
   <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
@@ -35,6 +38,7 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.createNewPatient" Method="createNewPatient">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
     <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="Date" />

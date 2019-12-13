@@ -92,9 +92,9 @@ namespace Shifaa_EMR_System
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewPatient")]
-		public int createNewPatient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="Date")] System.Nullable<System.DateTime> dOB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Age", DbType="Int")] System.Nullable<int> age, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="Char(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weight", DbType="Float")] System.Nullable<double> weight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Height", DbType="Float")] System.Nullable<double> height, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BMI", DbType="Float")] System.Nullable<double> bMI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nationality", DbType="VarChar(50)")] string nationality)
+		public int createNewPatient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="Date")] System.Nullable<System.DateTime> dOB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Age", DbType="Int")] System.Nullable<int> age, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="Char(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Weight", DbType="Float")] System.Nullable<double> weight, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Height", DbType="Float")] System.Nullable<double> height, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BMI", DbType="Float")] System.Nullable<double> bMI, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Nationality", DbType="VarChar(50)")] string nationality)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, dOB, age, gender, weight, height, bMI, nationality);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, firstName, lastName, dOB, age, gender, weight, height, bMI, nationality);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -121,6 +121,8 @@ namespace Shifaa_EMR_System
 		
 		private string _Created;
 		
+		private EntityRef<Patient> _Patient;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -145,6 +147,7 @@ namespace Shifaa_EMR_System
 		
 		public Appointment()
 		{
+			this._Patient = default(EntityRef<Patient>);
 			OnCreated();
 		}
 		
@@ -159,6 +162,10 @@ namespace Shifaa_EMR_System
 			{
 				if ((this._appID != value))
 				{
+					if (this._Patient.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnappIDChanging(value);
 					this.SendPropertyChanging();
 					this._appID = value;
@@ -308,6 +315,40 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Patient", ThisKey="appID", OtherKey="PatientID", IsForeignKey=true)]
+		public Patient Patient
+		{
+			get
+			{
+				return this._Patient.Entity;
+			}
+			set
+			{
+				Patient previousValue = this._Patient.Entity;
+				if (((previousValue != value) 
+							|| (this._Patient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Patient.Entity = null;
+						previousValue.Appointment = null;
+					}
+					this._Patient.Entity = value;
+					if ((value != null))
+					{
+						value.Appointment = this;
+						this._appID = value.PatientID;
+					}
+					else
+					{
+						this._appID = default(int);
+					}
+					this.SendPropertyChanged("Patient");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -335,6 +376,8 @@ namespace Shifaa_EMR_System
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private int _ColumnNumber;
+		
 		private int _PatientID;
 		
 		private string _FirstName;
@@ -343,7 +386,7 @@ namespace Shifaa_EMR_System
 		
 		private System.Nullable<System.DateTime> _DOB;
 		
-		private string _Age;
+		private System.Nullable<int> _Age;
 		
 		private string _Gender;
 		
@@ -351,14 +394,18 @@ namespace Shifaa_EMR_System
 		
 		private System.Nullable<double> _Height;
 		
-		private System.Nullable<double> _BMI;
+		private string _BMI;
 		
 		private string _Nationality;
+		
+		private EntityRef<Appointment> _Appointment;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnColumnNumberChanging(int value);
+    partial void OnColumnNumberChanged();
     partial void OnPatientIDChanging(int value);
     partial void OnPatientIDChanged();
     partial void OnFirstNameChanging(string value);
@@ -367,7 +414,7 @@ namespace Shifaa_EMR_System
     partial void OnLastNameChanged();
     partial void OnDOBChanging(System.Nullable<System.DateTime> value);
     partial void OnDOBChanged();
-    partial void OnAgeChanging(string value);
+    partial void OnAgeChanging(System.Nullable<int> value);
     partial void OnAgeChanged();
     partial void OnGenderChanging(string value);
     partial void OnGenderChanged();
@@ -375,7 +422,7 @@ namespace Shifaa_EMR_System
     partial void OnWeightChanged();
     partial void OnHeightChanging(System.Nullable<double> value);
     partial void OnHeightChanged();
-    partial void OnBMIChanging(System.Nullable<double> value);
+    partial void OnBMIChanging(string value);
     partial void OnBMIChanged();
     partial void OnNationalityChanging(string value);
     partial void OnNationalityChanged();
@@ -383,7 +430,28 @@ namespace Shifaa_EMR_System
 		
 		public Patient()
 		{
+			this._Appointment = default(EntityRef<Appointment>);
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ColumnNumber", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ColumnNumber
+		{
+			get
+			{
+				return this._ColumnNumber;
+			}
+			set
+			{
+				if ((this._ColumnNumber != value))
+				{
+					this.OnColumnNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ColumnNumber = value;
+					this.SendPropertyChanged("ColumnNumber");
+					this.OnColumnNumberChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL", IsPrimaryKey=true)]
@@ -466,8 +534,8 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Age", DbType="NChar(10)")]
-		public string Age
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Age", DbType="Int")]
+		public System.Nullable<int> Age
 		{
 			get
 			{
@@ -546,8 +614,8 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BMI", DbType="Float")]
-		public System.Nullable<double> BMI
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BMI", DbType="NChar(10)")]
+		public string BMI
 		{
 			get
 			{
@@ -582,6 +650,35 @@ namespace Shifaa_EMR_System
 					this._Nationality = value;
 					this.SendPropertyChanged("Nationality");
 					this.OnNationalityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Appointment", ThisKey="PatientID", OtherKey="appID", IsUnique=true, IsForeignKey=false)]
+		public Appointment Appointment
+		{
+			get
+			{
+				return this._Appointment.Entity;
+			}
+			set
+			{
+				Appointment previousValue = this._Appointment.Entity;
+				if (((previousValue != value) 
+							|| (this._Appointment.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Appointment.Entity = null;
+						previousValue.Patient = null;
+					}
+					this._Appointment.Entity = value;
+					if ((value != null))
+					{
+						value.Patient = this;
+					}
+					this.SendPropertyChanged("Appointment");
 				}
 			}
 		}
