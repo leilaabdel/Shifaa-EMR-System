@@ -17,6 +17,11 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
+        public string type()
+        {
+            return "Scheduler";
+        }
+
 
         private void ExistingAppointments_Click(object sender, EventArgs e)
         {
@@ -46,7 +51,7 @@ namespace Shifaa_EMR_System
 
         public DateTime getDate()
         {
-           return  monthCalendar2.SelectionStart;
+           return  monthCalendar2.SelectionStart.Date;
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

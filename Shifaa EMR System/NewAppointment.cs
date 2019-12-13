@@ -18,7 +18,7 @@ namespace Shifaa_EMR_System
     public partial class NewAppointment : Form 
     {
         
-        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext();
+        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         DateTime superAppointmentDate; 
 
 
@@ -34,8 +34,11 @@ namespace Shifaa_EMR_System
 
         {
             DateTime newAppointmentDate;
+            Type a = typeof(ProviderMain);
+         
 
-            if(((ProviderMain)this.MdiParent).Visible) {
+            if(this.MdiParent.GetType().Equals(a))
+            {
                  newAppointmentDate = ((ProviderMain)this.MdiParent).getDate();
             } else 
             {
@@ -84,31 +87,16 @@ namespace Shifaa_EMR_System
             {
           
 
-                string makeTime = hourBox1.SelectedItem.ToString() + ":" + minuteBox1.SelectedItem.ToString();
-                string makeDuration = hourBox2.SelectedItem.ToString() + ":" + minuteBox2.SelectedItem.ToString();
+                string makeTime = hourBox1.SelectedValue + ":" + minuteBox1.SelectedValue;
+                string makeDuration = hourBox2.SelectedValue + ":" + minuteBox2.SelectedValue;
 
                 Debug.WriteLine(makeTime);
                 Debug.WriteLine(makeDuration);
 
-                SqlConnection con = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+   
 
                 doAction.CreateAppointment(AppointmentTitle.Text, AppointmentDetails.Text, superAppointmentDate, makeTime, makeDuration);
-                Appointment newAppointment = new Appointment()
-                {
-                    appID = 0,
-                    PatientName = AppointmentTitle.Text,
-                    Details = AppointmentDetails.Text,
-                    DateAppointment = superAppointmentDate,
-                    TimeAppointment = makeTime,
-                    DurationAppointment = makeDuration,
-                    Status = "0",
-                    Created = "1"
-
-                };
-
-
-                doAction.Appointments.InsertOnSubmit(newAppointment);
-                doAction.SubmitChanges();
+      
 
                 this.Close();
                 

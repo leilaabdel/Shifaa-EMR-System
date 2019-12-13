@@ -17,7 +17,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
-        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext();
+        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         private void DateViewAppointments_Load(object sender, EventArgs e)
         {
           

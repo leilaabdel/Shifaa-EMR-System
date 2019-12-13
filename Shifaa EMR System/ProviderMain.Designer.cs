@@ -52,6 +52,7 @@ namespace Shifaa_EMR_System
             this.button1 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,9 +156,9 @@ namespace Shifaa_EMR_System
             this.proceduresToolStripMenuItem,
             this.reportsToolStripMenuItem});
             this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip2.Location = new System.Drawing.Point(-1, 305);
+            this.menuStrip2.Location = new System.Drawing.Point(-1, 330);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(266, 200);
+            this.menuStrip2.Size = new System.Drawing.Size(266, 175);
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
@@ -194,13 +195,14 @@ namespace Shifaa_EMR_System
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.monthCalendar1);
-            this.panel3.Location = new System.Drawing.Point(-2, 1);
+            this.panel3.Location = new System.Drawing.Point(-2, 17);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(268, 301);
+            this.panel3.Size = new System.Drawing.Size(268, 326);
             this.panel3.TabIndex = 4;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -208,17 +210,18 @@ namespace Shifaa_EMR_System
             // 
             this.button3.AutoSize = true;
             this.button3.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
-            this.button3.Location = new System.Drawing.Point(76, 22);
+            this.button3.Location = new System.Drawing.Point(76, 38);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 33);
             this.button3.TabIndex = 6;
             this.button3.Text = "New Patient";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(138, 241);
+            this.button2.Location = new System.Drawing.Point(138, 257);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 46);
             this.button2.TabIndex = 5;
@@ -229,7 +232,7 @@ namespace Shifaa_EMR_System
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(23, 241);
+            this.button1.Location = new System.Drawing.Point(23, 257);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 46);
             this.button1.TabIndex = 4;
@@ -239,7 +242,7 @@ namespace Shifaa_EMR_System
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(17, 67);
+            this.monthCalendar1.Location = new System.Drawing.Point(17, 83);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 4;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -248,6 +251,15 @@ namespace Shifaa_EMR_System
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(17, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(227, 20);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.Text = "Search Patient ID/Name";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ProviderMain
             // 
@@ -305,5 +317,6 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

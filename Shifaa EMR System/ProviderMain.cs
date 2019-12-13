@@ -17,6 +17,11 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
+        public string type()
+        {
+            return "Provider";
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -29,7 +34,7 @@ namespace Shifaa_EMR_System
         }
         public DateTime getDate()
         {
-            return monthCalendar1.SelectionStart;
+            return monthCalendar1.SelectionStart.Date;
         }
 
      
@@ -76,6 +81,18 @@ namespace Shifaa_EMR_System
             DateViewAppointments pOldAppointments = new DateViewAppointments();
             pOldAppointments.MdiParent = this;
             pOldAppointments.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            NewPatient newPatientInstance = new NewPatient();
+            newPatientInstance.MdiParent = this;
+            newPatientInstance.Show();
         }
     }
 }
