@@ -155,7 +155,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(189, 811);
+            this.label11.Location = new System.Drawing.Point(188, 758);
             this.label11.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(129, 29);
@@ -195,7 +195,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(599, 804);
+            this.textBox6.Location = new System.Drawing.Point(599, 758);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(164, 36);
             this.textBox6.TabIndex = 20;
@@ -252,7 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1228, 998);
+            this.ClientSize = new System.Drawing.Size(1238, 981);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.checkBox2);

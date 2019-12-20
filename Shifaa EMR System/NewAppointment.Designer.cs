@@ -40,7 +40,8 @@
             this.minuteBox1 = new System.Windows.Forms.ComboBox();
             this.hourBox2 = new System.Windows.Forms.ComboBox();
             this.minuteBox2 = new System.Windows.Forms.ComboBox();
-            this.AppointmentTitle = new System.Windows.Forms.TextBox();
+            this.FirstName = new System.Windows.Forms.TextBox();
+            this.LastName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // AppointmentDescriptionLabel
@@ -153,16 +154,26 @@
             this.minuteBox2.Text = "Minute";
             this.minuteBox2.SelectedIndexChanged += new System.EventHandler(this.minuteBox2_SelectedIndexChanged);
             // 
-            // AppointmentTitle
+            // FirstName
             // 
-            this.AppointmentTitle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AppointmentTitle.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
-            this.AppointmentTitle.Location = new System.Drawing.Point(62, 64);
-            this.AppointmentTitle.Name = "AppointmentTitle";
-            this.AppointmentTitle.Size = new System.Drawing.Size(414, 26);
-            this.AppointmentTitle.TabIndex = 17;
-            this.AppointmentTitle.Text = "Patient Name";
-            this.AppointmentTitle.TextChanged += new System.EventHandler(this.AppointmentTitle_TextChanged);
+            this.FirstName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.FirstName.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
+            this.FirstName.Location = new System.Drawing.Point(62, 64);
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Size = new System.Drawing.Size(196, 26);
+            this.FirstName.TabIndex = 17;
+            this.FirstName.Text = "First Name";
+            this.FirstName.TextChanged += new System.EventHandler(this.AppointmentTitle_TextChanged);
+            // 
+            // LastName
+            // 
+            this.LastName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.LastName.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
+            this.LastName.Location = new System.Drawing.Point(264, 64);
+            this.LastName.Name = "LastName";
+            this.LastName.Size = new System.Drawing.Size(212, 26);
+            this.LastName.TabIndex = 18;
+            this.LastName.Text = "Last Name";
             // 
             // NewAppointment
             // 
@@ -171,7 +182,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(558, 385);
-            this.Controls.Add(this.AppointmentTitle);
+            this.Controls.Add(this.LastName);
+            this.Controls.Add(this.FirstName);
             this.Controls.Add(this.minuteBox2);
             this.Controls.Add(this.hourBox2);
             this.Controls.Add(this.minuteBox1);
@@ -205,6 +217,7 @@
         private System.Windows.Forms.ComboBox minuteBox1;
         private System.Windows.Forms.ComboBox hourBox2;
         private System.Windows.Forms.ComboBox minuteBox2;
-        private System.Windows.Forms.TextBox AppointmentTitle;
+        private System.Windows.Forms.TextBox FirstName;
+        private System.Windows.Forms.TextBox LastName;
     }
 }

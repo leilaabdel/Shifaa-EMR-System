@@ -61,11 +61,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DateViewAppointments.cs">
+    <Compile Include="EMRDatabaseDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMRDatabaseDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EMRDatabasePatients.cs">
+      <DependentUpon>EMRDatabasePatients.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DateViewAppointments.Designer.cs">
-      <DependentUpon>DateViewAppointments.cs</DependentUpon>
+    <Compile Include="AppointmentListView.Designer.cs">
+      <DependentUpon>AppointmentListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientListView.Designer.cs">
+      <DependentUpon>PatientListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EMRDatabasePatients.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMRDatabasePatients.xsd</DependentUpon>
     </Compile>
     <Compile Include="Interface.cs" />
     <Compile Include="NewPatient.cs">
@@ -117,8 +136,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DateViewAppointments.resx">
-      <DependentUpon>DateViewAppointments.cs</DependentUpon>
+    <EmbeddedResource Include="AppointmentListView.resx">
+      <DependentUpon>AppointmentListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientListView.resx">
+      <DependentUpon>PatientListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
@@ -160,6 +182,28 @@
     </None>
     <None Include="EMRDatabaseDataSet.xss">
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EMRDatabaseDataSet1.xsc">
+      <DependentUpon>EMRDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EMRDatabaseDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EMRDatabaseDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EMRDatabaseDataSet1.xss">
+      <DependentUpon>EMRDatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EMRDatabasePatients.xsc">
+      <DependentUpon>EMRDatabasePatients.xsd</DependentUpon>
+    </None>
+    <None Include="EMRDatabasePatients.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EMRDatabasePatients.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EMRDatabasePatients.xss">
+      <DependentUpon>EMRDatabasePatients.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

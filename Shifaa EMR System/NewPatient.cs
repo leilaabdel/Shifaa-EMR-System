@@ -96,14 +96,6 @@ namespace Shifaa_EMR_System
 
         }
 
-        private int getPatientID()
-        {
-            Random generator = new Random();
-            String r = generator.Next(0, 999999).ToString("D6");
-            int patientID = Int32.Parse(r);
-            return patientID;
-
-        }
 
         private int getAge()
         {
@@ -156,7 +148,7 @@ namespace Shifaa_EMR_System
             try
             {
                
-                doAction.createNewPatient(getPatientID(), textBox1.Text, textBox2.Text, dateTimePicker1.Value, getAge(), getGender(), getWeight(), getHeight(), getBMI(), textBox6.Text);
+                doAction.createNewPatient(textBox1.Text, textBox2.Text, dateTimePicker1.Value, getAge(), getGender(), getWeight(), getHeight(), getBMI(), textBox6.Text);
 
                 this.Close();
 

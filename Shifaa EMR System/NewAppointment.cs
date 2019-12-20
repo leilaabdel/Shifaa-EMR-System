@@ -90,12 +90,9 @@ namespace Shifaa_EMR_System
                 string makeTime = hourBox1.SelectedItem.ToString() + ":" + minuteBox1.SelectedItem.ToString();
                 string makeDuration = hourBox2.SelectedValue.ToString() + ":" + minuteBox2.SelectedValue.ToString();
 
-                Debug.WriteLine(makeTime);
-                Debug.WriteLine(makeDuration);
 
-   
 
-                doAction.CreateAppointment(AppointmentTitle.Text, AppointmentDetails.Text, superAppointmentDate, makeTime, makeDuration);
+                doAction.CreateAppointment(FirstName.Text, LastName.Text ,  AppointmentDetails.Text, superAppointmentDate, makeTime, makeDuration);
       
 
                 this.Close();

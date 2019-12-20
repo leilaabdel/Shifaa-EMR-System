@@ -25,7 +25,7 @@ namespace Shifaa_EMR_System
 
         private void ExistingAppointments_Click(object sender, EventArgs e)
         {
-            DateViewAppointments sOldAppointments = new DateViewAppointments();
+            PatientListView sOldAppointments = new PatientListView();
             sOldAppointments.MdiParent = this;
             sOldAppointments.Show();
         }

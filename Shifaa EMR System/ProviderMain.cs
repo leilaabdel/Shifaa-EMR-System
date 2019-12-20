@@ -78,15 +78,13 @@ namespace Shifaa_EMR_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DateViewAppointments pOldAppointments = new DateViewAppointments();
+            AppointmentListView pOldAppointments = new AppointmentListView();
             pOldAppointments.MdiParent = this;
             pOldAppointments.Show();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+           
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -94,5 +92,21 @@ namespace Shifaa_EMR_System
             newPatientInstance.MdiParent = this;
             newPatientInstance.Show();
         }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+            PatientListView patientList = new PatientListView();
+            patientList.MdiParent = this;
+            patientList.Show();
+
+
+        }
+
+        public string getSearchText()
+        {
+            return searchBox.Text;
+        }
+
+
     }
 }
