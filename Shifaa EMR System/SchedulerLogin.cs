@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Shifaa_EMR_System
@@ -64,6 +58,11 @@ namespace Shifaa_EMR_System
             this.Hide();
             WelcomeHomePage welcome = new WelcomeHomePage();
             welcome.Show();
+        }
+
+        private void SchedulerLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

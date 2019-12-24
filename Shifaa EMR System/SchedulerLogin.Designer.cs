@@ -153,6 +153,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "SchedulerLogin";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.SchedulerLogin_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);

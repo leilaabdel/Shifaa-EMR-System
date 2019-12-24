@@ -71,7 +71,7 @@ namespace Shifaa_EMR_System
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(923, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1274, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,7 +129,7 @@ namespace Shifaa_EMR_System
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(923, 47);
+            this.panel2.Size = new System.Drawing.Size(1274, 47);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -141,7 +141,7 @@ namespace Shifaa_EMR_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 541);
+            this.panel1.Size = new System.Drawing.Size(266, 785);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -213,7 +213,9 @@ namespace Shifaa_EMR_System
             this.searchBox.Size = new System.Drawing.Size(227, 20);
             this.searchBox.TabIndex = 5;
             this.searchBox.Text = "Search Patient ID/Name";
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.searchBox.Click += new System.EventHandler(this.searchBoxClick);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged_1);
+            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // button3
             // 
@@ -225,7 +227,7 @@ namespace Shifaa_EMR_System
             this.button3.TabIndex = 6;
             this.button3.Text = "New Patient";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button2
             // 
@@ -236,7 +238,7 @@ namespace Shifaa_EMR_System
             this.button2.TabIndex = 5;
             this.button2.Text = "Existing Appointments";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -265,7 +267,9 @@ namespace Shifaa_EMR_System
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 612);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1274, 856);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
@@ -273,6 +277,7 @@ namespace Shifaa_EMR_System
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ProviderMain";
             this.Text = "Main Portal ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ProviderMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

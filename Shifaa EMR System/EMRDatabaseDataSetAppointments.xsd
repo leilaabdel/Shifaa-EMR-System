@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="EMRDatabaseDataSet1" targetNamespace="http://tempuri.org/EMRDatabaseDataSet1.xsd" xmlns:mstns="http://tempuri.org/EMRDatabaseDataSet1.xsd" xmlns="http://tempuri.org/EMRDatabaseDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="EMRDatabaseDataSetAppointments" targetNamespace="http://tempuri.org/EMRDatabaseDataSetAppointments.xsd" xmlns:mstns="http://tempuri.org/EMRDatabaseDataSetAppointments.xsd" xmlns="http://tempuri.org/EMRDatabaseDataSetAppointments.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EMRDatabaseConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EMRDatabaseConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Shifaa_EMR_System.Properties.Settings.GlobalReference.Default.EMRDatabaseConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EMRDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EMRDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Shifaa_EMR_System.Properties.Settings.GlobalReference.Default.EMRDatabaseConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AppointmentTableAdapter" GeneratorDataComponentClassName="AppointmentTableAdapter" Name="Appointment" UserDataComponentName="AppointmentTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EMRDatabaseConnectionString1 (Settings)" DbObjectName="EMRDatabase.dbo.Appointment" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EMRDatabaseConnectionString (Settings)" DbObjectName="EMRDatabase.dbo.Appointment" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Appointment] WHERE (([appointmentID] = @Original_appointmentID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_DateAppointment = 1 AND [DateAppointment] IS NULL) OR ([DateAppointment] = @Original_DateAppointment)) AND ((@IsNull_TimeAppointment = 1 AND [TimeAppointment] IS NULL) OR ([TimeAppointment] = @Original_TimeAppointment)) AND ((@IsNull_DurationAppointment = 1 AND [DurationAppointment] IS NULL) OR ([DurationAppointment] = @Original_DurationAppointment)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Created = 1 AND [Created] IS NULL) OR ([Created] = @Original_Created)) AND ([patientID] = @Original_patientID))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[Appointment] WHERE (([appointmentID] = @Original_appointmentID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_DateAppointment = 1 AND [DateAppointment] IS NULL) OR ([DateAppointment] = @Original_DateAppointment)) AND ((@IsNull_TimeAppointment = 1 AND [TimeAppointment] IS NULL) OR ([TimeAppointment] = @Original_TimeAppointment)) AND ((@IsNull_DurationAppointment = 1 AND [DurationAppointment] IS NULL) OR ([DurationAppointment] = @Original_DurationAppointment)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Created = 1 AND [Created] IS NULL) OR ([Created] = @Original_Created)) AND ([patientID] = @Original_patientID) AND ([Column Number] = @Original_Column_Number))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_appointmentID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="appointmentID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FirstName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FirstName" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -28,15 +28,16 @@
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Created" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Created" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Created" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_patientID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patientID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Column_Number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Column Number" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO [dbo].[Appointment] ([appointmentID], [FirstName], [LastName], [Details], [DateAppointment], [TimeAppointment], [DurationAppointment], [Status], [Created], [patientID]) VALUES (@appointmentID, @FirstName, @LastName, @Details, @DateAppointment, @TimeAppointment, @DurationAppointment, @Status, @Created, @patientID);
-SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID FROM Appointment WHERE (appointmentID = @appointmentID)</CommandText>
+SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID, [Column Number] FROM Appointment WHERE (appointmentID = @appointmentID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@appointmentID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="appointmentID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FirstName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FirstName" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -46,21 +47,21 @@ SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppoint
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TimeAppointment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TimeAppointment" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DurationAppointment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DurationAppointment" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Created" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Created" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@patientID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patientID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID FROM dbo.Appointment</CommandText>
+                    <CommandText>SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID, [Column Number] FROM dbo.Appointment</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Appointment] SET [appointmentID] = @appointmentID, [FirstName] = @FirstName, [LastName] = @LastName, [Details] = @Details, [DateAppointment] = @DateAppointment, [TimeAppointment] = @TimeAppointment, [DurationAppointment] = @DurationAppointment, [Status] = @Status, [Created] = @Created, [patientID] = @patientID WHERE (([appointmentID] = @Original_appointmentID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_DateAppointment = 1 AND [DateAppointment] IS NULL) OR ([DateAppointment] = @Original_DateAppointment)) AND ((@IsNull_TimeAppointment = 1 AND [TimeAppointment] IS NULL) OR ([TimeAppointment] = @Original_TimeAppointment)) AND ((@IsNull_DurationAppointment = 1 AND [DurationAppointment] IS NULL) OR ([DurationAppointment] = @Original_DurationAppointment)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Created = 1 AND [Created] IS NULL) OR ([Created] = @Original_Created)) AND ([patientID] = @Original_patientID));
-SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID FROM Appointment WHERE (appointmentID = @appointmentID)</CommandText>
+                    <CommandText>UPDATE [dbo].[Appointment] SET [appointmentID] = @appointmentID, [FirstName] = @FirstName, [LastName] = @LastName, [Details] = @Details, [DateAppointment] = @DateAppointment, [TimeAppointment] = @TimeAppointment, [DurationAppointment] = @DurationAppointment, [Status] = @Status, [Created] = @Created, [patientID] = @patientID WHERE (([appointmentID] = @Original_appointmentID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_DateAppointment = 1 AND [DateAppointment] IS NULL) OR ([DateAppointment] = @Original_DateAppointment)) AND ((@IsNull_TimeAppointment = 1 AND [TimeAppointment] IS NULL) OR ([TimeAppointment] = @Original_TimeAppointment)) AND ((@IsNull_DurationAppointment = 1 AND [DurationAppointment] IS NULL) OR ([DurationAppointment] = @Original_DurationAppointment)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Created = 1 AND [Created] IS NULL) OR ([Created] = @Original_Created)) AND ([patientID] = @Original_patientID) AND ([Column Number] = @Original_Column_Number));
+SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID, [Column Number] FROM Appointment WHERE (appointmentID = @appointmentID)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@appointmentID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="appointmentID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FirstName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="FirstName" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -70,7 +71,7 @@ SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppoint
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TimeAppointment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TimeAppointment" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DurationAppointment" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DurationAppointment" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Created" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Created" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@patientID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patientID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_appointmentID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="appointmentID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FirstName" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FirstName" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -86,8 +87,9 @@ SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppoint
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Created" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Created" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Created" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Created" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_patientID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="patientID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Column_Number" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Column Number" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -104,32 +106,19 @@ SELECT appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppoint
               <Mapping SourceColumn="Status" DataSetColumn="Status" />
               <Mapping SourceColumn="Created" DataSetColumn="Created" />
               <Mapping SourceColumn="patientID" DataSetColumn="patientID" />
+              <Mapping SourceColumn="Column Number" DataSetColumn="Column Number" />
             </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="EMRDatabaseConnectionString1 (Settings)" DbObjectName="EMRDatabase.dbo.Appointment" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByDate" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDate">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        appointmentID, FirstName, LastName, Details, DateAppointment, TimeAppointment, DurationAppointment, Status, Created, patientID
-FROM            Appointment
-WHERE        (DateAppointment = @DateAppointment)
-ORDER BY TimeAppointment</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="DateAppointment" ColumnName="DateAppointment" DataSourceName="EMRDatabase.dbo.Appointment" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@DateAppointment" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="DateAppointment" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="EMRDatabaseDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EMRDatabaseDataSet1" msprop:Generator_UserDSName="EMRDatabaseDataSet1">
+  <xs:element name="EMRDatabaseDataSetAppointments" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EMRDatabaseDataSetAppointments" msprop:Generator_UserDSName="EMRDatabaseDataSetAppointments">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Appointment" msprop:Generator_TableClassName="AppointmentDataTable" msprop:Generator_TableVarName="tableAppointment" msprop:Generator_RowChangedName="AppointmentRowChanged" msprop:Generator_TablePropName="Appointment" msprop:Generator_RowDeletingName="AppointmentRowDeleting" msprop:Generator_RowChangingName="AppointmentRowChanging" msprop:Generator_RowEvHandlerName="AppointmentRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointmentRowDeleted" msprop:Generator_RowClassName="AppointmentRow" msprop:Generator_UserTableName="Appointment" msprop:Generator_RowEvArgName="AppointmentRowChangeEvent">
+        <xs:element name="Appointment" msprop:Generator_TableClassName="AppointmentDataTable" msprop:Generator_TableVarName="tableAppointment" msprop:Generator_TablePropName="Appointment" msprop:Generator_RowDeletingName="AppointmentRowDeleting" msprop:Generator_RowChangingName="AppointmentRowChanging" msprop:Generator_RowEvHandlerName="AppointmentRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointmentRowDeleted" msprop:Generator_UserTableName="Appointment" msprop:Generator_RowChangedName="AppointmentRowChanged" msprop:Generator_RowEvArgName="AppointmentRowChangeEvent" msprop:Generator_RowClassName="AppointmentRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="appointmentID" msprop:Generator_ColumnVarNameInTable="columnappointmentID" msprop:Generator_ColumnPropNameInRow="appointmentID" msprop:Generator_ColumnPropNameInTable="appointmentIDColumn" msprop:Generator_UserColumnName="appointmentID" type="xs:int" />
@@ -176,14 +165,9 @@ ORDER BY TimeAppointment</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Created" msprop:Generator_ColumnVarNameInTable="columnCreated" msprop:Generator_ColumnPropNameInRow="Created" msprop:Generator_ColumnPropNameInTable="CreatedColumn" msprop:Generator_UserColumnName="Created" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="Created" msprop:Generator_ColumnVarNameInTable="columnCreated" msprop:Generator_ColumnPropNameInRow="Created" msprop:Generator_ColumnPropNameInTable="CreatedColumn" msprop:Generator_UserColumnName="Created" type="xs:dateTime" minOccurs="0" />
               <xs:element name="patientID" msprop:Generator_ColumnVarNameInTable="columnpatientID" msprop:Generator_ColumnPropNameInRow="patientID" msprop:Generator_ColumnPropNameInTable="patientIDColumn" msprop:Generator_UserColumnName="patientID" type="xs:int" />
+              <xs:element name="Column_x0020_Number" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnColumn_Number" msprop:Generator_ColumnPropNameInRow="Column_Number" msprop:Generator_ColumnPropNameInTable="Column_NumberColumn" msprop:Generator_UserColumnName="Column Number" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
