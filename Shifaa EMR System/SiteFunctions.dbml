@@ -35,6 +35,8 @@
       <Association Name="Patient_PatientNote" Member="PatientNotes" ThisKey="PatientID" OtherKey="PatientID" Type="PatientNote" />
       <Association Name="Patient_VitalSign" Member="VitalSigns" ThisKey="PatientID" OtherKey="PatientID" Type="VitalSign" />
       <Association Name="Patient_Prescription" Member="Prescriptions" ThisKey="PatientID" OtherKey="PatientID" Type="Prescription" />
+      <Association Name="Patient_PatientLab" Member="PatientLabs" ThisKey="PatientID" OtherKey="PatientID" Type="PatientLab" />
+      <Association Name="Patient_PatientScan" Member="PatientScans" ThisKey="PatientID" OtherKey="PatientID" Type="PatientScan" />
     </Type>
   </Table>
   <Table Name="dbo.PatientNote" Member="PatientNotes">
@@ -62,18 +64,10 @@
       <Association Name="Patient_VitalSign" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.MedicationDatabase" Member="MedicationDatabases">
-    <Type Name="MedicationDatabase">
-      <Column Name="MedicationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="GenericName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="BrandNames" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="MedicationDatabase_Prescription" Member="Prescriptions" ThisKey="MedicationID" OtherKey="MedicationID" Type="Prescription" />
-    </Type>
-  </Table>
   <Table Name="dbo.Prescription" Member="Prescriptions">
     <Type Name="Prescription">
       <Column Name="PrescriptionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MedicationName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MedicationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="MedicationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Amount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Strength" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
@@ -81,8 +75,57 @@
       <Column Name="Frequency" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Refills" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="MedicationDatabase_Prescription" Member="MedicationDatabase" ThisKey="MedicationID" OtherKey="MedicationID" Type="MedicationDatabase" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Column Name="Date" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Patient_Prescription" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="DrugDatabase_Prescription" Member="DrugDatabase" ThisKey="MedicationName" OtherKey="DrugName" Type="DrugDatabase" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DrugDatabase" Member="DrugDatabases">
+    <Type Name="DrugDatabase">
+      <Column Name="DrugName" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColumnName" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="DrugDatabase_Prescription" Member="Prescriptions" ThisKey="DrugName" OtherKey="MedicationName" Type="Prescription" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PatientLab" Member="PatientLabs">
+    <Type Name="PatientLab">
+      <Column Name="PatientLabID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LabTestName" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOrdered" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Patient_PatientLab" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" />
+      <Association Name="LabTestNamesDatabase_PatientLab" Member="LabTestNamesDatabase" ThisKey="LabTestName" OtherKey="LabTestName" Type="LabTestNamesDatabase" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LabTestNamesDatabase" Member="LabTestNamesDatabases">
+    <Type Name="LabTestNamesDatabase">
+      <Column Name="LabTestName" Type="System.String" DbType="NVarChar(150) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="LabTestNamesDatabase_PatientLab" Member="PatientLabs" ThisKey="LabTestName" OtherKey="LabTestName" Type="PatientLab" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PatientScan" Member="PatientScans">
+    <Type Name="PatientScan">
+      <Column Name="PatientScanID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ScanName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ScanDetails" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOrdered" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Patient_PatientScan" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" />
+      <Association Name="ProcedureAndScanDatabase_PatientScan" Member="ProcedureAndScanDatabase" ThisKey="ScanName" OtherKey="ProcedureOrScanName" Type="ProcedureAndScanDatabase" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProcedureAndScanDatabase" Member="ProcedureAndScanDatabases">
+    <Type Name="ProcedureAndScanDatabase">
+      <Column Name="ProcedureOrScanName" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ProcedureAndScanDatabase_PatientScan" Member="PatientScans" ThisKey="ProcedureOrScanName" OtherKey="ScanName" Type="PatientScan" />
     </Type>
   </Table>
   <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
@@ -128,6 +171,14 @@
       <Column Name="Weight" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="BMI" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="DateUpdated" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getNewPatientVitals" Method="getNewPatientVitals">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="getNewPatientVitalsResult">
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

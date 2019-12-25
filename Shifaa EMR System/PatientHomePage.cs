@@ -71,20 +71,23 @@ namespace Shifaa_EMR_System
 
         private void PatientHomePage_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.VitalSigns' table. You can move, or remove it, as needed.
-            this.vitalSignsTableAdapter.Fill(this.eMRDatabaseDataSet.VitalSigns);
+    
+       
+
 
             this.WindowState = FormWindowState.Maximized;
 
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Prescription' table. You can move, or remove it, as needed.
-            this.prescriptionTableAdapter.Fill(this.eMRDatabaseDataSet.Prescription);
+
+          
 
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed.
             this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment , thisPatientID);
             this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
             this.vitalSignsTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.VitalSigns, thisPatientID);
-
-
+            this.allergieTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Allergie , thisPatientID);
+            this.patientLabTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientLab, thisPatientID);
+            this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
+            this.patientScanTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientScan, thisPatientID);
         }
 
 
@@ -131,16 +134,18 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void fillByPatientIDToolStripButton_Click(object sender, EventArgs e)
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                this.vitalSignsTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.VitalSigns, ((int)(System.Convert.ChangeType(patientIDToolStripTextBox.Text, typeof(int)))));
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

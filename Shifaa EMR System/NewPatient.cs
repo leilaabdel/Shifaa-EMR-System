@@ -23,11 +23,6 @@ namespace Shifaa_EMR_System
         }
 
 
-        private bool checkIfPatientExists(int newPatientID)
-        {
-            return true;
-
-        }
 
         private void metroLabel1_Click(object sender, EventArgs e)
         {
@@ -161,14 +156,14 @@ namespace Shifaa_EMR_System
 
                 doAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text,   DOBPicker.Value, getAge(), getGender(), getWeight(), getHeight(), getBMI(), NationalityBox.Text);
 
-                SqlCommand getPatientID = new SqlCommand();
-                getPatientID.Connection = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-                getPatientID.CommandText = "SELECT 1 PatientID FROM Patient WHERE Height = @height AND Weight = @weight";
-                getPatientID.Parameters.AddWithValue("@height", getHeight());
-                getPatientID.Parameters.AddWithValue("@weight", getWeight());
+                System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = doAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
 
+                int selectedPatientID = 0;
 
-                int selectedPatientID = getPatientID.ExecuteNonQuery();
+                foreach (getNewPatientVitalsResult result in newPatientVitals)
+                {
+                    selectedPatientID = result.PatientID;
+                }
 
                 doAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI());
 

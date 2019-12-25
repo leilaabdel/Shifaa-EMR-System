@@ -41,6 +41,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DOBLabel = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
@@ -50,10 +59,10 @@
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.providerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteTitleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteContentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -69,11 +78,6 @@
             this.newAppointmentButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.updateVitalsTollStripItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newNoteToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewPrescriptionToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BloodPressureLabel = new System.Windows.Forms.Label();
             this.PulseLabel = new System.Windows.Forms.Label();
             this.TemperatureLabel = new System.Windows.Forms.Label();
@@ -88,19 +92,35 @@
             this.BMIValueLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.MedicationsListDataGridView = new System.Windows.Forms.DataGridView();
-            this.medicationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicationNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strengthDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.frequencyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
             this.AddMedicationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.patientAllergieIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allergieTypeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCreatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allergieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
             this.AddAllergieButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOrdered = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel12 = new System.Windows.Forms.Panel();
             this.AddLabButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -116,10 +136,33 @@
             this.vitalSignsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.VitalHistoryLabel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ScansLabel = new System.Windows.Forms.Label();
+            this.patientAllergieIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allergieTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
             this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
             this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
             this.vitalSignsTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
+            this.allergieTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
+            this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
+            this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
+            this.ScanName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScanDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -130,20 +173,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             this.panel8.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicationsListDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).BeginInit();
             this.VitalHistoryLabel.SuspendLayout();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
+            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -158,7 +207,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1885, 108);
+            this.panel1.Size = new System.Drawing.Size(1851, 108);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -237,7 +286,7 @@
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Location = new System.Drawing.Point(51, 341);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(677, 832);
+            this.panel2.Size = new System.Drawing.Size(677, 627);
             this.panel2.TabIndex = 1;
             // 
             // dataGridView1
@@ -257,10 +306,10 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.providerNameDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
-            this.noteTitleDataGridViewTextBoxColumn,
-            this.noteContentDataGridViewTextBoxColumn});
+            this.dateDataGridViewTextBoxColumn2,
+            this.noteTitleDataGridViewTextBoxColumn1,
+            this.noteContentDataGridViewTextBoxColumn1,
+            this.providerNameDataGridViewTextBoxColumn4});
             this.dataGridView1.DataSource = this.patientNoteBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -284,36 +333,37 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(677, 790);
+            this.dataGridView1.Size = new System.Drawing.Size(677, 585);
             this.dataGridView1.TabIndex = 45;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // providerNameDataGridViewTextBoxColumn
+            // dateDataGridViewTextBoxColumn2
             // 
-            this.providerNameDataGridViewTextBoxColumn.DataPropertyName = "ProviderName";
-            this.providerNameDataGridViewTextBoxColumn.HeaderText = "Provider";
-            this.providerNameDataGridViewTextBoxColumn.Name = "providerNameDataGridViewTextBoxColumn";
-            this.providerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn2.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn2.Name = "dateDataGridViewTextBoxColumn2";
+            this.dateDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // dateDataGridViewTextBoxColumn
+            // noteTitleDataGridViewTextBoxColumn1
             // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noteTitleDataGridViewTextBoxColumn1.DataPropertyName = "NoteTitle";
+            this.noteTitleDataGridViewTextBoxColumn1.HeaderText = "Title";
+            this.noteTitleDataGridViewTextBoxColumn1.Name = "noteTitleDataGridViewTextBoxColumn1";
+            this.noteTitleDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // noteTitleDataGridViewTextBoxColumn
+            // noteContentDataGridViewTextBoxColumn1
             // 
-            this.noteTitleDataGridViewTextBoxColumn.DataPropertyName = "NoteTitle";
-            this.noteTitleDataGridViewTextBoxColumn.HeaderText = "Title";
-            this.noteTitleDataGridViewTextBoxColumn.Name = "noteTitleDataGridViewTextBoxColumn";
-            this.noteTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noteContentDataGridViewTextBoxColumn1.DataPropertyName = "NoteContent";
+            this.noteContentDataGridViewTextBoxColumn1.HeaderText = "Details";
+            this.noteContentDataGridViewTextBoxColumn1.Name = "noteContentDataGridViewTextBoxColumn1";
+            this.noteContentDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // noteContentDataGridViewTextBoxColumn
+            // providerNameDataGridViewTextBoxColumn4
             // 
-            this.noteContentDataGridViewTextBoxColumn.DataPropertyName = "NoteContent";
-            this.noteContentDataGridViewTextBoxColumn.HeaderText = "Content";
-            this.noteContentDataGridViewTextBoxColumn.Name = "noteContentDataGridViewTextBoxColumn";
-            this.noteContentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.providerNameDataGridViewTextBoxColumn4.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn4.HeaderText = "Provider";
+            this.providerNameDataGridViewTextBoxColumn4.Name = "providerNameDataGridViewTextBoxColumn4";
+            this.providerNameDataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // patientNoteBindingSource
             // 
@@ -344,7 +394,7 @@
             this.AddNoteButton.FlatAppearance.BorderSize = 0;
             this.AddNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNoteButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNoteButton.Location = new System.Drawing.Point(559, 1);
+            this.AddNoteButton.Location = new System.Drawing.Point(616, 3);
             this.AddNoteButton.Name = "AddNoteButton";
             this.AddNoteButton.Size = new System.Drawing.Size(58, 35);
             this.AddNoteButton.TabIndex = 31;
@@ -366,9 +416,9 @@
             // 
             this.panel3.Controls.Add(this.AppointmentListView1);
             this.panel3.Controls.Add(this.panel8);
-            this.panel3.Location = new System.Drawing.Point(757, 417);
+            this.panel3.Location = new System.Drawing.Point(51, 993);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(463, 488);
+            this.panel3.Size = new System.Drawing.Size(677, 460);
             this.panel3.TabIndex = 2;
             // 
             // AppointmentListView1
@@ -414,7 +464,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AppointmentListView1.RowHeadersVisible = false;
-            this.AppointmentListView1.Size = new System.Drawing.Size(463, 446);
+            this.AppointmentListView1.Size = new System.Drawing.Size(677, 418);
             this.AppointmentListView1.TabIndex = 44;
             // 
             // detailsDataGridViewTextBoxColumn
@@ -451,7 +501,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(463, 42);
+            this.panel8.Size = new System.Drawing.Size(677, 42);
             this.panel8.TabIndex = 34;
             // 
             // newAppointmentButton
@@ -462,7 +512,7 @@
             this.newAppointmentButton.FlatAppearance.BorderSize = 0;
             this.newAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newAppointmentButton.Location = new System.Drawing.Point(403, 1);
+            this.newAppointmentButton.Location = new System.Drawing.Point(616, 1);
             this.newAppointmentButton.Name = "newAppointmentButton";
             this.newAppointmentButton.Size = new System.Drawing.Size(58, 35);
             this.newAppointmentButton.TabIndex = 30;
@@ -482,64 +532,18 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.menuStrip2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(1625, 138);
+            this.panel4.Location = new System.Drawing.Point(1591, 138);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(260, 1065);
+            this.panel4.Size = new System.Drawing.Size(260, 1315);
             this.panel4.TabIndex = 28;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.AutoSize = false;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateVitalsTollStripItem,
-            this.newNoteToolStripItem,
-            this.NewPrescriptionToolStripItem,
-            this.reportsToolStripMenuItem});
-            this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip2.Location = new System.Drawing.Point(0, 81);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(260, 299);
-            this.menuStrip2.TabIndex = 5;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // updateVitalsTollStripItem
-            // 
-            this.updateVitalsTollStripItem.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateVitalsTollStripItem.Name = "updateVitalsTollStripItem";
-            this.updateVitalsTollStripItem.Size = new System.Drawing.Size(256, 29);
-            this.updateVitalsTollStripItem.Text = "Update Vitals";
-            // 
-            // newNoteToolStripItem
-            // 
-            this.newNoteToolStripItem.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newNoteToolStripItem.Name = "newNoteToolStripItem";
-            this.newNoteToolStripItem.Size = new System.Drawing.Size(256, 29);
-            this.newNoteToolStripItem.Text = "New Note";
-            // 
-            // NewPrescriptionToolStripItem
-            // 
-            this.NewPrescriptionToolStripItem.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewPrescriptionToolStripItem.Name = "NewPrescriptionToolStripItem";
-            this.NewPrescriptionToolStripItem.Size = new System.Drawing.Size(256, 29);
-            this.NewPrescriptionToolStripItem.Text = "New Prescription";
-            // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(256, 29);
-            this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // BloodPressureLabel
             // 
             this.BloodPressureLabel.AutoSize = true;
             this.BloodPressureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodPressureLabel.Location = new System.Drawing.Point(82, 177);
+            this.BloodPressureLabel.Location = new System.Drawing.Point(82, 157);
             this.BloodPressureLabel.Name = "BloodPressureLabel";
             this.BloodPressureLabel.Size = new System.Drawing.Size(140, 23);
             this.BloodPressureLabel.TabIndex = 31;
@@ -549,7 +553,7 @@
             // 
             this.PulseLabel.AutoSize = true;
             this.PulseLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseLabel.Location = new System.Drawing.Point(82, 234);
+            this.PulseLabel.Location = new System.Drawing.Point(82, 214);
             this.PulseLabel.Name = "PulseLabel";
             this.PulseLabel.Size = new System.Drawing.Size(59, 23);
             this.PulseLabel.TabIndex = 32;
@@ -559,7 +563,7 @@
             // 
             this.TemperatureLabel.AutoSize = true;
             this.TemperatureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureLabel.Location = new System.Drawing.Point(82, 290);
+            this.TemperatureLabel.Location = new System.Drawing.Point(82, 270);
             this.TemperatureLabel.Name = "TemperatureLabel";
             this.TemperatureLabel.Size = new System.Drawing.Size(117, 23);
             this.TemperatureLabel.TabIndex = 33;
@@ -569,7 +573,7 @@
             // 
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightLabel.Location = new System.Drawing.Point(469, 177);
+            this.HeightLabel.Location = new System.Drawing.Point(469, 157);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(65, 23);
             this.HeightLabel.TabIndex = 34;
@@ -579,7 +583,7 @@
             // 
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightLabel.Location = new System.Drawing.Point(469, 234);
+            this.WeightLabel.Location = new System.Drawing.Point(469, 214);
             this.WeightLabel.Name = "WeightLabel";
             this.WeightLabel.Size = new System.Drawing.Size(67, 23);
             this.WeightLabel.TabIndex = 35;
@@ -589,7 +593,7 @@
             // 
             this.BloodPressureValueLabel.AutoSize = true;
             this.BloodPressureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodPressureValueLabel.Location = new System.Drawing.Point(272, 177);
+            this.BloodPressureValueLabel.Location = new System.Drawing.Point(272, 157);
             this.BloodPressureValueLabel.Name = "BloodPressureValueLabel";
             this.BloodPressureValueLabel.Size = new System.Drawing.Size(81, 23);
             this.BloodPressureValueLabel.TabIndex = 36;
@@ -599,7 +603,7 @@
             // 
             this.PulseValueLabel.AutoSize = true;
             this.PulseValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseValueLabel.Location = new System.Drawing.Point(272, 234);
+            this.PulseValueLabel.Location = new System.Drawing.Point(272, 214);
             this.PulseValueLabel.Name = "PulseValueLabel";
             this.PulseValueLabel.Size = new System.Drawing.Size(59, 23);
             this.PulseValueLabel.TabIndex = 37;
@@ -609,7 +613,7 @@
             // 
             this.TemperatureValueLabel.AutoSize = true;
             this.TemperatureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureValueLabel.Location = new System.Drawing.Point(272, 290);
+            this.TemperatureValueLabel.Location = new System.Drawing.Point(272, 270);
             this.TemperatureValueLabel.Name = "TemperatureValueLabel";
             this.TemperatureValueLabel.Size = new System.Drawing.Size(42, 23);
             this.TemperatureValueLabel.TabIndex = 38;
@@ -619,7 +623,7 @@
             // 
             this.HeightValueLabel.AutoSize = true;
             this.HeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightValueLabel.Location = new System.Drawing.Point(585, 177);
+            this.HeightValueLabel.Location = new System.Drawing.Point(585, 157);
             this.HeightValueLabel.Name = "HeightValueLabel";
             this.HeightValueLabel.Size = new System.Drawing.Size(48, 23);
             this.HeightValueLabel.TabIndex = 39;
@@ -629,7 +633,7 @@
             // 
             this.WeightValueLabel.AutoSize = true;
             this.WeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightValueLabel.Location = new System.Drawing.Point(585, 234);
+            this.WeightValueLabel.Location = new System.Drawing.Point(585, 214);
             this.WeightValueLabel.Name = "WeightValueLabel";
             this.WeightValueLabel.Size = new System.Drawing.Size(43, 23);
             this.WeightValueLabel.TabIndex = 40;
@@ -639,7 +643,7 @@
             // 
             this.BMILabel.AutoSize = true;
             this.BMILabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMILabel.Location = new System.Drawing.Point(469, 290);
+            this.BMILabel.Location = new System.Drawing.Point(469, 270);
             this.BMILabel.Name = "BMILabel";
             this.BMILabel.Size = new System.Drawing.Size(42, 23);
             this.BMILabel.TabIndex = 41;
@@ -649,7 +653,7 @@
             // 
             this.BMIValueLabel.AutoSize = true;
             this.BMIValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIValueLabel.Location = new System.Drawing.Point(585, 290);
+            this.BMIValueLabel.Location = new System.Drawing.Point(585, 270);
             this.BMIValueLabel.Name = "BMIValueLabel";
             this.BMIValueLabel.Size = new System.Drawing.Size(72, 23);
             this.BMIValueLabel.TabIndex = 42;
@@ -659,7 +663,7 @@
             // 
             this.panel5.Controls.Add(this.MedicationsListDataGridView);
             this.panel5.Controls.Add(this.panel9);
-            this.panel5.Location = new System.Drawing.Point(757, 147);
+            this.panel5.Location = new System.Drawing.Point(757, 154);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(463, 249);
             this.panel5.TabIndex = 3;
@@ -681,10 +685,11 @@
             this.MedicationsListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.MedicationsListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MedicationsListDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.medicationNameDataGridViewTextBoxColumn,
-            this.strengthDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn1,
-            this.providerNameDataGridViewTextBoxColumn1});
+            this.dateDataGridViewTextBoxColumn,
+            this.medicationNameDataGridViewTextBoxColumn1,
+            this.strengthDataGridViewTextBoxColumn1,
+            this.frequencyDataGridViewTextBoxColumn,
+            this.providerNameDataGridViewTextBoxColumn3});
             this.MedicationsListDataGridView.DataSource = this.prescriptionBindingSource;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
@@ -711,33 +716,40 @@
             this.MedicationsListDataGridView.Size = new System.Drawing.Size(463, 207);
             this.MedicationsListDataGridView.TabIndex = 45;
             // 
-            // medicationNameDataGridViewTextBoxColumn
+            // dateDataGridViewTextBoxColumn
             // 
-            this.medicationNameDataGridViewTextBoxColumn.DataPropertyName = "MedicationName";
-            this.medicationNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.medicationNameDataGridViewTextBoxColumn.Name = "medicationNameDataGridViewTextBoxColumn";
-            this.medicationNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // strengthDataGridViewTextBoxColumn
+            // medicationNameDataGridViewTextBoxColumn1
             // 
-            this.strengthDataGridViewTextBoxColumn.DataPropertyName = "Strength";
-            this.strengthDataGridViewTextBoxColumn.HeaderText = "Strength";
-            this.strengthDataGridViewTextBoxColumn.Name = "strengthDataGridViewTextBoxColumn";
-            this.strengthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.medicationNameDataGridViewTextBoxColumn1.DataPropertyName = "MedicationName";
+            this.medicationNameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.medicationNameDataGridViewTextBoxColumn1.Name = "medicationNameDataGridViewTextBoxColumn1";
+            this.medicationNameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dateDataGridViewTextBoxColumn1
+            // strengthDataGridViewTextBoxColumn1
             // 
-            this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn1.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
-            this.dateDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.strengthDataGridViewTextBoxColumn1.DataPropertyName = "Strength";
+            this.strengthDataGridViewTextBoxColumn1.HeaderText = "Strength";
+            this.strengthDataGridViewTextBoxColumn1.Name = "strengthDataGridViewTextBoxColumn1";
+            this.strengthDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // providerNameDataGridViewTextBoxColumn1
+            // frequencyDataGridViewTextBoxColumn
             // 
-            this.providerNameDataGridViewTextBoxColumn1.DataPropertyName = "ProviderName";
-            this.providerNameDataGridViewTextBoxColumn1.HeaderText = "Provider";
-            this.providerNameDataGridViewTextBoxColumn1.Name = "providerNameDataGridViewTextBoxColumn1";
-            this.providerNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.frequencyDataGridViewTextBoxColumn.DataPropertyName = "Frequency";
+            this.frequencyDataGridViewTextBoxColumn.HeaderText = "Frequency";
+            this.frequencyDataGridViewTextBoxColumn.Name = "frequencyDataGridViewTextBoxColumn";
+            this.frequencyDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // providerNameDataGridViewTextBoxColumn3
+            // 
+            this.providerNameDataGridViewTextBoxColumn3.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn3.HeaderText = "Provider";
+            this.providerNameDataGridViewTextBoxColumn3.Name = "providerNameDataGridViewTextBoxColumn3";
+            this.providerNameDataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // prescriptionBindingSource
             // 
@@ -783,11 +795,117 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.dataGridView3);
             this.panel6.Controls.Add(this.panel10);
-            this.panel6.Location = new System.Drawing.Point(1249, 147);
+            this.panel6.Location = new System.Drawing.Point(1249, 155);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(342, 249);
             this.panel6.TabIndex = 4;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.ColumnHeadersVisible = false;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.patientAllergieIDDataGridViewTextBoxColumn1,
+            this.patientIDDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn1,
+            this.allergieTypeDataGridViewTextBoxColumn1,
+            this.providerIDDataGridViewTextBoxColumn1,
+            this.providerNameDataGridViewTextBoxColumn1,
+            this.dateCreatedDataGridViewTextBoxColumn1});
+            this.dataGridView3.DataSource = this.allergieBindingSource;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView3.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView3.Location = new System.Drawing.Point(0, 42);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.Size = new System.Drawing.Size(342, 207);
+            this.dataGridView3.TabIndex = 46;
+            // 
+            // patientAllergieIDDataGridViewTextBoxColumn1
+            // 
+            this.patientAllergieIDDataGridViewTextBoxColumn1.DataPropertyName = "PatientAllergieID";
+            this.patientAllergieIDDataGridViewTextBoxColumn1.HeaderText = "PatientAllergieID";
+            this.patientAllergieIDDataGridViewTextBoxColumn1.Name = "patientAllergieIDDataGridViewTextBoxColumn1";
+            this.patientAllergieIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // patientIDDataGridViewTextBoxColumn1
+            // 
+            this.patientIDDataGridViewTextBoxColumn1.DataPropertyName = "PatientID";
+            this.patientIDDataGridViewTextBoxColumn1.HeaderText = "PatientID";
+            this.patientIDDataGridViewTextBoxColumn1.Name = "patientIDDataGridViewTextBoxColumn1";
+            this.patientIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // allergieTypeDataGridViewTextBoxColumn1
+            // 
+            this.allergieTypeDataGridViewTextBoxColumn1.DataPropertyName = "AllergieType";
+            this.allergieTypeDataGridViewTextBoxColumn1.HeaderText = "AllergieType";
+            this.allergieTypeDataGridViewTextBoxColumn1.Name = "allergieTypeDataGridViewTextBoxColumn1";
+            this.allergieTypeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // providerIDDataGridViewTextBoxColumn1
+            // 
+            this.providerIDDataGridViewTextBoxColumn1.DataPropertyName = "ProviderID";
+            this.providerIDDataGridViewTextBoxColumn1.HeaderText = "ProviderID";
+            this.providerIDDataGridViewTextBoxColumn1.Name = "providerIDDataGridViewTextBoxColumn1";
+            this.providerIDDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // providerNameDataGridViewTextBoxColumn1
+            // 
+            this.providerNameDataGridViewTextBoxColumn1.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn1.HeaderText = "Provider";
+            this.providerNameDataGridViewTextBoxColumn1.Name = "providerNameDataGridViewTextBoxColumn1";
+            this.providerNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dateCreatedDataGridViewTextBoxColumn1
+            // 
+            this.dateCreatedDataGridViewTextBoxColumn1.DataPropertyName = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn1.HeaderText = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn1.Name = "dateCreatedDataGridViewTextBoxColumn1";
+            this.dateCreatedDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // allergieBindingSource
+            // 
+            this.allergieBindingSource.DataMember = "Allergie";
+            this.allergieBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
             // panel10
             // 
@@ -825,13 +943,95 @@
             this.label3.TabIndex = 28;
             this.label3.Text = "Allergies";
             // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            this.Name.Width = 339;
+            // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.dataGridView4);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Location = new System.Drawing.Point(1249, 417);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(342, 488);
+            this.panel11.Size = new System.Drawing.Size(342, 724);
             this.panel11.TabIndex = 35;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.DateOrdered,
+            this.dataGridViewTextBoxColumn7});
+            this.dataGridView4.DataSource = this.patientLabBindingSource;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView4.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView4.Location = new System.Drawing.Point(0, 42);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridView4.RowHeadersVisible = false;
+            this.dataGridView4.Size = new System.Drawing.Size(342, 682);
+            this.dataGridView4.TabIndex = 47;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Test Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // DateOrdered
+            // 
+            this.DateOrdered.DataPropertyName = "DateOrdered";
+            this.DateOrdered.HeaderText = "Ordered On";
+            this.DateOrdered.Name = "DateOrdered";
+            this.DateOrdered.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ProviderName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Ordered By";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // patientLabBindingSource
+            // 
+            this.patientLabBindingSource.DataMember = "PatientLab";
+            this.patientLabBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
             // panel12
             // 
@@ -873,9 +1073,9 @@
             // 
             this.panel13.Controls.Add(this.dataGridView2);
             this.panel13.Controls.Add(this.VitalHistoryLabel);
-            this.panel13.Location = new System.Drawing.Point(757, 932);
+            this.panel13.Location = new System.Drawing.Point(757, 1167);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(834, 241);
+            this.panel13.Size = new System.Drawing.Size(834, 286);
             this.panel13.TabIndex = 43;
             // 
             // dataGridView2
@@ -885,14 +1085,14 @@
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bloodPressureDataGridViewTextBoxColumn,
@@ -903,30 +1103,31 @@
             this.bMIDataGridViewTextBoxColumn,
             this.dateUpdatedDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.vitalSignsBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView2.Location = new System.Drawing.Point(0, 42);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(834, 199);
+            this.dataGridView2.Size = new System.Drawing.Size(834, 244);
             this.dataGridView2.TabIndex = 45;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // bloodPressureDataGridViewTextBoxColumn
             // 
@@ -1002,6 +1203,173 @@
             this.label5.TabIndex = 28;
             this.label5.Text = "Vital History";
             // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.dataGridView5);
+            this.panel14.Controls.Add(this.panel15);
+            this.panel14.Location = new System.Drawing.Point(757, 417);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(463, 724);
+            this.panel14.TabIndex = 48;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.AllowUserToDeleteRows = false;
+            this.dataGridView5.AutoGenerateColumns = false;
+            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView5.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ScanName,
+            this.ScanDetails,
+            this.dataGridViewTextBoxColumn2,
+            this.ProviderName});
+            this.dataGridView5.DataSource = this.patientScanBindingSource;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView5.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView5.Location = new System.Drawing.Point(0, 42);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.ReadOnly = true;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridView5.RowHeadersVisible = false;
+            this.dataGridView5.Size = new System.Drawing.Size(463, 682);
+            this.dataGridView5.TabIndex = 47;
+            // 
+            // patientScanBindingSource
+            // 
+            this.patientScanBindingSource.DataMember = "PatientScan";
+            this.patientScanBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.Azure;
+            this.panel15.Controls.Add(this.button1);
+            this.panel15.Controls.Add(this.ScansLabel);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(463, 42);
+            this.panel15.TabIndex = 34;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Azure;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(403, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 35);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ScansLabel
+            // 
+            this.ScansLabel.AutoSize = true;
+            this.ScansLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScansLabel.Location = new System.Drawing.Point(19, 10);
+            this.ScansLabel.Name = "ScansLabel";
+            this.ScansLabel.Size = new System.Drawing.Size(259, 23);
+            this.ScansLabel.TabIndex = 28;
+            this.ScansLabel.Text = "Diagnostic Procedures/Scans";
+            // 
+            // patientAllergieIDDataGridViewTextBoxColumn
+            // 
+            this.patientAllergieIDDataGridViewTextBoxColumn.DataPropertyName = "PatientAllergieID";
+            this.patientAllergieIDDataGridViewTextBoxColumn.HeaderText = "PatientAllergieID";
+            this.patientAllergieIDDataGridViewTextBoxColumn.Name = "patientAllergieIDDataGridViewTextBoxColumn";
+            this.patientAllergieIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // allergieTypeDataGridViewTextBoxColumn
+            // 
+            this.allergieTypeDataGridViewTextBoxColumn.DataPropertyName = "AllergieType";
+            this.allergieTypeDataGridViewTextBoxColumn.HeaderText = "AllergieType";
+            this.allergieTypeDataGridViewTextBoxColumn.Name = "allergieTypeDataGridViewTextBoxColumn";
+            this.allergieTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // providerNameDataGridViewTextBoxColumn2
+            // 
+            this.providerNameDataGridViewTextBoxColumn2.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn2.HeaderText = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn2.Name = "providerNameDataGridViewTextBoxColumn2";
+            this.providerNameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dateCreatedDataGridViewTextBoxColumn
+            // 
+            this.dateCreatedDataGridViewTextBoxColumn.DataPropertyName = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn.HeaderText = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn.Name = "dateCreatedDataGridViewTextBoxColumn";
+            this.dateCreatedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // medicationNameDataGridViewTextBoxColumn
+            // 
+            this.medicationNameDataGridViewTextBoxColumn.DataPropertyName = "MedicationName";
+            this.medicationNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.medicationNameDataGridViewTextBoxColumn.Name = "medicationNameDataGridViewTextBoxColumn";
+            this.medicationNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // strengthDataGridViewTextBoxColumn
+            // 
+            this.strengthDataGridViewTextBoxColumn.DataPropertyName = "Strength";
+            this.strengthDataGridViewTextBoxColumn.HeaderText = "Strength";
+            this.strengthDataGridViewTextBoxColumn.Name = "strengthDataGridViewTextBoxColumn";
+            this.strengthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn1
+            // 
+            this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn1.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
+            this.dateDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // noteTitleDataGridViewTextBoxColumn
+            // 
+            this.noteTitleDataGridViewTextBoxColumn.DataPropertyName = "NoteTitle";
+            this.noteTitleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.noteTitleDataGridViewTextBoxColumn.Name = "noteTitleDataGridViewTextBoxColumn";
+            this.noteTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // noteContentDataGridViewTextBoxColumn
+            // 
+            this.noteContentDataGridViewTextBoxColumn.DataPropertyName = "NoteContent";
+            this.noteContentDataGridViewTextBoxColumn.HeaderText = "Content";
+            this.noteContentDataGridViewTextBoxColumn.Name = "noteContentDataGridViewTextBoxColumn";
+            this.noteContentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // appointmentTableAdapter
             // 
             this.appointmentTableAdapter.ClearBeforeFill = true;
@@ -1018,11 +1386,54 @@
             // 
             this.vitalSignsTableAdapter.ClearBeforeFill = true;
             // 
+            // allergieTableAdapter
+            // 
+            this.allergieTableAdapter.ClearBeforeFill = true;
+            // 
+            // patientLabTableAdapter
+            // 
+            this.patientLabTableAdapter.ClearBeforeFill = true;
+            // 
+            // patientScanTableAdapter
+            // 
+            this.patientScanTableAdapter.ClearBeforeFill = true;
+            // 
+            // ScanName
+            // 
+            this.ScanName.DataPropertyName = "ScanName";
+            this.ScanName.HeaderText = "Name";
+            this.ScanName.Name = "ScanName";
+            this.ScanName.ReadOnly = true;
+            // 
+            // ScanDetails
+            // 
+            this.ScanDetails.DataPropertyName = "ScanDetails";
+            this.ScanDetails.HeaderText = "Details";
+            this.ScanDetails.Name = "ScanDetails";
+            this.ScanDetails.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DateOrdered";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Date Ordered";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // ProviderName
+            // 
+            this.ProviderName.DataPropertyName = "Provider";
+            this.ProviderName.HeaderText = "Provider";
+            this.ProviderName.Name = "ProviderName";
+            this.ProviderName.ReadOnly = true;
+            // 
             // PatientHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1885, 1203);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1460, 920);
+            this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.panel6);
@@ -1063,18 +1474,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MedicationsListDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -1082,6 +1494,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).EndInit();
             this.VitalHistoryLabel.ResumeLayout(false);
             this.VitalHistoryLabel.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1097,11 +1514,6 @@
         private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.Label PatientNameLabel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem updateVitalsTollStripItem;
-        private System.Windows.Forms.ToolStripMenuItem newNoteToolStripItem;
-        private System.Windows.Forms.ToolStripMenuItem NewPrescriptionToolStripItem;
-        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.Label BloodPressureLabel;
         private System.Windows.Forms.Label PulseLabel;
         private System.Windows.Forms.Label TemperatureLabel;
@@ -1150,8 +1562,6 @@
         private System.Windows.Forms.DataGridView MedicationsListDataGridView;
         private EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
         private System.Windows.Forms.BindingSource prescriptionBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteContentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn medicationNameDataGridViewTextBoxColumn;
@@ -1168,5 +1578,46 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bMIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateUpdatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.BindingSource allergieBindingSource;
+        private EMRDatabaseDataSetTableAdapters.AllergieTableAdapter allergieTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientAllergieIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allergieTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.BindingSource patientLabBindingSource;
+        private EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter patientLabTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOrdered;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label ScansLabel;
+        private System.Windows.Forms.BindingSource patientScanBindingSource;
+        private EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter patientScanTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientAllergieIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allergieTypeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteTitleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteContentDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medicationNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strengthDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn frequencyDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScanName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ScanDetails;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProviderName;
     }
 }
