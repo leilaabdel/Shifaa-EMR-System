@@ -32,16 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PatientListView1 = new System.Windows.Forms.DataGridView();
-            this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Exit = new System.Windows.Forms.Button();
-            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Exit = new System.Windows.Forms.Button();
+            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -86,43 +86,10 @@
             this.PatientListView1.Name = "PatientListView1";
             this.PatientListView1.ReadOnly = true;
             this.PatientListView1.RowHeadersVisible = false;
-            this.PatientListView1.Size = new System.Drawing.Size(1126, 921);
+            this.PatientListView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PatientListView1.Size = new System.Drawing.Size(1092, 921);
             this.PatientListView1.TabIndex = 0;
             this.PatientListView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_RowDoubleClick);
-            this.PatientListView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            // 
-            // patientBindingSource1
-            // 
-            this.patientBindingSource1.DataMember = "Patient";
-            this.patientBindingSource1.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataMember = "Patient";
-            this.patientBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // Exit
-            // 
-            this.Exit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Exit.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
-            this.Exit.Location = new System.Drawing.Point(478, 1028);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(161, 82);
-            this.Exit.TabIndex = 25;
-            this.Exit.Text = "Exit";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
             // 
             // PatientID
             // 
@@ -162,12 +129,45 @@
             this.Gender.Name = "Gender";
             this.Gender.ReadOnly = true;
             // 
+            // patientBindingSource1
+            // 
+            this.patientBindingSource1.DataMember = "Patient";
+            this.patientBindingSource1.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataMember = "Patient";
+            this.patientBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // Exit
+            // 
+            this.Exit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Exit.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
+            this.Exit.Location = new System.Drawing.Point(460, 1028);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(161, 82);
+            this.Exit.TabIndex = 25;
+            this.Exit.Text = "Exit";
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // patientTableAdapter
+            // 
+            this.patientTableAdapter.ClearBeforeFill = true;
+            // 
             // PatientListView
             // 
             this.AutoScroll = true;
             this.AutoSize = true;
             this.CancelButton = this.Exit;
-            this.ClientSize = new System.Drawing.Size(1130, 1136);
+            this.ClientSize = new System.Drawing.Size(1130, 920);
             this.ControlBox = false;
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.PatientListView1);

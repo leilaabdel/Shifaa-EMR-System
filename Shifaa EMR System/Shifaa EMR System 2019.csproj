@@ -86,10 +86,49 @@
     <Compile Include="AppointmentListView.Designer.cs">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMRDatabaseDataSet.cs">
+      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EMRDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NewAllergie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAllergie.Designer.cs">
+      <DependentUpon>NewAllergie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewLabOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewLabOrder.Designer.cs">
+      <DependentUpon>NewLabOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewNote.Designer.cs">
+      <DependentUpon>NewNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPrescriptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPrescriptionForm.Designer.cs">
+      <DependentUpon>NewPrescriptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewScanOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewScanOrder.Designer.cs">
+      <DependentUpon>NewScanOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewVital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewVital.Designer.cs">
+      <DependentUpon>NewVital.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientHomePage.cs">
       <SubType>Form</SubType>
@@ -155,6 +194,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AppointmentListView.resx">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAllergie.resx">
+      <DependentUpon>NewAllergie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewLabOrder.resx">
+      <DependentUpon>NewLabOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPrescriptionForm.resx">
+      <DependentUpon>NewPrescriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewScanOrder.resx">
+      <DependentUpon>NewScanOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewVital.resx">
+      <DependentUpon>NewVital.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientHomePage.resx">
       <DependentUpon>PatientHomePage.cs</DependentUpon>

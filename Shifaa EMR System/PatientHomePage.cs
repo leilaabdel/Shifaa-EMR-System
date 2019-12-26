@@ -37,9 +37,9 @@ namespace Shifaa_EMR_System
 
         private void setVitals(int selectedPatientID)
         {
-            ISingleResult<getPatientVitalsResult> result = doAction.getPatientVitals(selectedPatientID);
+            ISingleResult<getLatestPatientVitalsResult> result = doAction.getLatestPatientVitals(selectedPatientID);
 
-            foreach (getPatientVitalsResult vital in result)
+            foreach (getLatestPatientVitalsResult vital in result)
             {
                 this.BloodPressureValueLabel.Text = vital.BloodPressure + " mm Hg";
                 this.PulseValueLabel.Text = vital.Pulse.ToString() + " bpm";
@@ -145,6 +145,126 @@ namespace Shifaa_EMR_System
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel14_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BMIValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BMILabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WeightValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HeightValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TemperatureValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PulseValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BloodPressureValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WeightLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HeightLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TemperatureLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PulseLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BloodPressureLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MedicationsListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
