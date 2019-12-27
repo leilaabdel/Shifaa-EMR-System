@@ -56,78 +56,75 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 45);
+            this.panel1.Size = new System.Drawing.Size(306, 39);
             this.panel1.TabIndex = 0;
             // 
             // NewPrescriptionLabel
             // 
             this.NewPrescriptionLabel.AutoSize = true;
-            this.NewPrescriptionLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewPrescriptionLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             this.NewPrescriptionLabel.Location = new System.Drawing.Point(12, 9);
             this.NewPrescriptionLabel.Name = "NewPrescriptionLabel";
-            this.NewPrescriptionLabel.Size = new System.Drawing.Size(155, 23);
+            this.NewPrescriptionLabel.Size = new System.Drawing.Size(133, 19);
             this.NewPrescriptionLabel.TabIndex = 29;
             this.NewPrescriptionLabel.Text = "New Prescription";
             // 
             // MedicationNameLabel
             // 
             this.MedicationNameLabel.AutoSize = true;
-            this.MedicationNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MedicationNameLabel.Location = new System.Drawing.Point(23, 63);
+            this.MedicationNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.MedicationNameLabel.Location = new System.Drawing.Point(15, 51);
             this.MedicationNameLabel.Name = "MedicationNameLabel";
-            this.MedicationNameLabel.Size = new System.Drawing.Size(133, 19);
+            this.MedicationNameLabel.Size = new System.Drawing.Size(117, 17);
             this.MedicationNameLabel.TabIndex = 35;
             this.MedicationNameLabel.Text = "Medication Name";
             // 
             // AmountLabel
             // 
             this.AmountLabel.AutoSize = true;
-            this.AmountLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AmountLabel.Location = new System.Drawing.Point(23, 103);
+            this.AmountLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.AmountLabel.Location = new System.Drawing.Point(15, 91);
             this.AmountLabel.Name = "AmountLabel";
-            this.AmountLabel.Size = new System.Drawing.Size(65, 19);
+            this.AmountLabel.Size = new System.Drawing.Size(58, 17);
             this.AmountLabel.TabIndex = 36;
             this.AmountLabel.Text = "Amount";
             // 
             // StrengthLabel
             // 
             this.StrengthLabel.AutoSize = true;
-            this.StrengthLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StrengthLabel.Location = new System.Drawing.Point(23, 142);
+            this.StrengthLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.StrengthLabel.Location = new System.Drawing.Point(15, 130);
             this.StrengthLabel.Name = "StrengthLabel";
-            this.StrengthLabel.Size = new System.Drawing.Size(72, 19);
+            this.StrengthLabel.Size = new System.Drawing.Size(65, 17);
             this.StrengthLabel.TabIndex = 37;
             this.StrengthLabel.Text = "Strength";
-            this.StrengthToolTip.SetToolTip(this.StrengthBox, "Dosage. Typically in mg or mL");
             // 
             // FrequencyLabel
             // 
             this.FrequencyLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.FrequencyLabel.AutoSize = true;
-            this.FrequencyLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FrequencyLabel.Location = new System.Drawing.Point(23, 182);
+            this.FrequencyLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.FrequencyLabel.Location = new System.Drawing.Point(15, 170);
             this.FrequencyLabel.Name = "FrequencyLabel";
-            this.FrequencyLabel.Size = new System.Drawing.Size(86, 19);
+            this.FrequencyLabel.Size = new System.Drawing.Size(76, 17);
             this.FrequencyLabel.TabIndex = 38;
             this.FrequencyLabel.Text = "Frequency";
-            this.FrequencyToolTip.SetToolTip(this.FrequencyBox, "Ex: 2 tablets per day for 3 weeks");
             // 
             // RefillsLabel
             // 
             this.RefillsLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
             this.RefillsLabel.AutoSize = true;
-            this.RefillsLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefillsLabel.Location = new System.Drawing.Point(23, 222);
+            this.RefillsLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.RefillsLabel.Location = new System.Drawing.Point(15, 210);
             this.RefillsLabel.Name = "RefillsLabel";
-            this.RefillsLabel.Size = new System.Drawing.Size(134, 19);
+            this.RefillsLabel.Size = new System.Drawing.Size(116, 17);
             this.RefillsLabel.TabIndex = 39;
             this.RefillsLabel.Text = "Number of Refills";
-            this.RefillsToolTip.SetToolTip(this.RefillsBox, "Ex: 2");
             // 
             // MedicationBox
             // 
             this.MedicationBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MedicationBox.Location = new System.Drawing.Point(172, 65);
+            this.MedicationBox.Location = new System.Drawing.Point(161, 53);
             this.MedicationBox.Name = "MedicationBox";
             this.MedicationBox.Size = new System.Drawing.Size(127, 23);
             this.MedicationBox.TabIndex = 40;
@@ -137,7 +134,7 @@
             // AmountBox
             // 
             this.AmountBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AmountBox.Location = new System.Drawing.Point(172, 103);
+            this.AmountBox.Location = new System.Drawing.Point(161, 91);
             this.AmountBox.Name = "AmountBox";
             this.AmountBox.Size = new System.Drawing.Size(127, 23);
             this.AmountBox.TabIndex = 41;
@@ -146,32 +143,35 @@
             // StrengthBox
             // 
             this.StrengthBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StrengthBox.Location = new System.Drawing.Point(172, 142);
+            this.StrengthBox.Location = new System.Drawing.Point(161, 130);
             this.StrengthBox.Name = "StrengthBox";
             this.StrengthBox.Size = new System.Drawing.Size(127, 23);
             this.StrengthBox.TabIndex = 42;
+            this.StrengthToolTip.SetToolTip(this.StrengthBox, "Dosage. Typically in mg or mL");
             // 
             // FrequencyBox
             // 
             this.FrequencyBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FrequencyBox.Location = new System.Drawing.Point(172, 182);
+            this.FrequencyBox.Location = new System.Drawing.Point(161, 170);
             this.FrequencyBox.Name = "FrequencyBox";
             this.FrequencyBox.Size = new System.Drawing.Size(127, 23);
             this.FrequencyBox.TabIndex = 43;
+            this.FrequencyToolTip.SetToolTip(this.FrequencyBox, "Ex: 2 tablets per day for 3 weeks");
             // 
             // RefillsBox
             // 
             this.RefillsBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RefillsBox.Location = new System.Drawing.Point(172, 222);
+            this.RefillsBox.Location = new System.Drawing.Point(161, 210);
             this.RefillsBox.Name = "RefillsBox";
             this.RefillsBox.Size = new System.Drawing.Size(127, 23);
             this.RefillsBox.TabIndex = 44;
+            this.RefillsToolTip.SetToolTip(this.RefillsBox, "Ex: 2");
             // 
             // NewPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 272);
+            this.ClientSize = new System.Drawing.Size(306, 255);
             this.ControlBox = false;
             this.Controls.Add(this.RefillsBox);
             this.Controls.Add(this.FrequencyBox);

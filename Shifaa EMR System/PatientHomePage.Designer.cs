@@ -75,8 +75,7 @@
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.newAppointmentButton = new System.Windows.Forms.Button();
+            this.AddNewAppointmentButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BloodPressureLabel = new System.Windows.Forms.Label();
             this.PulseLabel = new System.Windows.Forms.Label();
@@ -131,7 +130,7 @@
             this.vitalSignsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.VitalHistoryLabel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AddNewVitalButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
@@ -141,7 +140,7 @@
             this.dateOrderedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddNewScanButton = new System.Windows.Forms.Button();
             this.ScansLabel = new System.Windows.Forms.Label();
             this.patientAllergieIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,6 +159,13 @@
             this.allergieTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
             this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
             this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.patientClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -190,6 +196,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
             this.panel15.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -204,17 +213,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1412, 108);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(1259, 86);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // DOBLabel
             // 
             this.DOBLabel.AutoSize = true;
-            this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DOBLabel.Location = new System.Drawing.Point(897, 21);
+            this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DOBLabel.Location = new System.Drawing.Point(711, 24);
             this.DOBLabel.Name = "DOBLabel";
-            this.DOBLabel.Size = new System.Drawing.Size(198, 29);
+            this.DOBLabel.Size = new System.Drawing.Size(155, 23);
             this.DOBLabel.TabIndex = 32;
             this.DOBLabel.Text = "DOB: XX/XX/XXXX";
             // 
@@ -236,10 +246,10 @@
             // PatientAgeLabel
             // 
             this.PatientAgeLabel.AutoSize = true;
-            this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientAgeLabel.Location = new System.Drawing.Point(606, 21);
+            this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientAgeLabel.Location = new System.Drawing.Point(490, 24);
             this.PatientAgeLabel.Name = "PatientAgeLabel";
-            this.PatientAgeLabel.Size = new System.Drawing.Size(129, 29);
+            this.PatientAgeLabel.Size = new System.Drawing.Size(102, 23);
             this.PatientAgeLabel.TabIndex = 31;
             this.PatientAgeLabel.Text = "X Years Old";
             this.PatientAgeLabel.Click += new System.EventHandler(this.PatientAgeLabel_Click);
@@ -247,10 +257,10 @@
             // PatientGenderLabel
             // 
             this.PatientGenderLabel.AutoSize = true;
-            this.PatientGenderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientGenderLabel.Location = new System.Drawing.Point(370, 21);
+            this.PatientGenderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientGenderLabel.Location = new System.Drawing.Point(306, 22);
             this.PatientGenderLabel.Name = "PatientGenderLabel";
-            this.PatientGenderLabel.Size = new System.Drawing.Size(93, 29);
+            this.PatientGenderLabel.Size = new System.Drawing.Size(73, 23);
             this.PatientGenderLabel.TabIndex = 30;
             this.PatientGenderLabel.Text = "Female";
             this.PatientGenderLabel.Click += new System.EventHandler(this.PatientGenderLabel_Click);
@@ -258,10 +268,10 @@
             // PhoneNumberLabel
             // 
             this.PhoneNumberLabel.AutoSize = true;
-            this.PhoneNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(35, 65);
+            this.PhoneNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(35, 55);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(220, 25);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(199, 23);
             this.PhoneNumberLabel.TabIndex = 29;
             this.PhoneNumberLabel.Text = "Phone: XXX-XXX-XXXX";
             this.PhoneNumberLabel.Click += new System.EventHandler(this.PhoneNumberLabel_Click);
@@ -269,10 +279,10 @@
             // PatientNameLabel
             // 
             this.PatientNameLabel.AutoSize = true;
-            this.PatientNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientNameLabel.Location = new System.Drawing.Point(35, 21);
+            this.PatientNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PatientNameLabel.Location = new System.Drawing.Point(35, 20);
             this.PatientNameLabel.Name = "PatientNameLabel";
-            this.PatientNameLabel.Size = new System.Drawing.Size(156, 29);
+            this.PatientNameLabel.Size = new System.Drawing.Size(136, 25);
             this.PatientNameLabel.TabIndex = 28;
             this.PatientNameLabel.Text = "Patient Name";
             this.PatientNameLabel.Click += new System.EventHandler(this.PatientNameLabel_Click);
@@ -282,9 +292,9 @@
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.panel7);
-            this.panel2.Location = new System.Drawing.Point(14, 259);
+            this.panel2.Location = new System.Drawing.Point(14, 197);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(494, 470);
+            this.panel2.Size = new System.Drawing.Size(494, 448);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -332,7 +342,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(494, 428);
+            this.dataGridView1.Size = new System.Drawing.Size(494, 406);
             this.dataGridView1.TabIndex = 45;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -393,7 +403,7 @@
             this.AddNoteButton.FlatAppearance.BorderSize = 0;
             this.AddNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNoteButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNoteButton.Location = new System.Drawing.Point(433, 4);
+            this.AddNoteButton.Location = new System.Drawing.Point(433, 1);
             this.AddNoteButton.Name = "AddNoteButton";
             this.AddNoteButton.Size = new System.Drawing.Size(58, 35);
             this.AddNoteButton.TabIndex = 31;
@@ -416,7 +426,7 @@
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.AppointmentListView1);
             this.panel3.Controls.Add(this.panel8);
-            this.panel3.Location = new System.Drawing.Point(14, 735);
+            this.panel3.Location = new System.Drawing.Point(14, 651);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(494, 269);
             this.panel3.TabIndex = 2;
@@ -497,8 +507,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Azure;
-            this.panel8.Controls.Add(this.button3);
-            this.panel8.Controls.Add(this.newAppointmentButton);
+            this.panel8.Controls.Add(this.AddNewAppointmentButton);
             this.panel8.Controls.Add(this.label1);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
@@ -506,36 +515,20 @@
             this.panel8.Size = new System.Drawing.Size(494, 42);
             this.panel8.TabIndex = 34;
             // 
-            // button3
+            // AddNewAppointmentButton
             // 
-            this.button3.BackColor = System.Drawing.Color.Azure;
-            this.button3.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(433, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(58, 35);
-            this.button3.TabIndex = 45;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // newAppointmentButton
-            // 
-            this.newAppointmentButton.BackColor = System.Drawing.Color.Azure;
-            this.newAppointmentButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.newAppointmentButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.newAppointmentButton.FlatAppearance.BorderSize = 0;
-            this.newAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newAppointmentButton.Location = new System.Drawing.Point(616, 1);
-            this.newAppointmentButton.Name = "newAppointmentButton";
-            this.newAppointmentButton.Size = new System.Drawing.Size(58, 35);
-            this.newAppointmentButton.TabIndex = 30;
-            this.newAppointmentButton.Text = "+";
-            this.newAppointmentButton.UseVisualStyleBackColor = false;
-            this.newAppointmentButton.Click += new System.EventHandler(this.newAppointmentButton_Click);
+            this.AddNewAppointmentButton.BackColor = System.Drawing.Color.Azure;
+            this.AddNewAppointmentButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.AddNewAppointmentButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.AddNewAppointmentButton.FlatAppearance.BorderSize = 0;
+            this.AddNewAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNewAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNewAppointmentButton.Location = new System.Drawing.Point(433, 1);
+            this.AddNewAppointmentButton.Name = "AddNewAppointmentButton";
+            this.AddNewAppointmentButton.Size = new System.Drawing.Size(58, 35);
+            this.AddNewAppointmentButton.TabIndex = 45;
+            this.AddNewAppointmentButton.Text = "+";
+            this.AddNewAppointmentButton.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -550,10 +543,10 @@
             // BloodPressureLabel
             // 
             this.BloodPressureLabel.AutoSize = true;
-            this.BloodPressureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodPressureLabel.Location = new System.Drawing.Point(14, 139);
+            this.BloodPressureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BloodPressureLabel.Location = new System.Drawing.Point(27, 112);
             this.BloodPressureLabel.Name = "BloodPressureLabel";
-            this.BloodPressureLabel.Size = new System.Drawing.Size(140, 23);
+            this.BloodPressureLabel.Size = new System.Drawing.Size(121, 19);
             this.BloodPressureLabel.TabIndex = 31;
             this.BloodPressureLabel.Text = "Blood Pressure";
             this.BloodPressureLabel.Click += new System.EventHandler(this.BloodPressureLabel_Click);
@@ -561,10 +554,10 @@
             // PulseLabel
             // 
             this.PulseLabel.AutoSize = true;
-            this.PulseLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseLabel.Location = new System.Drawing.Point(14, 179);
+            this.PulseLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PulseLabel.Location = new System.Drawing.Point(27, 140);
             this.PulseLabel.Name = "PulseLabel";
-            this.PulseLabel.Size = new System.Drawing.Size(59, 23);
+            this.PulseLabel.Size = new System.Drawing.Size(50, 19);
             this.PulseLabel.TabIndex = 32;
             this.PulseLabel.Text = "Pulse";
             this.PulseLabel.Click += new System.EventHandler(this.PulseLabel_Click);
@@ -572,10 +565,10 @@
             // TemperatureLabel
             // 
             this.TemperatureLabel.AutoSize = true;
-            this.TemperatureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureLabel.Location = new System.Drawing.Point(14, 217);
+            this.TemperatureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TemperatureLabel.Location = new System.Drawing.Point(27, 165);
             this.TemperatureLabel.Name = "TemperatureLabel";
-            this.TemperatureLabel.Size = new System.Drawing.Size(117, 23);
+            this.TemperatureLabel.Size = new System.Drawing.Size(103, 19);
             this.TemperatureLabel.TabIndex = 33;
             this.TemperatureLabel.Text = "Temperature";
             this.TemperatureLabel.Click += new System.EventHandler(this.TemperatureLabel_Click);
@@ -583,10 +576,10 @@
             // HeightLabel
             // 
             this.HeightLabel.AutoSize = true;
-            this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightLabel.Location = new System.Drawing.Point(306, 139);
+            this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightLabel.Location = new System.Drawing.Point(319, 112);
             this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(65, 23);
+            this.HeightLabel.Size = new System.Drawing.Size(56, 19);
             this.HeightLabel.TabIndex = 34;
             this.HeightLabel.Text = "Height";
             this.HeightLabel.Click += new System.EventHandler(this.HeightLabel_Click);
@@ -594,10 +587,10 @@
             // WeightLabel
             // 
             this.WeightLabel.AutoSize = true;
-            this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightLabel.Location = new System.Drawing.Point(306, 179);
+            this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightLabel.Location = new System.Drawing.Point(319, 140);
             this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(67, 23);
+            this.WeightLabel.Size = new System.Drawing.Size(58, 19);
             this.WeightLabel.TabIndex = 35;
             this.WeightLabel.Text = "Weight";
             this.WeightLabel.Click += new System.EventHandler(this.WeightLabel_Click);
@@ -605,10 +598,10 @@
             // BloodPressureValueLabel
             // 
             this.BloodPressureValueLabel.AutoSize = true;
-            this.BloodPressureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodPressureValueLabel.Location = new System.Drawing.Point(208, 139);
+            this.BloodPressureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BloodPressureValueLabel.Location = new System.Drawing.Point(221, 112);
             this.BloodPressureValueLabel.Name = "BloodPressureValueLabel";
-            this.BloodPressureValueLabel.Size = new System.Drawing.Size(81, 23);
+            this.BloodPressureValueLabel.Size = new System.Drawing.Size(72, 19);
             this.BloodPressureValueLabel.TabIndex = 36;
             this.BloodPressureValueLabel.Text = "0 mm Hg";
             this.BloodPressureValueLabel.Click += new System.EventHandler(this.BloodPressureValueLabel_Click);
@@ -616,10 +609,10 @@
             // PulseValueLabel
             // 
             this.PulseValueLabel.AutoSize = true;
-            this.PulseValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseValueLabel.Location = new System.Drawing.Point(208, 179);
+            this.PulseValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PulseValueLabel.Location = new System.Drawing.Point(221, 140);
             this.PulseValueLabel.Name = "PulseValueLabel";
-            this.PulseValueLabel.Size = new System.Drawing.Size(59, 23);
+            this.PulseValueLabel.Size = new System.Drawing.Size(53, 19);
             this.PulseValueLabel.TabIndex = 37;
             this.PulseValueLabel.Text = "0 bpm";
             this.PulseValueLabel.Click += new System.EventHandler(this.PulseValueLabel_Click);
@@ -627,10 +620,10 @@
             // TemperatureValueLabel
             // 
             this.TemperatureValueLabel.AutoSize = true;
-            this.TemperatureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureValueLabel.Location = new System.Drawing.Point(208, 217);
+            this.TemperatureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TemperatureValueLabel.Location = new System.Drawing.Point(221, 165);
             this.TemperatureValueLabel.Name = "TemperatureValueLabel";
-            this.TemperatureValueLabel.Size = new System.Drawing.Size(42, 23);
+            this.TemperatureValueLabel.Size = new System.Drawing.Size(37, 19);
             this.TemperatureValueLabel.TabIndex = 38;
             this.TemperatureValueLabel.Text = "0 °C";
             this.TemperatureValueLabel.Click += new System.EventHandler(this.TemperatureValueLabel_Click);
@@ -638,10 +631,10 @@
             // HeightValueLabel
             // 
             this.HeightValueLabel.AutoSize = true;
-            this.HeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightValueLabel.Location = new System.Drawing.Point(415, 139);
+            this.HeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightValueLabel.Location = new System.Drawing.Point(428, 112);
             this.HeightValueLabel.Name = "HeightValueLabel";
-            this.HeightValueLabel.Size = new System.Drawing.Size(48, 23);
+            this.HeightValueLabel.Size = new System.Drawing.Size(43, 19);
             this.HeightValueLabel.TabIndex = 39;
             this.HeightValueLabel.Text = "0 cm";
             this.HeightValueLabel.Click += new System.EventHandler(this.HeightValueLabel_Click);
@@ -649,10 +642,10 @@
             // WeightValueLabel
             // 
             this.WeightValueLabel.AutoSize = true;
-            this.WeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightValueLabel.Location = new System.Drawing.Point(415, 179);
+            this.WeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightValueLabel.Location = new System.Drawing.Point(428, 140);
             this.WeightValueLabel.Name = "WeightValueLabel";
-            this.WeightValueLabel.Size = new System.Drawing.Size(43, 23);
+            this.WeightValueLabel.Size = new System.Drawing.Size(38, 19);
             this.WeightValueLabel.TabIndex = 40;
             this.WeightValueLabel.Text = "0 kg";
             this.WeightValueLabel.Click += new System.EventHandler(this.WeightValueLabel_Click);
@@ -660,10 +653,10 @@
             // BMILabel
             // 
             this.BMILabel.AutoSize = true;
-            this.BMILabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMILabel.Location = new System.Drawing.Point(306, 217);
+            this.BMILabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMILabel.Location = new System.Drawing.Point(319, 165);
             this.BMILabel.Name = "BMILabel";
-            this.BMILabel.Size = new System.Drawing.Size(42, 23);
+            this.BMILabel.Size = new System.Drawing.Size(35, 19);
             this.BMILabel.TabIndex = 41;
             this.BMILabel.Text = "BMI";
             this.BMILabel.Click += new System.EventHandler(this.BMILabel_Click);
@@ -671,10 +664,10 @@
             // BMIValueLabel
             // 
             this.BMIValueLabel.AutoSize = true;
-            this.BMIValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIValueLabel.Location = new System.Drawing.Point(415, 217);
+            this.BMIValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMIValueLabel.Location = new System.Drawing.Point(428, 165);
             this.BMIValueLabel.Name = "BMIValueLabel";
-            this.BMIValueLabel.Size = new System.Drawing.Size(72, 23);
+            this.BMIValueLabel.Size = new System.Drawing.Size(63, 19);
             this.BMIValueLabel.TabIndex = 42;
             this.BMIValueLabel.Text = "0 kg/m²";
             this.BMIValueLabel.Click += new System.EventHandler(this.BMIValueLabel_Click);
@@ -684,7 +677,7 @@
             this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.MedicationsListDataGridView);
             this.panel5.Controls.Add(this.panel9);
-            this.panel5.Location = new System.Drawing.Point(517, 139);
+            this.panel5.Location = new System.Drawing.Point(517, 112);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(259, 270);
             this.panel5.TabIndex = 3;
@@ -784,7 +777,7 @@
             this.AddMedicationButton.FlatAppearance.BorderSize = 0;
             this.AddMedicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddMedicationButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddMedicationButton.Location = new System.Drawing.Point(198, 4);
+            this.AddMedicationButton.Location = new System.Drawing.Point(198, 1);
             this.AddMedicationButton.Name = "AddMedicationButton";
             this.AddMedicationButton.Size = new System.Drawing.Size(58, 35);
             this.AddMedicationButton.TabIndex = 29;
@@ -806,7 +799,7 @@
             this.panel6.AutoSize = true;
             this.panel6.Controls.Add(this.dataGridView3);
             this.panel6.Controls.Add(this.panel10);
-            this.panel6.Location = new System.Drawing.Point(782, 139);
+            this.panel6.Location = new System.Drawing.Point(782, 112);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 270);
             this.panel6.TabIndex = 4;
@@ -920,7 +913,7 @@
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(189, 3);
+            this.AddAllergieButton.Location = new System.Drawing.Point(189, 2);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(58, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -942,9 +935,9 @@
             this.panel11.AutoSize = true;
             this.panel11.Controls.Add(this.dataGridView4);
             this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(782, 416);
+            this.panel11.Location = new System.Drawing.Point(782, 389);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(250, 313);
+            this.panel11.Size = new System.Drawing.Size(250, 257);
             this.panel11.TabIndex = 35;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -991,7 +984,7 @@
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.Size = new System.Drawing.Size(250, 271);
+            this.dataGridView4.Size = new System.Drawing.Size(250, 215);
             this.dataGridView4.TabIndex = 47;
             this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
@@ -1040,7 +1033,7 @@
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(201, 4);
+            this.AddLabButton.Location = new System.Drawing.Point(201, 1);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(46, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1062,7 +1055,7 @@
             this.panel13.AutoSize = true;
             this.panel13.Controls.Add(this.dataGridView2);
             this.panel13.Controls.Add(this.VitalHistoryLabel);
-            this.panel13.Location = new System.Drawing.Point(517, 736);
+            this.panel13.Location = new System.Drawing.Point(517, 651);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(515, 268);
             this.panel13.TabIndex = 43;
@@ -1177,7 +1170,7 @@
             // 
             this.VitalHistoryLabel.BackColor = System.Drawing.Color.Azure;
             this.VitalHistoryLabel.Controls.Add(this.label6);
-            this.VitalHistoryLabel.Controls.Add(this.button2);
+            this.VitalHistoryLabel.Controls.Add(this.AddNewVitalButton);
             this.VitalHistoryLabel.Controls.Add(this.label5);
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
@@ -1196,21 +1189,21 @@
             this.label6.Text = "Vital History";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // button2
+            // AddNewVitalButton
             // 
-            this.button2.BackColor = System.Drawing.Color.Azure;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(454, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 35);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AddNewVitalButton.BackColor = System.Drawing.Color.Azure;
+            this.AddNewVitalButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.AddNewVitalButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
+            this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNewVitalButton.Location = new System.Drawing.Point(454, 1);
+            this.AddNewVitalButton.Name = "AddNewVitalButton";
+            this.AddNewVitalButton.Size = new System.Drawing.Size(58, 35);
+            this.AddNewVitalButton.TabIndex = 44;
+            this.AddNewVitalButton.Text = "+";
+            this.AddNewVitalButton.UseVisualStyleBackColor = false;
+            this.AddNewVitalButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
@@ -1228,9 +1221,9 @@
             this.panel14.AutoSize = true;
             this.panel14.Controls.Add(this.dataGridView5);
             this.panel14.Controls.Add(this.panel15);
-            this.panel14.Location = new System.Drawing.Point(517, 416);
+            this.panel14.Location = new System.Drawing.Point(517, 389);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(259, 313);
+            this.panel14.Size = new System.Drawing.Size(259, 257);
             this.panel14.TabIndex = 48;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
@@ -1278,7 +1271,7 @@
             dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.Size = new System.Drawing.Size(259, 271);
+            this.dataGridView5.Size = new System.Drawing.Size(259, 215);
             this.dataGridView5.TabIndex = 47;
             this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
             // 
@@ -1318,7 +1311,7 @@
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Azure;
-            this.panel15.Controls.Add(this.button1);
+            this.panel15.Controls.Add(this.AddNewScanButton);
             this.panel15.Controls.Add(this.ScansLabel);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(0, 0);
@@ -1326,20 +1319,20 @@
             this.panel15.Size = new System.Drawing.Size(259, 42);
             this.panel15.TabIndex = 34;
             // 
-            // button1
+            // AddNewScanButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(213, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 35);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
+            this.AddNewScanButton.BackColor = System.Drawing.Color.Azure;
+            this.AddNewScanButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.AddNewScanButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.AddNewScanButton.FlatAppearance.BorderSize = 0;
+            this.AddNewScanButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNewScanButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddNewScanButton.Location = new System.Drawing.Point(213, 2);
+            this.AddNewScanButton.Name = "AddNewScanButton";
+            this.AddNewScanButton.Size = new System.Drawing.Size(44, 35);
+            this.AddNewScanButton.TabIndex = 43;
+            this.AddNewScanButton.Text = "+";
+            this.AddNewScanButton.UseVisualStyleBackColor = false;
             // 
             // ScansLabel
             // 
@@ -1449,13 +1442,76 @@
             // 
             this.patientScanTableAdapter.ClearBeforeFill = true;
             // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.panel16);
+            this.panel4.Location = new System.Drawing.Point(0, 106);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1259, 808);
+            this.panel4.TabIndex = 49;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.menuStrip2);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel16.Location = new System.Drawing.Point(1048, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(211, 808);
+            this.panel16.TabIndex = 0;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.AutoSize = false;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientClientToolStripMenuItem,
+            this.feesToolStripMenuItem,
+            this.proceduresToolStripMenuItem,
+            this.reportsToolStripMenuItem});
+            this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.menuStrip2.Location = new System.Drawing.Point(0, 39);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(211, 175);
+            this.menuStrip2.TabIndex = 5;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // patientClientToolStripMenuItem
+            // 
+            this.patientClientToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientClientToolStripMenuItem.Name = "patientClientToolStripMenuItem";
+            this.patientClientToolStripMenuItem.Size = new System.Drawing.Size(207, 27);
+            this.patientClientToolStripMenuItem.Text = "All Notes";
+            // 
+            // feesToolStripMenuItem
+            // 
+            this.feesToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.feesToolStripMenuItem.Name = "feesToolStripMenuItem";
+            this.feesToolStripMenuItem.Size = new System.Drawing.Size(207, 27);
+            this.feesToolStripMenuItem.Text = "Add Plan";
+            // 
+            // proceduresToolStripMenuItem
+            // 
+            this.proceduresToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.proceduresToolStripMenuItem.Name = "proceduresToolStripMenuItem";
+            this.proceduresToolStripMenuItem.Size = new System.Drawing.Size(207, 27);
+            this.proceduresToolStripMenuItem.Text = "Generate Report";
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(207, 4);
+            // 
             // PatientHomePage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1429, 853);
+            this.ClientSize = new System.Drawing.Size(1259, 920);
+            this.ControlBox = false;
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel3);
@@ -1476,6 +1532,7 @@
             this.Controls.Add(this.BloodPressureLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1521,6 +1578,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1575,7 +1636,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateAppointmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button newAppointmentButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button AddNoteButton;
         private EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter patientNoteTableAdapter;
@@ -1607,7 +1667,7 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddNewScanButton;
         private System.Windows.Forms.Label ScansLabel;
         private EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter patientScanTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientAllergieIDDataGridViewTextBoxColumn1;
@@ -1628,9 +1688,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOrdered;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddNewVitalButton;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddNewAppointmentButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn medicationNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn3;
@@ -1641,5 +1701,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bMIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateUpdatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem patientClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem feesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proceduresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
     }
 }

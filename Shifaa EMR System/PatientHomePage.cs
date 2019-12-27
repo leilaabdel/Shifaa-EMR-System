@@ -268,5 +268,10 @@ namespace Shifaa_EMR_System
         {
 
         }
+
+        private void panel4_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -201,6 +201,9 @@
     <EmbeddedResource Include="NewLabOrder.resx">
       <DependentUpon>NewLabOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewNote.resx">
+      <DependentUpon>NewNote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewPrescriptionForm.resx">
       <DependentUpon>NewPrescriptionForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -600,8 +600,7 @@ namespace Shifaa_EMR_System
         }
 
 
-        int selectedPatientID;
-
+      
         private void PatientListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

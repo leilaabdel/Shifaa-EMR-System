@@ -230,6 +230,8 @@
             // 
             this.Save.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Save.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Save.FlatAppearance.BorderSize = 0;
+            this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
             this.Save.Location = new System.Drawing.Point(339, 846);
             this.Save.Name = "Save";
@@ -243,6 +245,8 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
             this.button1.Location = new System.Drawing.Point(575, 846);
             this.button1.Name = "button1";
@@ -297,7 +301,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(1170, 1189);
+            this.ClientSize = new System.Drawing.Size(1170, 904);
             this.ControlBox = false;
             this.Controls.Add(this.PhoneNumberBox);
             this.Controls.Add(this.label2);

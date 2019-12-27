@@ -14,7 +14,9 @@ namespace Shifaa_EMR_System
     {
 
 
-        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+
+        public SiteFunctionsDataContext DoAction { get => doAction; set => doAction = value; }
 
         public NewPatient()
         {
@@ -154,9 +156,9 @@ namespace Shifaa_EMR_System
             try
             {
 
-                doAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text,   DOBPicker.Value, getAge(), getGender(), getWeight(), getHeight(), getBMI(), NationalityBox.Text);
+                DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text,   DOBPicker.Value, getAge(), getGender(), getWeight(), getHeight(), getBMI(), NationalityBox.Text);
 
-                System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = doAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
+                System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
 
                 int selectedPatientID = 0;
 
@@ -165,7 +167,7 @@ namespace Shifaa_EMR_System
                     selectedPatientID = result.PatientID;
                 }
 
-                doAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI());
+                DoAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI());
 
                 this.Close();
 

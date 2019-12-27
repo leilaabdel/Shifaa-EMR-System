@@ -40,7 +40,6 @@
             this.DateScheduledLabel = new System.Windows.Forms.Label();
             this.ScheduleDatePicker = new MetroFramework.Controls.MetroDateTime();
             this.DateScheduledToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.DateScheduledToolTip.SetToolTip(ScheduleDatePicker, "Pick the date where you aim to schedule the scan/procedure");
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,16 +50,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 45);
+            this.panel1.Size = new System.Drawing.Size(405, 39);
             this.panel1.TabIndex = 0;
             // 
             // NewScanLabel
             // 
             this.NewScanLabel.AutoSize = true;
-            this.NewScanLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewScanLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             this.NewScanLabel.Location = new System.Drawing.Point(12, 9);
             this.NewScanLabel.Name = "NewScanLabel";
-            this.NewScanLabel.Size = new System.Drawing.Size(256, 23);
+            this.NewScanLabel.Size = new System.Drawing.Size(224, 19);
             this.NewScanLabel.TabIndex = 29;
             this.NewScanLabel.Text = "New Scan or Procedure Order";
             this.NewScanLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -69,7 +68,7 @@
             // 
             this.LabNameLabel.AutoSize = true;
             this.LabNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabNameLabel.Location = new System.Drawing.Point(23, 63);
+            this.LabNameLabel.Location = new System.Drawing.Point(13, 49);
             this.LabNameLabel.Name = "LabNameLabel";
             this.LabNameLabel.Size = new System.Drawing.Size(52, 19);
             this.LabNameLabel.TabIndex = 35;
@@ -80,7 +79,7 @@
             // 
             this.DetailsLabel.AutoSize = true;
             this.DetailsLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DetailsLabel.Location = new System.Drawing.Point(23, 152);
+            this.DetailsLabel.Location = new System.Drawing.Point(13, 138);
             this.DetailsLabel.Name = "DetailsLabel";
             this.DetailsLabel.Size = new System.Drawing.Size(60, 19);
             this.DetailsLabel.TabIndex = 36;
@@ -90,7 +89,7 @@
             // LabNameBox
             // 
             this.LabNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabNameBox.Location = new System.Drawing.Point(172, 65);
+            this.LabNameBox.Location = new System.Drawing.Point(162, 51);
             this.LabNameBox.Name = "LabNameBox";
             this.LabNameBox.Size = new System.Drawing.Size(226, 23);
             this.LabNameBox.TabIndex = 40;
@@ -99,7 +98,7 @@
             // DetailsBox
             // 
             this.DetailsBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DetailsBox.Location = new System.Drawing.Point(172, 103);
+            this.DetailsBox.Location = new System.Drawing.Point(162, 89);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
             this.DetailsBox.Size = new System.Drawing.Size(226, 120);
@@ -110,7 +109,7 @@
             // 
             this.DateScheduledLabel.AutoSize = true;
             this.DateScheduledLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateScheduledLabel.Location = new System.Drawing.Point(23, 244);
+            this.DateScheduledLabel.Location = new System.Drawing.Point(13, 230);
             this.DateScheduledLabel.Name = "DateScheduledLabel";
             this.DateScheduledLabel.Size = new System.Drawing.Size(123, 19);
             this.DateScheduledLabel.TabIndex = 42;
@@ -119,17 +118,18 @@
             // 
             // ScheduleDatePicker
             // 
-            this.ScheduleDatePicker.Location = new System.Drawing.Point(172, 239);
+            this.ScheduleDatePicker.Location = new System.Drawing.Point(162, 225);
             this.ScheduleDatePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.ScheduleDatePicker.Name = "ScheduleDatePicker";
             this.ScheduleDatePicker.Size = new System.Drawing.Size(226, 29);
             this.ScheduleDatePicker.TabIndex = 43;
+            this.DateScheduledToolTip.SetToolTip(this.ScheduleDatePicker, "Pick the date where you aim to schedule the scan/procedure");
             // 
             // NewScanOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 292);
+            this.ClientSize = new System.Drawing.Size(405, 267);
             this.ControlBox = false;
             this.Controls.Add(this.ScheduleDatePicker);
             this.Controls.Add(this.DateScheduledLabel);
