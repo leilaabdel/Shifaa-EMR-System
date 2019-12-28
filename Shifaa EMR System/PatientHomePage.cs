@@ -18,14 +18,14 @@ namespace Shifaa_EMR_System
 
         int thisPatientID;
         readonly ProviderMain thisProviderMain;
-        
-        public PatientHomePage(string name , string number , string gender, string age , DateTime DOB , int selectedPatientID, ProviderMain providerMain)
+
+        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain)
         {
             InitializeComponent();
             this.PatientNameLabel.Text = name;
             this.PhoneNumberLabel.Text = "Phone Number: " + number;
             this.PatientGenderLabel.Text = gender;
-            this.PatientAgeLabel.Text = "Age: " +  age;
+            this.PatientAgeLabel.Text = "Age: " + age;
             this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
 
             setVitals(selectedPatientID);
@@ -51,7 +51,7 @@ namespace Shifaa_EMR_System
 
             }
 
-            
+
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
@@ -71,20 +71,20 @@ namespace Shifaa_EMR_System
 
         private void PatientHomePage_Load(object sender, EventArgs e)
         {
-    
-       
+
+
 
 
             this.WindowState = FormWindowState.Maximized;
 
 
-          
+
 
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed.
-            this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment , thisPatientID);
+            this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment, thisPatientID);
             this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
             this.vitalSignsTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.VitalSigns, thisPatientID);
-            this.allergieTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Allergie , thisPatientID);
+            this.allergieTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Allergie, thisPatientID);
             this.patientLabTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientLab, thisPatientID);
             this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
             this.patientScanTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientScan, thisPatientID);
@@ -95,7 +95,7 @@ namespace Shifaa_EMR_System
         {
 
         }
-       
+
         private void PhoneNumberLabel_Click(object sender, EventArgs e)
         {
 
@@ -111,7 +111,7 @@ namespace Shifaa_EMR_System
 
         }
 
- 
+
 
         private void newAppointmentButton_Click(object sender, EventArgs e)
         {
@@ -149,10 +149,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void panel14_Paint(object sender, PaintEventArgs e)
         {
@@ -271,6 +268,74 @@ namespace Shifaa_EMR_System
 
         private void panel4_Paint_1(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void AddNoteButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewNote"] as NewNote == null)
+            {
+                NewNote newNoteForm = new NewNote(thisPatientID, thisProviderMain.getProviderName(), thisProviderMain.getProviderID());
+                newNoteForm.StartPosition = FormStartPosition.CenterParent;
+                newNoteForm.Show();
+
+            }
+        }
+
+        private void AddMedicationButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewPrescriptionForm"] as NewPrescriptionForm == null)
+            {
+                NewPrescriptionForm newPrescription = new NewPrescriptionForm(thisPatientID, thisProviderMain.getProviderName(),
+                    thisProviderMain.getProviderID());
+                newPrescription.StartPosition = FormStartPosition.CenterParent;
+                newPrescription.Show();
+            }
+        }
+
+        private void AddAllergieButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewAllergie"] as NewAllergie == null)
+            {
+                NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.getProviderID() ,
+                    thisProviderMain.getProviderName());
+                newAllergie.StartPosition = FormStartPosition.CenterParent;
+                newAllergie.Show();
+            }
+        }
+
+        private void AddNewScanButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewScanOrder"] as NewScanOrder == null)
+            {
+                NewScanOrder newScan = new NewScanOrder(thisPatientID, thisProviderMain.getProviderName(),
+                    thisProviderMain.getProviderID());
+                newScan.StartPosition = FormStartPosition.CenterParent;
+                newScan.Show();
+            }
+        }
+
+        private void AddLabButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewLabOrder"] as NewLabOrder == null)
+            {
+                NewLabOrder newLabOrder = new NewLabOrder(thisPatientID, thisProviderMain.getProviderID(),
+                    thisProviderMain.getProviderName());
+                newLabOrder.StartPosition = FormStartPosition.CenterParent;
+                newLabOrder.Show();
+            }
+
+        }
+
+        private void AddNewVitalButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewVital"] as NewVital == null)
+            {
+                NewVital newVital = new NewVital(thisPatientID, thisProviderMain.getProviderName(),
+                    thisProviderMain.getProviderID());
+                newVital.StartPosition = FormStartPosition.CenterParent;
+                newVital.Show();
+            }
 
         }
     }

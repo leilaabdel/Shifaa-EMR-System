@@ -208,13 +208,6 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewPrescription")]
-		public int createNewPrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MedicationName", DbType="NVarChar(255)")] string medicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="VarChar(50)")] string amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strength", DbType="NChar(10)")] string strength, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Route", DbType="NChar(30)")] string route, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Frequency", DbType="VarChar(50)")] string frequency, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Refills", DbType="Float")] System.Nullable<double> refills, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderName", DbType="VarChar(50)")] string providerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), medicationName, amount, strength, route, frequency, refills, patientID, providerName, providerID);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getNewPatientVitals")]
 		public ISingleResult<getNewPatientVitalsResult> getNewPatientVitals([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="Date")] System.Nullable<System.DateTime> dOB)
 		{
@@ -250,10 +243,31 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewAllergy")]
-		public int createNewAllergy([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergieName", DbType="NVarChar(50)")] string allergieName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="NVarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderName", DbType="VarChar(50)")] string providerName)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getPatientNote")]
+		public ISingleResult<getPatientNoteResult> getPatientNote([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoteTitle", DbType="VarChar(50)")] string noteTitle)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, allergieName, details, providerID, providerName);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, date, noteTitle);
+			return ((ISingleResult<getPatientNoteResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewPatientNote")]
+		public int createNewPatientNote([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderName", DbType="VarChar(50)")] string providerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoteTitle", DbType="VarChar(50)")] string noteTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoteContent", DbType="NVarChar(MAX)")] string noteContent)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, providerName, providerID, noteTitle, noteContent);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateExistingNote")]
+		public int updateExistingNote([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoteTitle", DbType="VarChar(50)")] string noteTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoteContent", DbType="NVarChar(MAX)")] string noteContent)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, noteTitle, date, noteContent);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewPrescription")]
+		public int createNewPrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MedicationName", DbType="NVarChar(255)")] string medicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="VarChar(50)")] string amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strength", DbType="NChar(10)")] string strength, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Route", DbType="NChar(30)")] string route, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Frequency", DbType="VarChar(50)")] string frequency, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Refills", DbType="Float")] System.Nullable<double> refills, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderName", DbType="VarChar(50)")] string providerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), medicationName, amount, strength, route, frequency, refills, patientID, providerName, providerID);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -271,11 +285,25 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getPatientNote")]
-		public ISingleResult<getPatientNoteResult> getPatientNote([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NoteTitle", DbType="VarChar(50)")] string noteTitle)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewAllergy")]
+		public int createNewAllergy([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AllergieName", DbType="NVarChar(50)")] string allergieName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="NVarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderName", DbType="VarChar(50)")] string providerName)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, date, noteTitle);
-			return ((ISingleResult<getPatientNoteResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, allergieName, details, providerID, providerName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getProviderInfo")]
+		public ISingleResult<getProviderInfoResult> getProviderInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderUserName", DbType="VarChar(50)")] string providerUserName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerUserName);
+			return ((ISingleResult<getProviderInfoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getPatientByID")]
+		public ISingleResult<getPatientByIDResult> getPatientByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
+			return ((ISingleResult<getPatientByIDResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3849,6 +3877,130 @@ namespace Shifaa_EMR_System
 				if ((this._ProviderName != value))
 				{
 					this._ProviderName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getProviderInfoResult
+	{
+		
+		private string _USERNAME;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Title;
+		
+		public getProviderInfoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this._USERNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NChar(10)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getPatientByIDResult
+	{
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		public getPatientByIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
 				}
 			}
 		}

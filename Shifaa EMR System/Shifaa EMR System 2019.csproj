@@ -86,6 +86,12 @@
     <Compile Include="AppointmentListView.Designer.cs">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CredentialVerification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CredentialVerification.Designer.cs">
+      <DependentUpon>CredentialVerification.cs</DependentUpon>
+    </Compile>
     <Compile Include="EMRDatabaseDataSet.cs">
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </Compile>
@@ -99,6 +105,12 @@
     </Compile>
     <Compile Include="NewAllergie.Designer.cs">
       <DependentUpon>NewAllergie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewAppointmentFromPatientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAppointmentFromPatientView.Designer.cs">
+      <DependentUpon>NewAppointmentFromPatientView.cs</DependentUpon>
     </Compile>
     <Compile Include="NewLabOrder.cs">
       <SubType>Form</SubType>
@@ -195,8 +207,14 @@
     <EmbeddedResource Include="AppointmentListView.resx">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CredentialVerification.resx">
+      <DependentUpon>CredentialVerification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewAllergie.resx">
       <DependentUpon>NewAllergie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAppointmentFromPatientView.resx">
+      <DependentUpon>NewAppointmentFromPatientView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewLabOrder.resx">
       <DependentUpon>NewLabOrder.cs</DependentUpon>

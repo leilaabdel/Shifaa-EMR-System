@@ -2,12 +2,19 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Data.Linq;
 
 
 namespace Shifaa_EMR_System
 {
     public partial class PhysicianLoginForm : Form
     {
+        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        string thisProviderFirstName;
+        string thisProviderLastName;
+        string thisProviderID;
+        string thisProviderTitle;
+
         public PhysicianLoginForm()
         {
             InitializeComponent();
@@ -68,14 +75,32 @@ namespace Shifaa_EMR_System
         private void Login_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count (*) From Physician_Login_Info where USERNAME='" + textBox1.Text + "' and PASSCODE ='" + textBox2.Text + "'", con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count (*) From Physician_Login_Info where USERNAME='" + UsernameBox.Text + "' and PASSCODE ='" + PassCodeBox.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
+
+
             if (dt.Rows[0][0].ToString() == "1")
             {
                 this.Hide();
-                ProviderMain ss = new ProviderMain();
-                ss.Show();
+
+                ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(UsernameBox.Text);
+
+                foreach (getProviderInfoResult r in result)
+                {
+                    thisProviderFirstName = r.FirstName;
+                    thisProviderLastName = r.LastName;
+                    thisProviderID = r.USERNAME;
+                    thisProviderTitle = r.Title;
+
+                }
+
+                string ProviderFullName = thisProviderFirstName + " " + thisProviderLastName + " " + thisProviderTitle;
+
+                ProviderMain providerName = new ProviderMain(ProviderFullName, thisProviderID);
+
+                providerName.Show();
+
             }
             else
             {

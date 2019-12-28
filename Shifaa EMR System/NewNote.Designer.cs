@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.NewNotePanel = new System.Windows.Forms.Panel();
             this.CancelButton = new System.Windows.Forms.Button();
             this.NewNoteLabel = new System.Windows.Forms.Label();
@@ -47,22 +47,22 @@
             this.SignButton = new System.Windows.Forms.Button();
             this.NoteLabel = new System.Windows.Forms.Label();
             this.NoteContentBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NoteTitleBox = new System.Windows.Forms.TextBox();
+            this.NewNoteDateValue = new System.Windows.Forms.Label();
+            this.NewNoteTitleBox = new System.Windows.Forms.TextBox();
             this.DateLabel = new System.Windows.Forms.Label();
             this.NoteTitleLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.AddendumLabel = new System.Windows.Forms.Label();
             this.SignButton1 = new System.Windows.Forms.Button();
             this.DateValueLabel1 = new System.Windows.Forms.Label();
             this.AddendumBox1 = new System.Windows.Forms.TextBox();
             this.TitleNameLabel = new System.Windows.Forms.Label();
-            this.AddendumButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.NoteLabel1 = new System.Windows.Forms.Label();
             this.NoteBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DateLabel1 = new System.Windows.Forms.Label();
             this.NoteTitleLabel1 = new System.Windows.Forms.Label();
-            this.AddendumLabel = new System.Windows.Forms.Label();
             this.NewNotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
@@ -97,6 +97,7 @@
             this.CancelButton.TabIndex = 46;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // NewNoteLabel
             // 
@@ -117,40 +118,40 @@
             this.NoteHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteHistoryTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.NoteHistoryTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.NoteHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date,
             this.NoteTitle});
             this.NoteHistoryTable.DataSource = this.patientNoteBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.NoteHistoryTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.NoteHistoryTable.DefaultCellStyle = dataGridViewCellStyle5;
             this.NoteHistoryTable.Dock = System.Windows.Forms.DockStyle.Left;
             this.NoteHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NoteHistoryTable.Location = new System.Drawing.Point(0, 0);
             this.NoteHistoryTable.Name = "NoteHistoryTable";
             this.NoteHistoryTable.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.NoteHistoryTable.RowHeadersVisible = false;
             this.NoteHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.NoteHistoryTable.Size = new System.Drawing.Size(254, 610);
@@ -214,8 +215,8 @@
             this.tabPage1.Controls.Add(this.SignButton);
             this.tabPage1.Controls.Add(this.NoteLabel);
             this.tabPage1.Controls.Add(this.NoteContentBox);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.NoteTitleBox);
+            this.tabPage1.Controls.Add(this.NewNoteDateValue);
+            this.tabPage1.Controls.Add(this.NewNoteTitleBox);
             this.tabPage1.Controls.Add(this.DateLabel);
             this.tabPage1.Controls.Add(this.NoteTitleLabel);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -239,6 +240,7 @@
             this.SignButton.TabIndex = 45;
             this.SignButton.Text = "Sign";
             this.SignButton.UseVisualStyleBackColor = false;
+            this.SignButton.Click += new System.EventHandler(this.SignButton_Click);
             // 
             // NoteLabel
             // 
@@ -261,24 +263,24 @@
             this.NoteContentBox.Size = new System.Drawing.Size(655, 483);
             this.NoteContentBox.TabIndex = 43;
             // 
-            // label1
+            // NewNoteDateValue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.label1.Location = new System.Drawing.Point(100, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 17);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "XX/XX/XXXX";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.NewNoteDateValue.AutoSize = true;
+            this.NewNoteDateValue.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.NewNoteDateValue.Location = new System.Drawing.Point(100, 18);
+            this.NewNoteDateValue.Name = "NewNoteDateValue";
+            this.NewNoteDateValue.Size = new System.Drawing.Size(82, 17);
+            this.NewNoteDateValue.TabIndex = 42;
+            this.NewNoteDateValue.Text = "XX/XX/XXXX";
+            this.NewNoteDateValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // NoteTitleBox
+            // NewNoteTitleBox
             // 
-            this.NoteTitleBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoteTitleBox.Location = new System.Drawing.Point(103, 44);
-            this.NoteTitleBox.Name = "NoteTitleBox";
-            this.NoteTitleBox.Size = new System.Drawing.Size(268, 23);
-            this.NoteTitleBox.TabIndex = 41;
+            this.NewNoteTitleBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewNoteTitleBox.Location = new System.Drawing.Point(103, 44);
+            this.NewNoteTitleBox.Name = "NewNoteTitleBox";
+            this.NewNoteTitleBox.Size = new System.Drawing.Size(268, 23);
+            this.NewNoteTitleBox.TabIndex = 41;
             // 
             // DateLabel
             // 
@@ -309,7 +311,7 @@
             this.tabPage2.Controls.Add(this.DateValueLabel1);
             this.tabPage2.Controls.Add(this.AddendumBox1);
             this.tabPage2.Controls.Add(this.TitleNameLabel);
-            this.tabPage2.Controls.Add(this.AddendumButton);
+            this.tabPage2.Controls.Add(this.ExitButton);
             this.tabPage2.Controls.Add(this.NoteLabel1);
             this.tabPage2.Controls.Add(this.NoteBox1);
             this.tabPage2.Controls.Add(this.label4);
@@ -323,6 +325,17 @@
             this.tabPage2.Text = "Existing Note";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // AddendumLabel
+            // 
+            this.AddendumLabel.AutoSize = true;
+            this.AddendumLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.AddendumLabel.Location = new System.Drawing.Point(24, 293);
+            this.AddendumLabel.Name = "AddendumLabel";
+            this.AddendumLabel.Size = new System.Drawing.Size(77, 17);
+            this.AddendumLabel.TabIndex = 67;
+            this.AddendumLabel.Text = "Addendum";
+            this.AddendumLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // SignButton1
             // 
             this.SignButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -330,7 +343,7 @@
             this.SignButton1.FlatAppearance.BorderSize = 0;
             this.SignButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignButton1.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SignButton1.Location = new System.Drawing.Point(546, 27);
+            this.SignButton1.Location = new System.Drawing.Point(423, 27);
             this.SignButton1.Name = "SignButton1";
             this.SignButton1.Size = new System.Drawing.Size(94, 26);
             this.SignButton1.TabIndex = 66;
@@ -371,19 +384,19 @@
             this.TitleNameLabel.Text = "Title";
             this.TitleNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // AddendumButton
+            // ExitButton
             // 
-            this.AddendumButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AddendumButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.AddendumButton.FlatAppearance.BorderSize = 0;
-            this.AddendumButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddendumButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.AddendumButton.Location = new System.Drawing.Point(546, 27);
-            this.AddendumButton.Name = "AddendumButton";
-            this.AddendumButton.Size = new System.Drawing.Size(94, 26);
-            this.AddendumButton.TabIndex = 52;
-            this.AddendumButton.Text = "Addendum";
-            this.AddendumButton.UseVisualStyleBackColor = false;
+            this.ExitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ExitButton.FlatAppearance.BorderSize = 0;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.ExitButton.Location = new System.Drawing.Point(546, 27);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(94, 26);
+            this.ExitButton.TabIndex = 52;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = false;
             // 
             // NoteLabel1
             // 
@@ -439,17 +452,6 @@
             this.NoteTitleLabel1.Text = "Note Title:";
             this.NoteTitleLabel1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // AddendumLabel
-            // 
-            this.AddendumLabel.AutoSize = true;
-            this.AddendumLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.AddendumLabel.Location = new System.Drawing.Point(24, 293);
-            this.AddendumLabel.Name = "AddendumLabel";
-            this.AddendumLabel.Size = new System.Drawing.Size(77, 17);
-            this.AddendumLabel.TabIndex = 67;
-            this.AddendumLabel.Text = "Addendum";
-            this.AddendumLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
             // NewNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,8 +493,8 @@
         private System.Windows.Forms.Label NoteTitleLabel;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox NoteContentBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox NoteTitleBox;
+        private System.Windows.Forms.Label NewNoteDateValue;
+        private System.Windows.Forms.TextBox NewNoteTitleBox;
         private System.Windows.Forms.Label NoteLabel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
@@ -501,7 +503,7 @@
         private System.Windows.Forms.Label DateValueLabel1;
         private System.Windows.Forms.TextBox AddendumBox1;
         private System.Windows.Forms.Label TitleNameLabel;
-        private System.Windows.Forms.Button AddendumButton;
+        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label NoteLabel1;
         private System.Windows.Forms.TextBox NoteBox1;
         private System.Windows.Forms.Label label4;

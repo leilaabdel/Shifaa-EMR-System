@@ -16,9 +16,14 @@ namespace Shifaa_EMR_System
 
         private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         int thisPatientID;
-        public NewNote(int patientID)
+        string thisProviderName;
+        string thisProviderID;
+
+        public NewNote(int patientID , string providerName , string providerID)
         {
             this.thisPatientID = patientID;
+            this.thisProviderName = providerName;
+            this.thisProviderID = providerID;
             InitializeComponent();
         }
 
@@ -28,6 +33,7 @@ namespace Shifaa_EMR_System
             this.patientNoteTableAdapter.FillByPatientID(eMRDatabaseDataSet.PatientNote, thisPatientID);
             this.NoteHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.NoteHistoryTable.MultiSelect = false;
+            this.NewNoteDateValue.Text = DateTime.Today.ToShortDateString();
 
 
 
@@ -44,14 +50,15 @@ namespace Shifaa_EMR_System
 
         }
 
+
         
         private void NoteHistoryTable_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DateTime date = (DateTime)NoteHistoryTable["Date", e.RowIndex].Value;
+            DateTime existingNoteDate = (DateTime)NoteHistoryTable["Date", e.RowIndex].Value;
             String noteTitle = (String)NoteHistoryTable["NoteTitle", e.RowIndex].Value;
             String noteContent = "";
             String providerName = "";
-            ISingleResult<getPatientNoteResult> result = doAction.getPatientNote(thisPatientID, date, noteTitle);
+            ISingleResult<getPatientNoteResult> result = doAction.getPatientNote(thisPatientID, existingNoteDate, noteTitle);
 
             foreach (getPatientNoteResult r in result){
 
@@ -60,7 +67,7 @@ namespace Shifaa_EMR_System
 
             }
 
-            AddExistingNoteTab(date, noteTitle, noteContent, providerName);
+            AddExistingNoteTab(existingNoteDate, noteTitle, noteContent, providerName);
 
 
 
@@ -87,6 +94,7 @@ namespace Shifaa_EMR_System
             Label newDateLabel = new System.Windows.Forms.Label();
             Label newNoteTitleLabel = new System.Windows.Forms.Label();
             Label newAddendumLabel = new System.Windows.Forms.Label();
+            Button newExitButton = new System.Windows.Forms.Button();
 
             // SignButton1
             // 
@@ -95,14 +103,14 @@ namespace Shifaa_EMR_System
             newSignButton.FlatAppearance.BorderSize = 0;
             newSignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newSignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newSignButton.Location = new System.Drawing.Point(546, 27);
+            newSignButton.Location = new System.Drawing.Point(423, 27);
             newSignButton.Name = "SignButton1";
             newSignButton.Size = new System.Drawing.Size(94, 26);
             newSignButton.TabIndex = 66;
             newSignButton.Text = "Sign";
             newSignButton.UseVisualStyleBackColor = false;
             newSignButton.Hide();
-            newSignButton.Click += new System.EventHandler(SignButtonClick);
+            newSignButton.Click += new System.EventHandler(ExistingSignButtonClick);
             // 
             // DateValueLabel1
             // 
@@ -144,7 +152,7 @@ namespace Shifaa_EMR_System
             newAddendumButton.FlatAppearance.BorderSize = 0;
             newAddendumButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newAddendumButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newAddendumButton.Location = new System.Drawing.Point(546, 27);
+            newAddendumButton.Location = new System.Drawing.Point(423, 27);
             newAddendumButton.Name = "newAddendumButton";
             newAddendumButton.Size = new System.Drawing.Size(94, 26);
             newAddendumButton.TabIndex = 52;
@@ -211,10 +219,23 @@ namespace Shifaa_EMR_System
             newAddendumLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             newAddendumLabel.Hide();
 
+            //newExitButton
+
+            newExitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            newExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            newExitButton.FlatAppearance.BorderSize = 0;
+            newExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            newExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            newExitButton.Location = new System.Drawing.Point(546, 27);
+            newExitButton.Name = "ExitButton";
+            newExitButton.Size = new System.Drawing.Size(94, 26);
+            newExitButton.TabIndex = 52;
+            newExitButton.Text = "Exit";
+            newExitButton.UseVisualStyleBackColor = false;
+            newExitButton.Click += new System.EventHandler(ExitButtonClick);
 
 
-
-
+            newTab.Controls.Add(newExitButton);
             newTab.Controls.Add(newSignButton);
             newTab.Controls.Add(newDateValueLabel);
             newTab.Controls.Add(newAddendumBox);
@@ -266,8 +287,10 @@ namespace Shifaa_EMR_System
             
         }
 
-        private void SignButtonClick(object sender, EventArgs e)
+        private void ExistingSignButtonClick(object sender, EventArgs e)
         {
+
+
             //Get AddendumTextBox Content 
             RichTextBox thisAddendumBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumButton", false)[0];
             String addendumText = thisAddendumBox.Text;
@@ -281,7 +304,7 @@ namespace Shifaa_EMR_System
 
             StringBuilder totalText = new StringBuilder();
             totalText.Append(oldNoteContent + "\n\n");
-            totalText.Append(@"b" + "ProviderName" + " on " + currentDate + "\n\n" + @"b0");
+            totalText.Append(@"b" + thisProviderName + " on " + currentDate + "\n\n" + @"b0");
             totalText.Append(addendumText);
 
             thisOldNoteBox.Text = totalText.ToString();
@@ -312,7 +335,30 @@ namespace Shifaa_EMR_System
             thisAddendumButton.Show();
 
 
+            Label thisNoteTitleValueLabel = (Label)NewNoteTabControl.SelectedTab.Controls.Find("newTitleValueNameLabel", false)[0];
+            Label thisNoteValueDate = (Label)NewNoteTabControl.SelectedTab.Controls.Find("newDateValueLabel", false)[0];
 
+
+            try
+            {
+                doAction.updateExistingNote(thisPatientID, thisNoteTitleValueLabel.Text,
+                    Convert.ToDateTime(thisNoteValueDate.Text), thisOldNoteBox.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please update the note or exit the page");
+            }
+
+            
+
+        }
+
+        private void ExitButtonClick(object sender, EventArgs e)
+        {
+            //Remove the selected tab when the exit button is clicked
+            NewNoteTabControl.TabPages.Remove(NewNoteTabControl.SelectedTab);
+
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -323,6 +369,28 @@ namespace Shifaa_EMR_System
         private void SignButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SignButton_Click(object sender, EventArgs e)
+        {
+            String noteTitle = NewNoteTitleBox.Text;
+            String noteContent = NoteContentBox.Text;
+            String providerName = "name"; //TO DO: ADD PROVIDER NAME TO THE PATIENT NOTE FROM THE LOGIN PAGE
+            String providerID = "providerID"; //TO DO: ADD PROVIDER ID TO THE PATIENT NOTE FROM THE LOGIN PAGE
+
+            doAction.createNewPatientNote(thisPatientID, providerName, providerID, noteTitle, noteContent);
+
+           
         }
     }
 }

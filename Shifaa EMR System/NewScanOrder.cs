@@ -12,9 +12,34 @@ namespace Shifaa_EMR_System
 {
     public partial class NewScanOrder : Form
     {
-        public NewScanOrder()
+        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        int thisPatientID;
+        string thisProviderName;
+        string thisProviderID;
+
+        public NewScanOrder(int patientID , string providerName , string providerID)
         {
             InitializeComponent();
+            this.thisPatientID = patientID;
+            this.thisProviderName = providerName;
+            this.thisProviderID = providerID;
+
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            doAction.createNewScanOrProcedureOrder(ScanNameBox.Text, DetailsBox.Text, thisProviderName, thisProviderID, thisPatientID, ScheduleDatePicker.Value);
+            this.Close();
+        }
+
+        private void NewScanOrder_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

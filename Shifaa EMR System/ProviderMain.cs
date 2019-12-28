@@ -8,12 +8,28 @@ namespace Shifaa_EMR_System
 {
     public partial class ProviderMain : Form
     {
-        
 
-        public ProviderMain()
+        string thisProviderName;
+        string thisProviderID;
+
+        public ProviderMain(string providerName , string providerID)
         {
+
+            this.thisProviderName = providerName;
+            this.thisProviderID = providerID;
             InitializeComponent();
         }
+
+        public string getProviderName()
+        {
+            return this.thisProviderName;
+        }
+
+        public string getProviderID()
+        {
+            return this.thisProviderID;
+        }
+
 
        
 
@@ -245,6 +261,11 @@ namespace Shifaa_EMR_System
 
             globalAppointmentList.MdiParent = this;
             globalAppointmentList.fillByDate();
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
     }
