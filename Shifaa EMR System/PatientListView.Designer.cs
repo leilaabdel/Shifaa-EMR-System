@@ -87,7 +87,7 @@
             this.PatientListView1.ReadOnly = true;
             this.PatientListView1.RowHeadersVisible = false;
             this.PatientListView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PatientListView1.Size = new System.Drawing.Size(1092, 921);
+            this.PatientListView1.Size = new System.Drawing.Size(1075, 921);
             this.PatientListView1.TabIndex = 0;
             this.PatientListView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_RowDoubleClick);
             // 
@@ -150,7 +150,7 @@
             this.Exit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
-            this.Exit.Location = new System.Drawing.Point(460, 1028);
+            this.Exit.Location = new System.Drawing.Point(451, 1028);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(161, 82);
             this.Exit.TabIndex = 25;

@@ -109,6 +109,7 @@
             this.AllergyNameBox.Size = new System.Drawing.Size(127, 23);
             this.AllergyNameBox.TabIndex = 40;
             this.AllergyNameToolTip.SetToolTip(this.AllergyNameBox, "Ex: Latex");
+            this.AllergyNameBox.TextChanged += new System.EventHandler(this.AllergyNameBox_TextChanged);
             // 
             // DetailsBox
             // 
@@ -152,6 +153,7 @@
             this.MinimizeBox = false;
             this.Name = "NewAllergie";
             this.Text = "NewPrescriptionForm";
+            this.Load += new System.EventHandler(this.NewAllergie_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

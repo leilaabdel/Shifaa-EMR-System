@@ -344,7 +344,7 @@ namespace Shifaa_EMR_System
                 doAction.updateExistingNote(thisPatientID, thisNoteTitleValueLabel.Text,
                     Convert.ToDateTime(thisNoteValueDate.Text), thisOldNoteBox.Text);
             }
-            catch
+            catch(FieldAccessException)
             {
                 MessageBox.Show("Please update the note or exit the page");
             }

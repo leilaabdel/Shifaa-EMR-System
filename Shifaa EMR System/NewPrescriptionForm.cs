@@ -25,6 +25,13 @@ namespace Shifaa_EMR_System
             this.thisPatientID = patientID;
             this.thisProviderName = providerName;
             this.thisProviderID = providerID;
+
+
+            MedicationBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            MedicationBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            MedicationBox.AutoCompleteCustomSource = AutoComplete.PrescriptionNameAutoComplete();
+
+
         }
 
         private void MedicationBox_TextChanged(object sender, EventArgs e)

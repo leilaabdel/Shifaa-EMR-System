@@ -421,7 +421,7 @@ namespace Shifaa_EMR_System
 
                 this.patientTableAdapter.FillBySearch(this.eMRDatabaseDataSet.Patient, PatientIDNumInt, FirstName.Text, LastName.Text);
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
 
                 //TO DO: Get rid of this when functional
@@ -456,7 +456,7 @@ namespace Shifaa_EMR_System
                 this.patientTableAdapter.FillBySearch(this.eMRDatabaseDataSet.Patient, PatientIDNumInt, FirstName.Text, LastName.Text);
 
             }
-            catch (Exception ex)
+            catch (FieldAccessException ex)
             {
                 //TO DO: Get rid of this when functional
                 MessageBox.Show(ex.Message);
@@ -492,7 +492,7 @@ namespace Shifaa_EMR_System
                     Console.WriteLine("search tried");
 
                 }
-                catch (Exception ex)
+                catch (FieldAccessException ex)
                 {
                     //TO DO: Get rid of this when functional
                     MessageBox.Show(ex.Message);
@@ -561,7 +561,7 @@ namespace Shifaa_EMR_System
 
                 reader.Close();
             }
-            catch (Exception ex)
+            catch (FieldAccessException ex)
             {
                 MessageBox.Show(ex.ToString());
             }

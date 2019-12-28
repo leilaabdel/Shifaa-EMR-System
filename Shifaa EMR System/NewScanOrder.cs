@@ -24,6 +24,11 @@ namespace Shifaa_EMR_System
             this.thisProviderName = providerName;
             this.thisProviderID = providerID;
 
+
+            ScanNameBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            ScanNameBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            ScanNameBox.AutoCompleteCustomSource = AutoComplete.ScanNameAutoComplete();
+
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

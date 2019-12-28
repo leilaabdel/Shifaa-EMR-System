@@ -28,6 +28,10 @@ namespace Shifaa_EMR_System
             this.thisProviderName = providerName;
 
 
+            AllergyNameBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            AllergyNameBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AllergyNameBox.AutoCompleteCustomSource = AutoComplete.AllergyNameAutoComplete();
+
         }
 
         private void DetailsLabel_Click(object sender, EventArgs e)
@@ -54,6 +58,16 @@ namespace Shifaa_EMR_System
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AllergyNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewAllergie_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

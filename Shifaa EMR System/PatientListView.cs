@@ -49,7 +49,7 @@ namespace Shifaa_EMR_System
                 this.patientTableAdapter.FillBySearch(this.eMRDatabaseDataSet.Patient, searchID, searchText, searchText);
                 Console.WriteLine("after");
             }
-            catch(Exception ex)
+            catch(FieldAccessException ex)
             {
 
                 Console.WriteLine(ex);

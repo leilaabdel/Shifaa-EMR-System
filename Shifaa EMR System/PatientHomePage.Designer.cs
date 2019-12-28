@@ -58,7 +58,7 @@
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.PatientNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
             this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteTitleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteContentDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -99,7 +99,7 @@
             this.AddMedicationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.AllergiesTable = new System.Windows.Forms.DataGridView();
             this.patientAllergieIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.providerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,7 +110,7 @@
             this.AddAllergieButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.LabsTable = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateOrdered = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,7 +119,7 @@
             this.AddLabButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.VitalHistoryTable = new System.Windows.Forms.DataGridView();
             this.bloodPressureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pulseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temperatureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,7 +133,7 @@
             this.AddNewVitalButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.ScansTable = new System.Windows.Forms.DataGridView();
             this.scanNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scanDetailsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.providerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -168,7 +168,7 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.panel7.SuspendLayout();
@@ -181,19 +181,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllergiesTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LabsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).BeginInit();
             this.VitalHistoryLabel.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScansTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
             this.panel15.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -203,6 +203,7 @@
             // 
             // panel1
             // 
+            this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.Azure;
             this.panel1.Controls.Add(this.DOBLabel);
             this.panel1.Controls.Add(this.ExitButton);
@@ -214,7 +215,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 20);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1259, 86);
+            this.panel1.Size = new System.Drawing.Size(1259, 79);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -269,7 +270,7 @@
             // 
             this.PhoneNumberLabel.AutoSize = true;
             this.PhoneNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(35, 53);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(35, 47);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
             this.PhoneNumberLabel.Size = new System.Drawing.Size(199, 23);
             this.PhoneNumberLabel.TabIndex = 29;
@@ -290,7 +291,7 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.NoteHistoryTable);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Location = new System.Drawing.Point(14, 197);
             this.panel2.Name = "panel2";
@@ -298,13 +299,13 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // dataGridView1
+            // NoteHistoryTable
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.NoteHistoryTable.AllowUserToDeleteRows = false;
+            this.NoteHistoryTable.AutoGenerateColumns = false;
+            this.NoteHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.NoteHistoryTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.NoteHistoryTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle22.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -312,14 +313,14 @@
             dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NoteHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            this.NoteHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NoteHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateDataGridViewTextBoxColumn2,
             this.noteTitleDataGridViewTextBoxColumn1,
             this.noteContentDataGridViewTextBoxColumn1,
             this.providerNameDataGridViewTextBoxColumn4});
-            this.dataGridView1.DataSource = this.patientNoteBindingSource;
+            this.NoteHistoryTable.DataSource = this.patientNoteBindingSource;
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle23.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -327,12 +328,12 @@
             dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.NoteHistoryTable.DefaultCellStyle = dataGridViewCellStyle23;
+            this.NoteHistoryTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NoteHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NoteHistoryTable.Location = new System.Drawing.Point(0, 42);
+            this.NoteHistoryTable.Name = "NoteHistoryTable";
+            this.NoteHistoryTable.ReadOnly = true;
             dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,11 +341,11 @@
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(494, 406);
-            this.dataGridView1.TabIndex = 45;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.NoteHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.NoteHistoryTable.RowHeadersVisible = false;
+            this.NoteHistoryTable.Size = new System.Drawing.Size(494, 406);
+            this.NoteHistoryTable.TabIndex = 45;
+            this.NoteHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dateDataGridViewTextBoxColumn2
             // 
@@ -530,6 +531,7 @@
             this.AddNewAppointmentButton.TabIndex = 45;
             this.AddNewAppointmentButton.Text = "+";
             this.AddNewAppointmentButton.UseVisualStyleBackColor = false;
+            this.AddNewAppointmentButton.Click += new System.EventHandler(this.AddNewAppointmentButton_Click);
             // 
             // label1
             // 
@@ -678,7 +680,7 @@
             this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.MedicationsListDataGridView);
             this.panel5.Controls.Add(this.panel9);
-            this.panel5.Location = new System.Drawing.Point(517, 112);
+            this.panel5.Location = new System.Drawing.Point(513, 112);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(259, 270);
             this.panel5.TabIndex = 3;
@@ -795,25 +797,26 @@
             this.label2.Size = new System.Drawing.Size(111, 23);
             this.label2.TabIndex = 28;
             this.label2.Text = "Medications";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel6
             // 
             this.panel6.AutoSize = true;
-            this.panel6.Controls.Add(this.dataGridView3);
+            this.panel6.Controls.Add(this.AllergiesTable);
             this.panel6.Controls.Add(this.panel10);
-            this.panel6.Location = new System.Drawing.Point(782, 112);
+            this.panel6.Location = new System.Drawing.Point(778, 112);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 270);
             this.panel6.TabIndex = 4;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
-            // dataGridView3
+            // AllergiesTable
             // 
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AllergiesTable.AllowUserToDeleteRows = false;
+            this.AllergiesTable.AutoGenerateColumns = false;
+            this.AllergiesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.AllergiesTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.AllergiesTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle31.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -821,16 +824,16 @@
             dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.ColumnHeadersVisible = false;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AllergiesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            this.AllergiesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AllergiesTable.ColumnHeadersVisible = false;
+            this.AllergiesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.patientAllergieIDDataGridViewTextBoxColumn1,
             this.patientIDDataGridViewTextBoxColumn1,
             this.providerIDDataGridViewTextBoxColumn1,
             this.providerNameDataGridViewTextBoxColumn1,
             this.dateCreatedDataGridViewTextBoxColumn1});
-            this.dataGridView3.DataSource = this.allergieBindingSource;
+            this.AllergiesTable.DataSource = this.allergieBindingSource;
             dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle32.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -838,12 +841,12 @@
             dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle32;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 42);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
+            this.AllergiesTable.DefaultCellStyle = dataGridViewCellStyle32;
+            this.AllergiesTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllergiesTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AllergiesTable.Location = new System.Drawing.Point(0, 42);
+            this.AllergiesTable.Name = "AllergiesTable";
+            this.AllergiesTable.ReadOnly = true;
             dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -851,10 +854,10 @@
             dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(250, 228);
-            this.dataGridView3.TabIndex = 46;
+            this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            this.AllergiesTable.RowHeadersVisible = false;
+            this.AllergiesTable.Size = new System.Drawing.Size(250, 228);
+            this.AllergiesTable.TabIndex = 46;
             // 
             // patientAllergieIDDataGridViewTextBoxColumn1
             // 
@@ -936,21 +939,21 @@
             // panel11
             // 
             this.panel11.AutoSize = true;
-            this.panel11.Controls.Add(this.dataGridView4);
+            this.panel11.Controls.Add(this.LabsTable);
             this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(782, 389);
+            this.panel11.Location = new System.Drawing.Point(778, 389);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(250, 257);
             this.panel11.TabIndex = 35;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
-            // dataGridView4
+            // LabsTable
             // 
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.LabsTable.AllowUserToDeleteRows = false;
+            this.LabsTable.AutoGenerateColumns = false;
+            this.LabsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LabsTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.LabsTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle34.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -958,13 +961,13 @@
             dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LabsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            this.LabsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LabsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.DateOrdered,
             this.dataGridViewTextBoxColumn7});
-            this.dataGridView4.DataSource = this.patientLabBindingSource;
+            this.LabsTable.DataSource = this.patientLabBindingSource;
             dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle35.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -972,12 +975,12 @@
             dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle35;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 42);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
+            this.LabsTable.DefaultCellStyle = dataGridViewCellStyle35;
+            this.LabsTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabsTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LabsTable.Location = new System.Drawing.Point(0, 42);
+            this.LabsTable.Name = "LabsTable";
+            this.LabsTable.ReadOnly = true;
             dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -985,11 +988,11 @@
             dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView4.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.Size = new System.Drawing.Size(250, 215);
-            this.dataGridView4.TabIndex = 47;
-            this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
+            this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            this.LabsTable.RowHeadersVisible = false;
+            this.LabsTable.Size = new System.Drawing.Size(250, 215);
+            this.LabsTable.TabIndex = 47;
+            this.LabsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1057,21 +1060,21 @@
             // panel13
             // 
             this.panel13.AutoSize = true;
-            this.panel13.Controls.Add(this.dataGridView2);
+            this.panel13.Controls.Add(this.VitalHistoryTable);
             this.panel13.Controls.Add(this.VitalHistoryLabel);
-            this.panel13.Location = new System.Drawing.Point(517, 651);
+            this.panel13.Location = new System.Drawing.Point(513, 651);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(515, 268);
             this.panel13.TabIndex = 43;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
-            // dataGridView2
+            // VitalHistoryTable
             // 
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.VitalHistoryTable.AllowUserToDeleteRows = false;
+            this.VitalHistoryTable.AutoGenerateColumns = false;
+            this.VitalHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.VitalHistoryTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.VitalHistoryTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle37.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -1079,9 +1082,9 @@
             dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VitalHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            this.VitalHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VitalHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.bloodPressureDataGridViewTextBoxColumn,
             this.pulseDataGridViewTextBoxColumn,
             this.temperatureDataGridViewTextBoxColumn,
@@ -1089,7 +1092,7 @@
             this.weightDataGridViewTextBoxColumn,
             this.bMIDataGridViewTextBoxColumn,
             this.dateUpdatedDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.vitalSignsBindingSource;
+            this.VitalHistoryTable.DataSource = this.vitalSignsBindingSource;
             dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle38.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1097,12 +1100,12 @@
             dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle38;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 42);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
+            this.VitalHistoryTable.DefaultCellStyle = dataGridViewCellStyle38;
+            this.VitalHistoryTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VitalHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.VitalHistoryTable.Location = new System.Drawing.Point(0, 39);
+            this.VitalHistoryTable.Name = "VitalHistoryTable";
+            this.VitalHistoryTable.ReadOnly = true;
             dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1110,11 +1113,11 @@
             dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(515, 226);
-            this.dataGridView2.TabIndex = 45;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            this.VitalHistoryTable.RowHeadersVisible = false;
+            this.VitalHistoryTable.Size = new System.Drawing.Size(515, 229);
+            this.VitalHistoryTable.TabIndex = 45;
+            this.VitalHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // bloodPressureDataGridViewTextBoxColumn
             // 
@@ -1172,6 +1175,7 @@
             // 
             // VitalHistoryLabel
             // 
+            this.VitalHistoryLabel.AutoSize = true;
             this.VitalHistoryLabel.BackColor = System.Drawing.Color.Azure;
             this.VitalHistoryLabel.Controls.Add(this.label6);
             this.VitalHistoryLabel.Controls.Add(this.AddNewVitalButton);
@@ -1179,7 +1183,7 @@
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(515, 42);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(515, 39);
             this.VitalHistoryLabel.TabIndex = 35;
             // 
             // label6
@@ -1223,21 +1227,21 @@
             // panel14
             // 
             this.panel14.AutoSize = true;
-            this.panel14.Controls.Add(this.dataGridView5);
+            this.panel14.Controls.Add(this.ScansTable);
             this.panel14.Controls.Add(this.panel15);
-            this.panel14.Location = new System.Drawing.Point(517, 389);
+            this.panel14.Location = new System.Drawing.Point(513, 389);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(259, 257);
             this.panel14.TabIndex = 48;
             this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
             // 
-            // dataGridView5
+            // ScansTable
             // 
-            this.dataGridView5.AllowUserToDeleteRows = false;
-            this.dataGridView5.AutoGenerateColumns = false;
-            this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView5.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ScansTable.AllowUserToDeleteRows = false;
+            this.ScansTable.AutoGenerateColumns = false;
+            this.ScansTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ScansTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ScansTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle40.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -1245,14 +1249,14 @@
             dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ScansTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            this.ScansTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ScansTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.scanNameDataGridViewTextBoxColumn,
             this.scanDetailsDataGridViewTextBoxColumn,
             this.providerNameDataGridViewTextBoxColumn,
             this.dateOrderedDataGridViewTextBoxColumn});
-            this.dataGridView5.DataSource = this.patientScanBindingSource;
+            this.ScansTable.DataSource = this.patientScanBindingSource;
             dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle41.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1260,12 +1264,12 @@
             dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle41;
-            this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView5.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView5.Location = new System.Drawing.Point(0, 42);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.ReadOnly = true;
+            this.ScansTable.DefaultCellStyle = dataGridViewCellStyle41;
+            this.ScansTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScansTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ScansTable.Location = new System.Drawing.Point(0, 42);
+            this.ScansTable.Name = "ScansTable";
+            this.ScansTable.ReadOnly = true;
             dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1273,11 +1277,11 @@
             dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
-            this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.Size = new System.Drawing.Size(259, 215);
-            this.dataGridView5.TabIndex = 47;
-            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
+            this.ScansTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            this.ScansTable.RowHeadersVisible = false;
+            this.ScansTable.Size = new System.Drawing.Size(259, 215);
+            this.ScansTable.TabIndex = 47;
+            this.ScansTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
             // 
             // scanNameDataGridViewTextBoxColumn
             // 
@@ -1450,10 +1454,11 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
+            this.panel4.AutoSize = true;
             this.panel4.Controls.Add(this.panel16);
             this.panel4.Location = new System.Drawing.Point(0, 106);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1259, 808);
+            this.panel4.Size = new System.Drawing.Size(1259, 814);
             this.panel4.TabIndex = 49;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
             // 
@@ -1463,7 +1468,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel16.Location = new System.Drawing.Point(1048, 0);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(211, 808);
+            this.panel16.Size = new System.Drawing.Size(211, 814);
             this.panel16.TabIndex = 0;
             // 
             // menuStrip2
@@ -1548,7 +1553,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.panel7.ResumeLayout(false);
@@ -1564,22 +1569,23 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllergiesTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LabsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).EndInit();
             this.VitalHistoryLabel.ResumeLayout(false);
             this.VitalHistoryLabel.PerformLayout();
             this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScansTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
@@ -1641,7 +1647,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateAppointmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView NoteHistoryTable;
         private System.Windows.Forms.Button AddNoteButton;
         private EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter patientNoteTableAdapter;
         private System.Windows.Forms.BindingSource patientNoteBindingSource;
@@ -1654,10 +1660,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn strengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView VitalHistoryTable;
         private System.Windows.Forms.BindingSource vitalSignsBindingSource;
         private EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter vitalSignsTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView AllergiesTable;
         private System.Windows.Forms.BindingSource allergieBindingSource;
         private EMRDatabaseDataSetTableAdapters.AllergieTableAdapter allergieTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameLabel;
@@ -1666,11 +1672,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn allergieTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView LabsTable;
         private System.Windows.Forms.BindingSource patientLabBindingSource;
         private EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter patientLabTableAdapter;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView ScansTable;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Button AddNewScanButton;
         private System.Windows.Forms.Label ScansLabel;

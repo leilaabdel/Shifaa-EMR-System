@@ -86,6 +86,7 @@
     <Compile Include="AppointmentListView.Designer.cs">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AutoComplete.cs" />
     <Compile Include="CredentialVerification.cs">
       <SubType>Form</SubType>
     </Compile>

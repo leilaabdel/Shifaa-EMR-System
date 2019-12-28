@@ -112,6 +112,7 @@
             this.LabNameBox.Size = new System.Drawing.Size(226, 23);
             this.LabNameBox.TabIndex = 40;
             this.LabNameToolTip.SetToolTip(this.LabNameBox, "Enter the name of the scan or procedure. Ex: MRI");
+            this.LabNameBox.TextChanged += new System.EventHandler(this.LabNameBox_TextChanged);
             // 
             // DetailsBox
             // 

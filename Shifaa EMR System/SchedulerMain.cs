@@ -11,10 +11,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
-        public string type()
-        {
-            return "Scheduler";
-        }
+        public static string type() => "Scheduler";
 
 
         private void ExistingAppointments_Click(object sender, EventArgs e)

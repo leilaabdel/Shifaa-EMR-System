@@ -24,6 +24,12 @@ namespace Shifaa_EMR_System
             this.thisPatientID = patientID;
             this.thisProviderID = providerID;
             this.thisProviderName = providerName;
+
+            LabNameBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            LabNameBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            LabNameBox.AutoCompleteCustomSource = AutoComplete.LabNameCollection();
+
+
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
@@ -47,6 +53,11 @@ namespace Shifaa_EMR_System
         }
 
         private void NewLabOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabNameBox_TextChanged(object sender, EventArgs e)
         {
 
         }

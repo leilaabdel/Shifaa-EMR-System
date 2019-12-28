@@ -338,5 +338,21 @@ namespace Shifaa_EMR_System
             }
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddNewAppointmentButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null)
+            {
+                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderMain.getProviderID(),
+                    thisProviderMain.getProviderName());
+                newAppointment.StartPosition = FormStartPosition.CenterParent;
+                newAppointment.Show();
+            }
+        }
     }
 }
