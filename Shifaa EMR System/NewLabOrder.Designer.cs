@@ -39,9 +39,9 @@
             this.LabNameToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DetailsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DateScheduledLabel = new System.Windows.Forms.Label();
-            this.ScheduledDatePicker = new MetroFramework.Controls.MetroDateTime();
             this.DateScheduledToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
+            this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(420, 40);
+            this.panel1.Size = new System.Drawing.Size(421, 40);
             this.panel1.TabIndex = 0;
             // 
             // CancelButton
@@ -106,21 +106,25 @@
             // 
             // LabNameBox
             // 
+            this.LabNameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.LabNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabNameBox.Location = new System.Drawing.Point(169, 53);
             this.LabNameBox.Name = "LabNameBox";
-            this.LabNameBox.Size = new System.Drawing.Size(226, 23);
+            this.LabNameBox.Size = new System.Drawing.Size(227, 23);
             this.LabNameBox.TabIndex = 40;
             this.LabNameToolTip.SetToolTip(this.LabNameBox, "Enter the name of the scan or procedure. Ex: MRI");
             this.LabNameBox.TextChanged += new System.EventHandler(this.LabNameBox_TextChanged);
             // 
             // DetailsBox
             // 
+            this.DetailsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DetailsBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailsBox.Location = new System.Drawing.Point(169, 91);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
-            this.DetailsBox.Size = new System.Drawing.Size(226, 120);
+            this.DetailsBox.Size = new System.Drawing.Size(227, 120);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Description of procedure. Ex: Static Perimetry for Glaucoma Diagnostic");
             // 
@@ -135,18 +139,9 @@
             this.DateScheduledLabel.Text = "Date Scheduled";
             this.DetailsToolTip.SetToolTip(this.DateScheduledLabel, "Optional. Typically in number of tablets, sprays, etc.");
             // 
-            // ScheduledDatePicker
-            // 
-            this.ScheduledDatePicker.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheduledDatePicker.Location = new System.Drawing.Point(169, 227);
-            this.ScheduledDatePicker.MinimumSize = new System.Drawing.Size(0, 29);
-            this.ScheduledDatePicker.Name = "ScheduledDatePicker";
-            this.ScheduledDatePicker.Size = new System.Drawing.Size(226, 29);
-            this.ScheduledDatePicker.TabIndex = 43;
-            this.DateScheduledToolTip.SetToolTip(this.ScheduledDatePicker, "Pick the date that the test is scheduled for");
-            // 
             // SubmitButton
             // 
+            this.SubmitButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SubmitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SubmitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SubmitButton.FlatAppearance.BorderSize = 0;
@@ -160,24 +155,37 @@
             this.SubmitButton.UseVisualStyleBackColor = false;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
+            // ScheduledDatePicker
+            // 
+            this.ScheduledDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScheduledDatePicker.CustomFormat = "dddd dd/MM/yyyy ";
+            this.ScheduledDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
+            this.ScheduledDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ScheduledDatePicker.Location = new System.Drawing.Point(170, 225);
+            this.ScheduledDatePicker.Name = "ScheduledDatePicker";
+            this.ScheduledDatePicker.ShowUpDown = true;
+            this.ScheduledDatePicker.Size = new System.Drawing.Size(226, 25);
+            this.ScheduledDatePicker.TabIndex = 45;
+            // 
             // NewLabOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 333);
+            this.ClientSize = new System.Drawing.Size(421, 377);
             this.ControlBox = false;
-            this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.ScheduledDatePicker);
+            this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.DateScheduledLabel);
             this.Controls.Add(this.DetailsBox);
             this.Controls.Add(this.LabNameBox);
             this.Controls.Add(this.DetailsLabel);
             this.Controls.Add(this.LabNameLabel);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewLabOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewPrescriptionForm";
             this.Load += new System.EventHandler(this.NewLabOrder_Load);
             this.panel1.ResumeLayout(false);
@@ -198,9 +206,9 @@
         private System.Windows.Forms.ToolTip DetailsToolTip;
         private System.Windows.Forms.Label NewLabLabel;
         private System.Windows.Forms.Label DateScheduledLabel;
-        private MetroFramework.Controls.MetroDateTime ScheduledDatePicker;
         private System.Windows.Forms.ToolTip DateScheduledToolTip;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.DateTimePicker ScheduledDatePicker;
     }
 }

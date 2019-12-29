@@ -59,17 +59,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(381, 39);
+            this.panel1.Size = new System.Drawing.Size(402, 39);
             this.panel1.TabIndex = 0;
             // 
             // CancelButton
             // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.BackColor = System.Drawing.Color.AliceBlue;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(284, 7);
+            this.CancelButton.Location = new System.Drawing.Point(305, 7);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 26);
             this.CancelButton.TabIndex = 49;
@@ -146,61 +147,72 @@
             // 
             // BloodPressureBox
             // 
+            this.BloodPressureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BloodPressureBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BloodPressureBox.Location = new System.Drawing.Point(217, 65);
             this.BloodPressureBox.Name = "BloodPressureBox";
-            this.BloodPressureBox.Size = new System.Drawing.Size(127, 23);
+            this.BloodPressureBox.Size = new System.Drawing.Size(148, 23);
             this.BloodPressureBox.TabIndex = 40;
             this.BloodPressureToolTip.SetToolTip(this.BloodPressureBox, "Enter bp as systolic/diastolic");
             // 
             // PulseBox
             // 
+            this.PulseBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PulseBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PulseBox.Location = new System.Drawing.Point(217, 103);
             this.PulseBox.Name = "PulseBox";
-            this.PulseBox.Size = new System.Drawing.Size(127, 23);
+            this.PulseBox.Size = new System.Drawing.Size(148, 23);
             this.PulseBox.TabIndex = 41;
             this.PulseToolTip.SetToolTip(this.PulseBox, "Enter pulse measured either manually or digitally");
             this.PulseBox.TextChanged += new System.EventHandler(this.PulseBox_TextChanged);
             // 
             // TemperatureBox
             // 
+            this.TemperatureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TemperatureBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TemperatureBox.Location = new System.Drawing.Point(217, 142);
             this.TemperatureBox.Name = "TemperatureBox";
-            this.TemperatureBox.Size = new System.Drawing.Size(127, 23);
+            this.TemperatureBox.Size = new System.Drawing.Size(148, 23);
             this.TemperatureBox.TabIndex = 42;
             this.TemperatureToolTip.SetToolTip(this.TemperatureBox, "Enter temperature measured with thermometer (oral, ear, etc.");
             this.TemperatureBox.TextChanged += new System.EventHandler(this.TemperatureBox_TextChanged);
             // 
             // HeightBox
             // 
+            this.HeightBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.HeightBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HeightBox.Location = new System.Drawing.Point(217, 182);
             this.HeightBox.Name = "HeightBox";
-            this.HeightBox.Size = new System.Drawing.Size(127, 23);
+            this.HeightBox.Size = new System.Drawing.Size(148, 23);
             this.HeightBox.TabIndex = 43;
             this.HeightToolTip.SetToolTip(this.HeightBox, "Enter height in centimeters");
             this.HeightBox.TextChanged += new System.EventHandler(this.HeightBox_TextChanged);
             // 
             // WeightBox
             // 
+            this.WeightBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WeightBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeightBox.Location = new System.Drawing.Point(217, 222);
             this.WeightBox.Name = "WeightBox";
-            this.WeightBox.Size = new System.Drawing.Size(127, 23);
+            this.WeightBox.Size = new System.Drawing.Size(148, 23);
             this.WeightBox.TabIndex = 44;
             this.WeightToolTip.SetToolTip(this.WeightBox, "Enter weight in Kg");
             this.WeightBox.TextChanged += new System.EventHandler(this.WeightBox_TextChanged);
             // 
             // SubmitButton
             // 
+            this.SubmitButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SubmitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SubmitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(150, 269);
+            this.SubmitButton.Location = new System.Drawing.Point(161, 269);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 45;
@@ -212,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 314);
+            this.ClientSize = new System.Drawing.Size(402, 336);
             this.ControlBox = false;
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.WeightBox);
@@ -226,11 +238,12 @@
             this.Controls.Add(this.PulseLabel);
             this.Controls.Add(this.BloodPressureLabel);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewVital";
-            this.Text = "NewVital";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Vital";
             this.Load += new System.EventHandler(this.NewVital_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

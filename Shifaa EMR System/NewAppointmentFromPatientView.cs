@@ -65,5 +65,10 @@ namespace Shifaa_EMR_System
         {
             this.Close();
         }
+
+        private void AppointmentDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

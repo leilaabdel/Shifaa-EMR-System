@@ -26,6 +26,7 @@ namespace Shifaa_EMR_System
             this.thispatientID = patientID;
             this.thisProviderID = providerID;
             this.thisProviderName = providerName;
+            this.WindowState = FormWindowState.Normal;
 
 
             AllergyNameBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -67,6 +68,7 @@ namespace Shifaa_EMR_System
 
         private void NewAllergie_Load(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
 
         }
     }

@@ -271,12 +271,17 @@ namespace Shifaa_EMR_System
 
         }
 
+        private void Center(Form form)
+        {
+            form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
+        }
+
         private void AddNoteButton_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["NewNote"] as NewNote == null)
             {
                 NewNote newNoteForm = new NewNote(thisPatientID, thisProviderMain.getProviderName(), thisProviderMain.getProviderID());
-                newNoteForm.StartPosition = FormStartPosition.CenterParent;
+                Center(newNoteForm);
                 newNoteForm.Show();
 
             }
@@ -287,8 +292,9 @@ namespace Shifaa_EMR_System
             if (Application.OpenForms["NewPrescriptionForm"] as NewPrescriptionForm == null)
             {
                 NewPrescriptionForm newPrescription = new NewPrescriptionForm(thisPatientID, thisProviderMain.getProviderName(),
-                    thisProviderMain.getProviderID());
-                newPrescription.StartPosition = FormStartPosition.CenterParent;
+                thisProviderMain.getProviderID());
+
+                Center(newPrescription);
                 newPrescription.Show();
             }
         }
@@ -299,7 +305,8 @@ namespace Shifaa_EMR_System
             {
                 NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.getProviderID() ,
                     thisProviderMain.getProviderName());
-                newAllergie.StartPosition = FormStartPosition.CenterParent;
+
+                Center(newAllergie);
                 newAllergie.Show();
             }
         }
@@ -310,7 +317,8 @@ namespace Shifaa_EMR_System
             {
                 NewScanOrder newScan = new NewScanOrder(thisPatientID, thisProviderMain.getProviderName(),
                     thisProviderMain.getProviderID());
-                newScan.StartPosition = FormStartPosition.CenterParent;
+
+                Center(newScan);
                 newScan.Show();
             }
         }
@@ -321,7 +329,8 @@ namespace Shifaa_EMR_System
             {
                 NewLabOrder newLabOrder = new NewLabOrder(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
-                newLabOrder.StartPosition = FormStartPosition.CenterParent;
+
+                Center(newLabOrder);
                 newLabOrder.Show();
             }
 
@@ -333,7 +342,8 @@ namespace Shifaa_EMR_System
             {
                 NewVital newVital = new NewVital(thisPatientID, thisProviderMain.getProviderName(),
                     thisProviderMain.getProviderID());
-                newVital.StartPosition = FormStartPosition.CenterParent;
+
+                Center(newVital);
                 newVital.Show();
             }
 
@@ -350,9 +360,20 @@ namespace Shifaa_EMR_System
             {
                 NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
+                newAppointment.MdiParent = thisProviderMain;
                 newAppointment.StartPosition = FormStartPosition.CenterParent;
                 newAppointment.Show();
             }
+        }
+
+        private void patientClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VitalHistoryLabel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -81,7 +81,7 @@
             this.NewNotePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.NewNotePanel.Location = new System.Drawing.Point(0, 0);
             this.NewNotePanel.Name = "NewNotePanel";
-            this.NewNotePanel.Size = new System.Drawing.Size(937, 39);
+            this.NewNotePanel.Size = new System.Drawing.Size(939, 39);
             this.NewNotePanel.TabIndex = 1;
             // 
             // CancelButton
@@ -201,9 +201,10 @@
             // 
             // NewNoteTabControl
             // 
+            this.NewNoteTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewNoteTabControl.Controls.Add(this.tabPage1);
             this.NewNoteTabControl.Controls.Add(this.tabPage2);
-            this.NewNoteTabControl.Dock = System.Windows.Forms.DockStyle.Right;
             this.NewNoteTabControl.Location = new System.Drawing.Point(260, 0);
             this.NewNoteTabControl.Name = "NewNoteTabControl";
             this.NewNoteTabControl.SelectedIndex = 0;
@@ -255,6 +256,8 @@
             // 
             // NoteContentBox
             // 
+            this.NoteContentBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NoteContentBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NoteContentBox.Location = new System.Drawing.Point(6, 95);
             this.NoteContentBox.Multiline = true;
@@ -456,12 +459,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 657);
+            this.ClientSize = new System.Drawing.Size(939, 667);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NewNotePanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NewNote";
-            this.Text = "NewNote";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Note";
             this.Load += new System.EventHandler(this.NewNote_Load);
             this.NewNotePanel.ResumeLayout(false);
             this.NewNotePanel.PerformLayout();

@@ -26,6 +26,7 @@ namespace Shifaa_EMR_System
        
             try
             {
+                conDataBase.Close();
                 conDataBase.Open();
                 reader = command.ExecuteReader();
 
@@ -62,6 +63,7 @@ namespace Shifaa_EMR_System
 
             try
             {
+                conDataBase.Close();
                 conDataBase.Open();
                 reader = command.ExecuteReader();
 
@@ -76,8 +78,9 @@ namespace Shifaa_EMR_System
 
                 }
 
-                reader.Close();
                 conDataBase.Close();
+                reader.Close();
+              
 
                 return labnamecollection;
             }
@@ -96,6 +99,7 @@ namespace Shifaa_EMR_System
 
             try
             {
+                conDataBase.Close();
                 conDataBase.Open();
                 reader = command.ExecuteReader();
 
@@ -130,6 +134,7 @@ namespace Shifaa_EMR_System
 
             try
             {
+                conDataBase.Close();
                 conDataBase.Open();
                 reader = command.ExecuteReader();
 
@@ -145,9 +150,9 @@ namespace Shifaa_EMR_System
                 }
 
                 reader.Close();
-
-                return scannamecollection;
                 conDataBase.Close();
+                return scannamecollection;
+        
             }
             catch (FieldAccessException ex)
             {

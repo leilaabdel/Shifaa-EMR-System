@@ -52,11 +52,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DOBLabel = new System.Windows.Forms.Label();
-            this.ExitButton = new System.Windows.Forms.Button();
             this.PatientAgeLabel = new System.Windows.Forms.Label();
             this.PatientGenderLabel = new System.Windows.Forms.Label();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.PatientNameLabel = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
             this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,11 +100,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.AllergiesTable = new System.Windows.Forms.DataGridView();
-            this.patientAllergieIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateCreatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allergieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel10 = new System.Windows.Forms.Panel();
             this.AddAllergieButton = new System.Windows.Forms.Button();
@@ -129,8 +124,8 @@
             this.dateUpdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vitalSignsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.VitalHistoryLabel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.AddNewVitalButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.ScansTable = new System.Windows.Forms.DataGridView();
@@ -159,13 +154,13 @@
             this.allergieTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
             this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
             this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.patientClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.feesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AllergieName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCreatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
@@ -196,26 +191,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.ScansTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
             this.panel15.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.Azure;
             this.panel1.Controls.Add(this.DOBLabel);
-            this.panel1.Controls.Add(this.ExitButton);
             this.panel1.Controls.Add(this.PatientAgeLabel);
             this.panel1.Controls.Add(this.PatientGenderLabel);
             this.panel1.Controls.Add(this.PhoneNumberLabel);
             this.panel1.Controls.Add(this.PatientNameLabel);
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 20);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1259, 79);
+            this.panel1.Size = new System.Drawing.Size(1323, 77);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -228,21 +219,6 @@
             this.DOBLabel.Size = new System.Drawing.Size(155, 23);
             this.DOBLabel.TabIndex = 32;
             this.DOBLabel.Text = "DOB: XX/XX/XXXX";
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ExitButton.FlatAppearance.BorderSize = 0;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
-            this.ExitButton.Location = new System.Drawing.Point(1731, 32);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(130, 44);
-            this.ExitButton.TabIndex = 27;
-            this.ExitButton.Text = "Exit";
-            this.ExitButton.UseVisualStyleBackColor = false;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // PatientAgeLabel
             // 
@@ -270,7 +246,7 @@
             // 
             this.PhoneNumberLabel.AutoSize = true;
             this.PhoneNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(35, 47);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(36, 47);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
             this.PhoneNumberLabel.Size = new System.Drawing.Size(199, 23);
             this.PhoneNumberLabel.TabIndex = 29;
@@ -281,16 +257,25 @@
             // 
             this.PatientNameLabel.AutoSize = true;
             this.PatientNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientNameLabel.Location = new System.Drawing.Point(35, 20);
+            this.PatientNameLabel.Location = new System.Drawing.Point(35, 17);
             this.PatientNameLabel.Name = "PatientNameLabel";
             this.PatientNameLabel.Size = new System.Drawing.Size(136, 25);
             this.PatientNameLabel.TabIndex = 28;
             this.PatientNameLabel.Text = "Patient Name";
             this.PatientNameLabel.Click += new System.EventHandler(this.PatientNameLabel_Click);
             // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.AutoSize = true;
+            this.panel4.Location = new System.Drawing.Point(0, 78);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1337, 818);
+            this.panel4.TabIndex = 49;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
+            // 
             // panel2
             // 
-            this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.NoteHistoryTable);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Location = new System.Drawing.Point(14, 197);
@@ -301,6 +286,7 @@
             // 
             // NoteHistoryTable
             // 
+            this.NoteHistoryTable.AllowUserToAddRows = false;
             this.NoteHistoryTable.AllowUserToDeleteRows = false;
             this.NoteHistoryTable.AutoGenerateColumns = false;
             this.NoteHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -425,7 +411,6 @@
             // 
             // panel3
             // 
-            this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.AppointmentListView1);
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Location = new System.Drawing.Point(14, 651);
@@ -436,6 +421,7 @@
             // 
             // AppointmentListView1
             // 
+            this.AppointmentListView1.AllowUserToAddRows = false;
             this.AppointmentListView1.AllowUserToDeleteRows = false;
             this.AppointmentListView1.AutoGenerateColumns = false;
             this.AppointmentListView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -677,7 +663,6 @@
             // 
             // panel5
             // 
-            this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.MedicationsListDataGridView);
             this.panel5.Controls.Add(this.panel9);
             this.panel5.Location = new System.Drawing.Point(513, 112);
@@ -688,6 +673,7 @@
             // 
             // MedicationsListDataGridView
             // 
+            this.MedicationsListDataGridView.AllowUserToAddRows = false;
             this.MedicationsListDataGridView.AllowUserToDeleteRows = false;
             this.MedicationsListDataGridView.AutoGenerateColumns = false;
             this.MedicationsListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -801,17 +787,20 @@
             // 
             // panel6
             // 
-            this.panel6.AutoSize = true;
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.Controls.Add(this.AllergiesTable);
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Location = new System.Drawing.Point(778, 112);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(250, 270);
+            this.panel6.Size = new System.Drawing.Size(373, 270);
             this.panel6.TabIndex = 4;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // AllergiesTable
             // 
+            this.AllergiesTable.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.AllergiesTable.AllowUserToAddRows = false;
             this.AllergiesTable.AllowUserToDeleteRows = false;
             this.AllergiesTable.AutoGenerateColumns = false;
             this.AllergiesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -826,11 +815,8 @@
             dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.AllergiesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.AllergiesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AllergiesTable.ColumnHeadersVisible = false;
             this.AllergiesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.patientAllergieIDDataGridViewTextBoxColumn1,
-            this.patientIDDataGridViewTextBoxColumn1,
-            this.providerIDDataGridViewTextBoxColumn1,
+            this.AllergieName,
             this.providerNameDataGridViewTextBoxColumn1,
             this.dateCreatedDataGridViewTextBoxColumn1});
             this.AllergiesTable.DataSource = this.allergieBindingSource;
@@ -856,43 +842,8 @@
             dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.AllergiesTable.RowHeadersVisible = false;
-            this.AllergiesTable.Size = new System.Drawing.Size(250, 228);
+            this.AllergiesTable.Size = new System.Drawing.Size(373, 228);
             this.AllergiesTable.TabIndex = 46;
-            // 
-            // patientAllergieIDDataGridViewTextBoxColumn1
-            // 
-            this.patientAllergieIDDataGridViewTextBoxColumn1.DataPropertyName = "PatientAllergieID";
-            this.patientAllergieIDDataGridViewTextBoxColumn1.HeaderText = "PatientAllergieID";
-            this.patientAllergieIDDataGridViewTextBoxColumn1.Name = "patientAllergieIDDataGridViewTextBoxColumn1";
-            this.patientAllergieIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // patientIDDataGridViewTextBoxColumn1
-            // 
-            this.patientIDDataGridViewTextBoxColumn1.DataPropertyName = "PatientID";
-            this.patientIDDataGridViewTextBoxColumn1.HeaderText = "PatientID";
-            this.patientIDDataGridViewTextBoxColumn1.Name = "patientIDDataGridViewTextBoxColumn1";
-            this.patientIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // providerIDDataGridViewTextBoxColumn1
-            // 
-            this.providerIDDataGridViewTextBoxColumn1.DataPropertyName = "ProviderID";
-            this.providerIDDataGridViewTextBoxColumn1.HeaderText = "ProviderID";
-            this.providerIDDataGridViewTextBoxColumn1.Name = "providerIDDataGridViewTextBoxColumn1";
-            this.providerIDDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // providerNameDataGridViewTextBoxColumn1
-            // 
-            this.providerNameDataGridViewTextBoxColumn1.DataPropertyName = "ProviderName";
-            this.providerNameDataGridViewTextBoxColumn1.HeaderText = "Provider";
-            this.providerNameDataGridViewTextBoxColumn1.Name = "providerNameDataGridViewTextBoxColumn1";
-            this.providerNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dateCreatedDataGridViewTextBoxColumn1
-            // 
-            this.dateCreatedDataGridViewTextBoxColumn1.DataPropertyName = "DateCreated";
-            this.dateCreatedDataGridViewTextBoxColumn1.HeaderText = "DateCreated";
-            this.dateCreatedDataGridViewTextBoxColumn1.Name = "dateCreatedDataGridViewTextBoxColumn1";
-            this.dateCreatedDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // allergieBindingSource
             // 
@@ -907,18 +858,19 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(250, 42);
+            this.panel10.Size = new System.Drawing.Size(373, 42);
             this.panel10.TabIndex = 36;
             // 
             // AddAllergieButton
             // 
+            this.AddAllergieButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddAllergieButton.BackColor = System.Drawing.Color.Azure;
             this.AddAllergieButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.AddAllergieButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(189, 1);
+            this.AddAllergieButton.Location = new System.Drawing.Point(312, 1);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(58, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -938,17 +890,19 @@
             // 
             // panel11
             // 
-            this.panel11.AutoSize = true;
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.Controls.Add(this.LabsTable);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Location = new System.Drawing.Point(778, 389);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(250, 257);
+            this.panel11.Size = new System.Drawing.Size(373, 257);
             this.panel11.TabIndex = 35;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // LabsTable
             // 
+            this.LabsTable.AllowUserToAddRows = false;
             this.LabsTable.AllowUserToDeleteRows = false;
             this.LabsTable.AutoGenerateColumns = false;
             this.LabsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -990,7 +944,7 @@
             dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.LabsTable.RowHeadersVisible = false;
-            this.LabsTable.Size = new System.Drawing.Size(250, 215);
+            this.LabsTable.Size = new System.Drawing.Size(373, 215);
             this.LabsTable.TabIndex = 47;
             this.LabsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
@@ -1028,18 +982,19 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(250, 42);
+            this.panel12.Size = new System.Drawing.Size(373, 42);
             this.panel12.TabIndex = 34;
             // 
             // AddLabButton
             // 
+            this.AddLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddLabButton.BackColor = System.Drawing.Color.Azure;
             this.AddLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.AddLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(201, 1);
+            this.AddLabButton.Location = new System.Drawing.Point(324, 1);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(46, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1059,17 +1014,19 @@
             // 
             // panel13
             // 
-            this.panel13.AutoSize = true;
+            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel13.Controls.Add(this.VitalHistoryTable);
             this.panel13.Controls.Add(this.VitalHistoryLabel);
             this.panel13.Location = new System.Drawing.Point(513, 651);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(515, 268);
+            this.panel13.Size = new System.Drawing.Size(638, 268);
             this.panel13.TabIndex = 43;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
             // VitalHistoryTable
             // 
+            this.VitalHistoryTable.AllowUserToAddRows = false;
             this.VitalHistoryTable.AllowUserToDeleteRows = false;
             this.VitalHistoryTable.AutoGenerateColumns = false;
             this.VitalHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1103,7 +1060,7 @@
             this.VitalHistoryTable.DefaultCellStyle = dataGridViewCellStyle38;
             this.VitalHistoryTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VitalHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.VitalHistoryTable.Location = new System.Drawing.Point(0, 39);
+            this.VitalHistoryTable.Location = new System.Drawing.Point(0, 42);
             this.VitalHistoryTable.Name = "VitalHistoryTable";
             this.VitalHistoryTable.ReadOnly = true;
             dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -1115,7 +1072,7 @@
             dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.VitalHistoryTable.RowHeadersVisible = false;
-            this.VitalHistoryTable.Size = new System.Drawing.Size(515, 229);
+            this.VitalHistoryTable.Size = new System.Drawing.Size(638, 226);
             this.VitalHistoryTable.TabIndex = 45;
             this.VitalHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -1175,43 +1132,44 @@
             // 
             // VitalHistoryLabel
             // 
-            this.VitalHistoryLabel.AutoSize = true;
             this.VitalHistoryLabel.BackColor = System.Drawing.Color.Azure;
-            this.VitalHistoryLabel.Controls.Add(this.label6);
             this.VitalHistoryLabel.Controls.Add(this.AddNewVitalButton);
+            this.VitalHistoryLabel.Controls.Add(this.label6);
             this.VitalHistoryLabel.Controls.Add(this.label5);
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(515, 39);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(638, 42);
             this.VitalHistoryLabel.TabIndex = 35;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 23);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Vital History";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.VitalHistoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.VitalHistoryLabel_Paint);
             // 
             // AddNewVitalButton
             // 
+            this.AddNewVitalButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddNewVitalButton.BackColor = System.Drawing.Color.Azure;
             this.AddNewVitalButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.AddNewVitalButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
             this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewVitalButton.Location = new System.Drawing.Point(454, 1);
+            this.AddNewVitalButton.Location = new System.Drawing.Point(577, 3);
             this.AddNewVitalButton.Name = "AddNewVitalButton";
             this.AddNewVitalButton.Size = new System.Drawing.Size(58, 35);
             this.AddNewVitalButton.TabIndex = 44;
             this.AddNewVitalButton.Text = "+";
             this.AddNewVitalButton.UseVisualStyleBackColor = false;
             this.AddNewVitalButton.Click += new System.EventHandler(this.AddNewVitalButton_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 23);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Vital History";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -1226,7 +1184,6 @@
             // 
             // panel14
             // 
-            this.panel14.AutoSize = true;
             this.panel14.Controls.Add(this.ScansTable);
             this.panel14.Controls.Add(this.panel15);
             this.panel14.Location = new System.Drawing.Point(513, 389);
@@ -1237,6 +1194,7 @@
             // 
             // ScansTable
             // 
+            this.ScansTable.AllowUserToAddRows = false;
             this.ScansTable.AllowUserToDeleteRows = false;
             this.ScansTable.AutoGenerateColumns = false;
             this.ScansTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1451,49 +1409,13 @@
             // 
             this.patientScanTableAdapter.ClearBeforeFill = true;
             // 
-            // panel4
-            // 
-            this.panel4.AutoScroll = true;
-            this.panel4.AutoSize = true;
-            this.panel4.Controls.Add(this.panel16);
-            this.panel4.Location = new System.Drawing.Point(0, 106);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1259, 814);
-            this.panel4.TabIndex = 49;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint_1);
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.menuStrip2);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel16.Location = new System.Drawing.Point(1048, 0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(211, 814);
-            this.panel16.TabIndex = 0;
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.AutoSize = false;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.patientClientToolStripMenuItem,
-            this.feesToolStripMenuItem,
-            this.proceduresToolStripMenuItem,
-            this.reportsToolStripMenuItem});
-            this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip2.Location = new System.Drawing.Point(0, 39);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(211, 175);
-            this.menuStrip2.TabIndex = 5;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
             // patientClientToolStripMenuItem
             // 
             this.patientClientToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientClientToolStripMenuItem.Name = "patientClientToolStripMenuItem";
             this.patientClientToolStripMenuItem.Size = new System.Drawing.Size(207, 27);
             this.patientClientToolStripMenuItem.Text = "All Notes";
+            this.patientClientToolStripMenuItem.Click += new System.EventHandler(this.patientClientToolStripMenuItem_Click);
             // 
             // feesToolStripMenuItem
             // 
@@ -1515,12 +1437,35 @@
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(207, 4);
             // 
+            // AllergieName
+            // 
+            this.AllergieName.DataPropertyName = "AllergieName";
+            this.AllergieName.HeaderText = "Allergy Name";
+            this.AllergieName.Name = "AllergieName";
+            this.AllergieName.ReadOnly = true;
+            // 
+            // providerNameDataGridViewTextBoxColumn1
+            // 
+            this.providerNameDataGridViewTextBoxColumn1.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn1.HeaderText = "Provider";
+            this.providerNameDataGridViewTextBoxColumn1.Name = "providerNameDataGridViewTextBoxColumn1";
+            this.providerNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dateCreatedDataGridViewTextBoxColumn1
+            // 
+            this.dateCreatedDataGridViewTextBoxColumn1.DataPropertyName = "DateCreated";
+            this.dateCreatedDataGridViewTextBoxColumn1.HeaderText = "Date Created";
+            this.dateCreatedDataGridViewTextBoxColumn1.Name = "dateCreatedDataGridViewTextBoxColumn1";
+            this.dateCreatedDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // PatientHomePage
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1259, 920);
+            this.ClientSize = new System.Drawing.Size(1323, 920);
             this.ControlBox = false;
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
@@ -1542,7 +1487,6 @@
             this.Controls.Add(this.BloodPressureLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1579,7 +1523,6 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).EndInit();
             this.VitalHistoryLabel.ResumeLayout(false);
@@ -1589,10 +1532,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1603,7 +1542,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Label PatientGenderLabel;
         private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.Label PatientNameLabel;
@@ -1659,7 +1597,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn medicationNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn strengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridView VitalHistoryTable;
         private System.Windows.Forms.BindingSource vitalSignsBindingSource;
         private EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter vitalSignsTableAdapter;
@@ -1681,12 +1618,8 @@
         private System.Windows.Forms.Button AddNewScanButton;
         private System.Windows.Forms.Label ScansLabel;
         private EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter patientScanTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientAllergieIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn allergieTypeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn providerIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteTitleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteContentDataGridViewTextBoxColumn1;
@@ -1699,7 +1632,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOrdered;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.Button AddNewVitalButton;
+   
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddNewAppointmentButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
@@ -1713,11 +1646,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bMIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateUpdatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem patientClientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proceduresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.Button AddNewVitalButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AllergieName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn1;
     }
 }

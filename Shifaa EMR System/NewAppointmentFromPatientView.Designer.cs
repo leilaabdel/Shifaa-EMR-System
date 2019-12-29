@@ -37,13 +37,13 @@
             this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.AppointmentDateTimePicker = new MetroFramework.Controls.MetroDateTime();
             this.CancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.NewAppointmentLabel = new System.Windows.Forms.Label();
             this.AppointmentDateTimeLabel = new System.Windows.Forms.Label();
-            this.DurationTimePicker = new MetroFramework.Controls.MetroDateTime();
             this.DurationLabel = new System.Windows.Forms.Label();
+            this.AppointmentDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DurationTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -54,26 +54,28 @@
             // 
             // AppointmentDetails
             // 
-            this.AppointmentDetails.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AppointmentDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentDetails.BackColor = System.Drawing.SystemColors.Window;
             this.AppointmentDetails.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.AppointmentDetails.Location = new System.Drawing.Point(39, 145);
+            this.AppointmentDetails.Location = new System.Drawing.Point(53, 145);
             this.AppointmentDetails.Multiline = true;
             this.AppointmentDetails.Name = "AppointmentDetails";
-            this.AppointmentDetails.Size = new System.Drawing.Size(616, 199);
+            this.AppointmentDetails.Size = new System.Drawing.Size(506, 240);
             this.AppointmentDetails.TabIndex = 2;
             this.AppointmentDetails.Text = "Appointment Details";
             // 
             // SaveButton
             // 
-            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.SaveButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SaveButton.FlatAppearance.BorderSize = 0;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SaveButton.Location = new System.Drawing.Point(293, 360);
+            this.SaveButton.Location = new System.Drawing.Point(269, 414);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 32);
+            this.SaveButton.Size = new System.Drawing.Size(75, 33);
             this.SaveButton.TabIndex = 7;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = false;
@@ -106,25 +108,15 @@
             // 
             this.patientBindingSource.DataMember = "Patient";
             // 
-            // AppointmentDateTimePicker
-            // 
-            this.AppointmentDateTimePicker.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppointmentDateTimePicker.CustomFormat = "dd/MM/yyyy hh:mm";
-            this.AppointmentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AppointmentDateTimePicker.Location = new System.Drawing.Point(293, 60);
-            this.AppointmentDateTimePicker.MinimumSize = new System.Drawing.Size(0, 29);
-            this.AppointmentDateTimePicker.Name = "AppointmentDateTimePicker";
-            this.AppointmentDateTimePicker.Size = new System.Drawing.Size(211, 29);
-            this.AppointmentDateTimePicker.TabIndex = 28;
-            // 
             // CancelButton
             // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.BackColor = System.Drawing.Color.AliceBlue;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(585, 7);
+            this.CancelButton.Location = new System.Drawing.Point(514, 7);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 26);
             this.CancelButton.TabIndex = 48;
@@ -140,7 +132,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(688, 40);
+            this.panel1.Size = new System.Drawing.Size(617, 40);
             this.panel1.TabIndex = 29;
             // 
             // NewAppointmentLabel
@@ -156,33 +148,52 @@
             // 
             // AppointmentDateTimeLabel
             // 
+            this.AppointmentDateTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentDateTimeLabel.AutoSize = true;
             this.AppointmentDateTimeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.AppointmentDateTimeLabel.Location = new System.Drawing.Point(61, 65);
+            this.AppointmentDateTimeLabel.Location = new System.Drawing.Point(56, 65);
             this.AppointmentDateTimeLabel.Name = "AppointmentDateTimeLabel";
             this.AppointmentDateTimeLabel.Size = new System.Drawing.Size(206, 19);
             this.AppointmentDateTimeLabel.TabIndex = 30;
             this.AppointmentDateTimeLabel.Text = "Appointment Date and Time";
             // 
-            // DurationTimePicker
-            // 
-            this.DurationTimePicker.CustomFormat = "HH:mm";
-            this.DurationTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DurationTimePicker.Location = new System.Drawing.Point(293, 98);
-            this.DurationTimePicker.MinimumSize = new System.Drawing.Size(0, 29);
-            this.DurationTimePicker.Name = "DurationTimePicker";
-            this.DurationTimePicker.Size = new System.Drawing.Size(75, 29);
-            this.DurationTimePicker.TabIndex = 31;
-            // 
             // DurationLabel
             // 
+            this.DurationLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DurationLabel.AutoSize = true;
             this.DurationLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.DurationLabel.Location = new System.Drawing.Point(61, 102);
+            this.DurationLabel.Location = new System.Drawing.Point(56, 102);
             this.DurationLabel.Name = "DurationLabel";
             this.DurationLabel.Size = new System.Drawing.Size(167, 19);
             this.DurationLabel.TabIndex = 32;
             this.DurationLabel.Text = "Appointment Duration";
+            // 
+            // AppointmentDateTimePicker
+            // 
+            this.AppointmentDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppointmentDateTimePicker.CustomFormat = " dd/MM/yyyy HH:mm";
+            this.AppointmentDateTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
+            this.AppointmentDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AppointmentDateTimePicker.Location = new System.Drawing.Point(405, 65);
+            this.AppointmentDateTimePicker.Name = "AppointmentDateTimePicker";
+            this.AppointmentDateTimePicker.ShowUpDown = true;
+            this.AppointmentDateTimePicker.Size = new System.Drawing.Size(154, 25);
+            this.AppointmentDateTimePicker.TabIndex = 33;
+            this.AppointmentDateTimePicker.ValueChanged += new System.EventHandler(this.AppointmentDateTimePicker_ValueChanged);
+            // 
+            // DurationTimePicker
+            // 
+            this.DurationTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DurationTimePicker.CustomFormat = "HH:mm";
+            this.DurationTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
+            this.DurationTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DurationTimePicker.Location = new System.Drawing.Point(451, 102);
+            this.DurationTimePicker.Name = "DurationTimePicker";
+            this.DurationTimePicker.ShowUpDown = true;
+            this.DurationTimePicker.Size = new System.Drawing.Size(108, 25);
+            this.DurationTimePicker.TabIndex = 34;
             // 
             // NewAppointmentFromPatientView
             // 
@@ -191,16 +202,18 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(688, 432);
-            this.Controls.Add(this.DurationLabel);
+            this.ClientSize = new System.Drawing.Size(617, 480);
+            this.ControlBox = false;
             this.Controls.Add(this.DurationTimePicker);
+            this.Controls.Add(this.AppointmentDateTimePicker);
+            this.Controls.Add(this.DurationLabel);
             this.Controls.Add(this.AppointmentDateTimeLabel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.AppointmentDateTimePicker);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AppointmentDetails);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NewAppointmentFromPatientView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Appointment ";
             this.Load += new System.EventHandler(this.NewAppointmentFromPatientView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource2)).EndInit();
@@ -236,12 +249,12 @@
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource patientBindingSource2;
         private EMRDatabaseDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
-        private MetroFramework.Controls.MetroDateTime AppointmentDateTimePicker;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label NewAppointmentLabel;
         private System.Windows.Forms.Label AppointmentDateTimeLabel;
-        private MetroFramework.Controls.MetroDateTime DurationTimePicker;
         private System.Windows.Forms.Label DurationLabel;
+        private System.Windows.Forms.DateTimePicker AppointmentDateTimePicker;
+        private System.Windows.Forms.DateTimePicker DurationTimePicker;
     }
 }

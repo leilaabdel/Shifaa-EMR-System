@@ -53,11 +53,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 39);
+            this.panel1.Size = new System.Drawing.Size(407, 39);
             this.panel1.TabIndex = 0;
             // 
             // CancelButton
             // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.BackColor = System.Drawing.Color.AliceBlue;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.FlatAppearance.BorderSize = 0;
@@ -106,20 +107,24 @@
             // 
             // ScanNameBox
             // 
+            this.ScanNameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ScanNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScanNameBox.Location = new System.Drawing.Point(162, 58);
             this.ScanNameBox.Name = "ScanNameBox";
-            this.ScanNameBox.Size = new System.Drawing.Size(226, 23);
+            this.ScanNameBox.Size = new System.Drawing.Size(228, 23);
             this.ScanNameBox.TabIndex = 40;
             this.ScanNameToolTip.SetToolTip(this.ScanNameBox, "Enter the name of the scan or procedure. Ex: MRI");
             // 
             // DetailsBox
             // 
+            this.DetailsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DetailsBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailsBox.Location = new System.Drawing.Point(162, 96);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
-            this.DetailsBox.Size = new System.Drawing.Size(226, 120);
+            this.DetailsBox.Size = new System.Drawing.Size(228, 120);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Description of procedure. Ex: Static Perimetry for Glaucoma Diagnostic");
             // 
@@ -136,7 +141,8 @@
             // 
             // ScheduleDatePicker
             // 
-            this.ScheduleDatePicker.Location = new System.Drawing.Point(162, 232);
+            this.ScheduleDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScheduleDatePicker.Location = new System.Drawing.Point(164, 232);
             this.ScheduleDatePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.ScheduleDatePicker.Name = "ScheduleDatePicker";
             this.ScheduleDatePicker.Size = new System.Drawing.Size(226, 29);
@@ -145,12 +151,13 @@
             // 
             // SubmitButton
             // 
+            this.SubmitButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SubmitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SubmitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(162, 280);
+            this.SubmitButton.Location = new System.Drawing.Point(163, 280);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 46;
@@ -162,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 325);
+            this.ClientSize = new System.Drawing.Size(407, 353);
             this.ControlBox = false;
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.ScheduleDatePicker);
@@ -172,11 +179,12 @@
             this.Controls.Add(this.DetailsLabel);
             this.Controls.Add(this.LabNameLabel);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewScanOrder";
-            this.Text = "NewPrescriptionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Scan or Procedure";
             this.Load += new System.EventHandler(this.NewScanOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

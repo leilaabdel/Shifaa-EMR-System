@@ -61,17 +61,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(306, 39);
+            this.panel1.Size = new System.Drawing.Size(305, 39);
             this.panel1.TabIndex = 0;
             // 
             // CancelButton
             // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.BackColor = System.Drawing.Color.AliceBlue;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(209, 7);
+            this.CancelButton.Location = new System.Drawing.Point(208, 7);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 26);
             this.CancelButton.TabIndex = 49;
@@ -143,68 +144,81 @@
             // 
             // MedicationBox
             // 
+            this.MedicationBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MedicationBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MedicationBox.Location = new System.Drawing.Point(161, 53);
             this.MedicationBox.Name = "MedicationBox";
-            this.MedicationBox.Size = new System.Drawing.Size(127, 23);
+            this.MedicationBox.Size = new System.Drawing.Size(126, 23);
             this.MedicationBox.TabIndex = 40;
             this.MedicationNameToolTip.SetToolTip(this.MedicationBox, "Choose either the brand or generic drug name");
             this.MedicationBox.TextChanged += new System.EventHandler(this.MedicationBox_TextChanged);
             // 
             // AmountBox
             // 
+            this.AmountBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AmountBox.Location = new System.Drawing.Point(161, 91);
             this.AmountBox.Name = "AmountBox";
-            this.AmountBox.Size = new System.Drawing.Size(127, 23);
+            this.AmountBox.Size = new System.Drawing.Size(126, 23);
             this.AmountBox.TabIndex = 41;
             this.AmountToolTip.SetToolTip(this.AmountBox, "Enter the total amount. Ex: 30 tablets, 2 injections");
             // 
             // StrengthBox
             // 
+            this.StrengthBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.StrengthBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StrengthBox.Location = new System.Drawing.Point(161, 130);
             this.StrengthBox.Name = "StrengthBox";
-            this.StrengthBox.Size = new System.Drawing.Size(127, 23);
+            this.StrengthBox.Size = new System.Drawing.Size(126, 23);
             this.StrengthBox.TabIndex = 42;
             this.StrengthToolTip.SetToolTip(this.StrengthBox, "Dosage. Typically in mg or mL");
             // 
             // FrequencyBox
             // 
+            this.FrequencyBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FrequencyBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FrequencyBox.Location = new System.Drawing.Point(161, 170);
             this.FrequencyBox.Name = "FrequencyBox";
-            this.FrequencyBox.Size = new System.Drawing.Size(127, 23);
+            this.FrequencyBox.Size = new System.Drawing.Size(126, 23);
             this.FrequencyBox.TabIndex = 43;
             this.FrequencyToolTip.SetToolTip(this.FrequencyBox, "Ex: 2 tablets per day for 3 weeks");
             // 
             // RefillsBox
             // 
+            this.RefillsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RefillsBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RefillsBox.Location = new System.Drawing.Point(161, 210);
             this.RefillsBox.Name = "RefillsBox";
-            this.RefillsBox.Size = new System.Drawing.Size(127, 23);
+            this.RefillsBox.Size = new System.Drawing.Size(126, 23);
             this.RefillsBox.TabIndex = 44;
             this.RefillsToolTip.SetToolTip(this.RefillsBox, "Ex: 2");
             this.RefillsBox.TextChanged += new System.EventHandler(this.RefillsBox_TextChanged);
             // 
             // RouteBox
             // 
+            this.RouteBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RouteBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RouteBox.Location = new System.Drawing.Point(161, 248);
             this.RouteBox.Name = "RouteBox";
-            this.RouteBox.Size = new System.Drawing.Size(127, 23);
+            this.RouteBox.Size = new System.Drawing.Size(126, 23);
             this.RouteBox.TabIndex = 46;
             this.RefillsToolTip.SetToolTip(this.RouteBox, "Ex: 2");
             // 
             // SubmitButton
             // 
+            this.SubmitButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SubmitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SubmitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(112, 302);
+            this.SubmitButton.Location = new System.Drawing.Point(111, 302);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 45;
@@ -228,7 +242,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 357);
+            this.ClientSize = new System.Drawing.Size(305, 359);
             this.ControlBox = false;
             this.Controls.Add(this.RouteLabel);
             this.Controls.Add(this.RouteBox);
@@ -244,11 +258,12 @@
             this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.MedicationNameLabel);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewPrescriptionForm";
-            this.Text = "NewPrescriptionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Prescription";
             this.Load += new System.EventHandler(this.NewPrescriptionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -50,17 +50,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(302, 39);
+            this.panel1.Size = new System.Drawing.Size(297, 39);
             this.panel1.TabIndex = 0;
             // 
             // CancelButton
             // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.BackColor = System.Drawing.Color.AliceBlue;
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(207, 7);
+            this.CancelButton.Location = new System.Drawing.Point(202, 7);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 26);
             this.CancelButton.TabIndex = 47;
@@ -103,32 +104,37 @@
             // 
             // AllergyNameBox
             // 
+            this.AllergyNameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AllergyNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllergyNameBox.Location = new System.Drawing.Point(131, 52);
             this.AllergyNameBox.Name = "AllergyNameBox";
-            this.AllergyNameBox.Size = new System.Drawing.Size(127, 23);
+            this.AllergyNameBox.Size = new System.Drawing.Size(142, 23);
             this.AllergyNameBox.TabIndex = 40;
             this.AllergyNameToolTip.SetToolTip(this.AllergyNameBox, "Ex: Latex");
             this.AllergyNameBox.TextChanged += new System.EventHandler(this.AllergyNameBox_TextChanged);
             // 
             // DetailsBox
             // 
+            this.DetailsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DetailsBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailsBox.Location = new System.Drawing.Point(131, 90);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
-            this.DetailsBox.Size = new System.Drawing.Size(127, 114);
+            this.DetailsBox.Size = new System.Drawing.Size(142, 114);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Ex: severity, family history, etc.");
             // 
             // SubmitButton
             // 
+            this.SubmitButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SubmitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SubmitButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(111, 222);
+            this.SubmitButton.Location = new System.Drawing.Point(118, 222);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 42;
@@ -140,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 273);
+            this.ClientSize = new System.Drawing.Size(297, 282);
             this.ControlBox = false;
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.DetailsBox);
@@ -148,11 +154,12 @@
             this.Controls.Add(this.DetailsLabel);
             this.Controls.Add(this.AllergyNameLabel);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewAllergie";
-            this.Text = "NewPrescriptionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Allergy";
             this.Load += new System.EventHandler(this.NewAllergie_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
