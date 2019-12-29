@@ -42,7 +42,12 @@
             this.ScheduleDatePicker = new MetroFramework.Controls.MetroDateTime();
             this.DateScheduledToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
+            this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -165,11 +170,25 @@
             this.SubmitButton.UseVisualStyleBackColor = false;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
+            // patientScanBindingSource
+            // 
+            this.patientScanBindingSource.DataMember = "PatientScan";
+            this.patientScanBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientScanTableAdapter
+            // 
+            this.patientScanTableAdapter.ClearBeforeFill = true;
+            // 
             // NewScanOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 353);
+            this.ClientSize = new System.Drawing.Size(407, 372);
             this.ControlBox = false;
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.ScheduleDatePicker);
@@ -188,6 +207,8 @@
             this.Load += new System.EventHandler(this.NewScanOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +229,8 @@
         private System.Windows.Forms.ToolTip DateScheduledToolTip;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.BindingSource patientScanBindingSource;
+        private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter patientScanTableAdapter;
     }
 }

@@ -52,6 +52,7 @@ namespace Shifaa_EMR_System
                 }
                 doAction.CreateAppointment(patientFirstName, patientLastName, AppointmentDetails.Text,
                     appointmentDate, appointmentTime, appointmentDuration, thisPatientID);
+                this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment, thisPatientID);
 
                 this.Close();
             }

@@ -63,6 +63,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.DateLabel1 = new System.Windows.Forms.Label();
             this.NoteTitleLabel1 = new System.Windows.Forms.Label();
+            this.patientNoteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.emrDatabaseDataSet1 = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.patientNoteTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
             this.NewNotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
@@ -71,6 +74,8 @@
             this.NewNoteTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // NewNotePanel
@@ -227,6 +232,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Note";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // SignButton
             // 
@@ -455,11 +461,25 @@
             this.NoteTitleLabel1.Text = "Note Title:";
             this.NoteTitleLabel1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // patientNoteBindingSource1
+            // 
+            this.patientNoteBindingSource1.DataMember = "PatientNote";
+            this.patientNoteBindingSource1.DataSource = this.emrDatabaseDataSet1;
+            // 
+            // emrDatabaseDataSet1
+            // 
+            this.emrDatabaseDataSet1.DataSetName = "EMRDatabaseDataSet";
+            this.emrDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientNoteTableAdapter1
+            // 
+            this.patientNoteTableAdapter1.ClearBeforeFill = true;
+            // 
             // NewNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 667);
+            this.ClientSize = new System.Drawing.Size(939, 685);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NewNotePanel);
@@ -479,6 +499,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -516,5 +538,8 @@
         private System.Windows.Forms.Label NoteTitleLabel1;
         private System.Windows.Forms.Button SignButton1;
         private System.Windows.Forms.Label AddendumLabel;
+        private System.Windows.Forms.BindingSource patientNoteBindingSource1;
+        private EMRDatabaseDataSet emrDatabaseDataSet1;
+        private EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter patientNoteTableAdapter1;
     }
 }

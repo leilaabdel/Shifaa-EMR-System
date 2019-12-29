@@ -42,7 +42,12 @@
             this.DateScheduledToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
             this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.patientLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -167,6 +172,20 @@
             this.ScheduledDatePicker.Size = new System.Drawing.Size(226, 25);
             this.ScheduledDatePicker.TabIndex = 45;
             // 
+            // patientLabBindingSource
+            // 
+            this.patientLabBindingSource.DataMember = "PatientLab";
+            this.patientLabBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientLabTableAdapter
+            // 
+            this.patientLabTableAdapter.ClearBeforeFill = true;
+            // 
             // NewLabOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +209,8 @@
             this.Load += new System.EventHandler(this.NewLabOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +231,8 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.DateTimePicker ScheduledDatePicker;
+        private System.Windows.Forms.BindingSource patientLabBindingSource;
+        private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter patientLabTableAdapter;
     }
 }

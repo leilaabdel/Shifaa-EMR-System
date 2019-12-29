@@ -53,6 +53,7 @@ namespace Shifaa_EMR_System
         {
             doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text, 
                 RouteBox.Text, FrequencyBox.Text, Convert.ToDouble(RefillsBox.Text), thisPatientID, thisProviderName, thisProviderID);
+            this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
             this.Close();
         }
 

@@ -360,8 +360,7 @@ namespace Shifaa_EMR_System
             {
                 NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
-                newAppointment.MdiParent = thisProviderMain;
-                newAppointment.StartPosition = FormStartPosition.CenterParent;
+                Center(newAppointment);
                 newAppointment.Show();
             }
         }
@@ -372,6 +371,21 @@ namespace Shifaa_EMR_System
         }
 
         private void VitalHistoryLabel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
         {
 
         }

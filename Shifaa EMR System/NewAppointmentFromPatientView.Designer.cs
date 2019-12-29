@@ -31,12 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AppointmentDetails = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.patientBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
-            this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CancelButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.NewAppointmentLabel = new System.Windows.Forms.Label();
@@ -44,12 +39,13 @@
             this.DurationLabel = new System.Windows.Forms.Label();
             this.AppointmentDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DurationTimePicker = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSetBindingSource)).BeginInit();
+            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.emrDatabaseDataSet1 = new Shifaa_EMR_System.EMRDatabaseDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // AppointmentDetails
@@ -62,7 +58,7 @@
             this.AppointmentDetails.Location = new System.Drawing.Point(53, 145);
             this.AppointmentDetails.Multiline = true;
             this.AppointmentDetails.Name = "AppointmentDetails";
-            this.AppointmentDetails.Size = new System.Drawing.Size(506, 240);
+            this.AppointmentDetails.Size = new System.Drawing.Size(506, 235);
             this.AppointmentDetails.TabIndex = 2;
             this.AppointmentDetails.Text = "Appointment Details";
             // 
@@ -73,7 +69,7 @@
             this.SaveButton.FlatAppearance.BorderSize = 0;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SaveButton.Location = new System.Drawing.Point(269, 414);
+            this.SaveButton.Location = new System.Drawing.Point(269, 409);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 33);
             this.SaveButton.TabIndex = 7;
@@ -81,32 +77,10 @@
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // patientBindingSource2
-            // 
-            this.patientBindingSource2.DataMember = "Patient";
-            this.patientBindingSource2.DataSource = this.eMRDatabaseDataSetBindingSource;
-            // 
-            // eMRDatabaseDataSetBindingSource
-            // 
-            this.eMRDatabaseDataSetBindingSource.DataSource = this.eMRDatabaseDataSet;
-            this.eMRDatabaseDataSetBindingSource.Position = 0;
-            // 
             // eMRDatabaseDataSet
             // 
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
             this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
-            // 
-            // patientBindingSource1
-            // 
-            this.patientBindingSource1.DataMember = "Patient";
-            // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataMember = "Patient";
             // 
             // CancelButton
             // 
@@ -195,6 +169,20 @@
             this.DurationTimePicker.Size = new System.Drawing.Size(108, 25);
             this.DurationTimePicker.TabIndex = 34;
             // 
+            // appointmentTableAdapter
+            // 
+            this.appointmentTableAdapter.ClearBeforeFill = true;
+            // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "Appointment";
+            this.appointmentBindingSource.DataSource = this.emrDatabaseDataSet1;
+            // 
+            // emrDatabaseDataSet1
+            // 
+            this.emrDatabaseDataSet1.DataSetName = "EMRDatabaseDataSet";
+            this.emrDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // NewAppointmentFromPatientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,7 +190,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(617, 480);
+            this.ClientSize = new System.Drawing.Size(617, 475);
             this.ControlBox = false;
             this.Controls.Add(this.DurationTimePicker);
             this.Controls.Add(this.AppointmentDateTimePicker);
@@ -216,13 +204,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Appointment ";
             this.Load += new System.EventHandler(this.NewAppointmentFromPatientView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,7 +217,6 @@
         #endregion
         private System.Windows.Forms.TextBox AppointmentDetails;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.BindingSource patientBindingSource;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
@@ -239,16 +224,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
 
-        private System.Windows.Forms.BindingSource patientBindingSource1;
-
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.BindingSource eMRDatabaseDataSetBindingSource;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
-        private System.Windows.Forms.BindingSource patientBindingSource2;
-        private EMRDatabaseDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label NewAppointmentLabel;
@@ -256,5 +236,8 @@
         private System.Windows.Forms.Label DurationLabel;
         private System.Windows.Forms.DateTimePicker AppointmentDateTimePicker;
         private System.Windows.Forms.DateTimePicker DurationTimePicker;
+        private EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter appointmentTableAdapter;
+        private System.Windows.Forms.BindingSource appointmentBindingSource;
+        private EMRDatabaseDataSet emrDatabaseDataSet1;
     }
 }

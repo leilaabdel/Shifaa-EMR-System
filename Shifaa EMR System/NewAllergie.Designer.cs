@@ -39,7 +39,12 @@
             this.AllergyNameToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DetailsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
+            this.allergieTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
+            this.allergieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,7 +99,7 @@
             // 
             this.DetailsLabel.AutoSize = true;
             this.DetailsLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.DetailsLabel.Location = new System.Drawing.Point(23, 128);
+            this.DetailsLabel.Location = new System.Drawing.Point(23, 142);
             this.DetailsLabel.Name = "DetailsLabel";
             this.DetailsLabel.Size = new System.Drawing.Size(52, 17);
             this.DetailsLabel.TabIndex = 36;
@@ -122,7 +127,7 @@
             this.DetailsBox.Location = new System.Drawing.Point(131, 90);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
-            this.DetailsBox.Size = new System.Drawing.Size(142, 114);
+            this.DetailsBox.Size = new System.Drawing.Size(142, 113);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Ex: severity, family history, etc.");
             // 
@@ -134,7 +139,7 @@
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(118, 222);
+            this.SubmitButton.Location = new System.Drawing.Point(105, 232);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 42;
@@ -142,11 +147,25 @@
             this.SubmitButton.UseVisualStyleBackColor = false;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
+            // allergieTableAdapter
+            // 
+            this.allergieTableAdapter.ClearBeforeFill = true;
+            // 
+            // allergieBindingSource
+            // 
+            this.allergieBindingSource.DataMember = "Allergie";
+            this.allergieBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // NewAllergie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 282);
+            this.ClientSize = new System.Drawing.Size(297, 317);
             this.ControlBox = false;
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.DetailsBox);
@@ -163,6 +182,8 @@
             this.Load += new System.EventHandler(this.NewAllergie_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +201,8 @@
         private System.Windows.Forms.Label NewAllergieLabel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SubmitButton;
+        private EMRDatabaseDataSetTableAdapters.AllergieTableAdapter allergieTableAdapter;
+        private System.Windows.Forms.BindingSource allergieBindingSource;
+        private EMRDatabaseDataSet eMRDatabaseDataSet;
     }
 }

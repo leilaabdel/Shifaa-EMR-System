@@ -50,7 +50,12 @@
             this.RouteBox = new System.Windows.Forms.TextBox();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.RouteLabel = new System.Windows.Forms.Label();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -238,11 +243,25 @@
             this.RouteLabel.Text = "Route";
             this.RouteLabel.Click += new System.EventHandler(this.RouteLabel_Click);
             // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prescriptionTableAdapter
+            // 
+            this.prescriptionTableAdapter.ClearBeforeFill = true;
+            // 
+            // prescriptionBindingSource
+            // 
+            this.prescriptionBindingSource.DataMember = "Prescription";
+            this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
             // NewPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 359);
+            this.ClientSize = new System.Drawing.Size(305, 391);
             this.ControlBox = false;
             this.Controls.Add(this.RouteLabel);
             this.Controls.Add(this.RouteBox);
@@ -267,6 +286,8 @@
             this.Load += new System.EventHandler(this.NewPrescriptionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +316,8 @@
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.TextBox RouteBox;
         private System.Windows.Forms.Label RouteLabel;
+        private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
+        private System.Windows.Forms.BindingSource prescriptionBindingSource;
     }
 }

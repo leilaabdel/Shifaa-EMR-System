@@ -343,8 +343,12 @@ namespace Shifaa_EMR_System
             {
                 doAction.updateExistingNote(thisPatientID, thisNoteTitleValueLabel.Text,
                     Convert.ToDateTime(thisNoteValueDate.Text), thisOldNoteBox.Text);
+                this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                this.patientNoteTableAdapter1.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+
+
             }
-            catch(FieldAccessException)
+            catch (FieldAccessException)
             {
                 MessageBox.Show("Please update the note or exit the page");
             }
@@ -385,12 +389,29 @@ namespace Shifaa_EMR_System
         {
             String noteTitle = NewNoteTitleBox.Text;
             String noteContent = NoteContentBox.Text;
-            String providerName = "name"; //TO DO: ADD PROVIDER NAME TO THE PATIENT NOTE FROM THE LOGIN PAGE
-            String providerID = "providerID"; //TO DO: ADD PROVIDER ID TO THE PATIENT NOTE FROM THE LOGIN PAGE
 
-            doAction.createNewPatientNote(thisPatientID, providerName, providerID, noteTitle, noteContent);
+
+            try
+            {
+
+                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent);
+                this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                this.patientNoteTableAdapter1.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid note entry");
+            }
+          
+
 
            
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
