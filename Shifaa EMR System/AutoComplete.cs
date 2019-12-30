@@ -106,10 +106,10 @@ namespace Shifaa_EMR_System
                 while (reader.Read())
                 {
 
-                    string LabTestName = reader.GetString(0);
+                    string DrugName = reader.GetString(0);
 
 
-                    drugnamecollection.Add(LabTestName);
+                    drugnamecollection.Add(DrugName);
 
 
                 }
@@ -141,10 +141,10 @@ namespace Shifaa_EMR_System
                 while (reader.Read())
                 {
 
-                    string LabTestName = reader.GetString(0);
+                    string ScanName = reader.GetString(0);
 
 
-                    scannamecollection.Add(LabTestName);
+                    scannamecollection.Add(ScanName);
 
 
                 }
@@ -153,6 +153,41 @@ namespace Shifaa_EMR_System
                 conDataBase.Close();
                 return scannamecollection;
         
+            }
+            catch (FieldAccessException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
+
+        public static AutoCompleteStringCollection ProblemAutoComplete()
+        {
+            string Query = "SELECT ProblemName FROM dbo.ProblemListDatabase;";
+            SqlCommand command = new SqlCommand(Query, conDataBase);
+            AutoCompleteStringCollection problemnamecollection = new AutoCompleteStringCollection();
+
+            try
+            {
+                conDataBase.Close();
+                conDataBase.Open();
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    string ProblemName = reader.GetString(0);
+
+
+                    problemnamecollection.Add(ProblemName);
+
+
+                }
+
+                reader.Close();
+                conDataBase.Close();
+                return problemnamecollection;
+
             }
             catch (FieldAccessException ex)
             {

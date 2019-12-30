@@ -18,6 +18,7 @@ namespace Shifaa_EMR_System
 
         int thisPatientID;
         readonly ProviderMain thisProviderMain;
+        readonly AppointmentListView thisAppointmentList;
 
         public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain)
         {
@@ -32,6 +33,24 @@ namespace Shifaa_EMR_System
 
             thisPatientID = selectedPatientID;
             this.thisProviderMain = providerMain;
+            this.FinishVisitButton.Hide();
+        }
+
+        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain, AppointmentListView appointmentList)
+        {
+            InitializeComponent();
+            this.PatientNameLabel.Text = name;
+            this.PhoneNumberLabel.Text = "Phone Number: " + number;
+            this.PatientGenderLabel.Text = gender;
+            this.PatientAgeLabel.Text = "Age: " + age;
+            this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
+
+            setVitals(selectedPatientID);
+
+            thisPatientID = selectedPatientID;
+            this.thisProviderMain = providerMain;
+            this.thisAppointmentList = appointmentList;
+            this.FinishVisitButton.Show();
         }
 
 
@@ -71,8 +90,24 @@ namespace Shifaa_EMR_System
 
         private void PatientHomePage_Load(object sender, EventArgs e)
         {
-
-
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Problem' table. You can move, or remove it, as needed.
+            this.problemTableAdapter.Fill(this.eMRDatabaseDataSet.Problem);
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Problem' table. You can move, or remove it, as needed.
+            this.problemTableAdapter.Fill(this.eMRDatabaseDataSet.Problem);
+            this.AllergiesTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.NoteHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.VitalHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.ScansTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.MedicationsListDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.AppointmentListView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.LabsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.AllergiesTable.MultiSelect = false;
+            this.NoteHistoryTable.MultiSelect = false;
+            this.VitalHistoryTable.MultiSelect = false;
+            this.ScansTable.MultiSelect = false;
+            this.MedicationsListDataGridView.MultiSelect = false;
+            this.AppointmentListView1.MultiSelect = false;
+            this.LabsTable.MultiSelect = false;
 
 
             this.WindowState = FormWindowState.Maximized;
@@ -88,6 +123,10 @@ namespace Shifaa_EMR_System
             this.patientLabTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientLab, thisPatientID);
             this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
             this.patientScanTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientScan, thisPatientID);
+            this.problemTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Problem, thisPatientID);
+
+
+
         }
 
 
@@ -144,12 +183,8 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
-      
 
         private void panel14_Paint(object sender, PaintEventArgs e)
         {
@@ -303,7 +338,7 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewAllergie"] as NewAllergie == null)
             {
-                NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.getProviderID() ,
+                NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
 
                 Center(newAllergie);
@@ -388,6 +423,200 @@ namespace Shifaa_EMR_System
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void NoteHistoryTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void deleteAppointmentButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = AppointmentListView1.CurrentRow.Index;
+
+            int selectedAppointmentID = (Int32)AppointmentListView1["appointmentID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this appointment?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    AppointmentListView1.Rows.RemoveAt(currentRow);
+                    doAction.deleteAppointment(selectedAppointmentID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+
+        }
+
+        private void deletePrescriptionButton_Click(object sender, EventArgs e)
+        {
+
+            int currentRow = MedicationsListDataGridView.CurrentRow.Index;
+
+            int selectedPrescriptionID = (Int32)MedicationsListDataGridView["prescriptionID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this Prescription?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    MedicationsListDataGridView.Rows.RemoveAt(currentRow);
+                    doAction.deletePatientPrescription(selectedPrescriptionID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void deleteAllergyButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = AllergiesTable.CurrentRow.Index;
+
+            int selectedAllergyID = (Int32)AllergiesTable["PatientAllergieID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this Allergy?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    AllergiesTable.Rows.RemoveAt(currentRow);
+                    doAction.deletePatientAllergy(selectedAllergyID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void deleteScanButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = ScansTable.CurrentRow.Index;
+
+            int selectedScanID = (Int32)ScansTable["PatientScanID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this scan or procedure?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    ScansTable.Rows.RemoveAt(currentRow);
+                    doAction.deletePatientScan(selectedScanID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void deleteLabButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = LabsTable.CurrentRow.Index;
+
+            int selectedLabID = (Int32)LabsTable["PatientLabID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this lab?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    LabsTable.Rows.RemoveAt(currentRow);
+                    doAction.deletePatientLab(selectedLabID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void deleteNoteButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = NoteHistoryTable.CurrentRow.Index;
+
+            int selectedNoteID = (Int32)NoteHistoryTable["NoteID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this note?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    NoteHistoryTable.Rows.RemoveAt(currentRow);
+                    doAction.deletePatientNote(selectedNoteID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void deleteVitalButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = VitalHistoryTable.CurrentRow.Index;
+
+            int selectedVitalID = (Int32)VitalHistoryTable["VitalSignID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this vital sign entry?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    VitalHistoryTable.Rows.RemoveAt(currentRow);
+                    doAction.deleteVitalSigns(selectedVitalID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void addProblemButton_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["NewProblem"] as NewProblem == null)
+            {
+                NewProblem newProblem = new NewProblem(thisPatientID, thisProviderMain.getProviderName(),
+                    thisProviderMain.getProviderID());
+                Center(newProblem);
+                newProblem.Show();
+            }
+        }
+
+        private void removeProblemButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = ProblemListView.CurrentRow.Index;
+
+            int selectedProblemID = (Int32)ProblemListView["ProblemID", currentRow].Value;
+            if (MessageBox.Show(string.Format("Are you sure you want to delete this problem entry?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
+                    ProblemListView.Rows.RemoveAt(currentRow);
+                    doAction.deleteProblem(selectedProblemID);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void UpdateProblemButton_Click(object sender, EventArgs e)
+        {
+            int currentRow = ProblemListView.CurrentRow.Index;
+
+            int selectedProblemID = (Int32)ProblemListView["ProblemID", currentRow].Value;
+            string problemName = (String)ProblemListView["ProblemName", currentRow].Value;
+            string problemDescription = (String)ProblemListView["ProblemDescription", currentRow].Value;
+
+            if (Application.OpenForms["UpdateProblem"] as UpdateProblem == null)
+            {
+                UpdateProblem updateProblem = new UpdateProblem(selectedProblemID, problemName, problemDescription, thisPatientID);
+                Center(updateProblem);
+                updateProblem.Show();
+            }
+
+        }
+
+        private void FinishVisitButton_Click(object sender, EventArgs e)
+        {
+            // TO DO: Complete the Checked Out Button
+            string checkedOut = "Complete at: " + DateTime.Now.ToString("HH:mm");
+            doAction.updateAppointment(checkedOut, thisAppointmentList.getSelectedAppointmentID());
         }
     }
 }

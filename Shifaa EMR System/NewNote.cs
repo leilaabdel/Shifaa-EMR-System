@@ -104,7 +104,7 @@ namespace Shifaa_EMR_System
             newSignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newSignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             newSignButton.Location = new System.Drawing.Point(423, 27);
-            newSignButton.Name = "SignButton1";
+            newSignButton.Name = "newSignButton";
             newSignButton.Size = new System.Drawing.Size(94, 26);
             newSignButton.TabIndex = 66;
             newSignButton.Text = "Sign";
@@ -117,7 +117,7 @@ namespace Shifaa_EMR_System
             newDateValueLabel.AutoSize = true;
             newDateValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             newDateValueLabel.Location = new System.Drawing.Point(101, 12);
-            newDateValueLabel.Name = "DateValueLabel1";
+            newDateValueLabel.Name = "newDateValueLabel";
             newDateValueLabel.Size = new System.Drawing.Size(82, 17);
             newDateValueLabel.TabIndex = 57;
             newDateValueLabel.Text = date.ToShortDateString();
@@ -129,9 +129,10 @@ namespace Shifaa_EMR_System
             newAddendumBox.Location = new System.Drawing.Point(7, 314);
             newAddendumBox.Multiline = true;
             newAddendumBox.Name = "newAddendumBox";
-            newAddendumBox.Size = new System.Drawing.Size(655, 254);
+            newAddendumBox.Size = new System.Drawing.Size(650, 254);
             newAddendumBox.TabIndex = 56;
             newAddendumBox.TextChanged += new System.EventHandler(this.AddendumBox_TextChanged);
+            newAddendumBox.ScrollBars = RichTextBoxScrollBars.Vertical;
             newAddendumBox.Hide();
             // 
             // TitleNameLabel
@@ -179,8 +180,9 @@ namespace Shifaa_EMR_System
             newNoteBox.Multiline = true;
             newNoteBox.Name = "newNoteBox";
             newNoteBox.Text = providerName + " wrote: " + noteContent;
-            newNoteBox.Size = new System.Drawing.Size(655, 479);
+            newNoteBox.Size = new System.Drawing.Size(650, 483);
             newNoteBox.TabIndex = 50;
+            newNoteBox.ScrollBars = RichTextBoxScrollBars.Vertical;
             // 
 
             // 
@@ -207,7 +209,7 @@ namespace Shifaa_EMR_System
             newNoteTitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
 
 
-            // newnewAddendumLabel
+            // newAddendumLabel
             // 
             newAddendumLabel.AutoSize = true;
             newAddendumLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -245,6 +247,7 @@ namespace Shifaa_EMR_System
             newTab.Controls.Add(newNoteBox);
             newTab.Controls.Add(newDateLabel);
             newTab.Controls.Add(newNoteTitleLabel);
+            newTab.Controls.Add(newAddendumLabel);
             newTab.Location = new System.Drawing.Point(4, 22);
             newTab.Padding = new System.Windows.Forms.Padding(3);
             newTab.Size = new System.Drawing.Size(669, 584);
@@ -253,6 +256,7 @@ namespace Shifaa_EMR_System
             newTab.UseVisualStyleBackColor = true;
 
             NewNoteTabControl.TabPages.Add(newTab);
+            NewNoteTabControl.SelectedTab = newTab;
 
          
 
@@ -272,13 +276,13 @@ namespace Shifaa_EMR_System
 
             //Change the dimensions of the addendum box
             RichTextBox thisAddendumBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumBox", false)[0];
-            thisAddendumBox.Size = new System.Drawing.Size(655, 254);
+            thisAddendumBox.Size = new System.Drawing.Size(650, 254);
             thisAddendumBox.Location = new Point(7, 314);
             thisAddendumBox.Show();
 
             //Change dimensions of original notebox
             RichTextBox thisOriginalNoteBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newNoteBox", false)[0];
-            thisOriginalNoteBox.Size = new System.Drawing.Size(655, 199);
+            thisOriginalNoteBox.Size = new System.Drawing.Size(650, 199);
 
             //Add Addendum Label
             Label thisAddendumLabel = (Label)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumLabel", false)[0];
@@ -292,7 +296,7 @@ namespace Shifaa_EMR_System
 
 
             //Get AddendumTextBox Content 
-            RichTextBox thisAddendumBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumButton", false)[0];
+            RichTextBox thisAddendumBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumBox", false)[0];
             String addendumText = thisAddendumBox.Text;
 
             //Add it to the Old Note TextBox Content (with provider name name and the current date)
@@ -301,19 +305,15 @@ namespace Shifaa_EMR_System
             RichTextBox thisOldNoteBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newNoteBox", false)[0];
             String oldNoteContent = thisOldNoteBox.Text;
             String currentDate = DateTime.Today.ToShortDateString();
-
-            StringBuilder totalText = new StringBuilder();
-            totalText.Append(oldNoteContent + "\n\n");
-            totalText.Append(@"b" + thisProviderName + " on " + currentDate + "\n\n" + @"b0");
-            totalText.Append(addendumText);
-
-            thisOldNoteBox.Text = totalText.ToString();
-
-
+            thisOldNoteBox.AppendText("\n\n");
+            thisOldNoteBox.Font = new Font("Bahnschrift Bold", 10F, FontStyle.Bold);
+            thisOldNoteBox.AppendText(thisProviderName + " wrote on " + currentDate + "\n");
+            thisOldNoteBox.Font = new Font("Bahnschrift Light", 10F, FontStyle.Regular);
+            thisOldNoteBox.AppendText(addendumText);
 
 
             //Restore the Old Note Box the original size
-            thisOldNoteBox.Size = new System.Drawing.Size(655, 479);
+            thisOldNoteBox.Size = new System.Drawing.Size(650, 483);
 
             //Clear the Addendum TextBox Content 
             thisAddendumBox.Clear();
@@ -410,6 +410,11 @@ namespace Shifaa_EMR_System
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewNotePanel_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -40,8 +40,8 @@
             this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Exit = new System.Windows.Forms.Button();
             this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
+            this.Exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -51,15 +51,13 @@
             // PatientListView1
             // 
             this.PatientListView1.AllowUserToDeleteRows = false;
-            this.PatientListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.PatientListView1.AutoGenerateColumns = false;
             this.PatientListView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PatientListView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PatientListView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -81,14 +79,16 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.PatientListView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PatientListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientListView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PatientListView1.Location = new System.Drawing.Point(1, 69);
+            this.PatientListView1.Location = new System.Drawing.Point(30, 100);
             this.PatientListView1.Name = "PatientListView1";
             this.PatientListView1.ReadOnly = true;
             this.PatientListView1.RowHeadersVisible = false;
             this.PatientListView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PatientListView1.Size = new System.Drawing.Size(1058, 921);
+            this.PatientListView1.Size = new System.Drawing.Size(1070, 820);
             this.PatientListView1.TabIndex = 0;
+            this.PatientListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_CellContentClick);
             this.PatientListView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_RowDoubleClick);
             // 
             // PatientID
@@ -102,7 +102,7 @@
             // FirstName
             // 
             this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.HeaderText = "First Name";
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
             this.FirstName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -110,7 +110,7 @@
             // LastName
             // 
             this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
+            this.LastName.HeaderText = "Last Name";
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
             this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -144,29 +144,29 @@
             this.patientBindingSource.DataMember = "Patient";
             this.patientBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // Exit
-            // 
-            this.Exit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Exit.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
-            this.Exit.Location = new System.Drawing.Point(442, 1028);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(161, 82);
-            this.Exit.TabIndex = 25;
-            this.Exit.Text = "Exit";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
             // patientTableAdapter
             // 
             this.patientTableAdapter.ClearBeforeFill = true;
+            // 
+            // Exit
+            // 
+            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Exit.BackColor = System.Drawing.SystemColors.Control;
+            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Exit.FlatAppearance.BorderSize = 0;
+            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.Exit.Location = new System.Drawing.Point(990, 39);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(94, 35);
+            this.Exit.TabIndex = 51;
+            this.Exit.Text = "Cancel";
+            this.Exit.UseVisualStyleBackColor = false;
             // 
             // PatientListView
             // 
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.CancelButton = this.Exit;
             this.ClientSize = new System.Drawing.Size(1130, 920);
             this.ControlBox = false;
             this.Controls.Add(this.Exit);
@@ -175,7 +175,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PatientListView";
-            this.Padding = new System.Windows.Forms.Padding(0, 75, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(30, 100, 30, 0);
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.PatientListView_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).EndInit();
@@ -200,7 +200,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView PatientListView1;
-        private System.Windows.Forms.Button Exit;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource patientBindingSource;
         private EMRDatabaseDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
@@ -210,5 +209,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
+        private System.Windows.Forms.Button Exit;
     }
 }

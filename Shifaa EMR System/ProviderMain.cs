@@ -11,7 +11,7 @@ namespace Shifaa_EMR_System
 
         string thisProviderName;
         string thisProviderID;
-
+        List<DateTime> dateList;
         public ProviderMain(string providerName , string providerID)
         {
 
@@ -38,15 +38,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        List<DateTime> dateList = new List<DateTime>();
-
-        public List<DateTime> getDateSelection()
-        {
-
-            return dateList; 
-
-            
-        }
+  
 
 
 
@@ -138,20 +130,27 @@ namespace Shifaa_EMR_System
             this.globalAppointmentList.MdiParent = this;
             this.globalAppointmentList.WindowState = FormWindowState.Maximized;
             this.globalAppointmentList.StartPosition = FormStartPosition.CenterScreen;
-            this.globalAppointmentList.Show();
-          
+         
         }
 
         public void Button2_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
             {
+                DataGridViewTextBoxColumn TextBoxCell = new DataGridViewTextBoxColumn();
                 AppointmentListView appointmentListView = new AppointmentListView();
                 setAppointmentListView(appointmentListView);
-                globalAppointmentList.fillByDate()
+                for (int i = 0; i < globalAppointmentList.getAppointmentListView().Rows.Count - 1; i++)
+                {
+                    globalAppointmentList.getAppointmentListView()["Status", i] = new DataGridViewTextBoxCell();
+                    globalAppointmentList.getAppointmentListView()["PatientID", i] = new DataGridViewButtonCell();
+                }
 
-              
-;            }
+                globalAppointmentList.fillByDate();
+                this.globalAppointmentList.Show();
+
+
+            }
 
 
 
@@ -244,20 +243,23 @@ namespace Shifaa_EMR_System
             if (searchBox.Text == "Search Patient ID/Name") searchBox.Text = null;
         }
 
+        public List<DateTime> getDateSelection()
+        {
+            return dateList;
+        }
+
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
-            dateList.Clear();
 
-            for(DateTime date = monthCalendar1.SelectionStart; date <= monthCalendar1.SelectionEnd; date = date.AddDays(1))
+            dateList.Clear();
+            for (var dt = monthCalendar1.SelectionStart; dt <= monthCalendar1.SelectionEnd; dt = dt.AddDays(1))
             {
-                dateList.Add(date);
+                dateList.Add(dt);
             }
 
-            Console.WriteLine(dateList.Count);
-
             globalNewAppointment.MdiParent = this;
-            globalNewAppointment.DisplayAppointmentDates(dateList);
+
 
             globalAppointmentList.MdiParent = this;
             globalAppointmentList.fillByDate();

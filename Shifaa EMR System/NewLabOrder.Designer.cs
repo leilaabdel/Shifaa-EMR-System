@@ -129,6 +129,7 @@
             this.DetailsBox.Location = new System.Drawing.Point(169, 91);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
+            this.DetailsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DetailsBox.Size = new System.Drawing.Size(227, 120);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Description of procedure. Ex: Static Perimetry for Glaucoma Diagnostic");
@@ -168,7 +169,6 @@
             this.ScheduledDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ScheduledDatePicker.Location = new System.Drawing.Point(170, 225);
             this.ScheduledDatePicker.Name = "ScheduledDatePicker";
-            this.ScheduledDatePicker.ShowUpDown = true;
             this.ScheduledDatePicker.Size = new System.Drawing.Size(226, 25);
             this.ScheduledDatePicker.TabIndex = 45;
             // 
@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 377);
+            this.ClientSize = new System.Drawing.Size(421, 376);
             this.ControlBox = false;
             this.Controls.Add(this.ScheduledDatePicker);
             this.Controls.Add(this.SubmitButton);

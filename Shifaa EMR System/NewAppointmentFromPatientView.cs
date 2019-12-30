@@ -71,5 +71,18 @@ namespace Shifaa_EMR_System
         {
 
         }
+
+        private void AppointmentDetails_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AppointmentDetails_Clicked(object sender, EventArgs e)
+        {
+            if(AppointmentDetails.Text == "Appointment Details")
+            {
+                AppointmentDetails.Text = null;
+            }
+        }
     }
 }

@@ -62,30 +62,33 @@ namespace Shifaa_EMR_System
         private void PatientListView1_RowDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            this.PatientListView1.Rows[e.RowIndex].Selected = true;
-
-
-
-            int selectedPatientID = (Int32)this.PatientListView1["PatientID", e.RowIndex].Value;
-
-
-            EMRDatabaseDataSet.PatientDataTable selectedPatient = this.patientTableAdapter.GetDataByPatientID(selectedPatientID);
-
-            string name = (String)selectedPatient[0]["FirstName"] + " " + (String)selectedPatient[0]["LastName"];
-            string phoneNumber = (String)selectedPatient[0]["PhoneNumber"];
-            string gender = (String)selectedPatient[0]["Gender"];
-            string age = (String)selectedPatient[0]["Age"];
-            DateTime DOB = (DateTime)selectedPatient[0]["DOB"];
-
-            if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
+            if(this.MdiParent.GetType() == typeof(ProviderMain))
             {
-                PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, DOB, selectedPatientID, (ProviderMain)this.MdiParent);
-                patientHome.MdiParent = (ProviderMain)this.MdiParent;
-                patientHome.Show();
+                this.PatientListView1.Rows[e.RowIndex].Selected = true;
+
+
+
+                int selectedPatientID = (Int32)this.PatientListView1["PatientID", e.RowIndex].Value;
+
+
+                EMRDatabaseDataSet.PatientDataTable selectedPatient = this.patientTableAdapter.GetDataByPatientID(selectedPatientID);
+
+                string name = (String)selectedPatient[0]["FirstName"] + " " + (String)selectedPatient[0]["LastName"];
+                string phoneNumber = (String)selectedPatient[0]["PhoneNumber"];
+                string gender = (String)selectedPatient[0]["Gender"];
+                string age = (String)selectedPatient[0]["Age"];
+                DateTime DOB = (DateTime)selectedPatient[0]["DOB"];
+
+                if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
+                {
+                    PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, DOB, selectedPatientID, (ProviderMain)this.MdiParent);
+                    patientHome.MdiParent = (ProviderMain)this.MdiParent;
+                    patientHome.Show();
+
+                }
+
+                Console.WriteLine("clicked");
             }
-
-            Console.WriteLine("clicked");
-
 
 
         }
@@ -97,7 +100,10 @@ namespace Shifaa_EMR_System
 
         }
 
-      
+        private void PatientListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 

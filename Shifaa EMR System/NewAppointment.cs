@@ -14,7 +14,7 @@ namespace Shifaa_EMR_System
     public partial class NewAppointment : Form
     {
 
-
+        private List<DateTime> dateList;
         private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
 
@@ -42,26 +42,10 @@ namespace Shifaa_EMR_System
             // TODO: This line of code loads data into the 'eMRDatabasePatients.Patient' table. You can move, or remove it, as needed.
 
 
-            getAppointmentDate(a);
+         
 
 
-            int h = 1;
-            int m = 1;
-
-            for (h = 1; h <= 12; h++)
-            {
-                hourBox1.Items.Add(h);
-                hourBox2.Items.Add(h);
-
-            }
-
-            for (m = 0; m <= 59; m++)
-            {
-                minuteBox1.Items.Add(m);
-                minuteBox2.Items.Add(m);
-            }
-
-
+            
 
 
 
@@ -76,72 +60,9 @@ namespace Shifaa_EMR_System
         }
 
 
-        public List<DateTime> DisplayAppointmentDates(List<DateTime> selection)
-        {
+  
 
-            try
-            {
-                int selectionLength = 0;
-                if (selection != null)
-                    selectionLength = selection.Count;
-
-
-
-                switch (selectionLength)
-                {
-                    case 1:
-                        this.StartDate.Hide();
-                        this.EndDate.Hide();
-                        this.DateSelectionLabel.Hide();
-                        this.ToLabel.Hide();
-
-                        this.DateLabel.Show();
-                        this.DateBox.Show();
-                        DateBox.Text = selection[0].ToShortDateString();
-                        return selection;
-
-                    default:
-                        this.DateLabel.Hide();
-                        this.DateBox.Hide();
-
-                        this.StartDate.Show();
-                        this.StartDate.Text = selection[0].ToShortDateString();
-                        this.EndDate.Show();
-                        this.EndDate.Text = selection[selectionLength - 1].ToShortDateString();
-                        this.DateSelectionLabel.Show();
-                        this.ToLabel.Show();
-                        return selection;
-
-                }
-            }
-            catch (NullReferenceException ex)
-            {
-                return null;
-
-            }
-        }
-
-        private List<DateTime> getAppointmentDate(Type a)
-        {
-
-
-            if (this.MdiParent.GetType().Equals(a))
-            {
-
-                List<DateTime> selection = ((ProviderMain)this.MdiParent).getDateSelection();
-
-                return DisplayAppointmentDates(selection);
-
-            }
-            else
-            {
-                List<DateTime> selection = ((SchedulerMain)this.MdiParent).getDateSelection();
-                return DisplayAppointmentDates(selection);
-            }
-
-
-
-        }
+   
 
         private void FirstNameClick(object sender, EventArgs e)
         {
@@ -168,40 +89,7 @@ namespace Shifaa_EMR_System
         }
 
 
-        private void hourBox1_Click(object sender, EventArgs e)
-        {
-            while (hourBox1.Text == "Hour") hourBox1.Text = null;
-
-        }
-
-        private void hourBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            int result = 1;
-
-            try
-            {
-                if (!String.IsNullOrEmpty(hourBox1.Text))
-                {
-                    result = Int32.Parse(hourBox1.Text);
-                }
-
-                if (result < 1 || result > 24)
-                {
-                    System.Windows.Forms.MessageBox.Show("Please enter an hour between 1 and 24.");
-                    hourBox1.Text = null;
-                }
-
-            }
-            catch (FormatException)
-            {
-                System.Windows.Forms.MessageBox.Show("Please enter a valid hour integer.");
-                hourBox1.Text = null;
-            }
-
-
-
-        }
+   
 
 
 
@@ -217,16 +105,6 @@ namespace Shifaa_EMR_System
             {
 
 
-                string makeTime = hourBox1.Text + ":" + minuteBox1.Text;
-                string makeDuration = hourBox2.Text + ":" + minuteBox2.Text;
-
-
-                if (!makeTime.Any(Char.IsDigit)) makeTime = null;
-                if (!makeDuration.Any(Char.IsDigit)) makeDuration = null;
-
-
-                Console.WriteLine(makeTime + "blah");
-                Console.WriteLine(makeDuration + "blah");
 
 
                 int rowIndex = PatientListView.CurrentRow.Index;
@@ -236,22 +114,13 @@ namespace Shifaa_EMR_System
 
                 Console.WriteLine(selectedPatientID.ToString());
 
-                List<DateTime> selection;
+                
 
-                if (this.MdiParent.GetType() == typeof(ProviderMain))
-                {
-                    selection = ((ProviderMain)this.MdiParent).getDateSelection();
-                }
-                else
-                {
-                    selection = ((SchedulerMain)this.MdiParent).getDateSelection();
-                }
 
-                foreach (DateTime date in selection)
-                {
-                    doAction.CreateAppointment(FirstName.Text, LastName.Text, AppointmentDetails.Text, date, makeTime, makeDuration, selectedPatientID);
-                }
 
+                doAction.CreateAppointment(FirstName.Text, LastName.Text, AppointmentDetails.Text, ScheduledDatePicker.Value, ScheduledTimePicker.Value.ToString(), DurationTimePicker.Value.ToString()
+                    , selectedPatientID);
+        
 
 
 
@@ -290,111 +159,14 @@ namespace Shifaa_EMR_System
             this.Close();
         }
 
-        private void minuteBox1_Click(object sender, EventArgs e)
-        {
-            while (minuteBox1.Text == "Minute") minuteBox1.Text = null;
-
-        }
-
-
-        private void minuteBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int result = 1;
-
-            try
-            {
-                if (!String.IsNullOrEmpty(minuteBox1.Text))
-                {
-                    result = Int32.Parse(minuteBox1.Text);
-                }
-
-                if (result >= 1 && result <= 60)
-                {
-                    return;
-                }
-                System.Windows.Forms.MessageBox.Show("Please enter a minute between 1 and 60.");
-                minuteBox1.Text = null;
-
-            }
-            catch (FormatException)
-            {
-                System.Windows.Forms.MessageBox.Show("Please enter a valid minute integer.");
-                minuteBox1.Text = null;
-            }
-        }
-
-        private void hourBox2_Click(object sender, EventArgs e)
-        {
-            while (hourBox2.Text == "Hour") hourBox2.Text = null;
-
-        }
-
-        private void hourBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int result = 1;
-
-            try
-            {
-                if (!String.IsNullOrEmpty(hourBox2.Text))
-                {
-                    result = Int32.Parse(hourBox2.Text);
-                }
-
-                if (result < 1 || result > 24)
-                {
-                    System.Windows.Forms.MessageBox.Show("Please enter an hour between 1 and 24.");
-                    hourBox2.Text = null;
-                }
-
-            }
-            catch (FormatException)
-            {
-                System.Windows.Forms.MessageBox.Show("Please enter a valid hour integer.");
-                hourBox2.Text = null;
-            }
-        }
-
-        private void minuteBox2_Click(object sender, EventArgs e)
-        {
-            while (minuteBox2.Text == "Minute") minuteBox2.Text = null;
-
-        }
-
-        private void minuteBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int result = 1;
-
-            try
-            {
-                if (!String.IsNullOrEmpty(minuteBox2.Text))
-                {
-                    result = Int32.Parse(minuteBox2.Text);
-                }
-
-                if (result < 1 || result > 60)
-                {
-                    System.Windows.Forms.MessageBox.Show("Please enter a minute between 1 and 60.");
-                    minuteBox2.Text = null;
-                }
-
-            }
-            catch (FormatException)
-            {
-                System.Windows.Forms.MessageBox.Show("Please enter a valid minute integer.");
-                minuteBox2.Text = null;
-            }
-        }
-
+    
+       
         private void AppointmentDescriptionLabel_Click(object sender, EventArgs e)
         {
 
         }
 
 
-        public Label GetDateLabel()
-        {
-            return DateBox;
-        }
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -641,6 +413,11 @@ namespace Shifaa_EMR_System
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ScheduledDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+  
         }
     }
 }

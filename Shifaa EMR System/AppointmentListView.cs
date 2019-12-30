@@ -1,6 +1,13 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Data.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace Shifaa_EMR_System
 {
@@ -12,7 +19,13 @@ namespace Shifaa_EMR_System
 
     {
 
-     
+        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        int selectedAppointmentID = 0;
+
+        public int getSelectedAppointmentID()
+        {
+            return selectedAppointmentID;
+        }
 
         public AppointmentListView()
         {
@@ -37,6 +50,11 @@ namespace Shifaa_EMR_System
            
 
 
+        }
+
+        public DataGridView getAppointmentListView()
+        {
+            return this.AppointmentListView1;
         }
 
 
@@ -68,11 +86,12 @@ namespace Shifaa_EMR_System
                 
 
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Center(Form form)
         {
-
+            form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
         }
+
+
 
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -81,6 +100,71 @@ namespace Shifaa_EMR_System
 
         private void AppointmentListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var appointmentListGrid = (DataGridView)sender;
+            selectedAppointmentID = (Int32)appointmentListGrid["appointmentID", e.RowIndex].Value;
+            string checkedIn = null;
+
+
+
+            if(e.RowIndex >= 0 && appointmentListGrid[e.ColumnIndex , e.RowIndex] is DataGridViewButtonCell &&
+                appointmentListGrid.CurrentCell.ColumnIndex == 6)
+            {
+
+                try
+                {
+                    DataGridViewTextBoxCell TextBoxCell = new DataGridViewTextBoxCell();
+                    checkedIn = "Checked in at: " + DateTime.Now.ToString("HH:mm");
+                    appointmentListGrid[e.ColumnIndex, e.RowIndex].Value = checkedIn;
+                    doAction.updateAppointment(checkedIn, selectedAppointmentID);
+                    appointmentListGrid[e.ColumnIndex, e.RowIndex] = TextBoxCell;
+
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+               
+            }
+
+            if (e.RowIndex >= 0 && appointmentListGrid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell &&
+                appointmentListGrid.CurrentCell.ColumnIndex == 0)
+            {
+                try
+                {
+                    if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
+                    {
+
+                        int selectedPatientID = (Int32)AppointmentListView1["PatientID", e.RowIndex].Value;
+                        string firstName = null;
+                        string lastName = null;
+                        string number = null;
+                        string gender = null;
+                        DateTime? DOB = null;
+                        string age = null;
+
+                        ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(selectedPatientID);
+                        foreach (getPatientByIDResult r in result){
+                            firstName = r.FirstName;
+                            lastName = r.LastName;
+                            number = r.PhoneNumber;
+                            gender = r.Gender;
+                            DOB = r.DOB;
+                            age = r.Age;
+
+                        }
+
+                        string patientFullName = firstName + " " + lastName;
+
+                        PatientHomePage newPatientHomePage = new PatientHomePage(patientFullName, number, gender, age, Convert.ToDateTime(DOB), selectedPatientID, (ProviderMain)this.MdiParent , this); 
+                        Center(newPatientHomePage);
+                        newPatientHomePage.Show();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
 
         }
 

@@ -38,7 +38,7 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            doAction.createNewScanOrProcedureOrder(ScanNameBox.Text, DetailsBox.Text, thisProviderName, thisProviderID, thisPatientID, ScheduleDatePicker.Value);
+            doAction.createNewScanOrProcedureOrder(ScanNameBox.Text, DetailsBox.Text, thisProviderName, thisProviderID, thisPatientID, ScheduledDatePicker.Value);
             this.patientScanTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientScan, thisPatientID);
             this.Close();
         }

@@ -34,20 +34,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Exit = new System.Windows.Forms.Button();
             this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
-            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusButtonToolTIp = new System.Windows.Forms.ToolTip(this.components);
+            this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Exit
@@ -67,6 +69,7 @@
             // 
             // AppointmentListView1
             // 
+            this.AppointmentListView1.AllowUserToAddRows = false;
             this.AppointmentListView1.AllowUserToDeleteRows = false;
             this.AppointmentListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -84,14 +87,15 @@
             this.AppointmentListView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.AppointmentListView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppointmentListView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn16,
+            this.PatientID,
+            this.appointmentID,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
+            this.StatusColumn,
+            this.dataGridViewTextBoxColumn13});
             this.AppointmentListView1.DataSource = this.appointmentBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -118,6 +122,11 @@
             this.AppointmentListView1.TabIndex = 27;
             this.AppointmentListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentListView1_CellContentClick);
             // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "Appointment";
+            this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
             // eMRDatabaseDataSet
             // 
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
@@ -127,17 +136,21 @@
             // 
             this.appointmentTableAdapter.ClearBeforeFill = true;
             // 
-            // appointmentBindingSource
+            // PatientID
             // 
-            this.appointmentBindingSource.DataMember = "Appointment";
-            this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
+            this.PatientID.DataPropertyName = "patientID";
+            this.PatientID.HeaderText = "Patient ID";
+            this.PatientID.Name = "PatientID";
+            this.PatientID.ReadOnly = true;
+            this.PatientID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // dataGridViewTextBoxColumn16
+            // appointmentID
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "patientID";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Patient ID";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.appointmentID.DataPropertyName = "appointmentID";
+            this.appointmentID.HeaderText = "appointmentID";
+            this.appointmentID.Name = "appointmentID";
+            this.appointmentID.ReadOnly = true;
+            this.appointmentID.Visible = false;
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -174,19 +187,20 @@
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
+            // StatusColumn
+            // 
+            this.StatusColumn.DataPropertyName = "Status";
+            this.StatusColumn.HeaderText = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.ReadOnly = true;
+            this.StatusColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "DurationAppointment";
             this.dataGridViewTextBoxColumn13.HeaderText = "Duration ";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
             // AppointmentListView
             // 
@@ -207,8 +221,8 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AppointmentListView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,13 +237,15 @@
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter appointmentTableAdapter;
         private System.Windows.Forms.BindingSource appointmentBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.ToolTip StatusButtonToolTIp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }

@@ -39,12 +39,12 @@
             this.ScanNameToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DetailsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.DateScheduledLabel = new System.Windows.Forms.Label();
-            this.ScheduleDatePicker = new MetroFramework.Controls.MetroDateTime();
             this.DateScheduledToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
             this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
+            this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -129,6 +129,7 @@
             this.DetailsBox.Location = new System.Drawing.Point(162, 96);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
+            this.DetailsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DetailsBox.Size = new System.Drawing.Size(228, 120);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Description of procedure. Ex: Static Perimetry for Glaucoma Diagnostic");
@@ -143,16 +144,6 @@
             this.DateScheduledLabel.TabIndex = 42;
             this.DateScheduledLabel.Text = "Date Scheduled";
             this.DetailsToolTip.SetToolTip(this.DateScheduledLabel, "Optional. Typically in number of tablets, sprays, etc.");
-            // 
-            // ScheduleDatePicker
-            // 
-            this.ScheduleDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScheduleDatePicker.Location = new System.Drawing.Point(164, 232);
-            this.ScheduleDatePicker.MinimumSize = new System.Drawing.Size(0, 29);
-            this.ScheduleDatePicker.Name = "ScheduleDatePicker";
-            this.ScheduleDatePicker.Size = new System.Drawing.Size(226, 29);
-            this.ScheduleDatePicker.TabIndex = 43;
-            this.DateScheduledToolTip.SetToolTip(this.ScheduleDatePicker, "Pick the date where you aim to schedule the scan/procedure");
             // 
             // SubmitButton
             // 
@@ -184,14 +175,25 @@
             // 
             this.patientScanTableAdapter.ClearBeforeFill = true;
             // 
+            // ScheduledDatePicker
+            // 
+            this.ScheduledDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ScheduledDatePicker.CustomFormat = "dddd dd/MM/yyyy ";
+            this.ScheduledDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
+            this.ScheduledDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ScheduledDatePicker.Location = new System.Drawing.Point(162, 237);
+            this.ScheduledDatePicker.Name = "ScheduledDatePicker";
+            this.ScheduledDatePicker.Size = new System.Drawing.Size(226, 25);
+            this.ScheduledDatePicker.TabIndex = 47;
+            // 
             // NewScanOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 372);
             this.ControlBox = false;
+            this.Controls.Add(this.ScheduledDatePicker);
             this.Controls.Add(this.SubmitButton);
-            this.Controls.Add(this.ScheduleDatePicker);
             this.Controls.Add(this.DateScheduledLabel);
             this.Controls.Add(this.DetailsBox);
             this.Controls.Add(this.ScanNameBox);
@@ -225,12 +227,12 @@
         private System.Windows.Forms.ToolTip DetailsToolTip;
         private System.Windows.Forms.Label NewScanLabel;
         private System.Windows.Forms.Label DateScheduledLabel;
-        private MetroFramework.Controls.MetroDateTime ScheduleDatePicker;
         private System.Windows.Forms.ToolTip DateScheduledToolTip;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.BindingSource patientScanBindingSource;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter patientScanTableAdapter;
+        private System.Windows.Forms.DateTimePicker ScheduledDatePicker;
     }
 }

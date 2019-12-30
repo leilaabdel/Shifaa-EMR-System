@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EMRDatabase" Class="SiteFunctionsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin" SettingsObjectName="Shifaa_EMR_System.Properties.Settings" SettingsPropertyName="EMRDatabaseConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Appointment" Member="Appointments">
-    <Type Name="Appointment">
-      <Column Name="appointmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="DateAppointment" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="TimeAppointment" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="DurationAppointment" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Created" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="patientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Column Number]" Member="Column_Number" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Association Name="Patient_Appointment" Member="Patient" ThisKey="patientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Patient" Member="Patients">
     <Type Name="Patient">
       <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -31,13 +15,14 @@
       <Column Name="BMI" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="Nationality" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Created" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Patient_Appointment" Member="Appointments" ThisKey="PatientID" OtherKey="patientID" Type="Appointment" />
       <Association Name="Patient_VitalSign" Member="VitalSigns" ThisKey="PatientID" OtherKey="PatientID" Type="VitalSign" />
       <Association Name="Patient_Prescription" Member="Prescriptions" ThisKey="PatientID" OtherKey="PatientID" Type="Prescription" />
       <Association Name="Patient_Allergie" Member="Allergies" ThisKey="PatientID" OtherKey="PatientID" Type="Allergie" />
       <Association Name="Patient_PatientScan" Member="PatientScans" ThisKey="PatientID" OtherKey="PatientID" Type="PatientScan" />
       <Association Name="Patient_PatientLab" Member="PatientLabs" ThisKey="PatientID" OtherKey="PatientID" Type="PatientLab" />
       <Association Name="Patient_PatientNote" Member="PatientNotes" ThisKey="PatientID" OtherKey="PatientID" Type="PatientNote" />
+      <Association Name="Patient_Appointment" Member="Appointments" ThisKey="PatientID" OtherKey="patientID" Type="Appointment" />
+      <Association Name="Patient_Problem" Member="Problems" ThisKey="PatientID" OtherKey="PatientID" Type="Problem" />
     </Type>
   </Table>
   <Table Name="dbo.VitalSigns" Member="VitalSigns">
@@ -150,6 +135,43 @@
       <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="Patient_PatientNote" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Appointment" Member="Appointments">
+    <Type Name="Appointment">
+      <Column Name="appointmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateAppointment" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TimeAppointment" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DurationAppointment" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="patientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Patient_Appointment" Member="Patient" ThisKey="patientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Problem" Member="Problems">
+    <Type Name="Problem">
+      <Column Name="ProblemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProblemName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ProblemDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateDiagnosed" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DateResolved" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Patient_Problem" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="ProblemListDatabase_Problem" Member="ProblemListDatabase" ThisKey="ProblemName" OtherKey="ProblemName" Type="ProblemListDatabase" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProblemListDatabase" Member="ProblemListDatabases">
+    <Type Name="ProblemListDatabase">
+      <Column Name="ProblemName" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ColumnRowNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ProblemListDatabase_Problem" Member="Problems" ThisKey="ProblemName" OtherKey="ProblemName" Type="Problem" />
     </Type>
   </Table>
   <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
@@ -300,11 +322,68 @@
       <Column Name="Title" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.deleteAppointment" Method="deleteAppointment">
+    <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientAllergy" Method="deletePatientAllergy">
+    <Parameter Name="PatientAllergyID" Parameter="patientAllergyID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteVitalSigns" Method="deleteVitalSigns">
+    <Parameter Name="VitalSignsID" Parameter="vitalSignsID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientLab" Method="deletePatientLab">
+    <Parameter Name="PatientLabID" Parameter="patientLabID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientNote" Method="deletePatientNote">
+    <Parameter Name="NoteID" Parameter="noteID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientPrescription" Method="deletePatientPrescription">
+    <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientScan" Method="deletePatientScan">
+    <Parameter Name="ScanID" Parameter="scanID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteProblem" Method="deleteProblem">
+    <Parameter Name="ProblemID" Parameter="problemID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.createNewProblem" Method="createNewProblem">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProblemName" Parameter="problemName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Details" Parameter="details" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderName" Parameter="providerName" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateExistingProblem" Method="updateExistingProblem">
+    <Parameter Name="ProblemID" Parameter="problemID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProblemName" Parameter="problemName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="ProblemDescription" Parameter="problemDescription" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="UpdateDate" Parameter="updateDate" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateAppointment" Method="updateAppointment">
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.getPatientByID" Method="getPatientByID">
     <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
     <ElementType Name="getPatientByIDResult">
       <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

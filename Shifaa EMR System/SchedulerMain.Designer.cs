@@ -54,7 +54,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 379);
+            this.panel1.Size = new System.Drawing.Size(266, 927);
             this.panel1.TabIndex = 6;
             // 
             // panel3
@@ -73,7 +73,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 47);
+            this.panel2.Size = new System.Drawing.Size(1343, 47);
             this.panel2.TabIndex = 5;
             // 
             // label1
@@ -97,7 +97,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1343, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1343, 998);
             this.Controls.Add(this.ExistingAppointments);
             this.Controls.Add(this.NewAppointment);
             this.Controls.Add(this.monthCalendar2);

@@ -18,6 +18,8 @@ namespace Shifaa_EMR_System
         public PhysicianLoginForm()
         {
             InitializeComponent();
+            this.BringToFront();
+            this.Focus();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

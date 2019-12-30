@@ -55,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 39);
+            this.panel1.Size = new System.Drawing.Size(410, 39);
             this.panel1.TabIndex = 0;
             // 
             // CancelButton
@@ -66,7 +66,7 @@
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(202, 7);
+            this.CancelButton.Location = new System.Drawing.Point(315, 7);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 26);
             this.CancelButton.TabIndex = 47;
@@ -114,7 +114,7 @@
             this.AllergyNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllergyNameBox.Location = new System.Drawing.Point(131, 52);
             this.AllergyNameBox.Name = "AllergyNameBox";
-            this.AllergyNameBox.Size = new System.Drawing.Size(142, 23);
+            this.AllergyNameBox.Size = new System.Drawing.Size(255, 23);
             this.AllergyNameBox.TabIndex = 40;
             this.AllergyNameToolTip.SetToolTip(this.AllergyNameBox, "Ex: Latex");
             this.AllergyNameBox.TextChanged += new System.EventHandler(this.AllergyNameBox_TextChanged);
@@ -127,7 +127,8 @@
             this.DetailsBox.Location = new System.Drawing.Point(131, 90);
             this.DetailsBox.Multiline = true;
             this.DetailsBox.Name = "DetailsBox";
-            this.DetailsBox.Size = new System.Drawing.Size(142, 113);
+            this.DetailsBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DetailsBox.Size = new System.Drawing.Size(255, 113);
             this.DetailsBox.TabIndex = 41;
             this.DetailsToolTip.SetToolTip(this.DetailsBox, "Ex: severity, family history, etc.");
             // 
@@ -139,7 +140,7 @@
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(105, 232);
+            this.SubmitButton.Location = new System.Drawing.Point(162, 232);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 42;
@@ -165,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 317);
+            this.ClientSize = new System.Drawing.Size(410, 334);
             this.ControlBox = false;
             this.Controls.Add(this.SubmitButton);
             this.Controls.Add(this.DetailsBox);
