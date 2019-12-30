@@ -34,10 +34,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.WeightLabel = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
             this.FirstNameBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.NationalityLabel = new System.Windows.Forms.Label();
             this.LastNameBox = new System.Windows.Forms.TextBox();
             this.DOBPicker = new System.Windows.Forms.DateTimePicker();
             this.WeightBox = new System.Windows.Forms.TextBox();
@@ -46,11 +46,17 @@
             this.FemaleCheckBox = new System.Windows.Forms.CheckBox();
             this.MaleCheckBox = new System.Windows.Forms.CheckBox();
             this.Save = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.kgLabel = new System.Windows.Forms.Label();
             this.cmLabel = new System.Windows.Forms.Label();
             this.PhoneNumberBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.MaritalStatusLabel = new System.Windows.Forms.Label();
+            this.MarriedBox = new System.Windows.Forms.CheckBox();
+            this.SingleBox = new System.Windows.Forms.CheckBox();
+            this.NotPregnantBox = new System.Windows.Forms.CheckBox();
+            this.PregnantBox = new System.Windows.Forms.CheckBox();
+            this.PregnantLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -66,11 +72,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(303, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 19);
+            this.label1.Size = new System.Drawing.Size(111, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "New Patient";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -103,7 +109,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(168, 205);
+            this.label5.Location = new System.Drawing.Point(168, 209);
             this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 16);
@@ -115,7 +121,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(168, 239);
+            this.label6.Location = new System.Drawing.Point(166, 299);
             this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 16);
@@ -123,29 +129,29 @@
             this.label6.Text = "Gender";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label7
+            // WeightLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(168, 280);
-            this.label7.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Weight";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.WeightLabel.AutoSize = true;
+            this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightLabel.Location = new System.Drawing.Point(170, 339);
+            this.WeightLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.WeightLabel.Name = "WeightLabel";
+            this.WeightLabel.Size = new System.Drawing.Size(46, 16);
+            this.WeightLabel.TabIndex = 8;
+            this.WeightLabel.Text = "Weight";
+            this.WeightLabel.Click += new System.EventHandler(this.label7_Click);
             // 
-            // label8
+            // HeightLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(168, 323);
-            this.label8.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 16);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Height";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.HeightLabel.AutoSize = true;
+            this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightLabel.Location = new System.Drawing.Point(170, 382);
+            this.HeightLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(45, 16);
+            this.HeightLabel.TabIndex = 9;
+            this.HeightLabel.Text = "Height";
+            this.HeightLabel.Click += new System.EventHandler(this.label8_Click);
             // 
             // FirstNameBox
             // 
@@ -156,16 +162,16 @@
             this.FirstNameBox.TabIndex = 12;
             this.FirstNameBox.TextChanged += new System.EventHandler(this.FirstNameBox_TextChanged);
             // 
-            // label11
+            // NationalityLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(166, 363);
-            this.label11.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 16);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Nationality";
+            this.NationalityLabel.AutoSize = true;
+            this.NationalityLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NationalityLabel.Location = new System.Drawing.Point(168, 422);
+            this.NationalityLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.NationalityLabel.Name = "NationalityLabel";
+            this.NationalityLabel.Size = new System.Drawing.Size(69, 16);
+            this.NationalityLabel.TabIndex = 13;
+            this.NationalityLabel.Text = "Nationality";
             // 
             // LastNameBox
             // 
@@ -179,16 +185,16 @@
             // DOBPicker
             // 
             this.DOBPicker.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DOBPicker.Location = new System.Drawing.Point(326, 198);
+            this.DOBPicker.Location = new System.Drawing.Point(326, 202);
             this.DOBPicker.Name = "DOBPicker";
-            this.DOBPicker.Size = new System.Drawing.Size(221, 23);
+            this.DOBPicker.Size = new System.Drawing.Size(224, 23);
             this.DOBPicker.TabIndex = 16;
             this.DOBPicker.ValueChanged += new System.EventHandler(this.DOBPicker_ValueChanged);
             // 
             // WeightBox
             // 
             this.WeightBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightBox.Location = new System.Drawing.Point(326, 280);
+            this.WeightBox.Location = new System.Drawing.Point(328, 339);
             this.WeightBox.Name = "WeightBox";
             this.WeightBox.Size = new System.Drawing.Size(164, 23);
             this.WeightBox.TabIndex = 17;
@@ -197,7 +203,7 @@
             // HeightBox
             // 
             this.HeightBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightBox.Location = new System.Drawing.Point(326, 323);
+            this.HeightBox.Location = new System.Drawing.Point(328, 382);
             this.HeightBox.Name = "HeightBox";
             this.HeightBox.Size = new System.Drawing.Size(164, 23);
             this.HeightBox.TabIndex = 18;
@@ -206,7 +212,7 @@
             // NationalityBox
             // 
             this.NationalityBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NationalityBox.Location = new System.Drawing.Point(325, 363);
+            this.NationalityBox.Location = new System.Drawing.Point(327, 422);
             this.NationalityBox.Name = "NationalityBox";
             this.NationalityBox.Size = new System.Drawing.Size(164, 23);
             this.NationalityBox.TabIndex = 20;
@@ -214,25 +220,29 @@
             // 
             // FemaleCheckBox
             // 
+            this.FemaleCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.FemaleCheckBox.AutoSize = true;
             this.FemaleCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FemaleCheckBox.Location = new System.Drawing.Point(328, 236);
+            this.FemaleCheckBox.Location = new System.Drawing.Point(326, 296);
             this.FemaleCheckBox.Name = "FemaleCheckBox";
             this.FemaleCheckBox.Size = new System.Drawing.Size(70, 20);
             this.FemaleCheckBox.TabIndex = 21;
             this.FemaleCheckBox.Text = "Female";
             this.FemaleCheckBox.UseVisualStyleBackColor = true;
+            this.FemaleCheckBox.CheckedChanged += new System.EventHandler(this.FemaleCheckBox_CheckedChanged);
             // 
             // MaleCheckBox
             // 
+            this.MaleCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaleCheckBox.AutoSize = true;
             this.MaleCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaleCheckBox.Location = new System.Drawing.Point(437, 236);
+            this.MaleCheckBox.Location = new System.Drawing.Point(435, 296);
             this.MaleCheckBox.Name = "MaleCheckBox";
             this.MaleCheckBox.Size = new System.Drawing.Size(55, 20);
             this.MaleCheckBox.TabIndex = 22;
             this.MaleCheckBox.Text = "Male";
             this.MaleCheckBox.UseVisualStyleBackColor = true;
+            this.MaleCheckBox.CheckedChanged += new System.EventHandler(this.MaleCheckBox_CheckedChanged);
             // 
             // Save
             // 
@@ -241,7 +251,7 @@
             this.Save.FlatAppearance.BorderSize = 0;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.Save.Location = new System.Drawing.Point(210, 422);
+            this.Save.Location = new System.Drawing.Point(312, 532);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(86, 33);
             this.Save.TabIndex = 24;
@@ -249,26 +259,26 @@
             this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // button1
+            // CancelButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.button1.Location = new System.Drawing.Point(377, 422);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 33);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CancelButton.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton.FlatAppearance.BorderSize = 0;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.CancelButton.Location = new System.Drawing.Point(616, 12);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(86, 33);
+            this.CancelButton.TabIndex = 25;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // kgLabel
             // 
             this.kgLabel.AutoSize = true;
             this.kgLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kgLabel.Location = new System.Drawing.Point(509, 283);
+            this.kgLabel.Location = new System.Drawing.Point(511, 342);
             this.kgLabel.Name = "kgLabel";
             this.kgLabel.Size = new System.Drawing.Size(42, 16);
             this.kgLabel.TabIndex = 26;
@@ -279,7 +289,7 @@
             // 
             this.cmLabel.AutoSize = true;
             this.cmLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmLabel.Location = new System.Drawing.Point(506, 326);
+            this.cmLabel.Location = new System.Drawing.Point(508, 385);
             this.cmLabel.Name = "cmLabel";
             this.cmLabel.Size = new System.Drawing.Size(45, 16);
             this.cmLabel.TabIndex = 27;
@@ -306,19 +316,98 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Phone Number";
             // 
+            // MaritalStatusLabel
+            // 
+            this.MaritalStatusLabel.AutoSize = true;
+            this.MaritalStatusLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaritalStatusLabel.Location = new System.Drawing.Point(170, 250);
+            this.MaritalStatusLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.MaritalStatusLabel.Name = "MaritalStatusLabel";
+            this.MaritalStatusLabel.Size = new System.Drawing.Size(88, 16);
+            this.MaritalStatusLabel.TabIndex = 30;
+            this.MaritalStatusLabel.Text = "Marital Status";
+            // 
+            // MarriedBox
+            // 
+            this.MarriedBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MarriedBox.AutoSize = true;
+            this.MarriedBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MarriedBox.Location = new System.Drawing.Point(434, 249);
+            this.MarriedBox.Name = "MarriedBox";
+            this.MarriedBox.Size = new System.Drawing.Size(73, 20);
+            this.MarriedBox.TabIndex = 32;
+            this.MarriedBox.Text = "Married";
+            this.MarriedBox.UseVisualStyleBackColor = true;
+            this.MarriedBox.CheckedChanged += new System.EventHandler(this.MarriedBox_CheckedChanged);
+            // 
+            // SingleBox
+            // 
+            this.SingleBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SingleBox.AutoSize = true;
+            this.SingleBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SingleBox.Location = new System.Drawing.Point(325, 249);
+            this.SingleBox.Name = "SingleBox";
+            this.SingleBox.Size = new System.Drawing.Size(63, 20);
+            this.SingleBox.TabIndex = 31;
+            this.SingleBox.Text = "Single";
+            this.SingleBox.UseVisualStyleBackColor = true;
+            this.SingleBox.CheckedChanged += new System.EventHandler(this.SingleBox_CheckedChanged);
+            // 
+            // NotPregnantBox
+            // 
+            this.NotPregnantBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.NotPregnantBox.AutoSize = true;
+            this.NotPregnantBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotPregnantBox.Location = new System.Drawing.Point(437, 335);
+            this.NotPregnantBox.Name = "NotPregnantBox";
+            this.NotPregnantBox.Size = new System.Drawing.Size(43, 20);
+            this.NotPregnantBox.TabIndex = 35;
+            this.NotPregnantBox.Text = "No";
+            this.NotPregnantBox.UseVisualStyleBackColor = true;
+            this.NotPregnantBox.CheckedChanged += new System.EventHandler(this.NotPregnantBox_CheckedChanged);
+            // 
+            // PregnantBox
+            // 
+            this.PregnantBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PregnantBox.AutoSize = true;
+            this.PregnantBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PregnantBox.Location = new System.Drawing.Point(328, 335);
+            this.PregnantBox.Name = "PregnantBox";
+            this.PregnantBox.Size = new System.Drawing.Size(47, 20);
+            this.PregnantBox.TabIndex = 34;
+            this.PregnantBox.Text = "Yes";
+            this.PregnantBox.UseVisualStyleBackColor = true;
+            this.PregnantBox.CheckedChanged += new System.EventHandler(this.PregnantBox_CheckedChanged);
+            // 
+            // PregnantLabel
+            // 
+            this.PregnantLabel.AutoSize = true;
+            this.PregnantLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PregnantLabel.Location = new System.Drawing.Point(168, 338);
+            this.PregnantLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.PregnantLabel.Name = "PregnantLabel";
+            this.PregnantLabel.Size = new System.Drawing.Size(67, 16);
+            this.PregnantLabel.TabIndex = 33;
+            this.PregnantLabel.Text = "Pregnant?";
+            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(715, 508);
+            this.ClientSize = new System.Drawing.Size(715, 697);
             this.ControlBox = false;
+            this.Controls.Add(this.NotPregnantBox);
+            this.Controls.Add(this.PregnantBox);
+            this.Controls.Add(this.PregnantLabel);
+            this.Controls.Add(this.MarriedBox);
+            this.Controls.Add(this.SingleBox);
+            this.Controls.Add(this.MaritalStatusLabel);
             this.Controls.Add(this.PhoneNumberBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmLabel);
             this.Controls.Add(this.kgLabel);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.MaleCheckBox);
             this.Controls.Add(this.FemaleCheckBox);
@@ -327,10 +416,10 @@
             this.Controls.Add(this.WeightBox);
             this.Controls.Add(this.DOBPicker);
             this.Controls.Add(this.LastNameBox);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.NationalityLabel);
             this.Controls.Add(this.FirstNameBox);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.HeightLabel);
+            this.Controls.Add(this.WeightLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -360,10 +449,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label WeightLabel;
+        private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.TextBox FirstNameBox;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label NationalityLabel;
         private System.Windows.Forms.TextBox LastNameBox;
         private System.Windows.Forms.DateTimePicker DOBPicker;
         private System.Windows.Forms.TextBox WeightBox;
@@ -372,10 +461,16 @@
         private System.Windows.Forms.CheckBox FemaleCheckBox;
         private System.Windows.Forms.CheckBox MaleCheckBox;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label kgLabel;
         private System.Windows.Forms.Label cmLabel;
         private System.Windows.Forms.TextBox PhoneNumberBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label MaritalStatusLabel;
+        private System.Windows.Forms.CheckBox MarriedBox;
+        private System.Windows.Forms.CheckBox SingleBox;
+        private System.Windows.Forms.CheckBox NotPregnantBox;
+        private System.Windows.Forms.CheckBox PregnantBox;
+        private System.Windows.Forms.Label PregnantLabel;
     }
 }

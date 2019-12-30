@@ -2191,6 +2191,10 @@ namespace Shifaa_EMR_System {
             
             private global::System.Data.DataColumn columnProviderID;
             
+            private global::System.Data.DataColumn columnDateStopped;
+            
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PrescriptionDataTable() {
@@ -2314,6 +2318,22 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateStoppedColumn {
+                get {
+                    return this.columnDateStopped;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2349,7 +2369,7 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PrescriptionRow AddPrescriptionRow(DrugDatabaseRow parentDrugDatabaseRowByFK__Prescript__Medic__7073AF84, string Amount, string Strength, string Route, string Frequency, double Refills, PatientRow parentPatientRowByFK__Prescript__Patie__662B2B3B, string Date, string ProviderName, string ProviderID) {
+            public PrescriptionRow AddPrescriptionRow(DrugDatabaseRow parentDrugDatabaseRowByFK__Prescript__Medic__7073AF84, string Amount, string Strength, string Route, string Frequency, double Refills, PatientRow parentPatientRowByFK__Prescript__Patie__662B2B3B, string Date, string ProviderName, string ProviderID, string DateStopped, string Status) {
                 PrescriptionRow rowPrescriptionRow = ((PrescriptionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2362,7 +2382,9 @@ namespace Shifaa_EMR_System {
                         null,
                         Date,
                         ProviderName,
-                        ProviderID};
+                        ProviderID,
+                        DateStopped,
+                        Status};
                 if ((parentDrugDatabaseRowByFK__Prescript__Medic__7073AF84 != null)) {
                     columnValuesArray[1] = parentDrugDatabaseRowByFK__Prescript__Medic__7073AF84[0];
                 }
@@ -2409,6 +2431,8 @@ namespace Shifaa_EMR_System {
                 this.columnDate = base.Columns["Date"];
                 this.columnProviderName = base.Columns["ProviderName"];
                 this.columnProviderID = base.Columns["ProviderID"];
+                this.columnDateStopped = base.Columns["DateStopped"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2436,6 +2460,10 @@ namespace Shifaa_EMR_System {
                 base.Columns.Add(this.columnProviderName);
                 this.columnProviderID = new global::System.Data.DataColumn("ProviderID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProviderID);
+                this.columnDateStopped = new global::System.Data.DataColumn("DateStopped", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateStopped);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPrescriptionID}, true));
                 this.columnPrescriptionID.AutoIncrement = true;
@@ -2459,6 +2487,7 @@ namespace Shifaa_EMR_System {
                 this.columnProviderName.MaxLength = 50;
                 this.columnProviderID.AllowDBNull = false;
                 this.columnProviderID.MaxLength = 50;
+                this.columnDateStopped.DefaultValue = ((string)(""));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2618,6 +2647,10 @@ namespace Shifaa_EMR_System {
             
             private global::System.Data.DataColumn columnCreated;
             
+            private global::System.Data.DataColumn columnMaritalStatus;
+            
+            private global::System.Data.DataColumn columnPregancyStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PatientDataTable() {
@@ -2757,6 +2790,22 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MaritalStatusColumn {
+                get {
+                    return this.columnMaritalStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PregancyStatusColumn {
+                get {
+                    return this.columnPregancyStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2792,7 +2841,7 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PatientRow AddPatientRow(int PatientID, string FirstName, string LastName, string PhoneNumber, System.DateTime DOB, string Age, string Gender, double Weight, double Height, double BMI, string Nationality, System.DateTime Created) {
+            public PatientRow AddPatientRow(int PatientID, string FirstName, string LastName, string PhoneNumber, System.DateTime DOB, string Age, string Gender, double Weight, double Height, double BMI, string Nationality, System.DateTime Created, string MaritalStatus, string PregancyStatus) {
                 PatientRow rowPatientRow = ((PatientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2807,7 +2856,9 @@ namespace Shifaa_EMR_System {
                         Height,
                         BMI,
                         Nationality,
-                        Created};
+                        Created,
+                        MaritalStatus,
+                        PregancyStatus};
                 rowPatientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPatientRow);
                 return rowPatientRow;
@@ -2850,6 +2901,8 @@ namespace Shifaa_EMR_System {
                 this.columnBMI = base.Columns["BMI"];
                 this.columnNationality = base.Columns["Nationality"];
                 this.columnCreated = base.Columns["Created"];
+                this.columnMaritalStatus = base.Columns["MaritalStatus"];
+                this.columnPregancyStatus = base.Columns["PregancyStatus"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2881,6 +2934,10 @@ namespace Shifaa_EMR_System {
                 base.Columns.Add(this.columnNationality);
                 this.columnCreated = new global::System.Data.DataColumn("Created", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreated);
+                this.columnMaritalStatus = new global::System.Data.DataColumn("MaritalStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaritalStatus);
+                this.columnPregancyStatus = new global::System.Data.DataColumn("PregancyStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPregancyStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPatientID}, true));
                 this.columnColumnNumber.AutoIncrement = true;
@@ -6927,6 +6984,38 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DateStopped {
+                get {
+                    if (this.IsDateStoppedNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tablePrescription.DateStoppedColumn]));
+                    }
+                }
+                set {
+                    this[this.tablePrescription.DateStoppedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrescription.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'Prescription\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrescription.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PatientRow PatientRow {
                 get {
                     return ((PatientRow)(this.GetParentRow(this.Table.ParentRelations["FK__Prescript__Patie__662B2B3B"])));
@@ -6981,6 +7070,30 @@ namespace Shifaa_EMR_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRefillsNull() {
                 this[this.tablePrescription.RefillsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateStoppedNull() {
+                return this.IsNull(this.tablePrescription.DateStoppedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateStoppedNull() {
+                this[this.tablePrescription.DateStoppedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tablePrescription.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tablePrescription.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7173,6 +7286,38 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string MaritalStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatient.MaritalStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MaritalStatus\' in table \'Patient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatient.MaritalStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PregancyStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatient.PregancyStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PregancyStatus\' in table \'Patient\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatient.PregancyStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPhoneNumberNull() {
                 return this.IsNull(this.tablePatient.PhoneNumberColumn);
             }
@@ -7241,6 +7386,30 @@ namespace Shifaa_EMR_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNationalityNull() {
                 this[this.tablePatient.NationalityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMaritalStatusNull() {
+                return this.IsNull(this.tablePatient.MaritalStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMaritalStatusNull() {
+                this[this.tablePatient.MaritalStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPregancyStatusNull() {
+                return this.IsNull(this.tablePatient.PregancyStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPregancyStatusNull() {
+                this[this.tablePatient.PregancyStatusColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

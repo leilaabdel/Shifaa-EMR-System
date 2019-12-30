@@ -1453,6 +1453,8 @@ SELECT ProblemName, ColumnRowNumber FROM ProblemListDatabase WHERE (ProblemName 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="DateStopped" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="DateStopped" msprop:Generator_ColumnVarNameInTable="columnDateStopped" msprop:Generator_ColumnPropNameInTable="DateStoppedColumn" msprop:Generator_UserColumnName="DateStopped" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1508,6 +1510,8 @@ SELECT ProblemName, ColumnRowNumber FROM ProblemListDatabase WHERE (ProblemName 
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Created" msprop:Generator_ColumnVarNameInTable="columnCreated" msprop:Generator_ColumnPropNameInRow="Created" msprop:Generator_ColumnPropNameInTable="CreatedColumn" msprop:Generator_UserColumnName="Created" type="xs:dateTime" />
+              <xs:element name="MaritalStatus" msprop:Generator_ColumnVarNameInTable="columnMaritalStatus" msprop:Generator_ColumnPropNameInRow="MaritalStatus" msprop:Generator_ColumnPropNameInTable="MaritalStatusColumn" msprop:Generator_UserColumnName="MaritalStatus" type="xs:string" minOccurs="0" />
+              <xs:element name="PregancyStatus" msprop:Generator_ColumnVarNameInTable="columnPregancyStatus" msprop:Generator_ColumnPropNameInRow="PregancyStatus" msprop:Generator_ColumnPropNameInTable="PregancyStatusColumn" msprop:Generator_UserColumnName="PregancyStatus" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

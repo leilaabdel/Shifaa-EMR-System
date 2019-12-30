@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Data.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 
 
 namespace Shifaa_EMR_System
@@ -21,7 +28,10 @@ namespace Shifaa_EMR_System
         public NewPatient()
         {
             InitializeComponent();
-
+            PregnantBox.Hide();
+            PregnantLabel.Hide();
+            NotPregnantBox.Hide();
+           
         }
 
 
@@ -149,43 +159,71 @@ namespace Shifaa_EMR_System
         }
 
 
-
+        string maritalStatus;
+        string pregnancyStatus;
 
         private void Save_Click(object sender, EventArgs e)
         {
-            try
+
+            if(MaleCheckBox.Checked && FemaleCheckBox.Checked)
             {
-
-                DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text,   DOBPicker.Value, getAge(), getGender(), getWeight(), getHeight(), getBMI(), NationalityBox.Text);
-
-                System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
-
-                int selectedPatientID = 0;
-
-                foreach (getNewPatientVitalsResult result in newPatientVitals)
-                {
-                    selectedPatientID = result.PatientID;
-                }
-
-                DoAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI());
-
-                this.Close();
-
-            }
-            catch (Exception ex)
+                MessageBox.Show("Please choose either male or female. Not both");
+              
+            } else if (SingleBox.Checked && MarriedBox.Checked)
             {
-                System.Windows.Forms.MessageBox.Show("Please make sure at least first name, last name, date of birth and gender are filled.");
+                MessageBox.Show("Please choose either single or married. Not both");
+            
+            } else if (!MaleCheckBox.Checked && !FemaleCheckBox.Checked)
+            {
+                MessageBox.Show("Please choose a gender");
+            } else if (!SingleBox.Checked && !MarriedBox.Checked)
+            {
+                MessageBox.Show("Please choose a marital status");
+            } else if (PregnantBox.Checked && NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
+            {
+                MessageBox.Show("Please choose either pregnant or not pregnant. Not both");
 
-                Exception ex2 = ex;
-                while (ex2.InnerException != null)
-                {
-                    ex2 = ex2.InnerException;
-                }
-                Console.WriteLine(ex.InnerException);
-                throw;
-
-
+            } else if (!PregnantBox.Checked && !NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
+            {
+                MessageBox.Show("Please choose a pregnancy status");
             }
+            else
+            {
+                try
+                {
+
+                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, getAge(), getGender(), maritalStatus , pregnancyStatus, getWeight(), getHeight(), getBMI(), NationalityBox.Text);
+
+                    System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
+
+                    int selectedPatientID = 0;
+
+                    foreach (getNewPatientVitalsResult result in newPatientVitals)
+                    {
+                        selectedPatientID = result.PatientID;
+                    }
+
+                    DoAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI());
+
+                    this.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Please make sure at least first name, last name, date of birth and gender are filled.");
+
+                    Exception ex2 = ex;
+                    while (ex2.InnerException != null)
+                    {
+                        ex2 = ex2.InnerException;
+                    }
+                    Console.WriteLine(ex.InnerException);
+                    throw;
+
+
+                }
+            }
+          
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -320,6 +358,62 @@ namespace Shifaa_EMR_System
 
         }
 
+        private void FemaleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(FemaleCheckBox.Checked && !MaleCheckBox.Checked)
+            {
+                PregnantLabel.Show();
+                PregnantBox.Show();
+                NotPregnantBox.Show();
+                WeightLabel.Top = 382;
+                WeightBox.Top = 382;
+                kgLabel.Top = 385;
+                HeightLabel.Top = 425;
+                HeightBox.Top =  425;
+                cmLabel.Top =  428;
+                NationalityLabel.Top = 465;
+                NationalityBox.Top = 465;
 
+            }
+        }
+
+        private void NotPregnantBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NotPregnantBox.Checked && !PregnantBox.Checked) pregnancyStatus = "Not Pregnant";
+        }
+
+        private void MaleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!FemaleCheckBox.Checked && MaleCheckBox.Checked || (FemaleCheckBox.Checked && MaleCheckBox.Checked))
+            {
+                PregnantLabel.Hide();
+                PregnantBox.Hide();
+                NotPregnantBox.Hide();
+                WeightLabel.Top = 338;
+                WeightBox.Top = 338;
+                kgLabel.Top = 342;
+                HeightLabel.Top = 382;
+                HeightBox.Top = 382;
+                cmLabel.Top = 385;
+                NationalityLabel.Top = 422;
+                NationalityBox.Top = 422;
+
+            }
+        }
+
+        private void PregnantBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!NotPregnantBox.Checked && PregnantBox.Checked) pregnancyStatus = "Pregnant";
+        }
+
+        private void SingleBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (SingleBox.Checked && !MarriedBox.Checked) maritalStatus = "Single";
+        }
+
+        private void MarriedBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!SingleBox.Checked && MarriedBox.Checked) maritalStatus = "Married";
+        }
     }
 }

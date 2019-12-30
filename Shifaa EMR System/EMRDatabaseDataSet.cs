@@ -6,6 +6,7 @@
     {
         partial class PrescriptionDataTable
         {
+
         }
 
         partial class PatientScanDataTable

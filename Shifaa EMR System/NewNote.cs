@@ -388,7 +388,12 @@ namespace Shifaa_EMR_System
         private void SignButton_Click(object sender, EventArgs e)
         {
             String noteTitle = NewNoteTitleBox.Text;
-            String noteContent = NoteContentBox.Text;
+
+
+            String noteContent = "Subjective: " + SubjectiveNoteBox.Text + 
+                "\n" + "Objective: " +  ObjectiveNoteBox.Text +
+                "\n" + "Assesment: " + AssesmentBox.Text +
+                "\n" + "Plan: " + PlanBox.Text;
 
 
             try
@@ -415,6 +420,36 @@ namespace Shifaa_EMR_System
         }
 
         private void NewNotePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void NoteContentBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubjectiveBox_Click(object sender, EventArgs e)
+        {
+            if (SubjectiveNoteBox.Text == "Subjective:") SubjectiveNoteBox.Text = null;
+        }
+
+        private void ObjectiveNoteBox_Click(object sender, EventArgs e)
+        {
+            if (ObjectiveNoteBox.Text == "Objective:") ObjectiveNoteBox.Text = null;
+        }
+
+        private void AssesmentBox_Click(object sender, EventArgs e)
+        {
+            if (AssesmentBox.Text == "Assessment:") AssesmentBox.Text = null;
+        }
+
+        private void PlanBox_Click(object sender, EventArgs e)
+        {
+            if (PlanBox.Text == "Plan:") PlanBox.Text = null;
+        }
+
+        private void ObjectiveNoteBox_TextChanged(object sender, EventArgs e)
         {
 
         }
