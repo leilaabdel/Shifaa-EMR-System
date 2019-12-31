@@ -297,15 +297,6 @@
     <Parameter Name="ProviderName" Parameter="providerName" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.getProviderInfo" Method="getProviderInfo">
-    <Parameter Name="ProviderUserName" Parameter="providerUserName" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="getProviderInfoResult">
-      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.deleteAppointment" Method="deleteAppointment">
     <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -359,17 +350,6 @@
     <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.getPatientByID" Method="getPatientByID">
-    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="getPatientByIDResult">
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Age" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="DOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.updatePrescription" Method="updatePrescription">
     <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="MedicationName" Parameter="medicationName" Type="System.String" DbType="NVarChar(255)" />
@@ -405,5 +385,59 @@
     <Parameter Name="NoteContent" Parameter="noteContent" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.selectMedicationForReport" Method="selectMedicationForReport">
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="selectMedicationForReportResult">
+      <Column Name="MedicationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Strength" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Route" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Refills" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.selectProblemsForReport" Method="selectProblemsForReport">
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="selectProblemsForReportResult">
+      <Column Name="ProblemName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ProblemDescription" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateDiagnosed" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.selectNotesForReport" Method="selectNotesForReport">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="selectNotesForReportResult">
+      <Column Name="NoteTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoteContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getPatientByID" Method="getPatientByID">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="getPatientByIDResult">
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="MaritalStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PregnancyStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getProviderInfo" Method="getProviderInfo">
+    <Parameter Name="ProviderUserName" Parameter="providerUserName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="getProviderInfoResult">
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

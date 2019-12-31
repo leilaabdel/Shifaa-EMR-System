@@ -683,5 +683,20 @@ namespace Shifaa_EMR_System
         {
 
         }
+
+        private void panel16_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["PrintableReport"] as PrintableReport == null)
+            {
+                PrintableReport printableReport = new PrintableReport(thisPatientID, thisProviderMain.getProviderID());
+                Center(printableReport);
+                printableReport.Show();
+            }
+        }
     }
 }

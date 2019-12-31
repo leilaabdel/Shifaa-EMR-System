@@ -300,13 +300,6 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getProviderInfo")]
-		public ISingleResult<getProviderInfoResult> getProviderInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderUserName", DbType="VarChar(50)")] string providerUserName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerUserName);
-			return ((ISingleResult<getProviderInfoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteAppointment")]
 		public int deleteAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] System.Nullable<int> appointmentID)
 		{
@@ -384,13 +377,6 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getPatientByID")]
-		public ISingleResult<getPatientByIDResult> getPatientByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
-			return ((ISingleResult<getPatientByIDResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updatePrescription")]
 		public int updatePrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrescriptionID", DbType="Int")] System.Nullable<int> prescriptionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MedicationName", DbType="NVarChar(255)")] string medicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="VarChar(50)")] string amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strength", DbType="NChar(10)")] string strength, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Route", DbType="NChar(30)")] string route, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Frequency", DbType="VarChar(50)")] string frequency, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Refills", DbType="Float")] System.Nullable<double> refills, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateStopped", DbType="Date")] System.Nullable<System.DateTime> dateStopped, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
 		{
@@ -410,6 +396,41 @@ namespace Shifaa_EMR_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, providerName, providerID, noteTitle, noteContent, status);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectMedicationForReport")]
+		public ISingleResult<selectMedicationForReportResult> selectMedicationForReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, patientID);
+			return ((ISingleResult<selectMedicationForReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectProblemsForReport")]
+		public ISingleResult<selectProblemsForReportResult> selectProblemsForReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(50)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, patientID);
+			return ((ISingleResult<selectProblemsForReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectNotesForReport")]
+		public ISingleResult<selectNotesForReportResult> selectNotesForReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, status, date);
+			return ((ISingleResult<selectNotesForReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getPatientByID")]
+		public ISingleResult<getPatientByIDResult> getPatientByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
+			return ((ISingleResult<getPatientByIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getProviderInfo")]
+		public ISingleResult<getProviderInfoResult> getProviderInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderUserName", DbType="VarChar(50)")] string providerUserName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerUserName);
+			return ((ISingleResult<getProviderInfoResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4562,81 +4583,241 @@ namespace Shifaa_EMR_System
 		}
 	}
 	
-	public partial class getProviderInfoResult
+	public partial class selectMedicationForReportResult
 	{
 		
-		private string _USERNAME;
+		private string _MedicationName;
 		
-		private string _FirstName;
+		private string _Amount;
 		
-		private string _LastName;
+		private string _Strength;
 		
-		private string _Title;
+		private string _Route;
 		
-		public getProviderInfoResult()
+		private string _Frequency;
+		
+		private System.Nullable<double> _Refills;
+		
+		public selectMedicationForReportResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string USERNAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicationName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string MedicationName
 		{
 			get
 			{
-				return this._USERNAME;
+				return this._MedicationName;
 			}
 			set
 			{
-				if ((this._USERNAME != value))
+				if ((this._MedicationName != value))
 				{
-					this._USERNAME = value;
+					this._MedicationName = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="VarChar(50)")]
+		public string Amount
 		{
 			get
 			{
-				return this._FirstName;
+				return this._Amount;
 			}
 			set
 			{
-				if ((this._FirstName != value))
+				if ((this._Amount != value))
 				{
-					this._FirstName = value;
+					this._Amount = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Strength", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Strength
 		{
 			get
 			{
-				return this._LastName;
+				return this._Strength;
 			}
 			set
 			{
-				if ((this._LastName != value))
+				if ((this._Strength != value))
 				{
-					this._LastName = value;
+					this._Strength = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NChar(10)")]
-		public string Title
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Route", DbType="NChar(30)")]
+		public string Route
 		{
 			get
 			{
-				return this._Title;
+				return this._Route;
 			}
 			set
 			{
-				if ((this._Title != value))
+				if ((this._Route != value))
 				{
-					this._Title = value;
+					this._Route = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Frequency", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Frequency
+		{
+			get
+			{
+				return this._Frequency;
+			}
+			set
+			{
+				if ((this._Frequency != value))
+				{
+					this._Frequency = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Refills", DbType="Float")]
+		public System.Nullable<double> Refills
+		{
+			get
+			{
+				return this._Refills;
+			}
+			set
+			{
+				if ((this._Refills != value))
+				{
+					this._Refills = value;
+				}
+			}
+		}
+	}
+	
+	public partial class selectProblemsForReportResult
+	{
+		
+		private string _ProblemName;
+		
+		private string _ProblemDescription;
+		
+		private System.DateTime _DateDiagnosed;
+		
+		public selectProblemsForReportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProblemName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string ProblemName
+		{
+			get
+			{
+				return this._ProblemName;
+			}
+			set
+			{
+				if ((this._ProblemName != value))
+				{
+					this._ProblemName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProblemDescription", DbType="NVarChar(MAX)")]
+		public string ProblemDescription
+		{
+			get
+			{
+				return this._ProblemDescription;
+			}
+			set
+			{
+				if ((this._ProblemDescription != value))
+				{
+					this._ProblemDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateDiagnosed", DbType="Date NOT NULL")]
+		public System.DateTime DateDiagnosed
+		{
+			get
+			{
+				return this._DateDiagnosed;
+			}
+			set
+			{
+				if ((this._DateDiagnosed != value))
+				{
+					this._DateDiagnosed = value;
+				}
+			}
+		}
+	}
+	
+	public partial class selectNotesForReportResult
+	{
+		
+		private string _NoteTitle;
+		
+		private string _NoteContent;
+		
+		private System.DateTime _Date;
+		
+		public selectNotesForReportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoteTitle", DbType="VarChar(50)")]
+		public string NoteTitle
+		{
+			get
+			{
+				return this._NoteTitle;
+			}
+			set
+			{
+				if ((this._NoteTitle != value))
+				{
+					this._NoteTitle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoteContent", DbType="NVarChar(MAX)")]
+		public string NoteContent
+		{
+			get
+			{
+				return this._NoteContent;
+			}
+			set
+			{
+				if ((this._NoteContent != value))
+				{
+					this._NoteContent = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
 				}
 			}
 		}
@@ -4656,6 +4837,10 @@ namespace Shifaa_EMR_System
 		private string _Gender;
 		
 		private string _PhoneNumber;
+		
+		private string _MaritalStatus;
+		
+		private string _PregnancyStatus;
 		
 		public getPatientByIDResult()
 		{
@@ -4742,6 +4927,136 @@ namespace Shifaa_EMR_System
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NChar(10)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this._PhoneNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaritalStatus", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string MaritalStatus
+		{
+			get
+			{
+				return this._MaritalStatus;
+			}
+			set
+			{
+				if ((this._MaritalStatus != value))
+				{
+					this._MaritalStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PregnancyStatus", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string PregnancyStatus
+		{
+			get
+			{
+				return this._PregnancyStatus;
+			}
+			set
+			{
+				if ((this._PregnancyStatus != value))
+				{
+					this._PregnancyStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getProviderInfoResult
+	{
+		
+		private string _USERNAME;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Title;
+		
+		private string _PhoneNumber;
+		
+		public getProviderInfoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this._USERNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NChar(10)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NChar(20)")]
 		public string PhoneNumber
 		{
 			get
