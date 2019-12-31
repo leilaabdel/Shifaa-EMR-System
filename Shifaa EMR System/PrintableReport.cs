@@ -53,6 +53,8 @@ namespace Shifaa_EMR_System
                 PhoneNumberLabel.Text = "Phone Number: " + r.PhoneNumber;
                 PatientGenderLabel.Text = r.Gender;
                 MaritalStatusLabel.Text = "Marital Status: " + r.MaritalStatus;
+                if (r.Gender == "Male") PregnantLabel.Hide();
+                PregnantLabel.Text = "Pregnancy Status: " + r.PregnancyStatus;
                 PatientAgeLabel.Text = r.Age + " Years Old";
                 DOBLabel.Text = "DOB: " + r.DOB.ToShortDateString();
 
@@ -273,7 +275,7 @@ namespace Shifaa_EMR_System
         }
 
 
-        Bitmap bmp;
+       
         private void PrintButton_Click(object sender, EventArgs e)
         {
             CancelButton.Hide();

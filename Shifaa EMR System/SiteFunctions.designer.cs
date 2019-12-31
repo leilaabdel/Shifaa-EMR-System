@@ -432,6 +432,13 @@ namespace Shifaa_EMR_System
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerUserName);
 			return ((ISingleResult<getProviderInfoResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectPrescriptionforPrint")]
+		public ISingleResult<selectPrescriptionforPrintResult> selectPrescriptionforPrint([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="Date")] System.Nullable<System.DateTime> date)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, patientID, date);
+			return ((ISingleResult<selectPrescriptionforPrintResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Patient")]
@@ -5068,6 +5075,122 @@ namespace Shifaa_EMR_System
 				if ((this._PhoneNumber != value))
 				{
 					this._PhoneNumber = value;
+				}
+			}
+		}
+	}
+	
+	public partial class selectPrescriptionforPrintResult
+	{
+		
+		private string _MedicationName;
+		
+		private string _Amount;
+		
+		private string _Strength;
+		
+		private string _Route;
+		
+		private string _Frequency;
+		
+		private System.Nullable<double> _Refills;
+		
+		public selectPrescriptionforPrintResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MedicationName", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string MedicationName
+		{
+			get
+			{
+				return this._MedicationName;
+			}
+			set
+			{
+				if ((this._MedicationName != value))
+				{
+					this._MedicationName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="VarChar(50)")]
+		public string Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Strength", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Strength
+		{
+			get
+			{
+				return this._Strength;
+			}
+			set
+			{
+				if ((this._Strength != value))
+				{
+					this._Strength = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Route", DbType="NChar(30)")]
+		public string Route
+		{
+			get
+			{
+				return this._Route;
+			}
+			set
+			{
+				if ((this._Route != value))
+				{
+					this._Route = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Frequency", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Frequency
+		{
+			get
+			{
+				return this._Frequency;
+			}
+			set
+			{
+				if ((this._Frequency != value))
+				{
+					this._Frequency = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Refills", DbType="Float")]
+		public System.Nullable<double> Refills
+		{
+			get
+			{
+				return this._Refills;
+			}
+			set
+			{
+				if ((this._Refills != value))
+				{
+					this._Refills = value;
 				}
 			}
 		}

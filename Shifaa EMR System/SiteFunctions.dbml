@@ -440,4 +440,17 @@
       <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.selectPrescriptionforPrint" Method="selectPrescriptionforPrint">
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="selectPrescriptionforPrintResult">
+      <Column Name="MedicationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Strength" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Route" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Refills" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

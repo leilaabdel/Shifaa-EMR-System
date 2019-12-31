@@ -63,8 +63,8 @@
             this.BMIValueLabel = new System.Windows.Forms.Label();
             this.Seperator = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +78,7 @@
             this.DOBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DOBLabel.AutoSize = true;
             this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.DOBLabel.Location = new System.Drawing.Point(0, 250);
+            this.DOBLabel.Location = new System.Drawing.Point(13, 252);
             this.DOBLabel.Name = "DOBLabel";
             this.DOBLabel.Size = new System.Drawing.Size(131, 19);
             this.DOBLabel.TabIndex = 37;
@@ -90,7 +90,7 @@
             this.PatientAgeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PatientAgeLabel.AutoSize = true;
             this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.PatientAgeLabel.Location = new System.Drawing.Point(9, 221);
+            this.PatientAgeLabel.Location = new System.Drawing.Point(13, 221);
             this.PatientAgeLabel.Name = "PatientAgeLabel";
             this.PatientAgeLabel.Size = new System.Drawing.Size(88, 19);
             this.PatientAgeLabel.TabIndex = 36;
@@ -235,7 +235,7 @@
             // 
             this.NotesLabel.AutoSize = true;
             this.NotesLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NotesLabel.Location = new System.Drawing.Point(24, 532);
+            this.NotesLabel.Location = new System.Drawing.Point(12, 537);
             this.NotesLabel.Name = "NotesLabel";
             this.NotesLabel.Size = new System.Drawing.Size(67, 25);
             this.NotesLabel.TabIndex = 57;
@@ -291,7 +291,6 @@
             // printDocument1
             // 
             this.printDocument1.DocumentName = "Report";
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
             // 
@@ -432,22 +431,6 @@
             this.panel1.Size = new System.Drawing.Size(769, 48);
             this.panel1.TabIndex = 63;
             // 
-            // CancelButton
-            // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.BackColor = System.Drawing.Color.Azure;
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.FlatAppearance.BorderSize = 0;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.CancelButton.Location = new System.Drawing.Point(668, 12);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(94, 26);
-            this.CancelButton.TabIndex = 64;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = false;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
             // PrintButton
             // 
             this.PrintButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -464,13 +447,29 @@
             this.PrintButton.UseVisualStyleBackColor = false;
             this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
+            // CancelButton
+            // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton.BackColor = System.Drawing.Color.Azure;
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton.FlatAppearance.BorderSize = 0;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.CancelButton.Location = new System.Drawing.Point(668, 12);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(94, 26);
+            this.CancelButton.TabIndex = 64;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
             // PrintableReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(786, 725);
+            this.ClientSize = new System.Drawing.Size(820, 725);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Seperator);
