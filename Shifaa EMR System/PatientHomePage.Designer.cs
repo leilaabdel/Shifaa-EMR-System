@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,10 +52,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientHomePage));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientHomePage));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MaritalStatusLabel = new System.Windows.Forms.Label();
@@ -103,8 +103,21 @@
             this.BMIValueLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.MedicationsListDataGridView = new System.Windows.Forms.DataGridView();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescriptionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicationNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Refills = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateStopped = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
+            this.EditMedicationButton = new System.Windows.Forms.Button();
             this.deletePrescriptionButton = new System.Windows.Forms.Button();
             this.AddMedicationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -127,6 +140,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel12 = new System.Windows.Forms.Panel();
+            this.OpenLabButton = new System.Windows.Forms.Button();
             this.deleteLabButton = new System.Windows.Forms.Button();
             this.AddLabButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -155,6 +169,7 @@
             this.PatientScanID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.deleteScanButton = new System.Windows.Forms.Button();
             this.AddNewScanButton = new System.Windows.Forms.Button();
             this.ScansLabel = new System.Windows.Forms.Label();
@@ -181,33 +196,18 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel16 = new System.Windows.Forms.Panel();
             this.PatientHomePageToolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.SendMessage = new System.Windows.Forms.ToolStripButton();
+            this.PrintPrescriptionsButton = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ProblemListView = new System.Windows.Forms.DataGridView();
             this.problemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel17 = new System.Windows.Forms.Panel();
+            this.UpdateProblemButton = new System.Windows.Forms.Button();
             this.removeProblemButton = new System.Windows.Forms.Button();
             this.addProblemButton = new System.Windows.Forms.Button();
             this.ProblemListLabel = new System.Windows.Forms.Label();
             this.problemTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.ProblemTableAdapter();
-            this.UpdateProblemButton = new System.Windows.Forms.Button();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.SendMessage = new System.Windows.Forms.ToolStripButton();
-            this.PrintPrescriptionsButton = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.OpenLabButton = new System.Windows.Forms.Button();
-            this.EditMedicationButton = new System.Windows.Forms.Button();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescriptionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicationNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerNameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Refills = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateStopped = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProblemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProblemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateDiagnosed = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -269,7 +269,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 20);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1500, 86);
+            this.panel1.Size = new System.Drawing.Size(1460, 86);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -292,7 +292,7 @@
             this.FinishVisitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.FinishVisitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FinishVisitButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.FinishVisitButton.Location = new System.Drawing.Point(1245, 24);
+            this.FinishVisitButton.Location = new System.Drawing.Point(1205, 24);
             this.FinishVisitButton.Name = "FinishVisitButton";
             this.FinishVisitButton.Size = new System.Drawing.Size(142, 35);
             this.FinishVisitButton.TabIndex = 51;
@@ -308,7 +308,7 @@
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton.Location = new System.Drawing.Point(1393, 24);
+            this.CancelButton.Location = new System.Drawing.Point(1353, 24);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 35);
             this.CancelButton.TabIndex = 50;
@@ -321,7 +321,7 @@
             this.DOBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DOBLabel.AutoSize = true;
             this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DOBLabel.Location = new System.Drawing.Point(888, 24);
+            this.DOBLabel.Location = new System.Drawing.Point(848, 24);
             this.DOBLabel.Name = "DOBLabel";
             this.DOBLabel.Size = new System.Drawing.Size(155, 23);
             this.DOBLabel.TabIndex = 32;
@@ -332,7 +332,7 @@
             this.PatientAgeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PatientAgeLabel.AutoSize = true;
             this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientAgeLabel.Location = new System.Drawing.Point(690, 24);
+            this.PatientAgeLabel.Location = new System.Drawing.Point(670, 24);
             this.PatientAgeLabel.Name = "PatientAgeLabel";
             this.PatientAgeLabel.Size = new System.Drawing.Size(102, 23);
             this.PatientAgeLabel.TabIndex = 31;
@@ -380,7 +380,7 @@
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Location = new System.Drawing.Point(13, 471);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(494, 709);
+            this.panel2.Size = new System.Drawing.Size(494, 963);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -431,7 +431,7 @@
             this.NoteHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.NoteHistoryTable.RowHeadersVisible = false;
             this.NoteHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.NoteHistoryTable.Size = new System.Drawing.Size(494, 667);
+            this.NoteHistoryTable.Size = new System.Drawing.Size(494, 921);
             this.NoteHistoryTable.TabIndex = 45;
             this.NoteHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteHistoryTable_CellContentClick);
             // 
@@ -549,7 +549,7 @@
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Location = new System.Drawing.Point(513, 935);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(813, 245);
+            this.panel3.Size = new System.Drawing.Size(796, 499);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -599,7 +599,7 @@
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.AppointmentListView1.RowHeadersVisible = false;
             this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentListView1.Size = new System.Drawing.Size(813, 203);
+            this.AppointmentListView1.Size = new System.Drawing.Size(796, 457);
             this.AppointmentListView1.TabIndex = 44;
             // 
             // detailsDataGridViewTextBoxColumn
@@ -645,7 +645,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(813, 42);
+            this.panel8.Size = new System.Drawing.Size(796, 42);
             this.panel8.TabIndex = 34;
             // 
             // deleteAppointmentButton
@@ -658,7 +658,7 @@
             this.deleteAppointmentButton.FlatAppearance.BorderSize = 0;
             this.deleteAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAppointmentButton.Location = new System.Drawing.Point(726, 1);
+            this.deleteAppointmentButton.Location = new System.Drawing.Point(709, 1);
             this.deleteAppointmentButton.Name = "deleteAppointmentButton";
             this.deleteAppointmentButton.Size = new System.Drawing.Size(39, 33);
             this.deleteAppointmentButton.TabIndex = 46;
@@ -675,7 +675,7 @@
             this.AddNewAppointmentButton.FlatAppearance.BorderSize = 0;
             this.AddNewAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewAppointmentButton.Location = new System.Drawing.Point(763, 2);
+            this.AddNewAppointmentButton.Location = new System.Drawing.Point(746, 2);
             this.AddNewAppointmentButton.Name = "AddNewAppointmentButton";
             this.AddNewAppointmentButton.Size = new System.Drawing.Size(37, 35);
             this.AddNewAppointmentButton.TabIndex = 45;
@@ -893,6 +893,101 @@
             this.MedicationsListDataGridView.TabIndex = 45;
             this.MedicationsListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MedicationsListDataGridView_CellContentClick);
             // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prescriptionID
+            // 
+            this.prescriptionID.DataPropertyName = "PrescriptionID";
+            this.prescriptionID.HeaderText = "prescriptionID";
+            this.prescriptionID.Name = "prescriptionID";
+            this.prescriptionID.ReadOnly = true;
+            this.prescriptionID.Visible = false;
+            // 
+            // medicationNameDataGridViewTextBoxColumn1
+            // 
+            this.medicationNameDataGridViewTextBoxColumn1.DataPropertyName = "MedicationName";
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.medicationNameDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
+            this.medicationNameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.medicationNameDataGridViewTextBoxColumn1.Name = "medicationNameDataGridViewTextBoxColumn1";
+            this.medicationNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // providerNameDataGridViewTextBoxColumn3
+            // 
+            this.providerNameDataGridViewTextBoxColumn3.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn3.HeaderText = "Provider";
+            this.providerNameDataGridViewTextBoxColumn3.Name = "providerNameDataGridViewTextBoxColumn3";
+            this.providerNameDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PrescriptionID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "PrescriptionID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Visible = false;
+            // 
+            // Strength
+            // 
+            this.Strength.DataPropertyName = "Strength";
+            this.Strength.HeaderText = "Strength";
+            this.Strength.Name = "Strength";
+            this.Strength.ReadOnly = true;
+            this.Strength.Visible = false;
+            // 
+            // Route
+            // 
+            this.Route.DataPropertyName = "Route";
+            this.Route.HeaderText = "Route";
+            this.Route.Name = "Route";
+            this.Route.ReadOnly = true;
+            this.Route.Visible = false;
+            // 
+            // Frequency
+            // 
+            this.Frequency.DataPropertyName = "Frequency";
+            this.Frequency.HeaderText = "Frequency";
+            this.Frequency.Name = "Frequency";
+            this.Frequency.ReadOnly = true;
+            this.Frequency.Visible = false;
+            // 
+            // Refills
+            // 
+            this.Refills.DataPropertyName = "Refills";
+            this.Refills.HeaderText = "Refills";
+            this.Refills.Name = "Refills";
+            this.Refills.ReadOnly = true;
+            this.Refills.Visible = false;
+            // 
+            // DateStopped
+            // 
+            this.DateStopped.DataPropertyName = "DateStopped";
+            this.DateStopped.HeaderText = "DateStopped";
+            this.DateStopped.Name = "DateStopped";
+            this.DateStopped.ReadOnly = true;
+            this.DateStopped.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
             // prescriptionBindingSource
             // 
             this.prescriptionBindingSource.DataMember = "Prescription";
@@ -911,6 +1006,26 @@
             this.panel9.Size = new System.Drawing.Size(279, 42);
             this.panel9.TabIndex = 35;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            // 
+            // EditMedicationButton
+            // 
+            this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
+            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.EditMedicationButton.FlatAppearance.BorderSize = 0;
+            this.EditMedicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditMedicationButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMedicationButton.ForeColor = System.Drawing.Color.DimGray;
+            this.EditMedicationButton.Location = new System.Drawing.Point(175, 9);
+            this.EditMedicationButton.Name = "EditMedicationButton";
+            this.EditMedicationButton.Size = new System.Drawing.Size(25, 28);
+            this.EditMedicationButton.TabIndex = 50;
+            this.EditMedicationButton.UseVisualStyleBackColor = false;
+            this.EditMedicationButton.Click += new System.EventHandler(this.EditMedicationButton_Click);
             // 
             // deletePrescriptionButton
             // 
@@ -965,7 +1080,7 @@
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Location = new System.Drawing.Point(798, 112);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(528, 270);
+            this.panel6.Size = new System.Drawing.Size(511, 270);
             this.panel6.TabIndex = 4;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -1016,7 +1131,7 @@
             this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.AllergiesTable.RowHeadersVisible = false;
             this.AllergiesTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AllergiesTable.Size = new System.Drawing.Size(528, 228);
+            this.AllergiesTable.Size = new System.Drawing.Size(511, 228);
             this.AllergiesTable.TabIndex = 46;
             // 
             // AllergieName
@@ -1062,7 +1177,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(528, 42);
+            this.panel10.Size = new System.Drawing.Size(511, 42);
             this.panel10.TabIndex = 36;
             // 
             // deleteAllergyButton
@@ -1075,7 +1190,7 @@
             this.deleteAllergyButton.FlatAppearance.BorderSize = 0;
             this.deleteAllergyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllergyButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAllergyButton.Location = new System.Drawing.Point(441, 1);
+            this.deleteAllergyButton.Location = new System.Drawing.Point(424, 1);
             this.deleteAllergyButton.Name = "deleteAllergyButton";
             this.deleteAllergyButton.Size = new System.Drawing.Size(39, 33);
             this.deleteAllergyButton.TabIndex = 48;
@@ -1092,7 +1207,7 @@
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(477, 3);
+            this.AddAllergieButton.Location = new System.Drawing.Point(460, 3);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(46, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -1118,7 +1233,7 @@
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Location = new System.Drawing.Point(798, 389);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(528, 257);
+            this.panel11.Size = new System.Drawing.Size(511, 257);
             this.panel11.TabIndex = 35;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -1168,7 +1283,7 @@
             this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.LabsTable.RowHeadersVisible = false;
             this.LabsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LabsTable.Size = new System.Drawing.Size(528, 215);
+            this.LabsTable.Size = new System.Drawing.Size(511, 215);
             this.LabsTable.TabIndex = 47;
             this.LabsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
@@ -1216,8 +1331,25 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(528, 42);
+            this.panel12.Size = new System.Drawing.Size(511, 42);
             this.panel12.TabIndex = 34;
+            // 
+            // OpenLabButton
+            // 
+            this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
+            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.OpenLabButton.FlatAppearance.BorderSize = 0;
+            this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenLabButton.Location = new System.Drawing.Point(399, 9);
+            this.OpenLabButton.Name = "OpenLabButton";
+            this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
+            this.OpenLabButton.TabIndex = 50;
+            this.OpenLabButton.UseVisualStyleBackColor = false;
             // 
             // deleteLabButton
             // 
@@ -1229,7 +1361,7 @@
             this.deleteLabButton.FlatAppearance.BorderSize = 0;
             this.deleteLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteLabButton.Location = new System.Drawing.Point(451, 1);
+            this.deleteLabButton.Location = new System.Drawing.Point(434, 1);
             this.deleteLabButton.Name = "deleteLabButton";
             this.deleteLabButton.Size = new System.Drawing.Size(39, 33);
             this.deleteLabButton.TabIndex = 49;
@@ -1246,7 +1378,7 @@
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(477, 2);
+            this.AddLabButton.Location = new System.Drawing.Point(460, 2);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(46, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1272,7 +1404,7 @@
             this.panel13.Controls.Add(this.VitalHistoryLabel);
             this.panel13.Location = new System.Drawing.Point(513, 651);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(813, 278);
+            this.panel13.Size = new System.Drawing.Size(796, 278);
             this.panel13.TabIndex = 43;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
@@ -1326,7 +1458,7 @@
             this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.VitalHistoryTable.RowHeadersVisible = false;
             this.VitalHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VitalHistoryTable.Size = new System.Drawing.Size(813, 236);
+            this.VitalHistoryTable.Size = new System.Drawing.Size(796, 236);
             this.VitalHistoryTable.TabIndex = 45;
             this.VitalHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -1402,7 +1534,7 @@
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(813, 42);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(796, 42);
             this.VitalHistoryLabel.TabIndex = 35;
             this.VitalHistoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.VitalHistoryLabel_Paint);
             // 
@@ -1416,7 +1548,7 @@
             this.deleteVitalButton.FlatAppearance.BorderSize = 0;
             this.deleteVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteVitalButton.Location = new System.Drawing.Point(736, 1);
+            this.deleteVitalButton.Location = new System.Drawing.Point(719, 1);
             this.deleteVitalButton.Name = "deleteVitalButton";
             this.deleteVitalButton.Size = new System.Drawing.Size(39, 33);
             this.deleteVitalButton.TabIndex = 50;
@@ -1433,7 +1565,7 @@
             this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
             this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewVitalButton.Location = new System.Drawing.Point(780, 3);
+            this.AddNewVitalButton.Location = new System.Drawing.Point(763, 3);
             this.AddNewVitalButton.Name = "AddNewVitalButton";
             this.AddNewVitalButton.Size = new System.Drawing.Size(30, 35);
             this.AddNewVitalButton.TabIndex = 44;
@@ -1577,6 +1709,23 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(279, 42);
             this.panel15.TabIndex = 34;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Azure;
+            this.button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(176, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 29);
+            this.button1.TabIndex = 51;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // deleteScanButton
             // 
@@ -1752,9 +1901,9 @@
             // 
             this.panel16.Controls.Add(this.PatientHomePageToolStrip);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel16.Location = new System.Drawing.Point(1332, 106);
+            this.panel16.Location = new System.Drawing.Point(1292, 106);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(168, 1065);
+            this.panel16.Size = new System.Drawing.Size(168, 803);
             this.panel16.TabIndex = 50;
             // 
             // PatientHomePageToolStrip
@@ -1769,6 +1918,37 @@
             this.PatientHomePageToolStrip.Size = new System.Drawing.Size(168, 89);
             this.PatientHomePageToolStrip.TabIndex = 0;
             this.PatientHomePageToolStrip.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(166, 23);
+            this.toolStripButton1.Text = "Generate Report";
+            // 
+            // SendMessage
+            // 
+            this.SendMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.SendMessage.Font = new System.Drawing.Font("Bahnschrift", 12F);
+            this.SendMessage.Image = ((System.Drawing.Image)(resources.GetObject("SendMessage.Image")));
+            this.SendMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SendMessage.Name = "SendMessage";
+            this.SendMessage.Size = new System.Drawing.Size(166, 23);
+            this.SendMessage.Text = "Send Message";
+            // 
+            // PrintPrescriptionsButton
+            // 
+            this.PrintPrescriptionsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.PrintPrescriptionsButton.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintPrescriptionsButton.Image = ((System.Drawing.Image)(resources.GetObject("PrintPrescriptionsButton.Image")));
+            this.PrintPrescriptionsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PrintPrescriptionsButton.Name = "PrintPrescriptionsButton";
+            this.PrintPrescriptionsButton.Size = new System.Drawing.Size(166, 23);
+            this.PrintPrescriptionsButton.Text = "Print Prescriptions";
+            this.PrintPrescriptionsButton.Click += new System.EventHandler(this.PrintPrescriptionsButton_Click);
             // 
             // panel4
             // 
@@ -1840,6 +2020,26 @@
             this.panel17.Size = new System.Drawing.Size(492, 42);
             this.panel17.TabIndex = 36;
             // 
+            // UpdateProblemButton
+            // 
+            this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
+            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.UpdateProblemButton.FlatAppearance.BorderSize = 0;
+            this.UpdateProblemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateProblemButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateProblemButton.ForeColor = System.Drawing.Color.DimGray;
+            this.UpdateProblemButton.Location = new System.Drawing.Point(377, 8);
+            this.UpdateProblemButton.Name = "UpdateProblemButton";
+            this.UpdateProblemButton.Size = new System.Drawing.Size(25, 28);
+            this.UpdateProblemButton.TabIndex = 49;
+            this.UpdateProblemButton.UseVisualStyleBackColor = false;
+            this.UpdateProblemButton.Click += new System.EventHandler(this.UpdateProblemButton_Click);
+            // 
             // removeProblemButton
             // 
             this.removeProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1888,206 +2088,6 @@
             // problemTableAdapter
             // 
             this.problemTableAdapter.ClearBeforeFill = true;
-            // 
-            // UpdateProblemButton
-            // 
-            this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
-            this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.FlatAppearance.BorderSize = 0;
-            this.UpdateProblemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateProblemButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateProblemButton.ForeColor = System.Drawing.Color.DimGray;
-            this.UpdateProblemButton.Location = new System.Drawing.Point(377, 8);
-            this.UpdateProblemButton.Name = "UpdateProblemButton";
-            this.UpdateProblemButton.Size = new System.Drawing.Size(25, 28);
-            this.UpdateProblemButton.TabIndex = 49;
-            this.UpdateProblemButton.UseVisualStyleBackColor = false;
-            this.UpdateProblemButton.Click += new System.EventHandler(this.UpdateProblemButton_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(166, 23);
-            this.toolStripButton1.Text = "Generate Report";
-            // 
-            // SendMessage
-            // 
-            this.SendMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.SendMessage.Font = new System.Drawing.Font("Bahnschrift", 12F);
-            this.SendMessage.Image = ((System.Drawing.Image)(resources.GetObject("SendMessage.Image")));
-            this.SendMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SendMessage.Name = "SendMessage";
-            this.SendMessage.Size = new System.Drawing.Size(166, 23);
-            this.SendMessage.Text = "Send Message";
-            // 
-            // PrintPrescriptionsButton
-            // 
-            this.PrintPrescriptionsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.PrintPrescriptionsButton.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintPrescriptionsButton.Image = ((System.Drawing.Image)(resources.GetObject("PrintPrescriptionsButton.Image")));
-            this.PrintPrescriptionsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PrintPrescriptionsButton.Name = "PrintPrescriptionsButton";
-            this.PrintPrescriptionsButton.Size = new System.Drawing.Size(166, 23);
-            this.PrintPrescriptionsButton.Text = "Print Prescriptions";
-            this.PrintPrescriptionsButton.Click += new System.EventHandler(this.PrintPrescriptionsButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(176, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 29);
-            this.button1.TabIndex = 51;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // OpenLabButton
-            // 
-            this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
-            this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.FlatAppearance.BorderSize = 0;
-            this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabButton.Location = new System.Drawing.Point(416, 9);
-            this.OpenLabButton.Name = "OpenLabButton";
-            this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
-            this.OpenLabButton.TabIndex = 50;
-            this.OpenLabButton.UseVisualStyleBackColor = false;
-            // 
-            // EditMedicationButton
-            // 
-            this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
-            this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.FlatAppearance.BorderSize = 0;
-            this.EditMedicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditMedicationButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditMedicationButton.ForeColor = System.Drawing.Color.DimGray;
-            this.EditMedicationButton.Location = new System.Drawing.Point(175, 9);
-            this.EditMedicationButton.Name = "EditMedicationButton";
-            this.EditMedicationButton.Size = new System.Drawing.Size(25, 28);
-            this.EditMedicationButton.TabIndex = 50;
-            this.EditMedicationButton.UseVisualStyleBackColor = false;
-            this.EditMedicationButton.Click += new System.EventHandler(this.EditMedicationButton_Click);
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prescriptionID
-            // 
-            this.prescriptionID.DataPropertyName = "PrescriptionID";
-            this.prescriptionID.HeaderText = "prescriptionID";
-            this.prescriptionID.Name = "prescriptionID";
-            this.prescriptionID.ReadOnly = true;
-            this.prescriptionID.Visible = false;
-            // 
-            // medicationNameDataGridViewTextBoxColumn1
-            // 
-            this.medicationNameDataGridViewTextBoxColumn1.DataPropertyName = "MedicationName";
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.medicationNameDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.medicationNameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.medicationNameDataGridViewTextBoxColumn1.Name = "medicationNameDataGridViewTextBoxColumn1";
-            this.medicationNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // providerNameDataGridViewTextBoxColumn3
-            // 
-            this.providerNameDataGridViewTextBoxColumn3.DataPropertyName = "ProviderName";
-            this.providerNameDataGridViewTextBoxColumn3.HeaderText = "Provider";
-            this.providerNameDataGridViewTextBoxColumn3.Name = "providerNameDataGridViewTextBoxColumn3";
-            this.providerNameDataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PrescriptionID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "PrescriptionID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Visible = false;
-            // 
-            // Strength
-            // 
-            this.Strength.DataPropertyName = "Strength";
-            this.Strength.HeaderText = "Strength";
-            this.Strength.Name = "Strength";
-            this.Strength.ReadOnly = true;
-            this.Strength.Visible = false;
-            // 
-            // Route
-            // 
-            this.Route.DataPropertyName = "Route";
-            this.Route.HeaderText = "Route";
-            this.Route.Name = "Route";
-            this.Route.ReadOnly = true;
-            this.Route.Visible = false;
-            // 
-            // Frequency
-            // 
-            this.Frequency.DataPropertyName = "Frequency";
-            this.Frequency.HeaderText = "Frequency";
-            this.Frequency.Name = "Frequency";
-            this.Frequency.ReadOnly = true;
-            this.Frequency.Visible = false;
-            // 
-            // Refills
-            // 
-            this.Refills.DataPropertyName = "Refills";
-            this.Refills.HeaderText = "Refills";
-            this.Refills.Name = "Refills";
-            this.Refills.ReadOnly = true;
-            this.Refills.Visible = false;
-            // 
-            // DateStopped
-            // 
-            this.DateStopped.DataPropertyName = "DateStopped";
-            this.DateStopped.HeaderText = "DateStopped";
-            this.DateStopped.Name = "DateStopped";
-            this.DateStopped.ReadOnly = true;
-            this.DateStopped.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
             // 
             // ProblemName
             // 
@@ -2159,7 +2159,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1500, 1191);
+            this.ClientSize = new System.Drawing.Size(1477, 802);
             this.ControlBox = false;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel16);

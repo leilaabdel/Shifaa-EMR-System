@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintableReport));
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.DOBLabel = new System.Windows.Forms.Label();
             this.PatientAgeLabel = new System.Windows.Forms.Label();
@@ -37,20 +38,32 @@
             this.AttendingPhysicianLabel = new System.Windows.Forms.Label();
             this.PhysicianNumberLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.VitalLabel = new System.Windows.Forms.Label();
             this.BMIValueLabel = new System.Windows.Forms.Label();
+            this.VitalLabel = new System.Windows.Forms.Label();
             this.BMILabel = new System.Windows.Forms.Label();
+            this.BloodPressureLabel = new System.Windows.Forms.Label();
             this.WeightValueLabel = new System.Windows.Forms.Label();
+            this.PulseLabel = new System.Windows.Forms.Label();
             this.HeightValueLabel = new System.Windows.Forms.Label();
+            this.TemperatureLabel = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.WeightLabel = new System.Windows.Forms.Label();
             this.TemperatureValueLabel = new System.Windows.Forms.Label();
             this.PulseValueLabel = new System.Windows.Forms.Label();
             this.BloodPressureValueLabel = new System.Windows.Forms.Label();
-            this.WeightLabel = new System.Windows.Forms.Label();
-            this.HeightLabel = new System.Windows.Forms.Label();
-            this.TemperatureLabel = new System.Windows.Forms.Label();
-            this.PulseLabel = new System.Windows.Forms.Label();
-            this.BloodPressureLabel = new System.Windows.Forms.Label();
+            this.NoteBox = new System.Windows.Forms.RichTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.PrimaryProblemsBox = new System.Windows.Forms.RichTextBox();
+            this.PrimaryProblemsLabel = new System.Windows.Forms.Label();
+            this.NotesLabel = new System.Windows.Forms.Label();
+            this.MedicationsListLabel = new System.Windows.Forms.Label();
+            this.MaritalStatusLabel = new System.Windows.Forms.Label();
+            this.PregnantLabel = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // printDialog1
@@ -62,7 +75,7 @@
             this.DOBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DOBLabel.AutoSize = true;
             this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.DOBLabel.Location = new System.Drawing.Point(30, 156);
+            this.DOBLabel.Location = new System.Drawing.Point(30, 222);
             this.DOBLabel.Name = "DOBLabel";
             this.DOBLabel.Size = new System.Drawing.Size(131, 19);
             this.DOBLabel.TabIndex = 37;
@@ -73,7 +86,7 @@
             this.PatientAgeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PatientAgeLabel.AutoSize = true;
             this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.PatientAgeLabel.Location = new System.Drawing.Point(30, 126);
+            this.PatientAgeLabel.Location = new System.Drawing.Point(30, 189);
             this.PatientAgeLabel.Name = "PatientAgeLabel";
             this.PatientAgeLabel.Size = new System.Drawing.Size(88, 19);
             this.PatientAgeLabel.TabIndex = 36;
@@ -141,21 +154,11 @@
             this.panel1.Controls.Add(this.TemperatureLabel);
             this.panel1.Controls.Add(this.HeightLabel);
             this.panel1.Controls.Add(this.WeightLabel);
-            this.panel1.Location = new System.Drawing.Point(34, 193);
+            this.panel1.Location = new System.Drawing.Point(34, 265);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 218);
+            this.panel1.Size = new System.Drawing.Size(265, 218);
             this.panel1.TabIndex = 40;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // VitalLabel
-            // 
-            this.VitalLabel.AutoSize = true;
-            this.VitalLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VitalLabel.Location = new System.Drawing.Point(4, 9);
-            this.VitalLabel.Name = "VitalLabel";
-            this.VitalLabel.Size = new System.Drawing.Size(64, 25);
-            this.VitalLabel.TabIndex = 41;
-            this.VitalLabel.Text = "Vitals";
             // 
             // BMIValueLabel
             // 
@@ -167,6 +170,16 @@
             this.BMIValueLabel.TabIndex = 54;
             this.BMIValueLabel.Text = "0 kg/m²";
             // 
+            // VitalLabel
+            // 
+            this.VitalLabel.AutoSize = true;
+            this.VitalLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VitalLabel.Location = new System.Drawing.Point(4, 9);
+            this.VitalLabel.Name = "VitalLabel";
+            this.VitalLabel.Size = new System.Drawing.Size(64, 25);
+            this.VitalLabel.TabIndex = 41;
+            this.VitalLabel.Text = "Vitals";
+            // 
             // BMILabel
             // 
             this.BMILabel.AutoSize = true;
@@ -176,96 +189,6 @@
             this.BMILabel.Size = new System.Drawing.Size(35, 19);
             this.BMILabel.TabIndex = 53;
             this.BMILabel.Text = "BMI";
-            // 
-            // WeightValueLabel
-            // 
-            this.WeightValueLabel.AutoSize = true;
-            this.WeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightValueLabel.Location = new System.Drawing.Point(131, 160);
-            this.WeightValueLabel.Name = "WeightValueLabel";
-            this.WeightValueLabel.Size = new System.Drawing.Size(38, 19);
-            this.WeightValueLabel.TabIndex = 52;
-            this.WeightValueLabel.Text = "0 kg";
-            // 
-            // HeightValueLabel
-            // 
-            this.HeightValueLabel.AutoSize = true;
-            this.HeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightValueLabel.Location = new System.Drawing.Point(131, 132);
-            this.HeightValueLabel.Name = "HeightValueLabel";
-            this.HeightValueLabel.Size = new System.Drawing.Size(43, 19);
-            this.HeightValueLabel.TabIndex = 51;
-            this.HeightValueLabel.Text = "0 cm";
-            // 
-            // TemperatureValueLabel
-            // 
-            this.TemperatureValueLabel.AutoSize = true;
-            this.TemperatureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureValueLabel.Location = new System.Drawing.Point(165, 296);
-            this.TemperatureValueLabel.Name = "TemperatureValueLabel";
-            this.TemperatureValueLabel.Size = new System.Drawing.Size(37, 19);
-            this.TemperatureValueLabel.TabIndex = 50;
-            this.TemperatureValueLabel.Text = "0 °C";
-            // 
-            // PulseValueLabel
-            // 
-            this.PulseValueLabel.AutoSize = true;
-            this.PulseValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseValueLabel.Location = new System.Drawing.Point(165, 271);
-            this.PulseValueLabel.Name = "PulseValueLabel";
-            this.PulseValueLabel.Size = new System.Drawing.Size(53, 19);
-            this.PulseValueLabel.TabIndex = 49;
-            this.PulseValueLabel.Text = "0 bpm";
-            // 
-            // BloodPressureValueLabel
-            // 
-            this.BloodPressureValueLabel.AutoSize = true;
-            this.BloodPressureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodPressureValueLabel.Location = new System.Drawing.Point(165, 243);
-            this.BloodPressureValueLabel.Name = "BloodPressureValueLabel";
-            this.BloodPressureValueLabel.Size = new System.Drawing.Size(72, 19);
-            this.BloodPressureValueLabel.TabIndex = 48;
-            this.BloodPressureValueLabel.Text = "0 mm Hg";
-            // 
-            // WeightLabel
-            // 
-            this.WeightLabel.AutoSize = true;
-            this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightLabel.Location = new System.Drawing.Point(8, 160);
-            this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(58, 19);
-            this.WeightLabel.TabIndex = 47;
-            this.WeightLabel.Text = "Weight";
-            // 
-            // HeightLabel
-            // 
-            this.HeightLabel.AutoSize = true;
-            this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightLabel.Location = new System.Drawing.Point(8, 132);
-            this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(56, 19);
-            this.HeightLabel.TabIndex = 46;
-            this.HeightLabel.Text = "Height";
-            // 
-            // TemperatureLabel
-            // 
-            this.TemperatureLabel.AutoSize = true;
-            this.TemperatureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureLabel.Location = new System.Drawing.Point(8, 103);
-            this.TemperatureLabel.Name = "TemperatureLabel";
-            this.TemperatureLabel.Size = new System.Drawing.Size(103, 19);
-            this.TemperatureLabel.TabIndex = 45;
-            this.TemperatureLabel.Text = "Temperature";
-            // 
-            // PulseLabel
-            // 
-            this.PulseLabel.AutoSize = true;
-            this.PulseLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseLabel.Location = new System.Drawing.Point(10, 78);
-            this.PulseLabel.Name = "PulseLabel";
-            this.PulseLabel.Size = new System.Drawing.Size(50, 19);
-            this.PulseLabel.TabIndex = 44;
-            this.PulseLabel.Text = "Pulse";
             // 
             // BloodPressureLabel
             // 
@@ -277,12 +200,215 @@
             this.BloodPressureLabel.TabIndex = 43;
             this.BloodPressureLabel.Text = "Blood Pressure";
             // 
+            // WeightValueLabel
+            // 
+            this.WeightValueLabel.AutoSize = true;
+            this.WeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightValueLabel.Location = new System.Drawing.Point(131, 160);
+            this.WeightValueLabel.Name = "WeightValueLabel";
+            this.WeightValueLabel.Size = new System.Drawing.Size(38, 19);
+            this.WeightValueLabel.TabIndex = 52;
+            this.WeightValueLabel.Text = "0 kg";
+            // 
+            // PulseLabel
+            // 
+            this.PulseLabel.AutoSize = true;
+            this.PulseLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PulseLabel.Location = new System.Drawing.Point(10, 78);
+            this.PulseLabel.Name = "PulseLabel";
+            this.PulseLabel.Size = new System.Drawing.Size(50, 19);
+            this.PulseLabel.TabIndex = 44;
+            this.PulseLabel.Text = "Pulse";
+            // 
+            // HeightValueLabel
+            // 
+            this.HeightValueLabel.AutoSize = true;
+            this.HeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightValueLabel.Location = new System.Drawing.Point(131, 132);
+            this.HeightValueLabel.Name = "HeightValueLabel";
+            this.HeightValueLabel.Size = new System.Drawing.Size(43, 19);
+            this.HeightValueLabel.TabIndex = 51;
+            this.HeightValueLabel.Text = "0 cm";
+            // 
+            // TemperatureLabel
+            // 
+            this.TemperatureLabel.AutoSize = true;
+            this.TemperatureLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TemperatureLabel.Location = new System.Drawing.Point(8, 103);
+            this.TemperatureLabel.Name = "TemperatureLabel";
+            this.TemperatureLabel.Size = new System.Drawing.Size(103, 19);
+            this.TemperatureLabel.TabIndex = 45;
+            this.TemperatureLabel.Text = "Temperature";
+            // 
+            // HeightLabel
+            // 
+            this.HeightLabel.AutoSize = true;
+            this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightLabel.Location = new System.Drawing.Point(8, 132);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(56, 19);
+            this.HeightLabel.TabIndex = 46;
+            this.HeightLabel.Text = "Height";
+            // 
+            // WeightLabel
+            // 
+            this.WeightLabel.AutoSize = true;
+            this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightLabel.Location = new System.Drawing.Point(8, 160);
+            this.WeightLabel.Name = "WeightLabel";
+            this.WeightLabel.Size = new System.Drawing.Size(58, 19);
+            this.WeightLabel.TabIndex = 47;
+            this.WeightLabel.Text = "Weight";
+            // 
+            // TemperatureValueLabel
+            // 
+            this.TemperatureValueLabel.AutoSize = true;
+            this.TemperatureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TemperatureValueLabel.Location = new System.Drawing.Point(165, 368);
+            this.TemperatureValueLabel.Name = "TemperatureValueLabel";
+            this.TemperatureValueLabel.Size = new System.Drawing.Size(37, 19);
+            this.TemperatureValueLabel.TabIndex = 50;
+            this.TemperatureValueLabel.Text = "0 °C";
+            // 
+            // PulseValueLabel
+            // 
+            this.PulseValueLabel.AutoSize = true;
+            this.PulseValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PulseValueLabel.Location = new System.Drawing.Point(165, 343);
+            this.PulseValueLabel.Name = "PulseValueLabel";
+            this.PulseValueLabel.Size = new System.Drawing.Size(53, 19);
+            this.PulseValueLabel.TabIndex = 49;
+            this.PulseValueLabel.Text = "0 bpm";
+            // 
+            // BloodPressureValueLabel
+            // 
+            this.BloodPressureValueLabel.AutoSize = true;
+            this.BloodPressureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BloodPressureValueLabel.Location = new System.Drawing.Point(165, 315);
+            this.BloodPressureValueLabel.Name = "BloodPressureValueLabel";
+            this.BloodPressureValueLabel.Size = new System.Drawing.Size(72, 19);
+            this.BloodPressureValueLabel.TabIndex = 48;
+            this.BloodPressureValueLabel.Text = "0 mm Hg";
+            // 
+            // NoteBox
+            // 
+            this.NoteBox.BackColor = System.Drawing.Color.White;
+            this.NoteBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NoteBox.Location = new System.Drawing.Point(34, 531);
+            this.NoteBox.Name = "NoteBox";
+            this.NoteBox.ReadOnly = true;
+            this.NoteBox.Size = new System.Drawing.Size(738, 606);
+            this.NoteBox.TabIndex = 51;
+            this.NoteBox.Text = "";
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.PrimaryProblemsBox);
+            this.panel2.Controls.Add(this.PrimaryProblemsLabel);
+            this.panel2.Location = new System.Drawing.Point(305, 265);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(467, 218);
+            this.panel2.TabIndex = 55;
+            // 
+            // PrimaryProblemsBox
+            // 
+            this.PrimaryProblemsBox.BackColor = System.Drawing.Color.White;
+            this.PrimaryProblemsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PrimaryProblemsBox.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrimaryProblemsBox.Location = new System.Drawing.Point(9, 37);
+            this.PrimaryProblemsBox.Name = "PrimaryProblemsBox";
+            this.PrimaryProblemsBox.ReadOnly = true;
+            this.PrimaryProblemsBox.Size = new System.Drawing.Size(446, 178);
+            this.PrimaryProblemsBox.TabIndex = 56;
+            this.PrimaryProblemsBox.Text = "";
+            // 
+            // PrimaryProblemsLabel
+            // 
+            this.PrimaryProblemsLabel.AutoSize = true;
+            this.PrimaryProblemsLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrimaryProblemsLabel.Location = new System.Drawing.Point(4, 9);
+            this.PrimaryProblemsLabel.Name = "PrimaryProblemsLabel";
+            this.PrimaryProblemsLabel.Size = new System.Drawing.Size(179, 25);
+            this.PrimaryProblemsLabel.TabIndex = 41;
+            this.PrimaryProblemsLabel.Text = "Primary Problems";
+            // 
+            // NotesLabel
+            // 
+            this.NotesLabel.AutoSize = true;
+            this.NotesLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotesLabel.Location = new System.Drawing.Point(41, 498);
+            this.NotesLabel.Name = "NotesLabel";
+            this.NotesLabel.Size = new System.Drawing.Size(67, 25);
+            this.NotesLabel.TabIndex = 57;
+            this.NotesLabel.Text = "Notes";
+            // 
+            // MedicationsListLabel
+            // 
+            this.MedicationsListLabel.AutoSize = true;
+            this.MedicationsListLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MedicationsListLabel.Location = new System.Drawing.Point(43, 1152);
+            this.MedicationsListLabel.Name = "MedicationsListLabel";
+            this.MedicationsListLabel.Size = new System.Drawing.Size(126, 25);
+            this.MedicationsListLabel.TabIndex = 58;
+            this.MedicationsListLabel.Text = "Medications ";
+            // 
+            // MaritalStatusLabel
+            // 
+            this.MaritalStatusLabel.AutoSize = true;
+            this.MaritalStatusLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.MaritalStatusLabel.Location = new System.Drawing.Point(30, 126);
+            this.MaritalStatusLabel.Name = "MaritalStatusLabel";
+            this.MaritalStatusLabel.Size = new System.Drawing.Size(113, 19);
+            this.MaritalStatusLabel.TabIndex = 59;
+            this.MaritalStatusLabel.Text = "Marital Status:";
+            // 
+            // PregnantLabel
+            // 
+            this.PregnantLabel.AutoSize = true;
+            this.PregnantLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.PregnantLabel.Location = new System.Drawing.Point(30, 158);
+            this.PregnantLabel.Name = "PregnantLabel";
+            this.PregnantLabel.Size = new System.Drawing.Size(80, 19);
+            this.PregnantLabel.TabIndex = 60;
+            this.PregnantLabel.Text = "Pregnant:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.Color.White;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(34, 1180);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(738, 170);
+            this.richTextBox1.TabIndex = 61;
+            this.richTextBox1.Text = "";
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // PrintableReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(802, 997);
+            this.ClientSize = new System.Drawing.Size(802, 1374);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.PregnantLabel);
+            this.Controls.Add(this.MaritalStatusLabel);
+            this.Controls.Add(this.MedicationsListLabel);
+            this.Controls.Add(this.NotesLabel);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.NoteBox);
             this.Controls.Add(this.TemperatureValueLabel);
             this.Controls.Add(this.PulseValueLabel);
             this.Controls.Add(this.BloodPressureValueLabel);
@@ -295,10 +421,12 @@
             this.Controls.Add(this.PhoneNumberLabel);
             this.Controls.Add(this.PatientNameLabel);
             this.Name = "PrintableReport";
-            this.Text = "PrintableReport";
+            this.Text = "Printable Report";
             this.Load += new System.EventHandler(this.PrintableReport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +456,16 @@
         private System.Windows.Forms.Label TemperatureLabel;
         private System.Windows.Forms.Label PulseLabel;
         private System.Windows.Forms.Label BloodPressureLabel;
+        private System.Windows.Forms.RichTextBox NoteBox;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RichTextBox PrimaryProblemsBox;
+        private System.Windows.Forms.Label PrimaryProblemsLabel;
+        private System.Windows.Forms.Label NotesLabel;
+        private System.Windows.Forms.Label MedicationsListLabel;
+        private System.Windows.Forms.Label MaritalStatusLabel;
+        private System.Windows.Forms.Label PregnantLabel;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

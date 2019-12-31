@@ -1827,6 +1827,8 @@ namespace Shifaa_EMR_System {
             
             private global::System.Data.DataColumn columnDate;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PatientNoteDataTable() {
@@ -1918,6 +1920,14 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1953,7 +1963,7 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PatientNoteRow AddPatientNoteRow(int NoteID, PatientRow parentPatientRowByFK__PatientNo__Patie__4C6B5938, string ProviderName, string NoteTitle, string NoteContent, System.DateTime Date) {
+            public PatientNoteRow AddPatientNoteRow(int NoteID, PatientRow parentPatientRowByFK__PatientNo__Patie__4C6B5938, string ProviderName, string NoteTitle, string NoteContent, System.DateTime Date, string Status) {
                 PatientNoteRow rowPatientNoteRow = ((PatientNoteRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NoteID,
@@ -1962,7 +1972,8 @@ namespace Shifaa_EMR_System {
                         NoteTitle,
                         NoteContent,
                         null,
-                        Date};
+                        Date,
+                        Status};
                 if ((parentPatientRowByFK__PatientNo__Patie__4C6B5938 != null)) {
                     columnValuesArray[1] = parentPatientRowByFK__PatientNo__Patie__4C6B5938[1];
                 }
@@ -2002,6 +2013,7 @@ namespace Shifaa_EMR_System {
                 this.columnNoteContent = base.Columns["NoteContent"];
                 this.columnColumnNumber = base.Columns["ColumnNumber"];
                 this.columnDate = base.Columns["Date"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2021,6 +2033,8 @@ namespace Shifaa_EMR_System {
                 base.Columns.Add(this.columnColumnNumber);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNoteID}, true));
                 this.columnNoteID.AllowDBNull = false;
@@ -2036,6 +2050,7 @@ namespace Shifaa_EMR_System {
                 this.columnColumnNumber.AllowDBNull = false;
                 this.columnColumnNumber.ReadOnly = true;
                 this.columnDate.AllowDBNull = false;
+                this.columnStatus.DefaultValue = ((string)("\'Draft\'"));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6798,6 +6813,22 @@ namespace Shifaa_EMR_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tablePatientNote.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'PatientNote\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePatientNote.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PatientRow PatientRow {
                 get {
                     return ((PatientRow)(this.GetParentRow(this.Table.ParentRelations["FK__PatientNo__Patie__4C6B5938"])));
@@ -6829,6 +6860,18 @@ namespace Shifaa_EMR_System {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNoteContentNull() {
                 this[this.tablePatientNote.NoteContentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tablePatientNote.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tablePatientNote.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10436,6 +10479,7 @@ SELECT VitalSignID, PatientID, BloodPressure, Pulse, Temperature, Height, Weight
             tableMapping.ColumnMappings.Add("NoteContent", "NoteContent");
             tableMapping.ColumnMappings.Add("ColumnNumber", "ColumnNumber");
             tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("Status", "Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -10489,7 +10533,7 @@ SELECT NoteID, PatientID, ProviderName, NoteTitle, NoteContent, ColumnNumber, Da
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT NoteID, PatientID, ProviderName, NoteTitle, NoteContent, ColumnNumber, Dat" +
@@ -10498,10 +10542,16 @@ SELECT NoteID, PatientID, ProviderName, NoteTitle, NoteContent, ColumnNumber, Da
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        NoteID, PatientID, ProviderName, NoteTitle, NoteContent, ColumnNumb" +
-                "er, Date\r\nFROM            PatientNote\r\nWHERE        (PatientID = @PatientID)\r\nOR" +
-                "DER BY Date";
+                "er, Date, Status\r\nFROM            PatientNote\r\nWHERE        (PatientID = @Patien" +
+                "tID) AND (Status = \'Signed\')\r\nORDER BY Date";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        NoteID, PatientID, ProviderName, NoteTitle, NoteContent, ColumnNumb" +
+                "er, Date\r\nFROM            PatientNote\r\nWHERE        (PatientID = @PatientID)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "PatientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10534,6 +10584,20 @@ SELECT NoteID, PatientID, ProviderName, NoteTitle, NoteContent, ColumnNumber, Da
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByPatientID(EMRDatabaseDataSet.PatientNoteDataTable dataTable, int PatientID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PatientID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPatientIDIgnoreStatus(EMRDatabaseDataSet.PatientNoteDataTable dataTable, int PatientID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PatientID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -11495,6 +11559,8 @@ SELECT PrescriptionID, MedicationName, Amount, Strength, Route, Frequency, Refil
             tableMapping.ColumnMappings.Add("BMI", "BMI");
             tableMapping.ColumnMappings.Add("Nationality", "Nationality");
             tableMapping.ColumnMappings.Add("Created", "Created");
+            tableMapping.ColumnMappings.Add("PregnancyStatus", "PregancyStatus");
+            tableMapping.ColumnMappings.Add("MaritalStatus", "MaritalStatus");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

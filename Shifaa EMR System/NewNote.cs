@@ -30,7 +30,7 @@ namespace Shifaa_EMR_System
         private void NewNote_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.PatientNote' table. You can move, or remove it, as needed.
-            this.patientNoteTableAdapter.FillByPatientID(eMRDatabaseDataSet.PatientNote, thisPatientID);
+            this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(eMRDatabaseDataSet.PatientNote, thisPatientID);
             this.NoteHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.NoteHistoryTable.MultiSelect = false;
             this.NewNoteDateValue.Text = DateTime.Today.ToShortDateString();
@@ -103,7 +103,7 @@ namespace Shifaa_EMR_System
             newSignButton.FlatAppearance.BorderSize = 0;
             newSignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newSignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newSignButton.Location = new System.Drawing.Point(423, 27);
+            newSignButton.Location = new System.Drawing.Point(523, 49);
             newSignButton.Name = "newSignButton";
             newSignButton.Size = new System.Drawing.Size(94, 26);
             newSignButton.TabIndex = 66;
@@ -111,6 +111,8 @@ namespace Shifaa_EMR_System
             newSignButton.UseVisualStyleBackColor = false;
             newSignButton.Hide();
             newSignButton.Click += new System.EventHandler(ExistingSignButtonClick);
+            newSignButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // DateValueLabel1
             // 
@@ -133,6 +135,8 @@ namespace Shifaa_EMR_System
             newAddendumBox.TabIndex = 56;
             newAddendumBox.TextChanged += new System.EventHandler(this.AddendumBox_TextChanged);
             newAddendumBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+            newAddendumBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
             newAddendumBox.Hide();
             // 
             // TitleNameLabel
@@ -153,7 +157,7 @@ namespace Shifaa_EMR_System
             newAddendumButton.FlatAppearance.BorderSize = 0;
             newAddendumButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newAddendumButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newAddendumButton.Location = new System.Drawing.Point(423, 27);
+            newAddendumButton.Location = new System.Drawing.Point(523, 49);
             newAddendumButton.Name = "newAddendumButton";
             newAddendumButton.Size = new System.Drawing.Size(94, 26);
             newAddendumButton.TabIndex = 52;
@@ -176,13 +180,15 @@ namespace Shifaa_EMR_System
             // NoteBox1
             // 
             newNoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            newNoteBox.Location = new System.Drawing.Point(7, 89);
+            newNoteBox.Location = new System.Drawing.Point(6, 100);
             newNoteBox.Multiline = true;
             newNoteBox.Name = "newNoteBox";
             newNoteBox.Text = providerName + " wrote: " + noteContent;
-            newNoteBox.Size = new System.Drawing.Size(650, 483);
+            newNoteBox.Size = new System.Drawing.Size(738, 623);
             newNoteBox.TabIndex = 50;
             newNoteBox.ScrollBars = RichTextBoxScrollBars.Vertical;
+            newNoteBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
             // 
 
             // 
@@ -228,13 +234,15 @@ namespace Shifaa_EMR_System
             newExitButton.FlatAppearance.BorderSize = 0;
             newExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newExitButton.Location = new System.Drawing.Point(546, 27);
+            newExitButton.Location = new System.Drawing.Point(632, 49);
             newExitButton.Name = "ExitButton";
             newExitButton.Size = new System.Drawing.Size(94, 26);
             newExitButton.TabIndex = 52;
             newExitButton.Text = "Exit";
             newExitButton.UseVisualStyleBackColor = false;
             newExitButton.Click += new System.EventHandler(ExitButtonClick);
+            newExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
 
 
             newTab.Controls.Add(newExitButton);
@@ -276,16 +284,17 @@ namespace Shifaa_EMR_System
 
             //Change the dimensions of the addendum box
             RichTextBox thisAddendumBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumBox", false)[0];
-            thisAddendumBox.Size = new System.Drawing.Size(650, 254);
+            thisAddendumBox.Size = new System.Drawing.Size(740, 283);
             thisAddendumBox.Location = new Point(7, 314);
             thisAddendumBox.Show();
 
             //Change dimensions of original notebox
             RichTextBox thisOriginalNoteBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newNoteBox", false)[0];
-            thisOriginalNoteBox.Size = new System.Drawing.Size(650, 199);
+            thisOriginalNoteBox.Size = new System.Drawing.Size(738, 308);
 
             //Add Addendum Label
             Label thisAddendumLabel = (Label)NewNoteTabControl.SelectedTab.Controls.Find("newAddendumLabel", false)[0];
+            thisAddendumLabel.Location = new Point(10, 415);
             thisAddendumLabel.Show();
 
             
@@ -399,7 +408,8 @@ namespace Shifaa_EMR_System
             try
             {
 
-                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent);
+                string status = "Signed";
+                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status);
                 this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 this.patientNoteTableAdapter1.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
 
@@ -451,6 +461,33 @@ namespace Shifaa_EMR_System
 
         private void ObjectiveNoteBox_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void SaveDraftButton_Click(object sender, EventArgs e)
+        {
+            String noteTitle = NewNoteTitleBox.Text;
+
+
+            String noteContent = "Subjective: " + SubjectiveNoteBox.Text +
+                "\n" + "Objective: " + ObjectiveNoteBox.Text +
+                "\n" + "Assesment: " + AssesmentBox.Text +
+                "\n" + "Plan: " + PlanBox.Text;
+
+
+            try
+            {
+
+                string status = "Draft";
+                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status);
+                this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                this.patientNoteTableAdapter1.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid note entry");
+            }
 
         }
     }

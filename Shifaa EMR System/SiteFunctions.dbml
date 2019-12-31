@@ -21,10 +21,10 @@
       <Association Name="Patient_Allergie" Member="Allergies" ThisKey="PatientID" OtherKey="PatientID" Type="Allergie" />
       <Association Name="Patient_PatientScan" Member="PatientScans" ThisKey="PatientID" OtherKey="PatientID" Type="PatientScan" />
       <Association Name="Patient_PatientLab" Member="PatientLabs" ThisKey="PatientID" OtherKey="PatientID" Type="PatientLab" />
-      <Association Name="Patient_PatientNote" Member="PatientNotes" ThisKey="PatientID" OtherKey="PatientID" Type="PatientNote" />
       <Association Name="Patient_Appointment" Member="Appointments" ThisKey="PatientID" OtherKey="patientID" Type="Appointment" />
       <Association Name="Patient_Problem" Member="Problems" ThisKey="PatientID" OtherKey="PatientID" Type="Problem" />
       <Association Name="Patient_Prescription" Member="Prescriptions" ThisKey="PatientID" OtherKey="PatientID" Type="Prescription" />
+      <Association Name="Patient_PatientNote" Member="PatientNotes" ThisKey="PatientID" OtherKey="PatientID" Type="PatientNote" />
     </Type>
   </Table>
   <Table Name="dbo.VitalSigns" Member="VitalSigns">
@@ -109,19 +109,6 @@
       <Association Name="Patient_PatientLab" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PatientNote" Member="PatientNotes">
-    <Type Name="PatientNote">
-      <Column Name="NoteID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="NoteTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="NoteContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Patient_PatientNote" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Appointment" Member="Appointments">
     <Type Name="Appointment">
       <Column Name="appointmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -176,6 +163,20 @@
       <Column Name="DateStopped" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="DrugDatabase_Prescription" Member="DrugDatabase" ThisKey="MedicationName" OtherKey="DrugName" Type="DrugDatabase" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Patient_Prescription" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PatientNote" Member="PatientNotes">
+    <Type Name="PatientNote">
+      <Column Name="NoteID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NoteTitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoteContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ColumnNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Patient_PatientNote" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
@@ -251,14 +252,6 @@
       <Column Name="NoteContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ProviderName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.createNewPatientNote" Method="createNewPatientNote">
-    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ProviderName" Parameter="providerName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="NoteTitle" Parameter="noteTitle" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="NoteContent" Parameter="noteContent" Type="System.String" DbType="NVarChar(MAX)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.updateExistingNote" Method="updateExistingNote">
     <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
@@ -402,6 +395,15 @@
     <Parameter Name="Height" Parameter="height" Type="System.Double" DbType="Float" />
     <Parameter Name="BMI" Parameter="bMI" Type="System.Double" DbType="Float" />
     <Parameter Name="Nationality" Parameter="nationality" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.createNewPatientNote" Method="createNewPatientNote">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProviderName" Parameter="providerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NoteTitle" Parameter="noteTitle" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="NoteContent" Parameter="noteContent" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
