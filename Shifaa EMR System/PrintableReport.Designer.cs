@@ -75,10 +75,9 @@
             // 
             // DOBLabel
             // 
-            this.DOBLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DOBLabel.AutoSize = true;
             this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.DOBLabel.Location = new System.Drawing.Point(13, 252);
+            this.DOBLabel.Location = new System.Drawing.Point(13, 250);
             this.DOBLabel.Name = "DOBLabel";
             this.DOBLabel.Size = new System.Drawing.Size(131, 19);
             this.DOBLabel.TabIndex = 37;
@@ -87,7 +86,6 @@
             // 
             // PatientAgeLabel
             // 
-            this.PatientAgeLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PatientAgeLabel.AutoSize = true;
             this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             this.PatientAgeLabel.Location = new System.Drawing.Point(13, 221);
@@ -132,9 +130,10 @@
             // 
             // AttendingPhysicianLabel
             // 
+            this.AttendingPhysicianLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AttendingPhysicianLabel.AutoSize = true;
             this.AttendingPhysicianLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttendingPhysicianLabel.Location = new System.Drawing.Point(595, 64);
+            this.AttendingPhysicianLabel.Location = new System.Drawing.Point(464, 64);
             this.AttendingPhysicianLabel.Name = "AttendingPhysicianLabel";
             this.AttendingPhysicianLabel.Size = new System.Drawing.Size(160, 25);
             this.AttendingPhysicianLabel.TabIndex = 38;
@@ -143,9 +142,10 @@
             // 
             // PhysicianNumberLabel
             // 
+            this.PhysicianNumberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PhysicianNumberLabel.AutoSize = true;
             this.PhysicianNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.PhysicianNumberLabel.Location = new System.Drawing.Point(587, 100);
+            this.PhysicianNumberLabel.Location = new System.Drawing.Point(456, 100);
             this.PhysicianNumberLabel.Name = "PhysicianNumberLabel";
             this.PhysicianNumberLabel.Size = new System.Drawing.Size(168, 19);
             this.PhysicianNumberLabel.TabIndex = 39;
@@ -190,10 +190,10 @@
             this.NoteBox.BackColor = System.Drawing.Color.White;
             this.NoteBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NoteBox.Location = new System.Drawing.Point(17, 565);
+            this.NoteBox.Location = new System.Drawing.Point(14, 64);
             this.NoteBox.Name = "NoteBox";
             this.NoteBox.ReadOnly = true;
-            this.NoteBox.Size = new System.Drawing.Size(738, 606);
+            this.NoteBox.Size = new System.Drawing.Size(738, 1377);
             this.NoteBox.TabIndex = 51;
             this.NoteBox.Text = "";
             this.NoteBox.TextChanged += new System.EventHandler(this.NoteBox_TextChanged);
@@ -430,6 +430,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(769, 48);
             this.panel1.TabIndex = 63;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // PrintButton
             // 
@@ -469,7 +470,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(820, 725);
+            this.ClientSize = new System.Drawing.Size(803, 725);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Seperator);

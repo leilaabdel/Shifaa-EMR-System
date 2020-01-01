@@ -162,6 +162,7 @@
             this.Exit.TabIndex = 51;
             this.Exit.Text = "Cancel";
             this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click_1);
             // 
             // PatientListView
             // 

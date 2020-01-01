@@ -17,7 +17,7 @@ namespace Shifaa_EMR_System
         int thisPrescriptionID;
         int thisPatientID;
         public UpdatePrescription(string prescriptionName, string amount, string strength , 
-            string frequency , double numberOfRefills, string route, int prescriptionID, int patientID)
+            string frequency , double? numberOfRefills, string route, int prescriptionID, int patientID)
         {
 
             this.MedicationBox.Text = prescriptionName;
@@ -29,6 +29,10 @@ namespace Shifaa_EMR_System
             this.thisPrescriptionID = prescriptionID;
             this.thisPatientID = patientID;
             InitializeComponent();
+
+            MedicationBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            MedicationBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            MedicationBox.AutoCompleteCustomSource = AutoComplete.PrescriptionNameAutoComplete();
         }
 
         string status = null;
@@ -74,8 +78,8 @@ namespace Shifaa_EMR_System
 
                 try
                 {
-                    doAction.updatePrescription(thisPrescriptionID, MedicationBox.Text, AmountBox.Text, StrengthBox.Text, RouteBox.Text, FrequencyBox.Text, Double.Parse(RefillsBox.Text), dateCompleted, status);
-                    prescriptionTableAdapter.FillByPatientID(eMRDatabaseDataSet.Prescription, thisPatientID);
+                    doAction.updatePrescription(thisPrescriptionID, MedicationBox.Text, AmountBox.Text, StrengthBox.Text, RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, dateCompleted, status);
+                    ((PatientHomePage)this.Owner).prescriptionTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Prescription, thisPatientID);
                     this.Close();
 
 
@@ -91,6 +95,16 @@ namespace Shifaa_EMR_System
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MedicationBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

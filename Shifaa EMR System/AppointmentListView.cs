@@ -21,17 +21,28 @@ namespace Shifaa_EMR_System
 
         private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         int selectedAppointmentID = 0;
-
+        ProviderMain thisProviderMain;
         public int getSelectedAppointmentID()
         {
             return selectedAppointmentID;
         }
 
-        public AppointmentListView()
+
+
+        public AppointmentListView(ProviderMain providerMain)
         {
 
             InitializeComponent();
+            thisProviderMain = providerMain;
+     ;
 
+               
+
+        }
+
+        public AppointmentListView()
+        {
+            InitializeComponent();
         }
 
         Type a = typeof(ProviderMain);
@@ -158,6 +169,7 @@ namespace Shifaa_EMR_System
                         PatientHomePage newPatientHomePage = new PatientHomePage(patientFullName, number, gender, age, Convert.ToDateTime(DOB), selectedPatientID, (ProviderMain)this.MdiParent , this); 
                         Center(newPatientHomePage);
                         newPatientHomePage.Show();
+                    
                     }
                 }
                 catch
@@ -167,6 +179,8 @@ namespace Shifaa_EMR_System
             }
 
         }
+
+
 
       
     }

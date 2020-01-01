@@ -52,12 +52,12 @@
             this.RouteLabel = new System.Windows.Forms.Label();
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
-            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.PrescriptionCompleteLabel = new System.Windows.Forms.Label();
             this.YesBox = new System.Windows.Forms.CheckBox();
             this.NoBox = new System.Windows.Forms.CheckBox();
             this.DateCompletedLabel = new System.Windows.Forms.Label();
             this.DateCompletedPicker = new System.Windows.Forms.DateTimePicker();
+            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
@@ -73,6 +73,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 39);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // CancelButton
             // 
@@ -162,6 +163,7 @@
             this.MedicationBox.Size = new System.Drawing.Size(303, 23);
             this.MedicationBox.TabIndex = 40;
             this.MedicationNameToolTip.SetToolTip(this.MedicationBox, "Choose either the brand or generic drug name");
+            this.MedicationBox.TextChanged += new System.EventHandler(this.MedicationBox_TextChanged);
             // 
             // AmountBox
             // 
@@ -254,11 +256,6 @@
             // 
             this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
-            // prescriptionBindingSource
-            // 
-            this.prescriptionBindingSource.DataMember = "Prescription";
-            this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
             // PrescriptionCompleteLabel
             // 
             this.PrescriptionCompleteLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
@@ -315,6 +312,11 @@
             this.DateCompletedPicker.Name = "DateCompletedPicker";
             this.DateCompletedPicker.Size = new System.Drawing.Size(226, 25);
             this.DateCompletedPicker.TabIndex = 52;
+            // 
+            // prescriptionBindingSource
+            // 
+            this.prescriptionBindingSource.DataMember = "Prescription";
+            this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
             // UpdatePrescription
             // 

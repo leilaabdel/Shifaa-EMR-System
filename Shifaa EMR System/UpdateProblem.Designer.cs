@@ -114,9 +114,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProblemBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProblemBox.Location = new System.Drawing.Point(161, 53);
-            this.ProblemBox.Multiline = true;
             this.ProblemBox.Name = "ProblemBox";
-            this.ProblemBox.Size = new System.Drawing.Size(299, 32);
+            this.ProblemBox.Size = new System.Drawing.Size(299, 23);
             this.ProblemBox.TabIndex = 40;
             // 
             // DescriptionBox

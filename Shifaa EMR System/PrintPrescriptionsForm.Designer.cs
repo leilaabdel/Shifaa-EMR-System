@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PrintButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
@@ -46,24 +43,13 @@
             this.MedicationsBox = new System.Windows.Forms.RichTextBox();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // prescriptionBindingSource
-            // 
-            this.prescriptionBindingSource.DataMember = "Prescription";
-            this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // prescriptionTableAdapter
-            // 
-            this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
             // panel1
             // 
@@ -105,6 +91,7 @@
             this.CancelButton.TabIndex = 64;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // panel2
             // 
@@ -186,12 +173,13 @@
             this.MedicationsBox.BackColor = System.Drawing.Color.White;
             this.MedicationsBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MedicationsBox.Font = new System.Drawing.Font("Bahnschrift Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MedicationsBox.Location = new System.Drawing.Point(30, 363);
+            this.MedicationsBox.Location = new System.Drawing.Point(30, 374);
             this.MedicationsBox.Name = "MedicationsBox";
             this.MedicationsBox.ReadOnly = true;
-            this.MedicationsBox.Size = new System.Drawing.Size(695, 254);
+            this.MedicationsBox.Size = new System.Drawing.Size(695, 476);
             this.MedicationsBox.TabIndex = 73;
             this.MedicationsBox.Text = "";
+            this.MedicationsBox.TextChanged += new System.EventHandler(this.MedicationsBox_TextChanged);
             // 
             // PhoneNumberLabel
             // 
@@ -211,13 +199,27 @@
             this.label4.Size = new System.Drawing.Size(150, 2);
             this.label4.TabIndex = 75;
             // 
+            // prescriptionBindingSource
+            // 
+            this.prescriptionBindingSource.DataMember = "Prescription";
+            this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prescriptionTableAdapter
+            // 
+            this.prescriptionTableAdapter.ClearBeforeFill = true;
+            // 
             // PrintPrescriptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(771, 547);
+            this.ClientSize = new System.Drawing.Size(788, 881);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.PhoneNumberLabel);
@@ -235,9 +237,9 @@
             this.Name = "PrintPrescriptionsForm";
             this.Text = "Print Prescriptions";
             this.Load += new System.EventHandler(this.PrintPrescriptionsForm_Load);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

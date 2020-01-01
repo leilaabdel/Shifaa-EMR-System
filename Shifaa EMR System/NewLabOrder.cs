@@ -37,7 +37,7 @@ namespace Shifaa_EMR_System
             try
             {
                 doAction.createNewLabOrder(LabNameBox.Text, thisProviderName, thisProviderID, ScheduledDatePicker.Value, thisPatientID);
-                this.patientLabTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientLab, thisPatientID);
+                ((PatientHomePage)this.Owner).patientLabTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.PatientLab, thisPatientID);
                 this.Close();
 
             }

@@ -37,14 +37,9 @@
             this.ProblemBox = new System.Windows.Forms.TextBox();
             this.DescriptionBox = new System.Windows.Forms.TextBox();
             this.SubmitButton = new System.Windows.Forms.Button();
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.ProblemNameToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.ProblemDescriptionTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.problemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.problemTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.ProblemTableAdapter();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.problemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -110,9 +105,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProblemBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProblemBox.Location = new System.Drawing.Point(161, 53);
-            this.ProblemBox.Multiline = true;
             this.ProblemBox.Name = "ProblemBox";
-            this.ProblemBox.Size = new System.Drawing.Size(299, 32);
+            this.ProblemBox.Size = new System.Drawing.Size(299, 23);
             this.ProblemBox.TabIndex = 40;
             this.ProblemNameToolTip.SetToolTip(this.ProblemBox, "Enter the problem name from the options given.");
             // 
@@ -145,20 +139,6 @@
             this.SubmitButton.UseVisualStyleBackColor = false;
             this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // problemBindingSource
-            // 
-            this.problemBindingSource.DataMember = "Problem";
-            this.problemBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // problemTableAdapter
-            // 
-            this.problemTableAdapter.ClearBeforeFill = true;
-            // 
             // NewProblem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,8 +159,6 @@
             this.Load += new System.EventHandler(this.NewProblem_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.problemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,10 +174,7 @@
         private System.Windows.Forms.Label NewProblemLabel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SubmitButton;
-        private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.ToolTip ProblemNameToolTip;
         private System.Windows.Forms.ToolTip ProblemDescriptionTooltip;
-        private System.Windows.Forms.BindingSource problemBindingSource;
-        private EMRDatabaseDataSetTableAdapters.ProblemTableAdapter problemTableAdapter;
     }
 }

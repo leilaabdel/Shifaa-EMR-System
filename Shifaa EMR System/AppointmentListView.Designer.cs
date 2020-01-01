@@ -34,10 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Exit = new System.Windows.Forms.Button();
             this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
-            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
-            this.StatusButtonToolTIp = new System.Windows.Forms.ToolTip(this.components);
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +43,10 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            this.StatusButtonToolTIp = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -59,7 +59,7 @@
             this.Exit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 18F);
-            this.Exit.Location = new System.Drawing.Point(628, 1051);
+            this.Exit.Location = new System.Drawing.Point(612, 1076);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(161, 82);
             this.Exit.TabIndex = 26;
@@ -79,7 +79,7 @@
             this.AppointmentListView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -106,7 +106,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.AppointmentListView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.AppointmentListView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AppointmentListView1.Location = new System.Drawing.Point(1, 93);
+            this.AppointmentListView1.Location = new System.Drawing.Point(31, 118);
             this.AppointmentListView1.Name = "AppointmentListView1";
             this.AppointmentListView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -118,23 +118,9 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.AppointmentListView1.RowHeadersVisible = false;
-            this.AppointmentListView1.Size = new System.Drawing.Size(1419, 921);
+            this.AppointmentListView1.Size = new System.Drawing.Size(1325, 921);
             this.AppointmentListView1.TabIndex = 27;
             this.AppointmentListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentListView1_CellContentClick);
-            // 
-            // appointmentBindingSource
-            // 
-            this.appointmentBindingSource.DataMember = "Appointment";
-            this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // appointmentTableAdapter
-            // 
-            this.appointmentTableAdapter.ClearBeforeFill = true;
             // 
             // PatientID
             // 
@@ -202,13 +188,27 @@
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "Appointment";
+            this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // appointmentTableAdapter
+            // 
+            this.appointmentTableAdapter.ClearBeforeFill = true;
+            // 
             // AppointmentListView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.CancelButton = this.Exit;
-            this.ClientSize = new System.Drawing.Size(1423, 1170);
+            this.ClientSize = new System.Drawing.Size(1423, 920);
             this.ControlBox = false;
             this.Controls.Add(this.AppointmentListView1);
             this.Controls.Add(this.Exit);
@@ -216,7 +216,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AppointmentListView";
-            this.Padding = new System.Windows.Forms.Padding(0, 75, 0, 0);
+            this.Padding = new System.Windows.Forms.Padding(30, 100, 30, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AppointmentListView_Load);

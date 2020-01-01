@@ -19,6 +19,9 @@ namespace Shifaa_EMR_System
         int thisPatientID;
         readonly ProviderMain thisProviderMain;
         readonly AppointmentListView thisAppointmentList;
+        ToolStripMenuItem thisGenerateReport;
+        ToolStripMenuItem thisPrintPrescriptions;
+
 
         public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain)
         {
@@ -34,6 +37,17 @@ namespace Shifaa_EMR_System
             thisPatientID = selectedPatientID;
             this.thisProviderMain = providerMain;
             this.FinishVisitButton.Hide();
+
+
+            thisGenerateReport = new ToolStripMenuItem("Generate Report");
+
+            thisGenerateReport.Click += new System.EventHandler(GenerateReportClick);
+            thisPrintPrescriptions = new ToolStripMenuItem("Print Prescriptions");
+            thisPrintPrescriptions.Click += new System.EventHandler(PrintPrescriptionsClick);
+            thisProviderMain.menuStrip2.Items.Add(thisGenerateReport);
+            thisProviderMain.menuStrip2.Items.Add(thisPrintPrescriptions);
+
+
         }
 
         public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain, AppointmentListView appointmentList)
@@ -51,10 +65,49 @@ namespace Shifaa_EMR_System
             this.thisProviderMain = providerMain;
             this.thisAppointmentList = appointmentList;
             this.FinishVisitButton.Show();
+
+            this.NoteHistoryTable.AutoGenerateColumns = false;
+            this.LabsTable.AutoGenerateColumns = false;
+            this.AllergiesTable.AutoGenerateColumns = false;
+            this.VitalHistoryTable.AutoGenerateColumns = false;
+            this.ScansTable.AutoGenerateColumns = false;
+            this.ProblemListView.AutoGenerateColumns = false;
+            this.MedicationsListDataGridView.AutoGenerateColumns = false;
+
+            thisGenerateReport = new ToolStripMenuItem("Generate Report");
+
+            thisGenerateReport.Click += new System.EventHandler(GenerateReportClick);
+            thisPrintPrescriptions = new ToolStripMenuItem("Print Prescriptions");
+            thisPrintPrescriptions.Click += new System.EventHandler(PrintPrescriptionsClick);
+            thisProviderMain.menuStrip2.Items.Add(thisGenerateReport);
+            thisProviderMain.menuStrip2.Items.Add(thisPrintPrescriptions);
+
+            this.WindowState = FormWindowState.Maximized;
+           
         }
 
 
-        private void setVitals(int selectedPatientID)
+        private void GenerateReportClick(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["PrintableReport"] as PrintableReport == null)
+            {
+                PrintableReport report = new PrintableReport(thisPatientID, thisProviderMain.getProviderID());
+                Center(report);
+                report.Show();
+            }
+        }
+
+       private void PrintPrescriptionsClick(object sender, EventArgs e)
+       {
+            if (Application.OpenForms["PrintableReport"] as PrintableReport == null)
+            {
+                PrintPrescriptionsForm printPrescriptions = new PrintPrescriptionsForm(thisPatientID, thisProviderMain.getProviderID());
+                Center(printPrescriptions);
+                printPrescriptions.Show();
+            }
+       }
+
+            private void setVitals(int selectedPatientID)
         {
             ISingleResult<getLatestPatientVitalsResult> result = doAction.getLatestPatientVitals(selectedPatientID);
 
@@ -66,7 +119,7 @@ namespace Shifaa_EMR_System
                 this.WeightValueLabel.Text = vital.Weight.ToString() + " Kg";
                 this.HeightValueLabel.Text = vital.Height.ToString() + " cm";
                 this.BMIValueLabel.Text = Math.Round((Double)vital.BMI, 2).ToString() + " Kg/m²";
-
+             
 
             }
 
@@ -88,12 +141,17 @@ namespace Shifaa_EMR_System
 
         }
 
+        public int getPatientID()
+        {
+            return thisPatientID;
+        }
+
+        
+
         private void PatientHomePage_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Problem' table. You can move, or remove it, as needed.
-            this.problemTableAdapter.Fill(this.eMRDatabaseDataSet.Problem);
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Problem' table. You can move, or remove it, as needed.
-            this.problemTableAdapter.Fill(this.eMRDatabaseDataSet.Problem);
+  
+
             this.AllergiesTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.NoteHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.VitalHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -115,8 +173,7 @@ namespace Shifaa_EMR_System
 
 
 
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed.
-            this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment, thisPatientID);
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed
             this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
             this.vitalSignsTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.VitalSigns, thisPatientID);
             this.allergieTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Allergie, thisPatientID);
@@ -124,6 +181,7 @@ namespace Shifaa_EMR_System
             this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
             this.patientScanTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientScan, thisPatientID);
             this.problemTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Problem, thisPatientID);
+            this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment, thisPatientID);
 
 
 
@@ -328,7 +386,7 @@ namespace Shifaa_EMR_System
             {
                 NewPrescriptionForm newPrescription = new NewPrescriptionForm(thisPatientID, thisProviderMain.getProviderName(),
                 thisProviderMain.getProviderID());
-
+                newPrescription.Owner = this;
                 Center(newPrescription);
                 newPrescription.Show();
             }
@@ -340,7 +398,7 @@ namespace Shifaa_EMR_System
             {
                 NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
-
+                newAllergie.Owner = this;
                 Center(newAllergie);
                 newAllergie.Show();
             }
@@ -352,7 +410,7 @@ namespace Shifaa_EMR_System
             {
                 NewScanOrder newScan = new NewScanOrder(thisPatientID, thisProviderMain.getProviderName(),
                     thisProviderMain.getProviderID());
-
+                newScan.Owner = this;
                 Center(newScan);
                 newScan.Show();
             }
@@ -364,7 +422,7 @@ namespace Shifaa_EMR_System
             {
                 NewLabOrder newLabOrder = new NewLabOrder(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
-
+                newLabOrder.Owner = this;
                 Center(newLabOrder);
                 newLabOrder.Show();
             }
@@ -377,7 +435,7 @@ namespace Shifaa_EMR_System
             {
                 NewVital newVital = new NewVital(thisPatientID, thisProviderMain.getProviderName(),
                     thisProviderMain.getProviderID());
-
+                newVital.Owner = this;
                 Center(newVital);
                 newVital.Show();
             }
@@ -395,6 +453,7 @@ namespace Shifaa_EMR_System
             {
                 NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderMain.getProviderID(),
                     thisProviderMain.getProviderName());
+                newAppointment.Owner = this;
                 Center(newAppointment);
                 newAppointment.Show();
             }
@@ -412,12 +471,9 @@ namespace Shifaa_EMR_System
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            thisProviderMain.menuStrip2.Items.Remove(thisGenerateReport);
+            thisProviderMain.menuStrip2.Items.Remove(thisPrintPrescriptions);
             this.Close();
-        }
-
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
         }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
@@ -595,6 +651,7 @@ namespace Shifaa_EMR_System
             {
                 NewProblem newProblem = new NewProblem(thisPatientID, thisProviderMain.getProviderName(),
                     thisProviderMain.getProviderID());
+                newProblem.Owner = this;
                 Center(newProblem);
                 newProblem.Show();
             }
@@ -636,6 +693,7 @@ namespace Shifaa_EMR_System
                 if (Application.OpenForms["UpdateProblem"] as UpdateProblem == null)
                 {
                     UpdateProblem updateProblem = new UpdateProblem(selectedProblemID, problemName, problemDescription, thisPatientID);
+                    updateProblem.Owner = this;
                     Center(updateProblem);
                     updateProblem.Show();
                 }
@@ -667,13 +725,16 @@ namespace Shifaa_EMR_System
                 string strength = (String)MedicationsListDataGridView["Strength", currentRow].Value;
                 string route = (String)MedicationsListDataGridView["Route", currentRow].Value;
                 string frequency = (String)MedicationsListDataGridView["Frequency", currentRow].Value;
-                double refills = (Double)MedicationsListDataGridView["Refills", currentRow].Value;
+                string refills = null;
+                double? doubleRefills = null; 
+                //TODO: Fix the refills 
 
 
                 if (Application.OpenForms["UpdatePrescription"] as UpdatePrescription == null)
                 {
-                    UpdatePrescription updatePrescription = new UpdatePrescription(medicationName, amount, strength, frequency, refills, route, selectedPrescriptionID, thisPatientID);
+                    UpdatePrescription updatePrescription = new UpdatePrescription(medicationName, amount, strength, frequency, doubleRefills, route, selectedPrescriptionID, thisPatientID);
                     Center(updatePrescription);
+                    updatePrescription.Owner = this;
                     updatePrescription.Show();
                 }
             }
@@ -681,7 +742,12 @@ namespace Shifaa_EMR_System
 
         private void PrintPrescriptionsButton_Click(object sender, EventArgs e)
         {
-
+            if (Application.OpenForms["PrintPrescriptionsForm"] as PrintPrescriptionsForm == null)
+            {
+                PrintPrescriptionsForm printPrescriptions = new PrintPrescriptionsForm(thisPatientID, thisProviderMain.getProviderID());
+                Center(printPrescriptions);
+                printPrescriptions.Show();
+            }
         }
 
         private void panel16_Paint(object sender, PaintEventArgs e)
@@ -697,6 +763,11 @@ namespace Shifaa_EMR_System
                 Center(printableReport);
                 printableReport.Show();
             }
+        }
+
+        private void ProblemListView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

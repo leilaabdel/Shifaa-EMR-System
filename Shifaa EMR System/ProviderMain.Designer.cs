@@ -142,7 +142,7 @@ namespace Shifaa_EMR_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 852);
+            this.panel1.Size = new System.Drawing.Size(266, 810);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -150,6 +150,7 @@ namespace Shifaa_EMR_System
             // 
             this.menuStrip2.AutoSize = false;
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
             this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.patientClientToolStripMenuItem,
@@ -270,7 +271,7 @@ namespace Shifaa_EMR_System
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1376, 923);
+            this.ClientSize = new System.Drawing.Size(1376, 881);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
@@ -315,7 +316,6 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem patientClientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proceduresToolStripMenuItem;
@@ -323,5 +323,6 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox searchBox;
+        public System.Windows.Forms.MenuStrip menuStrip2;
     }
 }

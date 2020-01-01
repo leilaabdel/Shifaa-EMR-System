@@ -51,9 +51,20 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text, 
-                RouteBox.Text, FrequencyBox.Text, Convert.ToDouble(RefillsBox.Text), thisPatientID, thisProviderName, thisProviderID);
-            this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
+            
+           
+            try
+            {
+                doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text,
+                RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID);
+                ((PatientHomePage)this.Owner).prescriptionTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Prescription, thisPatientID);
+
+            } catch
+            {
+                MessageBox.Show("Please enter the medication name");
+            }
+       
+            
             this.Close();
         }
 

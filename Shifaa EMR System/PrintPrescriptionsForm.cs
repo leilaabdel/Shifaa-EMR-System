@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Linq;
 using System.Drawing.Printing;
+using System.Drawing.Text;
 
 namespace Shifaa_EMR_System
 {
@@ -19,39 +20,170 @@ namespace Shifaa_EMR_System
         public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         readonly int thisPatientID;
         readonly string thisProviderID;
+        private RichTextBoxEx report;
         public PrintPrescriptionsForm(int patientID , string providerID)
         {
             InitializeComponent();
+
+          
             this.thisPatientID = patientID;
-            this.thisProviderID = providerID; 
+            this.thisProviderID = providerID;
+            _printDocument.BeginPrint += _printDocument_BeginPrint;
+            _printDocument.PrintPage += _printDocument_PrintPage;
+
+
         }
 
         private void PrintPrescriptionsForm_Load(object sender, EventArgs e)
         {
-            setProviderInformation();
             setPatientInformation();
-            setMedications();
+            setProviderInformation();
+
+            foreach (Control con in Controls)
+            {
+                con.Hide();
+            }
+
+            PrintButton.Show();
+            CancelButton.Show();
+            panel1.Show();
+
+
+            Font header = new Font("Bahnschrift Bold", 15);
+            Font smallheader = new Font("Bahnschrift Bold", 14);
+            Font smallheadernonbold = new Font("Bahnschrift Light", 14);
+
+            Font content = new Font("Bahnschrift Light", 12);
+            Font nonBoldHeader = new Font("Bahnschrift Light", 15);
+
+
+            report = new RichTextBoxEx();
+
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.Multiline = true;
+
+            //Add Attending info
+
+            report.SelectionFont = header;
+            report.SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n";
+            report.SelectionFont = nonBoldHeader;
+            report.SelectedText = PhysicianNumberLabel.Text + "\n\n";
+
+
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectionAlignment = HorizontalAlignment.Left;
+
+
+            //Add patient info
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectionFont = smallheader;
+            report.SelectedText = PatientNameLabel.Text + " " +  PatientNameValueLabel.Text +  "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText =   PhoneNumberLabel.Text + " " +  PhoneNumberValueLabel.Text + "\n";
+
+           
+
+
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+
+            Clipboard.Clear();
+
+            DataFormats.Format df = DataFormats.GetFormat(DataFormats.Bitmap);
+            Image img = Image.FromFile("C:/Users/coder/Source/Repos/lxa215/Shifaa-EMR-System/Shifaa EMR System/RxIcon.png");
+
+            report.SelectionAlignment = HorizontalAlignment.Left;
+      
+            img = resizeImage(img, new Size(104, 91));
+            Clipboard.SetImage(img);
+            report.Paste(df);
+
+            Clipboard.Clear();
+  
             
+
+
+            report.SelectedText = "\n\n";
+
+
+            setMedications(report);
+
+
+            report.Size = new Size(738, 1377);
+            report.Location = new Point(14, 64);
+            
+          
+           
+            report.BorderStyle = BorderStyle.None;
+            this.Controls.Add(report);
+
+            report.Show();
+
+
         }
 
-        private void setMedications()
+        private PrintDocument _printDocument = new PrintDocument();
+        private int _checkPrint;
+
+
+
+
+        private void _printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            MedicationsBox.SelectionBullet = true;
-            MedicationsBox.BulletIndent = 5;
-            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID, DateTime.Today);
+            // Print the content of RichTextBox. Store the last character printed.
+            _checkPrint = report.Print(_checkPrint, report.TextLength, e);
+
+            // Check for more pages
+            e.HasMorePages = _checkPrint < report.TextLength;
+        }
+
+        private void _printDocument_BeginPrint(object sender, PrintEventArgs e)
+        {
+            _checkPrint = 0;
+        }
+
+
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
+      
+
+        private void setMedications(RichTextBoxEx report)
+        {
+
+          
+         
+           
+            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID);
             foreach (selectPrescriptionforPrintResult r in result)
             {
-                MedicationsBox.SelectedText = r.MedicationName + "\n";
-                MedicationsBox.BulletIndent = 15;
-                MedicationsBox.SelectedText = "Strength: " + r.Strength + "\n";
-                MedicationsBox.SelectedText = "Frequency: " + r.Frequency + "\n";
-                MedicationsBox.SelectedText = "Route: " + r.Route + "\n";
-                MedicationsBox.SelectedText = "Refills: " + r.Refills;
-                MedicationsBox.SelectionBullet = false;
-                MedicationsBox.SelectedText = "\n\n";
-                MedicationsBox.SelectionBullet = true;
-                MedicationsBox.SelectionIndent = 5;
 
+                report.SelectionBullet = false;
+                report.SelectionIndent = 60;
+                Console.WriteLine(r.MedicationName);
+                report.SelectionFont = new Font("Bahnschrift Bold", 14);
+                report.SelectedText = r.MedicationName + "\n";
+
+                report.SelectionBullet = true;
+                report.SelectionIndent = 90;
+                report.SelectionFont = new Font("Bahnschrift Light", 14);
+                report.SelectedText = "     Strength: " + r.Strength + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 14);
+                report.SelectedText = "     Frequency: " + r.Frequency + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 14);
+                report.SelectedText = "     Route: " + r.Route + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 14);
+                report.SelectedText = "     Refills: " + r.Refills + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 14);
+
+
+                report.SelectionBullet = false;
+                report.SelectedText = "\n\n";
+                
+               
+              
             }
         }
 
@@ -64,11 +196,11 @@ namespace Shifaa_EMR_System
                 string lastName = r.LastName;
 
                 PatientNameValueLabel.Text = firstName + " " + lastName;
-                PhoneNumberValueLabel.Text =  r.PhoneNumber;
-   
+
+                PhoneNumberValueLabel.Text = r.PhoneNumber;
+
             }
         }
-
         private void setProviderInformation()
         {
             ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(thisProviderID);
@@ -81,64 +213,34 @@ namespace Shifaa_EMR_System
 
      
 
-        public static void printTest()
-        {
-            PrintDialog printDialog1 = new PrintDialog();
-            PrintDocument printDocument1 = new PrintDocument();
 
-            printDialog1.Document = printDocument1;
-            printDocument1.PrintPage +=
-                new PrintPageEventHandler(printDocument1_PrintPage);
 
-            DialogResult result = printDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
-        }
+        private static int fontposition = 1;
+        private static float ypos = 1;
 
-        static void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            Graphics graphic = e.Graphics;
-            SolidBrush brush = new SolidBrush(Color.Black);
 
-            Font font = new Font("Bahnschrift Light", 12);
-
-            e.PageSettings.PaperSize = new PaperSize("A4", 850, 1100);
-
-            float pageWidth = e.PageSettings.PrintableArea.Width;
-            float pageHeight = e.PageSettings.PrintableArea.Height;
-
-            float fontHeight = font.GetHeight();
-            int startX = 40;
-            int startY = 30;
-            int offsetY = 40;
-
-            for (int i = 0; i < 100; i++)
-            {
-                graphic.DrawString("Line: " + i, font, brush, startX, startY + offsetY);
-                offsetY += (int)fontHeight;
-
-                if (offsetY >= pageHeight)
-                {
-                    e.HasMorePages = true;
-                    offsetY = 0;
-                    return;
-                }
-                else
-                {
-                    e.HasMorePages = false;
-                }
-            }
-        }
+   
 
         private void PrintButton_Click_1(object sender, EventArgs e)
         {
-            CancelButton.Hide();
-            PrintButton.Hide();
-            printTest();
-            CancelButton.Show();
-            PrintButton.Show();
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                _printDocument.Print();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void MedicationsBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

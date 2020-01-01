@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Linq;
 using System.Drawing.Printing;
+using System.Windows.Documents;
+
 
 namespace Shifaa_EMR_System
 {
@@ -19,26 +21,172 @@ namespace Shifaa_EMR_System
         readonly int thisPatientID;
         readonly string thisProviderID;
 
-        public PrintableReport(int patientID , string providerID)
+        public PrintableReport(int patientID, string providerID)
         {
             InitializeComponent();
             this.thisPatientID = patientID;
             this.thisProviderID = providerID;
+            _printDocument.BeginPrint += _printDocument_BeginPrint;
+            _printDocument.PrintPage += _printDocument_PrintPage;
+            report = new RichTextBoxEx();
+  
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        RichTextBoxEx report;
+        int firstCharOnPage;
+
+        private PrintDocument _printDocument = new PrintDocument();
+        private int _checkPrint;
+       
+
+      
+
+        private void _printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
+            // Print the content of RichTextBox. Store the last character printed.
+            _checkPrint = report.Print(_checkPrint, report.TextLength, e);
 
+            // Check for more pages
+            e.HasMorePages = _checkPrint < report.TextLength;
         }
+
+        private void _printDocument_BeginPrint(object sender, PrintEventArgs e)
+        {
+            _checkPrint = 0;
+        }
+
 
         private void PrintableReport_Load(object sender, EventArgs e)
         {
             setPatientInformation();
-            setPatientVitals();
-            setProblems();
-            setNotes();
-            setMedications();
             setProviderInformation();
+            setPatientVitals();
+
+            foreach (Control con in Controls)
+            {
+                con.Hide();
+            }
+
+            PrintButton.Show();
+            CancelButton.Show();
+            panel1.Show();
+
+
+            Font header = new Font("Bahnschrift Bold", 15);
+            Font smallheader = new Font("Bahnschrift Bold", 14);
+            Font smallheadernonbold = new Font("Bahnschrift Light", 14);
+
+            Font content = new Font("Bahnschrift Light", 12);
+            Font nonBoldHeader = new Font("Bahnschrift Light", 15);
+
+
+
+            report.BorderStyle = BorderStyle.None;
+            report.Multiline = true;
+
+            report.SelectionFont = header;
+            report.SelectedText = (PatientNameLabel.Text + "\n");
+            report.SelectionFont = nonBoldHeader;
+            report.SelectedText = PhoneNumberLabel.Text + "\n\n";
+
+
+            //Add Attending info
+
+            report.SelectionFont = smallheader;
+            report.SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n";
+            report.SelectionFont = content;
+            report.SelectedText = PhysicianNumberLabel.Text + "\n\n";
+
+            //Add background info
+           
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectionAlignment = HorizontalAlignment.Left;
+
+            report.SelectionFont = smallheader;
+            report.SelectionIndent = 30;
+            report.SelectedText = "Patient Background Information" + "\n";
+            
+            report.SelectionIndent = 60;
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = PatientGenderLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = MaritalStatusLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            if (PatientGenderLabel.Text == "Female") report.SelectedText = PregnantLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = PatientAgeLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = (DOBLabel.Text) + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = "\n";
+
+            report.SelectionIndent = 0;
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectionAlignment = HorizontalAlignment.Left;
+
+            report.SelectionFont = smallheader;
+            report.SelectionIndent = 30;
+            report.SelectedText = "Patient Vitals" + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectionBullet = true;
+            report.SelectionIndent = 60;
+            report.SelectedText = "Blood Pressure: " + BloodPressureValueLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = "Pulse: " + PulseValueLabel.Text + " \n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = "Temperature: " + TemperatureValueLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = "Height: " + HeightValueLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = "Weight: " + WeightValueLabel.Text + "\n";
+            report.SelectionFont = smallheadernonbold;
+            report.SelectedText = "BMI: " + BMIValueLabel.Text + "\n";
+            report.SelectionBullet = false;
+            report.SelectedText = "\n";
+
+            report.SelectionIndent = 0;
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectionAlignment = HorizontalAlignment.Left;
+            report.SelectionFont = smallheader;
+            report.SelectionIndent = 30;
+            report.SelectedText = "Problems List" + "\n";
+            report.SelectionFont = smallheadernonbold;
+            setProblems(report);
+
+            report.SelectedText = "\n";
+            report.SelectionIndent = 0;
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+
+            report.SelectionAlignment = HorizontalAlignment.Left;
+            report.SelectionIndent = 30;
+            report.SelectionFont = smallheader;
+            report.SelectedText = "Notes" + "\n";
+            report.SelectionFont = content;
+            setNotes(report);
+            report.SelectedText = "\n";
+
+            report.SelectionIndent = 0;
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectionAlignment = HorizontalAlignment.Left;
+            report.SelectionFont = smallheader;
+            report.SelectionIndent = 30;
+            report.SelectedText = "Medication List" + "\n";
+            setMedications(report);
+
+
+            report.Size = new Size(738, 1377);
+            report.Location = new Point(14, 64);
+
+            this.Controls.Add(report);
+            report.Show();
+
+            //Print
+
         }
 
         private void setPatientInformation()
@@ -85,50 +233,72 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void setProblems()
+        private void setProblems(RichTextBoxEx report)
         {
 
-            PrimaryProblemsBox.SelectionBullet = true;
-            PrimaryProblemsBox.BulletIndent = 5;
+            report.SelectionBullet = true;
+            report.BulletIndent = 5;
             ISingleResult<selectProblemsForReportResult> result = doAction.selectProblemsForReport("Ongoing", thisPatientID);
             foreach( selectProblemsForReportResult r in result)
             {
-                PrimaryProblemsBox.SelectedText = r.DateDiagnosed.ToShortDateString() + ": " + r.ProblemName + "\n";
+                report.SelectionIndent = 60;
+                report.SelectionFont = new Font("Bahnschrift Light" , 13);
+                report.SelectedText = r.DateDiagnosed.ToShortDateString() + ": " + r.ProblemName + "\n";
             }
+
+            report.SelectionBullet = false;
         }
 
-        private void setNotes()
+        private void setNotes(RichTextBoxEx report)
         {
             ISingleResult<selectNotesForReportResult> result = doAction.selectNotesForReport(thisPatientID, "Signed", DateTime.Today);
             foreach(selectNotesForReportResult r in result)
             {
-                NoteBox.SelectionFont = new Font("Bahnschrift Bold", 10);
-                NoteBox.SelectedText = r.NoteTitle + "\n";
-                NoteBox.SelectionFont = new Font("Bahnschrift Light", 8);
-                NoteBox.SelectedText = r.NoteContent + "\n\n";
+                report.SelectionFont = new Font("Bahnschrift Bold", 12);
+                report.SelectedText = r.NoteTitle + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = r.NoteContent + "\n\n";
 
             }
         }
 
-        private void setMedications()
+        private void setMedications(RichTextBoxEx report)
         {
-            MedicationsBox.SelectionBullet = true;
-            MedicationsBox.BulletIndent = 5;
-            ISingleResult<selectMedicationForReportResult> result = doAction.selectMedicationForReport("Ongoing", thisPatientID);
-            foreach(selectMedicationForReportResult r in result)
+
+
+
+
+            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID);
+            foreach (selectPrescriptionforPrintResult r in result)
             {
-                MedicationsBox.SelectedText = r.MedicationName + "\n";
-                MedicationsBox.BulletIndent = 15;
-                MedicationsBox.SelectedText = "Strength: " + r.Strength + "\n";
-                MedicationsBox.SelectedText = "Frequency: " + r.Frequency;
-                MedicationsBox.SelectionBullet = false;
-                MedicationsBox.SelectedText = "\n\n";
-                MedicationsBox.SelectionBullet = true;
-                MedicationsBox.SelectionIndent = 5;
+
+                report.SelectionBullet = false;
+                report.SelectionIndent = 60;
+                Console.WriteLine(r.MedicationName);
+                report.SelectionFont = new Font("Bahnschrift Bold", 12);
+                report.SelectedText = r.MedicationName + "\n";
+
+                report.SelectionBullet = true;
+                report.SelectionIndent = 90;
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Strength: " + r.Strength + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Frequency: " + r.Frequency + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Route: " + r.Route + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Refills: " + r.Refills + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+
+
+                report.SelectionBullet = false;
+                report.SelectedText = "\n\n";
+
+
+                //report.SelectionIndent = 5;
 
             }
         }
-
         private void BMIValueLabel_Click(object sender, EventArgs e)
         {
 
@@ -278,66 +448,14 @@ namespace Shifaa_EMR_System
        
         private void PrintButton_Click(object sender, EventArgs e)
         {
-            CancelButton.Hide();
-            PrintButton.Hide();
-            printTest();
-            CancelButton.Show();
-            PrintButton.Show();
+            PrintPreviewDialog printDialog = new PrintPreviewDialog();
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                _printDocument.Print();
         }
 
-       
-
-        public static void printTest()
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            PrintDialog printDialog1 = new PrintDialog();
-            PrintDocument printDocument1 = new PrintDocument();
 
-            printDialog1.Document = printDocument1;
-            printDocument1.PrintPage +=
-                new PrintPageEventHandler(printDocument1_PrintPage);
-
-            DialogResult result = printDialog1.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
         }
-
-        static void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            Graphics graphic = e.Graphics;
-            SolidBrush brush = new SolidBrush(Color.Black);
-
-            Font font = new Font("Bahnschrift Light", 12);
-
-            e.PageSettings.PaperSize = new PaperSize("A4", 850, 1100);
-
-            float pageWidth = e.PageSettings.PrintableArea.Width;
-            float pageHeight = e.PageSettings.PrintableArea.Height;
-
-            float fontHeight = font.GetHeight();
-            int startX = 40;
-            int startY = 30;
-            int offsetY = 40;
-
-            for (int i = 0; i < 100; i++)
-            {
-                graphic.DrawString("Line: " + i, font, brush, startX, startY + offsetY);
-                offsetY += (int)fontHeight;
-
-                if (offsetY >= pageHeight)
-                {
-                    e.HasMorePages = true;
-                    offsetY = 0;
-                    return; 
-                }
-                else
-                {
-                    e.HasMorePages = false;
-                }
-            }
-        }
-
-      
     }
 }

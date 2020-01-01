@@ -23,11 +23,15 @@ namespace Shifaa_EMR_System
             this.thisPatientID = patientID;
             this.thisProviderName = providerName;
             this.thisProviderID = providerID;
+         
+            InitializeComponent();
+
             ProblemBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             ProblemBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             ProblemBox.AutoCompleteCustomSource = AutoComplete.ProblemAutoComplete();
 
-            InitializeComponent();
+
+
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
@@ -35,7 +39,8 @@ namespace Shifaa_EMR_System
             try
             {
                 doAction.createNewProblem(thisPatientID, ProblemBox.Text, DescriptionBox.Text, thisProviderID, thisProviderName);
-                this.problemTableAdapter.FillByPatientID(eMRDatabaseDataSet.Problem, thisPatientID);
+
+                ((PatientHomePage)this.Owner).problemTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Problem, thisPatientID);
                 this.Close();
             }
             catch

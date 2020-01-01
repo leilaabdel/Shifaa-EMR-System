@@ -25,6 +25,10 @@ namespace Shifaa_EMR_System
             this.ProblemBox.Text = problemName;
             this.DescriptionBox.Text = problemDescription;
             this.thisPatientID = patientID;
+
+            ProblemBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            ProblemBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            ProblemBox.AutoCompleteCustomSource = AutoComplete.ProblemAutoComplete();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -61,7 +65,7 @@ namespace Shifaa_EMR_System
                 {
 
                     doAction.updateExistingProblem(thisProblemID, status, ProblemBox.Text, DescriptionBox.Text , updateDate);
-                this.problemTableAdapter.FillByPatientID(eMRDatabaseDataSet.Problem, thisPatientID);
+                ((PatientHomePage)this.Owner).problemTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Problem, thisPatientID);
                 this.Close();
 
                 }

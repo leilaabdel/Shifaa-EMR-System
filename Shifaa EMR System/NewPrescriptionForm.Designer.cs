@@ -51,8 +51,8 @@
             this.SubmitButton = new System.Windows.Forms.Button();
             this.RouteLabel = new System.Windows.Forms.Label();
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
@@ -248,14 +248,14 @@
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
             this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // prescriptionTableAdapter
-            // 
-            this.prescriptionTableAdapter.ClearBeforeFill = true;
-            // 
             // prescriptionBindingSource
             // 
             this.prescriptionBindingSource.DataMember = "Prescription";
             this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // prescriptionTableAdapter
+            // 
+            this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
             // NewPrescriptionForm
             // 
@@ -316,7 +316,7 @@
         private System.Windows.Forms.TextBox RouteBox;
         private System.Windows.Forms.Label RouteLabel;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
-        private EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
         private System.Windows.Forms.BindingSource prescriptionBindingSource;
+        private EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
     }
 }

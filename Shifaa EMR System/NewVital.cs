@@ -42,8 +42,24 @@ namespace Shifaa_EMR_System
         {
             try
             {
-              doAction.createNewVitalSign(thisPatientID, BloodPressureBox.Text, Convert.ToDouble(PulseBox.Text), Convert.ToDouble(TemperatureBox.Text), Convert.ToDouble(HeightBox.Text),
-              Convert.ToDouble(WeightBox.Text), getBMI());
+                double? pulse = null;
+                double? temperature = null;
+                double? height = null;
+                double? weight = null;
+                double? BMI = null;
+                if (!String.IsNullOrWhiteSpace(PulseBox.Text)) pulse = Convert.ToDouble(PulseBox.Text);
+                if (!String.IsNullOrWhiteSpace(TemperatureBox.Text)) temperature = Convert.ToDouble(TemperatureBox.Text);
+                if (!String.IsNullOrWhiteSpace(HeightBox.Text)) height = Convert.ToDouble(HeightBox.Text);
+                if (!String.IsNullOrWhiteSpace(WeightBox.Text)) weight = Convert.ToDouble(WeightBox.Text);
+                if(height != null && height != 0 && weight != null && weight != 0)
+                {
+                    BMI = getBMI();
+                }
+
+                doAction.createNewVitalSign(thisPatientID, BloodPressureBox.Text, pulse, temperature , height,
+                weight , BMI);
+                ((PatientHomePage)this.Owner).vitalSignsTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.VitalSigns, thisPatientID);
+
                 this.Close();
             }
             catch

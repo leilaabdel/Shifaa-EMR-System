@@ -217,7 +217,7 @@ namespace Shifaa_EMR_System
             if (e.KeyChar == (char)Keys.Return && Application.OpenForms["PatientListView"] as PatientListView == null )
 
             {
-                PatientListView patientListView = new PatientListView();
+                PatientListView patientListView = new PatientListView(this);
                 setPatientListView(patientListView);
                 globalPatientList.activateSearch();
               

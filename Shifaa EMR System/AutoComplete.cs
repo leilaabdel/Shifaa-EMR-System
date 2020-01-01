@@ -184,6 +184,9 @@ namespace Shifaa_EMR_System
 
                 }
 
+
+                Console.WriteLine(problemnamecollection[1]);
+                Console.WriteLine(problemnamecollection[50]);
                 reader.Close();
                 conDataBase.Close();
                 return problemnamecollection;
