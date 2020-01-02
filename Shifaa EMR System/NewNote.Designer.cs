@@ -1,4 +1,4 @@
-﻿namespace ShifaaEMRSystem
+﻿namespace Shifaa_EMR_System
 {
     partial class NewNote
     {
@@ -37,7 +37,7 @@
             this.NewNoteLabel = new System.Windows.Forms.Label();
             this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
             this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.NewNoteTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -52,7 +52,7 @@
             this.NewNoteTitleBox = new System.Windows.Forms.TextBox();
             this.DateLabel = new System.Windows.Forms.Label();
             this.NoteTitleLabel = new System.Windows.Forms.Label();
-            this.patientNoteTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
+            this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
             this.NoteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();

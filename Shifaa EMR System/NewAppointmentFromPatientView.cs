@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Linq;
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
     public partial class NewAppointmentFromPatientView : Form
     {

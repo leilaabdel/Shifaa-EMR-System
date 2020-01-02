@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
     static class Program
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
     partial class ProviderMain
     {

@@ -1,4 +1,4 @@
-﻿namespace ShifaaEMRSystem
+﻿namespace Shifaa_EMR_System
 {
     partial class PatientListView
     {
@@ -38,9 +38,9 @@
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
+            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.Exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).BeginInit();

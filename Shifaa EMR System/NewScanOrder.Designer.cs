@@ -1,4 +1,4 @@
-﻿namespace ShifaaEMRSystem
+﻿namespace Shifaa_EMR_System
 {
     partial class NewScanOrder
     {
@@ -42,8 +42,8 @@
             this.DateScheduledToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
             this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
-            this.patientScanTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
             this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();

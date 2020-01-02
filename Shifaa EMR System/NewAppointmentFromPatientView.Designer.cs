@@ -1,4 +1,4 @@
-﻿namespace ShifaaEMRSystem
+﻿namespace Shifaa_EMR_System
 {
     partial class NewAppointmentFromPatientView
     {
@@ -38,9 +38,9 @@
             this.DurationLabel = new System.Windows.Forms.Label();
             this.AppointmentDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DurationTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.appointmentTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();

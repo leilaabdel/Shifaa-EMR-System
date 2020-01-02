@@ -1,4 +1,4 @@
-﻿namespace ShifaaEMRSystem
+﻿namespace Shifaa_EMR_System
 {
     partial class AppointmentListView
     {
@@ -36,9 +36,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.StatusButtonToolTIp = new System.Windows.Forms.ToolTip(this.components);
-            this.appointmentTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
             this.Exit = new System.Windows.Forms.Button();
             this.PatientID = new System.Windows.Forms.DataGridViewButtonColumn();
             this.appointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();

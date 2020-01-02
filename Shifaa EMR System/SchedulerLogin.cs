@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
     public partial class SchedulerLogin : Form
     {

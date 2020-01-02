@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EMRDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EMRDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ShifaaEMRSystem.Properties.Settings.GlobalReference.Default.EMRDatabaseConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="EMRDatabaseConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EMRDatabaseConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Shifaa_EMR_System.Properties.Settings.GlobalReference.Default.EMRDatabaseConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Physician_Login_InfoTableAdapter" GeneratorDataComponentClassName="Physician_Login_InfoTableAdapter" Name="Physician_Login_Info" UserDataComponentName="Physician_Login_InfoTableAdapter">

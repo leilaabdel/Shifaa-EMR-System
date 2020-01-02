@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -87,7 +87,7 @@ namespace ShifaaEMRSystem
     #endregion
 		
 		public SiteFunctionsDataContext() : 
-				base(global::ShifaaEMRSystem.Properties.Settings.Default.EMRDatabaseConnectionString, mappingSource)
+				base(global::Shifaa_EMR_System.Properties.Settings.Default.EMRDatabaseConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

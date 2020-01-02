@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
 
     //TO DO: FUNCTIONALIZE FOR SCHEDULER LIST VIEW

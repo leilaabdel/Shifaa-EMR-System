@@ -7,7 +7,7 @@ using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
     public partial class SchedulerMain : Form
     {

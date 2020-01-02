@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 
 {
 

@@ -12,7 +12,7 @@ using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
 
-namespace ShifaaEMRSystem
+namespace Shifaa_EMR_System
 {
 
 

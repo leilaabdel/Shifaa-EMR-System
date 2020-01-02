@@ -1,4 +1,4 @@
-﻿namespace ShifaaEMRSystem
+﻿namespace Shifaa_EMR_System
 {
     partial class PatientHomePage
     {
@@ -78,7 +78,7 @@
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.Panel7 = new System.Windows.Forms.Panel();
             this.deleteNoteButton = new System.Windows.Forms.Button();
             this.AddNoteButton = new System.Windows.Forms.Button();
@@ -265,15 +265,15 @@
             this.removeProblemButton = new System.Windows.Forms.Button();
             this.addProblemButton = new System.Windows.Forms.Button();
             this.ProblemListLabel = new System.Windows.Forms.Label();
-            this.problemTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.ProblemTableAdapter();
-            this.prescriptionTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
-            this.allergieTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
-            this.patientNoteTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
-            this.patientLabTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
-            this.patientScanTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
-            this.vitalSignsTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
+            this.problemTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.ProblemTableAdapter();
+            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.allergieTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
+            this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
+            this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
+            this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
+            this.vitalSignsTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.appointmentTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
             this.Panel1.SuspendLayout();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
@@ -1276,7 +1276,7 @@
             this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EditIcon;
+            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
             this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -1780,7 +1780,7 @@
             // 
             this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EyeIcon1;
+            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
             this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2332,7 +2332,7 @@
             // 
             this.Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Button1.BackColor = System.Drawing.Color.Azure;
-            this.Button1.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EyeIcon1;
+            this.Button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
             this.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2632,7 +2632,7 @@
             this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EditIcon;
+            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
             this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
