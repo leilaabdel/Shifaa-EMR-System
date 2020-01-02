@@ -11,6 +11,7 @@ using System.Data.Linq;
 using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
+using System.Net;
 
 namespace Shifaa_EMR_System
 {
@@ -94,18 +95,16 @@ namespace Shifaa_EMR_System
 
             Image img;
 
-            using (FileStream stream = File.Open(@"c:\RxIcon.png", FileMode.Open))
-            {
-                 img = Image.FromStream(stream);
-                 stream.Close();
-            }
-            
-          
+            WebClient wc = new WebClient();
+            byte[] bytes = wc.DownloadData("https://i.etsystatic.com/13221305/r/il/62d971/1484186367/il_1588xN.1484186367_7h0c.jpg");
+            MemoryStream ms = new MemoryStream(bytes);
+            img = System.Drawing.Image.FromStream(ms);
+
             
             //FromFile("C:/Users/coder/Source/Repos/lxa215/Shifaa-EMR-System/Shifaa EMR System/RxIcon.png");
 
             report.SelectionAlignment = HorizontalAlignment.Left;
-      
+
             img = ResizeImage(img, new Size(104, 91));
             Clipboard.SetImage(img);
             report.Paste(df);

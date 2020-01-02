@@ -21,7 +21,7 @@ namespace Shifaa_EMR_System
 
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         int selectedAppointmentID = 0;
-
+        ProviderMain thisProviderMain;
 
 
         public int GetSelectedAppointmentID()
@@ -38,7 +38,7 @@ namespace Shifaa_EMR_System
           
             this.MdiParent = providerMain;
             this.WindowState = FormWindowState.Maximized;
-
+            thisProviderMain = providerMain;
             this.AppointmentListView1.Columns.Remove("Status");
             DataGridViewTextBoxColumn status = new DataGridViewTextBoxColumn
             {
@@ -194,9 +194,9 @@ namespace Shifaa_EMR_System
                    
 
                         
-                        int selectedPatientID = (Int32)AppointmentListView1["PatientID", e.RowIndex].Value;
+                        int selectedPatientID = (int)AppointmentListView1["PatientID", e.RowIndex].Value;
 
-                     
+                        Console.WriteLine("hello I passed");
 
 
                        
@@ -225,23 +225,24 @@ namespace Shifaa_EMR_System
 
                         string patientFullName = firstName + " " + lastName;
 
+                        Console.WriteLine(patientFullName);
+                      
 
-
-
-                        PatientHomePage newPatientHomePage = new PatientHomePage(patientFullName, number, gender, age, Convert.ToDateTime(DOB), selectedPatientID, (ProviderMain)this.MdiParent, this)
+                        PatientHomePage newPatientHomePage = new PatientHomePage(patientFullName, number, gender, age, Convert.ToDateTime(DOB), selectedPatientID, thisProviderMain, this)
                         {
-                            MdiParent = this.MdiParent
+                            MdiParent = thisProviderMain
                         };
-
+                       
 
                         Center(newPatientHomePage);
                         newPatientHomePage.Show();
+                     
                      
                     }
                 }
                 catch(Exception ex)
                 {
-                    while (ex.InnerException != null) ex = ex.InnerException;
+                    //while (ex.InnerException != null) ex = ex.InnerException;
                     throw (ex);
                 }
             }

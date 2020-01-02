@@ -678,7 +678,7 @@
             this.Panel3.Controls.Add(this.Panel8);
             this.Panel3.Location = new System.Drawing.Point(513, 918);
             this.Panel3.Name = "Panel3";
-            this.Panel3.Size = new System.Drawing.Size(825, 2992);
+            this.Panel3.Size = new System.Drawing.Size(757, 4188);
             this.Panel3.TabIndex = 2;
             // 
             // AppointmentListView1
@@ -720,7 +720,7 @@
             this.createdDataGridViewTextBoxColumn,
             this.patientIDDataGridViewTextBoxColumn6});
             this.AppointmentListView1.DataSource = this.appointmentBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift Light", 8F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -743,7 +743,7 @@
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AppointmentListView1.RowHeadersVisible = false;
             this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentListView1.Size = new System.Drawing.Size(825, 2950);
+            this.AppointmentListView1.Size = new System.Drawing.Size(757, 4146);
             this.AppointmentListView1.TabIndex = 44;
             // 
             // appointmentID
@@ -916,7 +916,7 @@
             this.Panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel8.Location = new System.Drawing.Point(0, 0);
             this.Panel8.Name = "Panel8";
-            this.Panel8.Size = new System.Drawing.Size(825, 42);
+            this.Panel8.Size = new System.Drawing.Size(757, 42);
             this.Panel8.TabIndex = 34;
             // 
             // deleteAppointmentButton
@@ -929,7 +929,7 @@
             this.deleteAppointmentButton.FlatAppearance.BorderSize = 0;
             this.deleteAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAppointmentButton.Location = new System.Drawing.Point(762, 2);
+            this.deleteAppointmentButton.Location = new System.Drawing.Point(694, 2);
             this.deleteAppointmentButton.Name = "deleteAppointmentButton";
             this.deleteAppointmentButton.Size = new System.Drawing.Size(22, 33);
             this.deleteAppointmentButton.TabIndex = 46;
@@ -946,7 +946,7 @@
             this.AddNewAppointmentButton.FlatAppearance.BorderSize = 0;
             this.AddNewAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewAppointmentButton.Location = new System.Drawing.Point(785, 2);
+            this.AddNewAppointmentButton.Location = new System.Drawing.Point(717, 2);
             this.AddNewAppointmentButton.Name = "AddNewAppointmentButton";
             this.AddNewAppointmentButton.Size = new System.Drawing.Size(37, 35);
             this.AddNewAppointmentButton.TabIndex = 45;
@@ -998,7 +998,7 @@
             // 
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightLabel.Location = new System.Drawing.Point(319, 112);
+            this.HeightLabel.Location = new System.Drawing.Point(263, 112);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(56, 19);
             this.HeightLabel.TabIndex = 34;
@@ -1008,7 +1008,7 @@
             // 
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightLabel.Location = new System.Drawing.Point(319, 140);
+            this.WeightLabel.Location = new System.Drawing.Point(263, 140);
             this.WeightLabel.Name = "WeightLabel";
             this.WeightLabel.Size = new System.Drawing.Size(58, 19);
             this.WeightLabel.TabIndex = 35;
@@ -1018,7 +1018,7 @@
             // 
             this.BloodPressureValueLabel.AutoSize = true;
             this.BloodPressureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BloodPressureValueLabel.Location = new System.Drawing.Point(221, 112);
+            this.BloodPressureValueLabel.Location = new System.Drawing.Point(166, 112);
             this.BloodPressureValueLabel.Name = "BloodPressureValueLabel";
             this.BloodPressureValueLabel.Size = new System.Drawing.Size(72, 19);
             this.BloodPressureValueLabel.TabIndex = 36;
@@ -1028,7 +1028,7 @@
             // 
             this.PulseValueLabel.AutoSize = true;
             this.PulseValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PulseValueLabel.Location = new System.Drawing.Point(221, 140);
+            this.PulseValueLabel.Location = new System.Drawing.Point(166, 140);
             this.PulseValueLabel.Name = "PulseValueLabel";
             this.PulseValueLabel.Size = new System.Drawing.Size(53, 19);
             this.PulseValueLabel.TabIndex = 37;
@@ -1038,7 +1038,7 @@
             // 
             this.TemperatureValueLabel.AutoSize = true;
             this.TemperatureValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TemperatureValueLabel.Location = new System.Drawing.Point(221, 165);
+            this.TemperatureValueLabel.Location = new System.Drawing.Point(166, 165);
             this.TemperatureValueLabel.Name = "TemperatureValueLabel";
             this.TemperatureValueLabel.Size = new System.Drawing.Size(37, 19);
             this.TemperatureValueLabel.TabIndex = 38;
@@ -1048,7 +1048,7 @@
             // 
             this.HeightValueLabel.AutoSize = true;
             this.HeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightValueLabel.Location = new System.Drawing.Point(428, 112);
+            this.HeightValueLabel.Location = new System.Drawing.Point(372, 112);
             this.HeightValueLabel.Name = "HeightValueLabel";
             this.HeightValueLabel.Size = new System.Drawing.Size(43, 19);
             this.HeightValueLabel.TabIndex = 39;
@@ -1058,7 +1058,7 @@
             // 
             this.WeightValueLabel.AutoSize = true;
             this.WeightValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightValueLabel.Location = new System.Drawing.Point(428, 140);
+            this.WeightValueLabel.Location = new System.Drawing.Point(372, 140);
             this.WeightValueLabel.Name = "WeightValueLabel";
             this.WeightValueLabel.Size = new System.Drawing.Size(38, 19);
             this.WeightValueLabel.TabIndex = 40;
@@ -1068,7 +1068,7 @@
             // 
             this.BMILabel.AutoSize = true;
             this.BMILabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMILabel.Location = new System.Drawing.Point(319, 165);
+            this.BMILabel.Location = new System.Drawing.Point(263, 165);
             this.BMILabel.Name = "BMILabel";
             this.BMILabel.Size = new System.Drawing.Size(35, 19);
             this.BMILabel.TabIndex = 41;
@@ -1078,7 +1078,7 @@
             // 
             this.BMIValueLabel.AutoSize = true;
             this.BMIValueLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BMIValueLabel.Location = new System.Drawing.Point(428, 165);
+            this.BMIValueLabel.Location = new System.Drawing.Point(372, 165);
             this.BMIValueLabel.Name = "BMIValueLabel";
             this.BMIValueLabel.Size = new System.Drawing.Size(63, 19);
             this.BMIValueLabel.TabIndex = 42;
@@ -1344,7 +1344,7 @@
             this.Panel6.Controls.Add(this.Panel10);
             this.Panel6.Location = new System.Drawing.Point(798, 112);
             this.Panel6.Name = "Panel6";
-            this.Panel6.Size = new System.Drawing.Size(540, 270);
+            this.Panel6.Size = new System.Drawing.Size(472, 270);
             this.Panel6.TabIndex = 4;
             // 
             // AllergiesTable
@@ -1404,7 +1404,7 @@
             this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.AllergiesTable.RowHeadersVisible = false;
             this.AllergiesTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AllergiesTable.Size = new System.Drawing.Size(540, 228);
+            this.AllergiesTable.Size = new System.Drawing.Size(472, 228);
             this.AllergiesTable.TabIndex = 46;
             // 
             // AllergieName
@@ -1531,7 +1531,7 @@
             this.Panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel10.Location = new System.Drawing.Point(0, 0);
             this.Panel10.Name = "Panel10";
-            this.Panel10.Size = new System.Drawing.Size(540, 42);
+            this.Panel10.Size = new System.Drawing.Size(472, 42);
             this.Panel10.TabIndex = 36;
             // 
             // deleteAllergyButton
@@ -1544,7 +1544,7 @@
             this.deleteAllergyButton.FlatAppearance.BorderSize = 0;
             this.deleteAllergyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllergyButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAllergyButton.Location = new System.Drawing.Point(483, 2);
+            this.deleteAllergyButton.Location = new System.Drawing.Point(415, 2);
             this.deleteAllergyButton.Name = "deleteAllergyButton";
             this.deleteAllergyButton.Size = new System.Drawing.Size(24, 33);
             this.deleteAllergyButton.TabIndex = 48;
@@ -1561,7 +1561,7 @@
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(509, 2);
+            this.AddAllergieButton.Location = new System.Drawing.Point(441, 2);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(28, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -1587,7 +1587,7 @@
             this.Panel11.Controls.Add(this.Panel12);
             this.Panel11.Location = new System.Drawing.Point(798, 389);
             this.Panel11.Name = "Panel11";
-            this.Panel11.Size = new System.Drawing.Size(540, 257);
+            this.Panel11.Size = new System.Drawing.Size(472, 257);
             this.Panel11.TabIndex = 35;
             // 
             // LabsTable
@@ -1646,7 +1646,7 @@
             this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.LabsTable.RowHeadersVisible = false;
             this.LabsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LabsTable.Size = new System.Drawing.Size(540, 215);
+            this.LabsTable.Size = new System.Drawing.Size(472, 215);
             this.LabsTable.TabIndex = 47;
             // 
             // PatientLabID
@@ -1773,7 +1773,7 @@
             this.Panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel12.Location = new System.Drawing.Point(0, 0);
             this.Panel12.Name = "Panel12";
-            this.Panel12.Size = new System.Drawing.Size(540, 42);
+            this.Panel12.Size = new System.Drawing.Size(472, 42);
             this.Panel12.TabIndex = 34;
             // 
             // OpenLabButton
@@ -1787,7 +1787,7 @@
             this.OpenLabButton.FlatAppearance.BorderSize = 0;
             this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabButton.Location = new System.Drawing.Point(619, 10);
+            this.OpenLabButton.Location = new System.Drawing.Point(551, 10);
             this.OpenLabButton.Name = "OpenLabButton";
             this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
             this.OpenLabButton.TabIndex = 50;
@@ -1803,7 +1803,7 @@
             this.deleteLabButton.FlatAppearance.BorderSize = 0;
             this.deleteLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteLabButton.Location = new System.Drawing.Point(483, 1);
+            this.deleteLabButton.Location = new System.Drawing.Point(415, 1);
             this.deleteLabButton.Name = "deleteLabButton";
             this.deleteLabButton.Size = new System.Drawing.Size(22, 39);
             this.deleteLabButton.TabIndex = 49;
@@ -1820,7 +1820,7 @@
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(509, 1);
+            this.AddLabButton.Location = new System.Drawing.Point(441, 1);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(28, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1846,7 +1846,7 @@
             this.Panel13.Controls.Add(this.VitalHistoryLabel);
             this.Panel13.Location = new System.Drawing.Point(513, 652);
             this.Panel13.Name = "Panel13";
-            this.Panel13.Size = new System.Drawing.Size(825, 260);
+            this.Panel13.Size = new System.Drawing.Size(757, 260);
             this.Panel13.TabIndex = 43;
             // 
             // VitalHistoryTable
@@ -1908,7 +1908,7 @@
             this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.VitalHistoryTable.RowHeadersVisible = false;
             this.VitalHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VitalHistoryTable.Size = new System.Drawing.Size(825, 218);
+            this.VitalHistoryTable.Size = new System.Drawing.Size(757, 218);
             this.VitalHistoryTable.TabIndex = 45;
             // 
             // VitalSignID
@@ -2055,7 +2055,7 @@
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(825, 42);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(757, 42);
             this.VitalHistoryLabel.TabIndex = 35;
             this.VitalHistoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.VitalHistoryLabel_Paint);
             // 
@@ -2069,7 +2069,7 @@
             this.deleteVitalButton.FlatAppearance.BorderSize = 0;
             this.deleteVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteVitalButton.Location = new System.Drawing.Point(768, 2);
+            this.deleteVitalButton.Location = new System.Drawing.Point(700, 2);
             this.deleteVitalButton.Name = "deleteVitalButton";
             this.deleteVitalButton.Size = new System.Drawing.Size(25, 33);
             this.deleteVitalButton.TabIndex = 50;
@@ -2086,7 +2086,7 @@
             this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
             this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewVitalButton.Location = new System.Drawing.Point(792, 4);
+            this.AddNewVitalButton.Location = new System.Drawing.Point(724, 4);
             this.AddNewVitalButton.Name = "AddNewVitalButton";
             this.AddNewVitalButton.Size = new System.Drawing.Size(30, 35);
             this.AddNewVitalButton.TabIndex = 44;

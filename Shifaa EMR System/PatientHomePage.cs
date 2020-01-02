@@ -114,11 +114,13 @@ namespace Shifaa_EMR_System
             foreach (getLatestPatientVitalsResult vital in result)
             {
                 this.BloodPressureValueLabel.Text = vital.BloodPressure + " mm Hg";
-                this.PulseValueLabel.Text = vital.Pulse.ToString() + " bpm";
-                this.TemperatureValueLabel.Text = vital.Temperature.ToString() + " °C";
-                this.WeightValueLabel.Text = vital.Weight.ToString() + " Kg";
-                this.HeightValueLabel.Text = vital.Height.ToString() + " cm";
-                this.BMIValueLabel.Text = Math.Round((Double)vital.BMI, 2).ToString() + " Kg/m²";
+                this.PulseValueLabel.Text = vital.Pulse + " bpm";
+                this.TemperatureValueLabel.Text = vital.Temperature + " °C";
+                this.WeightValueLabel.Text = vital.Weight + " Kg";
+                this.HeightValueLabel.Text = vital.Height + " cm";
+                Double BMI = Double.Parse(vital.BMI);
+
+                this.BMIValueLabel.Text = Math.Round(BMI, 2).ToString() + " Kg/m²";
              
 
             }

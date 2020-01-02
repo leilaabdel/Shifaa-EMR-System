@@ -120,6 +120,7 @@ namespace Shifaa_EMR_System
                 var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
                 int selectedPatientID = (Int32)selectedPatientIDCell.Value;
 
+                Console.WriteLine(selectedPatientID);
 
                 Console.WriteLine(selectedPatientID.ToString());
 
@@ -130,12 +131,7 @@ namespace Shifaa_EMR_System
 
                 doAction.CreateAppointment(firstName, lastName,  AppointmentDetails.Text, ScheduledDatePicker.Value, ScheduledTimePicker.Value.ToString("HH:mm"), DurationTimePicker.Value.ToString("HH:mm")
                     , selectedPatientID , DateTime.Today);
-        
-                if (thisAppointmentList != null)
-                {
-                    thisAppointmentList.FillByDate();
-                }
-                
+
 
                 this.Close();
 

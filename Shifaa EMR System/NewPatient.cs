@@ -151,31 +151,67 @@ namespace Shifaa_EMR_System
             if(MaleCheckBox.Checked && FemaleCheckBox.Checked)
             {
                 MessageBox.Show("Please choose either male or female. Not both");
+                return;
               
             } else if (SingleBox.Checked && MarriedBox.Checked)
             {
                 MessageBox.Show("Please choose either single or married. Not both");
+                return;
             
             } else if (!MaleCheckBox.Checked && !FemaleCheckBox.Checked)
             {
                 MessageBox.Show("Please choose a gender");
+                return;
             } else if (!SingleBox.Checked && !MarriedBox.Checked)
             {
                 MessageBox.Show("Please choose a marital status");
             } else if (PregnantBox.Checked && NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
             {
                 MessageBox.Show("Please choose either pregnant or not pregnant. Not both");
+                return;
 
             } else if (!PregnantBox.Checked && !NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
             {
                 MessageBox.Show("Please choose a pregnancy status");
+                return;
             }
-            else
+
+        
+
+            else if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
             {
+                var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
+
                 try
                 {
 
-                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus , pregnancyStatus, GetWeight(), GetHeight(), GetBMI(), NationalityBox.Text , DateTime.Today);
+                    //TODO: FORMAT THE NUMBER USING ASYOUTYPE FORMATER
+                    var phoneNumber = phoneNumberUtil.Parse(PhoneNumberBox.Text, null);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter a valid phone number with the country code \n An example is +13056136819");
+                    PhoneNumberBox.Text = null;
+                    return;
+                }
+
+            }
+         
+                try
+                {
+
+                    string Height = "-";
+                    string Weight = "-";
+                    string BMI = "-";
+
+                    if (!String.IsNullOrWhiteSpace(HeightBox.Text)) Height = GetHeight().ToString();
+                    if (!String.IsNullOrWhiteSpace(WeightBox.Text)) Weight = GetWeight().ToString();
+                    if (!String.IsNullOrWhiteSpace(WeightBox.Text) && !String.IsNullOrWhiteSpace(HeightBox.Text)) BMI = Math.Round(GetBMI() , 2).ToString();
+
+
+                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus ,
+                        pregnancyStatus, Weight, Height, BMI , NationalityBox.Text , DateTime.Today);
 
                     System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
 
@@ -186,7 +222,9 @@ namespace Shifaa_EMR_System
                         selectedPatientID = result.PatientID;
                     }
 
-                    DoAction.createNewVitalSign(selectedPatientID, null, null, null, GetHeight().ToString(), GetWeight().ToString(), GetBMI().ToString() , DateTime.Today);
+                     Double BMiDouble = Math.Round(GetBMI(), 2);
+
+                    DoAction.createNewVitalSign(selectedPatientID, "-", "-", "-" , Height , Weight , BMI , DateTime.Today);
 
                     this.Close();
 
@@ -205,7 +243,7 @@ namespace Shifaa_EMR_System
 
 
                 }
-            }
+            
           
         }
 
@@ -289,25 +327,10 @@ namespace Shifaa_EMR_System
 
         private void PhoneNumberBox_TextChanged(object sender, EventArgs e)
         {
-            var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
 
 
-            if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
-            {
-                try
-                {
 
-                    //TODO: FORMAT THE NUMBER USING ASYOUTYPE FORMATER
-                    phoneNumberUtil.Parse(PhoneNumberBox.Text, null);
-                    
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Please enter a valid phone number");
-                    PhoneNumberBox.Text = null;
-                }
-
-            }
+          
 
         }
 

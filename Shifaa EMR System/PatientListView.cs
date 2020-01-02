@@ -25,7 +25,7 @@ namespace Shifaa_EMR_System
                     DataPropertyName = "PatientID"
                 };
                 patientID.DefaultCellStyle.Font = new Font("Bahnschrift Light", 10);
-                patientID.Name = "ProviderpatientID";
+                patientID.Name = "PatientID";
                 patientID.HeaderText = "Patient ID";
 
 
