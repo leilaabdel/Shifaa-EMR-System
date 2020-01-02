@@ -1,7 +1,12 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
-
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Data.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace Shifaa_EMR_System
@@ -11,12 +16,20 @@ namespace Shifaa_EMR_System
 
         string thisProviderName;
         string thisProviderID;
-        List<DateTime> dateList;
+        List<DateTime> dateList = new List<DateTime>();
+
+
         public ProviderMain(string providerName , string providerID)
         {
-
+            this.IsMdiContainer = true;
+            this.globalAppointmentList = new AppointmentListView(this);
+            globalAppointmentList.MdiParent = this;
+            this.globalNewAppointment = new NewAppointment(this, globalAppointmentList);
+            globalNewAppointment.MdiParent = this;
+           
             this.thisProviderName = providerName;
             this.thisProviderID = providerID;
+            
             InitializeComponent();
         }
 
@@ -95,13 +108,16 @@ namespace Shifaa_EMR_System
         }
 
 
-        private NewAppointment globalNewAppointment = new NewAppointment();
+        private NewAppointment globalNewAppointment;
  
 
         public void setNewAppointment(NewAppointment newAppointment)
         {
+
+            this.AutoScroll = false;
             this.globalNewAppointment = newAppointment;
             this.globalNewAppointment.MdiParent = this;
+          
             
             this.globalNewAppointment.Show();
         }
@@ -109,20 +125,28 @@ namespace Shifaa_EMR_System
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            this.AutoScroll = false;
+          
+
             if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
             {
-                NewAppointment newAppointment = new NewAppointment();
-
+                NewAppointment newAppointment = new NewAppointment(this , globalAppointmentList);
+                newAppointment.MdiParent = this;
+                globalAppointmentList.Close();
                 setNewAppointment(newAppointment);
-
+                
             }
         }
 
 
 
+        private void Center(Form form)
+        {
+            form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
+        }
 
-
-        AppointmentListView globalAppointmentList = new AppointmentListView();
+        AppointmentListView globalAppointmentList;
 
         private void setAppointmentListView(AppointmentListView appointmentListView)
         {
@@ -135,10 +159,12 @@ namespace Shifaa_EMR_System
 
         public void Button2_Click(object sender, EventArgs e)
         {
+
             if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
             {
                 DataGridViewTextBoxColumn TextBoxCell = new DataGridViewTextBoxColumn();
-                AppointmentListView appointmentListView = new AppointmentListView();
+                AppointmentListView appointmentListView = new AppointmentListView(this);
+                appointmentListView.MdiParent = this;
                 setAppointmentListView(appointmentListView);
                 for (int i = 0; i < globalAppointmentList.getAppointmentListView().Rows.Count - 1; i++)
                 {
@@ -253,6 +279,8 @@ namespace Shifaa_EMR_System
 
 
             dateList.Clear();
+
+
             for (var dt = monthCalendar1.SelectionStart; dt <= monthCalendar1.SelectionEnd; dt = dt.AddDays(1))
             {
                 dateList.Add(dt);

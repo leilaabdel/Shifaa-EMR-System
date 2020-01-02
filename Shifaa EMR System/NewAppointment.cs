@@ -18,11 +18,27 @@ namespace Shifaa_EMR_System
         private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
 
+        ProviderMain thisProviderMain;
+        SchedulerMain thisSchedulerMain;
+        AppointmentListView thisAppointmentList;
 
-        public NewAppointment()
+        public NewAppointment(ProviderMain providerMain , AppointmentListView appointmentListView)
         {
 
             InitializeComponent();
+            
+            this.thisProviderMain = providerMain;
+            this.thisAppointmentList = appointmentListView;
+            
+        }
+
+        public NewAppointment(SchedulerMain schedulerMain , AppointmentListView appointmentListView)
+        {
+
+            InitializeComponent();
+     
+            this.thisSchedulerMain = schedulerMain;
+            this.thisAppointmentList = appointmentListView;
 
         }
 
@@ -34,8 +50,9 @@ namespace Shifaa_EMR_System
         {
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Patient' table. You can move, or remove it, as needed.
             this.patientTableAdapter.Fill(this.eMRDatabaseDataSet.Patient);
-    
+           
 
+            this.WindowState = FormWindowState.Normal;
             this.PatientListView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.PatientListView.MultiSelect = false;
 
@@ -114,15 +131,19 @@ namespace Shifaa_EMR_System
 
                 Console.WriteLine(selectedPatientID.ToString());
 
-                
 
 
+                string firstName = (String)this.PatientListView["FirstName1", rowIndex].Value;
+                string lastName = (String)this.PatientListView["LastName1", rowIndex].Value;
 
-                doAction.CreateAppointment(FirstName.Text, LastName.Text, AppointmentDetails.Text, ScheduledDatePicker.Value, ScheduledTimePicker.Value.ToString(), DurationTimePicker.Value.ToString()
-                    , selectedPatientID);
+                doAction.CreateAppointment(firstName, lastName,  AppointmentDetails.Text, ScheduledDatePicker.Value, ScheduledTimePicker.Value.ToString("HH:mm"), DurationTimePicker.Value.ToString("HH:mm")
+                    , selectedPatientID , DateTime.Today);
         
-
-
+                if (thisAppointmentList != null)
+                {
+                    thisAppointmentList.fillByDate();
+                }
+                
 
                 this.Close();
 
@@ -368,7 +389,9 @@ namespace Shifaa_EMR_System
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
 
-            // TO DO: Inseart Code Here 
+            // TO DO: Insert Code Here 
+
+      
         }
 
 
@@ -418,6 +441,11 @@ namespace Shifaa_EMR_System
         private void ScheduledDatePicker_ValueChanged(object sender, EventArgs e)
         {
   
+        }
+
+        private void Exit_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

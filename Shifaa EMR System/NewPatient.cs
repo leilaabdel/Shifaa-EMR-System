@@ -192,7 +192,7 @@ namespace Shifaa_EMR_System
                 try
                 {
 
-                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, getAge(), getGender(), maritalStatus , pregnancyStatus, getWeight(), getHeight(), getBMI(), NationalityBox.Text);
+                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, getAge(), getGender(), maritalStatus , pregnancyStatus, getWeight(), getHeight(), getBMI(), NationalityBox.Text , DateTime.Today);
 
                     System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
 
@@ -203,7 +203,7 @@ namespace Shifaa_EMR_System
                         selectedPatientID = result.PatientID;
                     }
 
-                    DoAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI());
+                    DoAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI() , DateTime.Today);
 
                     this.Close();
 

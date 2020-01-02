@@ -38,7 +38,7 @@ namespace Shifaa_EMR_System
         {
             try
             {
-                doAction.createNewProblem(thisPatientID, ProblemBox.Text, DescriptionBox.Text, thisProviderID, thisProviderName);
+                doAction.createNewProblem(thisPatientID, ProblemBox.Text, DescriptionBox.Text, thisProviderID, thisProviderName , DateTime.Today);
 
                 ((PatientHomePage)this.Owner).problemTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Problem, thisPatientID);
                 this.Close();

@@ -85,6 +85,27 @@
             this.NoteHistoryLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAppointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeAppointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DurationAppointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detailsDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateAppointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeAppointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.durationAppointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
             this.deleteAppointmentButton = new System.Windows.Forms.Button();
             this.AddNewAppointmentButton = new System.Windows.Forms.Button();
@@ -118,6 +139,7 @@
             this.DateStopped = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
+            this.EditMedicationButton = new System.Windows.Forms.Button();
             this.deletePrescriptionButton = new System.Windows.Forms.Button();
             this.AddMedicationButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -160,6 +182,7 @@
             this.scheduledDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel12 = new System.Windows.Forms.Panel();
+            this.OpenLabButton = new System.Windows.Forms.Button();
             this.deleteLabButton = new System.Windows.Forms.Button();
             this.AddLabButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -208,6 +231,7 @@
             this.scheduledDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel15 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.deleteScanButton = new System.Windows.Forms.Button();
             this.AddNewScanButton = new System.Windows.Forms.Button();
             this.ScansLabel = new System.Windows.Forms.Label();
@@ -237,6 +261,7 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.problemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel17 = new System.Windows.Forms.Panel();
+            this.UpdateProblemButton = new System.Windows.Forms.Button();
             this.removeProblemButton = new System.Windows.Forms.Button();
             this.addProblemButton = new System.Windows.Forms.Button();
             this.ProblemListLabel = new System.Windows.Forms.Label();
@@ -248,22 +273,7 @@
             this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
             this.vitalSignsTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.UpdateProblemButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.OpenLabButton = new System.Windows.Forms.Button();
-            this.EditMedicationButton = new System.Windows.Forms.Button();
-            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAppointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeAppointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DurationAppointment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Created = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
@@ -272,6 +282,7 @@
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicationsListDataGridView)).BeginInit();
@@ -297,7 +308,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProblemListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.problemBindingSource)).BeginInit();
             this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -338,7 +348,7 @@
             this.FinishVisitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.FinishVisitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FinishVisitButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.FinishVisitButton.Location = new System.Drawing.Point(1137, 24);
+            this.FinishVisitButton.Location = new System.Drawing.Point(1192, 24);
             this.FinishVisitButton.Name = "FinishVisitButton";
             this.FinishVisitButton.Size = new System.Drawing.Size(142, 35);
             this.FinishVisitButton.TabIndex = 51;
@@ -354,7 +364,7 @@
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton.Location = new System.Drawing.Point(1285, 24);
+            this.CancelButton.Location = new System.Drawing.Point(1340, 24);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 35);
             this.CancelButton.TabIndex = 50;
@@ -366,7 +376,7 @@
             // 
             this.DOBLabel.AutoSize = true;
             this.DOBLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DOBLabel.Location = new System.Drawing.Point(834, 30);
+            this.DOBLabel.Location = new System.Drawing.Point(737, 30);
             this.DOBLabel.Name = "DOBLabel";
             this.DOBLabel.Size = new System.Drawing.Size(155, 23);
             this.DOBLabel.TabIndex = 32;
@@ -376,7 +386,7 @@
             // 
             this.PatientAgeLabel.AutoSize = true;
             this.PatientAgeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PatientAgeLabel.Location = new System.Drawing.Point(648, 30);
+            this.PatientAgeLabel.Location = new System.Drawing.Point(609, 30);
             this.PatientAgeLabel.Name = "PatientAgeLabel";
             this.PatientAgeLabel.Size = new System.Drawing.Size(102, 23);
             this.PatientAgeLabel.TabIndex = 31;
@@ -670,7 +680,7 @@
             this.panel3.Controls.Add(this.panel8);
             this.panel3.Location = new System.Drawing.Point(513, 918);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(798, 301);
+            this.panel3.Size = new System.Drawing.Size(876, 1796);
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -701,14 +711,24 @@
             this.DurationAppointment,
             this.Created,
             this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn23});
+            this.dataGridViewTextBoxColumn23,
+            this.appointmentIDDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.detailsDataGridViewTextBoxColumn1,
+            this.dateAppointmentDataGridViewTextBoxColumn,
+            this.timeAppointmentDataGridViewTextBoxColumn,
+            this.durationAppointmentDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn1,
+            this.createdDataGridViewTextBoxColumn,
+            this.patientIDDataGridViewTextBoxColumn6});
             this.AppointmentListView1.DataSource = this.appointmentBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift Light", 8F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.AppointmentListView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.AppointmentListView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -726,8 +746,169 @@
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AppointmentListView1.RowHeadersVisible = false;
             this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentListView1.Size = new System.Drawing.Size(798, 259);
+            this.AppointmentListView1.Size = new System.Drawing.Size(876, 1754);
             this.AppointmentListView1.TabIndex = 44;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "appointmentID";
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Visible = false;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "LastName";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Details";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Details";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // DateAppointment
+            // 
+            this.DateAppointment.DataPropertyName = "DateAppointment";
+            this.DateAppointment.HeaderText = "DateAppointment";
+            this.DateAppointment.Name = "DateAppointment";
+            this.DateAppointment.ReadOnly = true;
+            // 
+            // TimeAppointment
+            // 
+            this.TimeAppointment.DataPropertyName = "TimeAppointment";
+            this.TimeAppointment.HeaderText = "TimeAppointment";
+            this.TimeAppointment.Name = "TimeAppointment";
+            this.TimeAppointment.ReadOnly = true;
+            // 
+            // DurationAppointment
+            // 
+            this.DurationAppointment.DataPropertyName = "DurationAppointment";
+            this.DurationAppointment.HeaderText = "DurationAppointment";
+            this.DurationAppointment.Name = "DurationAppointment";
+            this.DurationAppointment.ReadOnly = true;
+            this.DurationAppointment.Visible = false;
+            // 
+            // Created
+            // 
+            this.Created.DataPropertyName = "Created";
+            this.Created.HeaderText = "Created";
+            this.Created.Name = "Created";
+            this.Created.ReadOnly = true;
+            this.Created.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "patientID";
+            this.dataGridViewTextBoxColumn16.HeaderText = "patientID";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // appointmentIDDataGridViewTextBoxColumn
+            // 
+            this.appointmentIDDataGridViewTextBoxColumn.DataPropertyName = "appointmentID";
+            this.appointmentIDDataGridViewTextBoxColumn.HeaderText = "appointmentID";
+            this.appointmentIDDataGridViewTextBoxColumn.Name = "appointmentIDDataGridViewTextBoxColumn";
+            this.appointmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.appointmentIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastNameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // detailsDataGridViewTextBoxColumn1
+            // 
+            this.detailsDataGridViewTextBoxColumn1.DataPropertyName = "Details";
+            this.detailsDataGridViewTextBoxColumn1.HeaderText = "Details";
+            this.detailsDataGridViewTextBoxColumn1.Name = "detailsDataGridViewTextBoxColumn1";
+            this.detailsDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.detailsDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dateAppointmentDataGridViewTextBoxColumn
+            // 
+            this.dateAppointmentDataGridViewTextBoxColumn.DataPropertyName = "DateAppointment";
+            this.dateAppointmentDataGridViewTextBoxColumn.HeaderText = "DateAppointment";
+            this.dateAppointmentDataGridViewTextBoxColumn.Name = "dateAppointmentDataGridViewTextBoxColumn";
+            this.dateAppointmentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateAppointmentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // timeAppointmentDataGridViewTextBoxColumn
+            // 
+            this.timeAppointmentDataGridViewTextBoxColumn.DataPropertyName = "TimeAppointment";
+            this.timeAppointmentDataGridViewTextBoxColumn.HeaderText = "TimeAppointment";
+            this.timeAppointmentDataGridViewTextBoxColumn.Name = "timeAppointmentDataGridViewTextBoxColumn";
+            this.timeAppointmentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.timeAppointmentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // durationAppointmentDataGridViewTextBoxColumn
+            // 
+            this.durationAppointmentDataGridViewTextBoxColumn.DataPropertyName = "DurationAppointment";
+            this.durationAppointmentDataGridViewTextBoxColumn.HeaderText = "DurationAppointment";
+            this.durationAppointmentDataGridViewTextBoxColumn.Name = "durationAppointmentDataGridViewTextBoxColumn";
+            this.durationAppointmentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.durationAppointmentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn1
+            // 
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            this.statusDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // createdDataGridViewTextBoxColumn
+            // 
+            this.createdDataGridViewTextBoxColumn.DataPropertyName = "Created";
+            this.createdDataGridViewTextBoxColumn.HeaderText = "Created";
+            this.createdDataGridViewTextBoxColumn.Name = "createdDataGridViewTextBoxColumn";
+            this.createdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.createdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // patientIDDataGridViewTextBoxColumn6
+            // 
+            this.patientIDDataGridViewTextBoxColumn6.DataPropertyName = "patientID";
+            this.patientIDDataGridViewTextBoxColumn6.HeaderText = "patientID";
+            this.patientIDDataGridViewTextBoxColumn6.Name = "patientIDDataGridViewTextBoxColumn6";
+            this.patientIDDataGridViewTextBoxColumn6.ReadOnly = true;
+            this.patientIDDataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "Appointment";
+            this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
             // panel8
             // 
@@ -738,7 +919,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(798, 42);
+            this.panel8.Size = new System.Drawing.Size(876, 42);
             this.panel8.TabIndex = 34;
             // 
             // deleteAppointmentButton
@@ -751,7 +932,7 @@
             this.deleteAppointmentButton.FlatAppearance.BorderSize = 0;
             this.deleteAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAppointmentButton.Location = new System.Drawing.Point(735, 2);
+            this.deleteAppointmentButton.Location = new System.Drawing.Point(813, 2);
             this.deleteAppointmentButton.Name = "deleteAppointmentButton";
             this.deleteAppointmentButton.Size = new System.Drawing.Size(22, 33);
             this.deleteAppointmentButton.TabIndex = 46;
@@ -768,7 +949,7 @@
             this.AddNewAppointmentButton.FlatAppearance.BorderSize = 0;
             this.AddNewAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewAppointmentButton.Location = new System.Drawing.Point(758, 2);
+            this.AddNewAppointmentButton.Location = new System.Drawing.Point(836, 2);
             this.AddNewAppointmentButton.Name = "AddNewAppointmentButton";
             this.AddNewAppointmentButton.Size = new System.Drawing.Size(37, 35);
             this.AddNewAppointmentButton.TabIndex = 45;
@@ -1108,6 +1289,26 @@
             this.panel9.TabIndex = 35;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
+            // EditMedicationButton
+            // 
+            this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
+            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.EditMedicationButton.FlatAppearance.BorderSize = 0;
+            this.EditMedicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditMedicationButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMedicationButton.ForeColor = System.Drawing.Color.DimGray;
+            this.EditMedicationButton.Location = new System.Drawing.Point(186, 9);
+            this.EditMedicationButton.Name = "EditMedicationButton";
+            this.EditMedicationButton.Size = new System.Drawing.Size(25, 28);
+            this.EditMedicationButton.TabIndex = 50;
+            this.EditMedicationButton.UseVisualStyleBackColor = false;
+            this.EditMedicationButton.Click += new System.EventHandler(this.EditMedicationButton_Click);
+            // 
             // deletePrescriptionButton
             // 
             this.deletePrescriptionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1161,7 +1362,7 @@
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Location = new System.Drawing.Point(798, 112);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(513, 270);
+            this.panel6.Size = new System.Drawing.Size(591, 270);
             this.panel6.TabIndex = 4;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
@@ -1222,7 +1423,7 @@
             this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.AllergiesTable.RowHeadersVisible = false;
             this.AllergiesTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AllergiesTable.Size = new System.Drawing.Size(513, 228);
+            this.AllergiesTable.Size = new System.Drawing.Size(591, 228);
             this.AllergiesTable.TabIndex = 46;
             // 
             // AllergieName
@@ -1349,7 +1550,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(513, 42);
+            this.panel10.Size = new System.Drawing.Size(591, 42);
             this.panel10.TabIndex = 36;
             // 
             // deleteAllergyButton
@@ -1362,7 +1563,7 @@
             this.deleteAllergyButton.FlatAppearance.BorderSize = 0;
             this.deleteAllergyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllergyButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAllergyButton.Location = new System.Drawing.Point(456, 2);
+            this.deleteAllergyButton.Location = new System.Drawing.Point(534, 2);
             this.deleteAllergyButton.Name = "deleteAllergyButton";
             this.deleteAllergyButton.Size = new System.Drawing.Size(24, 33);
             this.deleteAllergyButton.TabIndex = 48;
@@ -1379,7 +1580,7 @@
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(482, 2);
+            this.AddAllergieButton.Location = new System.Drawing.Point(560, 2);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(28, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -1405,7 +1606,7 @@
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Location = new System.Drawing.Point(798, 389);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(513, 257);
+            this.panel11.Size = new System.Drawing.Size(591, 257);
             this.panel11.TabIndex = 35;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
@@ -1465,7 +1666,7 @@
             this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.LabsTable.RowHeadersVisible = false;
             this.LabsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LabsTable.Size = new System.Drawing.Size(513, 215);
+            this.LabsTable.Size = new System.Drawing.Size(591, 215);
             this.LabsTable.TabIndex = 47;
             this.LabsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
@@ -1593,8 +1794,25 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(513, 42);
+            this.panel12.Size = new System.Drawing.Size(591, 42);
             this.panel12.TabIndex = 34;
+            // 
+            // OpenLabButton
+            // 
+            this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
+            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.OpenLabButton.FlatAppearance.BorderSize = 0;
+            this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenLabButton.Location = new System.Drawing.Point(670, 10);
+            this.OpenLabButton.Name = "OpenLabButton";
+            this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
+            this.OpenLabButton.TabIndex = 50;
+            this.OpenLabButton.UseVisualStyleBackColor = false;
             // 
             // deleteLabButton
             // 
@@ -1606,7 +1824,7 @@
             this.deleteLabButton.FlatAppearance.BorderSize = 0;
             this.deleteLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteLabButton.Location = new System.Drawing.Point(456, 1);
+            this.deleteLabButton.Location = new System.Drawing.Point(534, 1);
             this.deleteLabButton.Name = "deleteLabButton";
             this.deleteLabButton.Size = new System.Drawing.Size(22, 39);
             this.deleteLabButton.TabIndex = 49;
@@ -1623,7 +1841,7 @@
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(482, 1);
+            this.AddLabButton.Location = new System.Drawing.Point(560, 1);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(28, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1649,7 +1867,7 @@
             this.panel13.Controls.Add(this.VitalHistoryLabel);
             this.panel13.Location = new System.Drawing.Point(513, 652);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(798, 260);
+            this.panel13.Size = new System.Drawing.Size(876, 260);
             this.panel13.TabIndex = 43;
             this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             // 
@@ -1712,7 +1930,7 @@
             this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.VitalHistoryTable.RowHeadersVisible = false;
             this.VitalHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VitalHistoryTable.Size = new System.Drawing.Size(798, 218);
+            this.VitalHistoryTable.Size = new System.Drawing.Size(876, 218);
             this.VitalHistoryTable.TabIndex = 45;
             this.VitalHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -1860,7 +2078,7 @@
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(798, 42);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(876, 42);
             this.VitalHistoryLabel.TabIndex = 35;
             this.VitalHistoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.VitalHistoryLabel_Paint);
             // 
@@ -1874,7 +2092,7 @@
             this.deleteVitalButton.FlatAppearance.BorderSize = 0;
             this.deleteVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteVitalButton.Location = new System.Drawing.Point(741, 2);
+            this.deleteVitalButton.Location = new System.Drawing.Point(819, 2);
             this.deleteVitalButton.Name = "deleteVitalButton";
             this.deleteVitalButton.Size = new System.Drawing.Size(25, 33);
             this.deleteVitalButton.TabIndex = 50;
@@ -1891,7 +2109,7 @@
             this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
             this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewVitalButton.Location = new System.Drawing.Point(765, 4);
+            this.AddNewVitalButton.Location = new System.Drawing.Point(843, 4);
             this.AddNewVitalButton.Name = "AddNewVitalButton";
             this.AddNewVitalButton.Size = new System.Drawing.Size(30, 35);
             this.AddNewVitalButton.TabIndex = 44;
@@ -2136,6 +2354,23 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(279, 42);
             this.panel15.TabIndex = 34;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Azure;
+            this.button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(176, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 29);
+            this.button1.TabIndex = 51;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // deleteScanButton
             // 
@@ -2419,6 +2654,26 @@
             this.panel17.Size = new System.Drawing.Size(492, 42);
             this.panel17.TabIndex = 36;
             // 
+            // UpdateProblemButton
+            // 
+            this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
+            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.UpdateProblemButton.FlatAppearance.BorderSize = 0;
+            this.UpdateProblemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateProblemButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateProblemButton.ForeColor = System.Drawing.Color.DimGray;
+            this.UpdateProblemButton.Location = new System.Drawing.Point(377, 8);
+            this.UpdateProblemButton.Name = "UpdateProblemButton";
+            this.UpdateProblemButton.Size = new System.Drawing.Size(25, 28);
+            this.UpdateProblemButton.TabIndex = 49;
+            this.UpdateProblemButton.UseVisualStyleBackColor = false;
+            this.UpdateProblemButton.Click += new System.EventHandler(this.UpdateProblemButton_Click);
+            // 
             // removeProblemButton
             // 
             this.removeProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -2497,164 +2752,9 @@
             this.metroContextMenu1.Name = "metroContextMenu1";
             this.metroContextMenu1.Size = new System.Drawing.Size(61, 4);
             // 
-            // UpdateProblemButton
-            // 
-            this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
-            this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.FlatAppearance.BorderSize = 0;
-            this.UpdateProblemButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateProblemButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateProblemButton.ForeColor = System.Drawing.Color.DimGray;
-            this.UpdateProblemButton.Location = new System.Drawing.Point(377, 8);
-            this.UpdateProblemButton.Name = "UpdateProblemButton";
-            this.UpdateProblemButton.Size = new System.Drawing.Size(25, 28);
-            this.UpdateProblemButton.TabIndex = 49;
-            this.UpdateProblemButton.UseVisualStyleBackColor = false;
-            this.UpdateProblemButton.Click += new System.EventHandler(this.UpdateProblemButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(176, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 29);
-            this.button1.TabIndex = 51;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // OpenLabButton
-            // 
-            this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
-            this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.FlatAppearance.BorderSize = 0;
-            this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabButton.Location = new System.Drawing.Point(592, 10);
-            this.OpenLabButton.Name = "OpenLabButton";
-            this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
-            this.OpenLabButton.TabIndex = 50;
-            this.OpenLabButton.UseVisualStyleBackColor = false;
-            // 
-            // EditMedicationButton
-            // 
-            this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
-            this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.FlatAppearance.BorderSize = 0;
-            this.EditMedicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditMedicationButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditMedicationButton.ForeColor = System.Drawing.Color.DimGray;
-            this.EditMedicationButton.Location = new System.Drawing.Point(186, 9);
-            this.EditMedicationButton.Name = "EditMedicationButton";
-            this.EditMedicationButton.Size = new System.Drawing.Size(25, 28);
-            this.EditMedicationButton.TabIndex = 50;
-            this.EditMedicationButton.UseVisualStyleBackColor = false;
-            this.EditMedicationButton.Click += new System.EventHandler(this.EditMedicationButton_Click);
-            // 
-            // appointmentBindingSource
-            // 
-            this.appointmentBindingSource.DataMember = "Appointment";
-            this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
             // appointmentTableAdapter
             // 
             this.appointmentTableAdapter.ClearBeforeFill = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "appointmentID";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Visible = false;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "LastName";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Details";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Details";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // DateAppointment
-            // 
-            this.DateAppointment.DataPropertyName = "DateAppointment";
-            this.DateAppointment.HeaderText = "DateAppointment";
-            this.DateAppointment.Name = "DateAppointment";
-            this.DateAppointment.ReadOnly = true;
-            // 
-            // TimeAppointment
-            // 
-            this.TimeAppointment.DataPropertyName = "TimeAppointment";
-            this.TimeAppointment.HeaderText = "TimeAppointment";
-            this.TimeAppointment.Name = "TimeAppointment";
-            this.TimeAppointment.ReadOnly = true;
-            // 
-            // DurationAppointment
-            // 
-            this.DurationAppointment.DataPropertyName = "DurationAppointment";
-            this.DurationAppointment.HeaderText = "DurationAppointment";
-            this.DurationAppointment.Name = "DurationAppointment";
-            this.DurationAppointment.ReadOnly = true;
-            this.DurationAppointment.Visible = false;
-            // 
-            // Created
-            // 
-            this.Created.DataPropertyName = "Created";
-            this.Created.HeaderText = "Created";
-            this.Created.Name = "Created";
-            this.Created.ReadOnly = true;
-            this.Created.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "patientID";
-            this.dataGridViewTextBoxColumn16.HeaderText = "patientID";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "Status";
-            this.dataGridViewTextBoxColumn23.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
             // 
             // PatientHomePage
             // 
@@ -2703,6 +2803,7 @@
             this.panel7.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -2735,7 +2836,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.problemBindingSource)).EndInit();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2960,5 +3060,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Created;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detailsDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateAppointmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeAppointmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn durationAppointmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn6;
     }
 }

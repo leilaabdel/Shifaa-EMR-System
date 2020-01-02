@@ -54,7 +54,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 71);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 927);
+            this.panel1.Size = new System.Drawing.Size(266, 692);
             this.panel1.TabIndex = 6;
             // 
             // panel3
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1343, 998);
+            this.ClientSize = new System.Drawing.Size(1343, 763);
             this.Controls.Add(this.ExistingAppointments);
             this.Controls.Add(this.NewAppointment);
             this.Controls.Add(this.monthCalendar2);

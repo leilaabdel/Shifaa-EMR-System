@@ -36,6 +36,8 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.NewNoteLabel = new System.Windows.Forms.Label();
             this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
+            this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.NewNoteTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -50,8 +52,6 @@
             this.NewNoteTitleBox = new System.Windows.Forms.TextBox();
             this.DateLabel = new System.Windows.Forms.Label();
             this.NoteTitleLabel = new System.Windows.Forms.Label();
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
             this.NoteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,13 +61,21 @@
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NewNotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.NewNoteTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // NewNotePanel
@@ -135,7 +143,15 @@
             this.NoteContent,
             this.ColumnNumber,
             this.Date,
-            this.Status});
+            this.Status,
+            this.noteIDDataGridViewTextBoxColumn,
+            this.patientIDDataGridViewTextBoxColumn,
+            this.providerNameDataGridViewTextBoxColumn,
+            this.noteTitleDataGridViewTextBoxColumn,
+            this.noteContentDataGridViewTextBoxColumn,
+            this.columnNumberDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
             this.NoteHistoryTable.DataSource = this.patientNoteBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -164,6 +180,16 @@
             this.NoteHistoryTable.TabIndex = 46;
             this.NoteHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteHistoryTable_CellContentClick);
             this.NoteHistoryTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteHistoryTable_DoubleClick);
+            // 
+            // patientNoteBindingSource
+            // 
+            this.patientNoteBindingSource.DataMember = "PatientNote";
+            this.patientNoteBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel1
             // 
@@ -252,6 +278,7 @@
             this.AssesmentBox.Size = new System.Drawing.Size(740, 150);
             this.AssesmentBox.TabIndex = 47;
             this.AssesmentBox.Text = "Assessment:";
+            this.AssesmentBox.Click += new System.EventHandler(this.AssesmentBox_Click);
             // 
             // ObjectiveNoteBox
             // 
@@ -351,16 +378,6 @@
             this.NoteTitleLabel.Text = "Note Title:";
             this.NoteTitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientNoteBindingSource
-            // 
-            this.patientNoteBindingSource.DataMember = "PatientNote";
-            this.patientNoteBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
             // patientNoteTableAdapter
             // 
             this.patientNoteTableAdapter.ClearBeforeFill = true;
@@ -425,6 +442,70 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
+            // noteIDDataGridViewTextBoxColumn
+            // 
+            this.noteIDDataGridViewTextBoxColumn.DataPropertyName = "NoteID";
+            this.noteIDDataGridViewTextBoxColumn.HeaderText = "NoteID";
+            this.noteIDDataGridViewTextBoxColumn.Name = "noteIDDataGridViewTextBoxColumn";
+            this.noteIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noteIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // patientIDDataGridViewTextBoxColumn
+            // 
+            this.patientIDDataGridViewTextBoxColumn.DataPropertyName = "PatientID";
+            this.patientIDDataGridViewTextBoxColumn.HeaderText = "PatientID";
+            this.patientIDDataGridViewTextBoxColumn.Name = "patientIDDataGridViewTextBoxColumn";
+            this.patientIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.patientIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // providerNameDataGridViewTextBoxColumn
+            // 
+            this.providerNameDataGridViewTextBoxColumn.DataPropertyName = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn.HeaderText = "ProviderName";
+            this.providerNameDataGridViewTextBoxColumn.Name = "providerNameDataGridViewTextBoxColumn";
+            this.providerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.providerNameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // noteTitleDataGridViewTextBoxColumn
+            // 
+            this.noteTitleDataGridViewTextBoxColumn.DataPropertyName = "NoteTitle";
+            this.noteTitleDataGridViewTextBoxColumn.HeaderText = "NoteTitle";
+            this.noteTitleDataGridViewTextBoxColumn.Name = "noteTitleDataGridViewTextBoxColumn";
+            this.noteTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noteTitleDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // noteContentDataGridViewTextBoxColumn
+            // 
+            this.noteContentDataGridViewTextBoxColumn.DataPropertyName = "NoteContent";
+            this.noteContentDataGridViewTextBoxColumn.HeaderText = "NoteContent";
+            this.noteContentDataGridViewTextBoxColumn.Name = "noteContentDataGridViewTextBoxColumn";
+            this.noteContentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noteContentDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // columnNumberDataGridViewTextBoxColumn
+            // 
+            this.columnNumberDataGridViewTextBoxColumn.DataPropertyName = "ColumnNumber";
+            this.columnNumberDataGridViewTextBoxColumn.HeaderText = "ColumnNumber";
+            this.columnNumberDataGridViewTextBoxColumn.Name = "columnNumberDataGridViewTextBoxColumn";
+            this.columnNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.columnNumberDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn.Visible = false;
+            // 
             // NewNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,12 +522,12 @@
             this.NewNotePanel.ResumeLayout(false);
             this.NewNotePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.NewNoteTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -484,5 +565,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteTitleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noteContentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }

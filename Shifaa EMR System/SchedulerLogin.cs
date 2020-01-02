@@ -2,14 +2,24 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Shifaa_EMR_System
 {
     public partial class SchedulerLogin : Form
     {
+
+        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         public SchedulerLogin()
         {
+
+            
             InitializeComponent();
+        }
+
+        private void Center(Form form)
+        {
+            form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,12 +40,7 @@ namespace Shifaa_EMR_System
 
         private void Login_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-            SqlDataAdapter sda = new SqlDataAdapter("Select Count (*) From Scheduling_Login where USERNAME='" + textBox1.Text + "' and PASSCODE ='" + textBox2.Text + "'", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-
-            if (dt.Rows[0][0].ToString() == "1")
+            if(doAction.authenticateScheduler(UserNameBox.Text , PasscodeBox.Text) == 0)
             {
                 this.Hide();
                 SchedulerMain sMain = new SchedulerMain();
@@ -62,7 +67,7 @@ namespace Shifaa_EMR_System
 
         private void SchedulerLogin_Load(object sender, EventArgs e)
         {
-
+            Center(this);
         }
     }
 }

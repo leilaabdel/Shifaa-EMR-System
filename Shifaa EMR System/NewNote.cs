@@ -18,19 +18,20 @@ namespace Shifaa_EMR_System
         int thisPatientID;
         string thisProviderName;
         string thisProviderID;
+        PatientHomePage thisPatientHome;
 
-        public NewNote(int patientID , string providerName , string providerID)
+        public NewNote(int patientID , string providerName , string providerID, PatientHomePage patientHomePage)
         {
             this.thisPatientID = patientID;
             this.thisProviderName = providerName;
             this.thisProviderID = providerID;
+            this.thisPatientHome = patientHomePage;
             InitializeComponent();
         }
 
         private void NewNote_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.PatientNote' table. You can move, or remove it, as needed.
-            this.patientNoteTableAdapter.Fill(this.eMRDatabaseDataSet.PatientNote);
+     
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.PatientNote' table. You can move, or remove it, as needed.
             this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(eMRDatabaseDataSet.PatientNote, thisPatientID);
             this.NoteHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -185,7 +186,7 @@ namespace Shifaa_EMR_System
             newNoteBox.Location = new System.Drawing.Point(6, 100);
             newNoteBox.Multiline = true;
             newNoteBox.Name = "newNoteBox";
-            newNoteBox.Text = providerName + " wrote: " + noteContent;
+            newNoteBox.Text = providerName + " wrote: " + "\n" + noteContent + "\n";
             newNoteBox.Size = new System.Drawing.Size(738, 623);
             newNoteBox.TabIndex = 50;
             newNoteBox.ScrollBars = RichTextBoxScrollBars.Vertical;
@@ -353,7 +354,9 @@ namespace Shifaa_EMR_System
             {
                 doAction.updateExistingNote(thisPatientID, thisNoteTitleValueLabel.Text,
                     Convert.ToDateTime(thisNoteValueDate.Text), thisOldNoteBox.Text);
-                this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                
              
 
 
@@ -397,7 +400,11 @@ namespace Shifaa_EMR_System
 
         private void SignButton_Click(object sender, EventArgs e)
         {
-            String noteTitle = NewNoteTitleBox.Text;
+
+            String noteTitle = "";
+            if (String.IsNullOrWhiteSpace(NewNoteTitleBox.Text))  NewNoteTitleBox.Text = "Untitled";
+
+            noteTitle = NewNoteTitleBox.Text;
 
 
             String noteContent = "Subjective: " + SubjectiveNoteBox.Text + 
@@ -410,8 +417,9 @@ namespace Shifaa_EMR_System
             {
 
                 string status = "Signed";
-                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status);
-                this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status , DateTime.Today);
+                this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
 
             }
             catch
@@ -466,21 +474,25 @@ namespace Shifaa_EMR_System
 
         private void SaveDraftButton_Click(object sender, EventArgs e)
         {
-            String noteTitle = NewNoteTitleBox.Text;
+
+            String noteTitle = "";
+            if (String.IsNullOrWhiteSpace(NewNoteTitleBox.Text)) NewNoteTitleBox.Text = "Untitled";
+            noteTitle = NewNoteTitleBox.Text;
+            
 
 
             String noteContent = "Subjective: " + SubjectiveNoteBox.Text +
                 "\n" + "Objective: " + ObjectiveNoteBox.Text +
                 "\n" + "Assessment: " + AssesmentBox.Text +
-                "\n" + "Plan: " + PlanBox.Text;
+                "\n" + "Plan: " + PlanBox.Text + "\n";
 
 
             try
             {
 
                 string status = "Draft";
-                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status);
-                this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status , DateTime.Today);
+                this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
 
 
             }

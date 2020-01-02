@@ -36,7 +36,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(220, 156);
+            this.button1.Location = new System.Drawing.Point(224, 156);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 114);
             this.button1.TabIndex = 0;

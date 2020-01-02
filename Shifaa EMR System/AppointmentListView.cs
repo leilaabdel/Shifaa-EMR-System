@@ -21,7 +21,12 @@ namespace Shifaa_EMR_System
 
         private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         int selectedAppointmentID = 0;
+
+
         ProviderMain thisProviderMain;
+        SchedulerMain thisSchedulerMain;
+
+
         public int getSelectedAppointmentID()
         {
             return selectedAppointmentID;
@@ -33,35 +38,84 @@ namespace Shifaa_EMR_System
         {
 
             InitializeComponent();
-            thisProviderMain = providerMain;
-     ;
+            this.thisProviderMain = providerMain;
 
-               
+            this.MdiParent = providerMain;
+            this.WindowState = FormWindowState.Maximized;
+
+            this.AppointmentListView1.Columns.Remove("Status");
+            DataGridViewTextBoxColumn status = new DataGridViewTextBoxColumn();
+            status.DataPropertyName = "Status";
+            status.Name = "ProviderStatus";
+            status.HeaderText = "Status";
+
+
+           this.AppointmentListView1.Columns.Insert(7, status);
+
+
+
 
         }
 
-        public AppointmentListView()
+        public AppointmentListView(SchedulerMain schedulerMain)
         {
+            thisSchedulerMain = schedulerMain;
+            this.WindowState = FormWindowState.Maximized;
             InitializeComponent();
+
+            this.AppointmentListView1.Columns.Remove("PatientID");
+            DataGridViewTextBoxColumn patientID = new DataGridViewTextBoxColumn();
+            patientID.DataPropertyName = "PatientID";
+            patientID.Name = "SchedulerPatientID";
+            patientID.HeaderText = "Patient ID";
+
+
+            this.AppointmentListView1.Columns.Insert(0, patientID);
+
+
         }
 
-        Type a = typeof(ProviderMain);
+
+
 
         private void AppointmentListView_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed.
             this.appointmentTableAdapter.Fill(this.eMRDatabaseDataSet.Appointment);
 
             this.AppointmentListView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.AppointmentListView1.MultiSelect = true;
 
+            
+
+
+            
 
             fillByDate();
 
-           
-
-
         }
+
+
+
+
+        // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Appointment' table. You can move, or remove it, as needed.
+
+
+
+
+
+
+
+
+
+
+        Type a = typeof(ProviderMain);
+
+
+
+
+
+
+    
 
         public DataGridView getAppointmentListView()
         {
@@ -90,11 +144,19 @@ namespace Shifaa_EMR_System
                     break;
 
             }
-            
+
+            Console.WriteLine(selection.Count);
+
+            if (selection.Count == 0) selection.Add(DateTime.Today);
+           
 
             this.appointmentTableAdapter.FillByDate(this.eMRDatabaseDataSet.Appointment, selection[0].ToString(), selection[selection.Count - 1].ToString());
-                
-                
+
+
+            selection.Clear();
+
+           
+
 
         }
         private void Center(Form form)
@@ -109,16 +171,18 @@ namespace Shifaa_EMR_System
             this.Close();
         }
 
-        private void AppointmentListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void AppointmentListView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             var appointmentListGrid = (DataGridView)sender;
             selectedAppointmentID = (Int32)appointmentListGrid["appointmentID", e.RowIndex].Value;
             string checkedIn = null;
 
 
 
-            if(e.RowIndex >= 0 && appointmentListGrid[e.ColumnIndex , e.RowIndex] is DataGridViewButtonCell &&
-                appointmentListGrid.CurrentCell.ColumnIndex == 6)
+            if (e.RowIndex >= 0 && appointmentListGrid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell &&
+                appointmentListGrid.CurrentCell.ColumnIndex == 7 && (String)appointmentListGrid.CurrentCell.Value == "Scheduled")
             {
 
                 try
@@ -128,13 +192,15 @@ namespace Shifaa_EMR_System
                     appointmentListGrid[e.ColumnIndex, e.RowIndex].Value = checkedIn;
                     doAction.updateAppointment(checkedIn, selectedAppointmentID);
                     appointmentListGrid[e.ColumnIndex, e.RowIndex] = TextBoxCell;
+                  
 
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Error");
+                    MessageBox.Show(ex.ToString());
+                    
                 }
-               
+
             }
 
             if (e.RowIndex >= 0 && appointmentListGrid[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell &&
@@ -144,8 +210,16 @@ namespace Shifaa_EMR_System
                 {
                     if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
                     {
+                 
+                   
 
+                        
                         int selectedPatientID = (Int32)AppointmentListView1["PatientID", e.RowIndex].Value;
+
+                     
+
+
+                       
                         string firstName = null;
                         string lastName = null;
                         string number = null;
@@ -154,7 +228,10 @@ namespace Shifaa_EMR_System
                         string age = null;
 
                         ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(selectedPatientID);
-                        foreach (getPatientByIDResult r in result){
+
+                      
+                        foreach (getPatientByIDResult r in result)
+                        {
                             firstName = r.FirstName;
                             lastName = r.LastName;
                             number = r.PhoneNumber;
@@ -162,26 +239,43 @@ namespace Shifaa_EMR_System
                             DOB = r.DOB;
                             age = r.Age;
 
+                            Console.WriteLine(1);
+
                         }
 
                         string patientFullName = firstName + " " + lastName;
 
-                        PatientHomePage newPatientHomePage = new PatientHomePage(patientFullName, number, gender, age, Convert.ToDateTime(DOB), selectedPatientID, (ProviderMain)this.MdiParent , this); 
+                   
+
+                        
+                        PatientHomePage newPatientHomePage = new PatientHomePage(patientFullName, number, gender, age, Convert.ToDateTime(DOB), selectedPatientID, thisProviderMain, this);
+
+                    
+                        newPatientHomePage.MdiParent = thisProviderMain;
+
+                       
                         Center(newPatientHomePage);
                         newPatientHomePage.Show();
-                    
+                     
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Error");
+                    while (ex.InnerException != null) ex = ex.InnerException;
+                    throw (ex);
                 }
             }
 
         }
+        private void AppointmentListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        
+        }
 
-
-
-      
+        private void Exit_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.Close();
+        }
     }
 }

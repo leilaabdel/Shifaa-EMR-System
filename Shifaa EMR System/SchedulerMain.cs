@@ -14,6 +14,8 @@ namespace Shifaa_EMR_System
         public SchedulerMain()
         {
             InitializeComponent();
+            globalAppointmentList = new AppointmentListView(this);
+            globalNewAppointment = new NewAppointment(this , globalAppointmentList);
         }
 
         public static string type() => "Scheduler";
@@ -23,7 +25,7 @@ namespace Shifaa_EMR_System
             form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
         }
 
-        private NewAppointment globalNewAppointment = new NewAppointment();
+        private NewAppointment globalNewAppointment;
 
 
         public void setNewAppointment(NewAppointment newAppointment)
@@ -40,7 +42,7 @@ namespace Shifaa_EMR_System
             if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
             {
                 DataGridViewTextBoxColumn TextBoxCell = new DataGridViewTextBoxColumn();
-                AppointmentListView appointmentListView = new AppointmentListView();
+                AppointmentListView appointmentListView = new AppointmentListView(this);
                 setAppointmentListView(appointmentListView);
                 for (int i = 0; i < globalAppointmentList.getAppointmentListView().Rows.Count - 1; i++)
                 {
@@ -55,7 +57,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        AppointmentListView globalAppointmentList = new AppointmentListView();
+        AppointmentListView globalAppointmentList;
 
         private void setAppointmentListView(AppointmentListView appointmentListView)
         {
@@ -72,7 +74,7 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
             {
-                NewAppointment newAppointment = new NewAppointment();
+                NewAppointment newAppointment = new NewAppointment(this , globalAppointmentList);
                 Center(newAppointment);
                 setNewAppointment(newAppointment);
 

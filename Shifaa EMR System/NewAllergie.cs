@@ -44,7 +44,7 @@ namespace Shifaa_EMR_System
         {
             try
             {
-                doAction.createNewAllergy(thispatientID, AllergyNameBox.Text, DetailsBox.Text, thisProviderID, thisProviderName);
+                doAction.createNewAllergy(thispatientID, AllergyNameBox.Text, DetailsBox.Text, thisProviderID, thisProviderName , DateTime.Today);
                  ((PatientHomePage)this.Owner).allergieTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Allergie, thispatientID);
                 this.Close();
             }

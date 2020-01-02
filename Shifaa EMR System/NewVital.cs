@@ -57,7 +57,7 @@ namespace Shifaa_EMR_System
                 }
 
                 doAction.createNewVitalSign(thisPatientID, BloodPressureBox.Text, pulse, temperature , height,
-                weight , BMI);
+                weight , BMI , DateTime.Today);
                 ((PatientHomePage)this.Owner).vitalSignsTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.VitalSigns, thisPatientID);
 
                 this.Close();

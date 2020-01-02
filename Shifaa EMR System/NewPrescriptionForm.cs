@@ -56,7 +56,7 @@ namespace Shifaa_EMR_System
             try
             {
                 doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text,
-                RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID);
+                RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID , DateTime.Today);
                 ((PatientHomePage)this.Owner).prescriptionTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Prescription, thisPatientID);
 
             } catch

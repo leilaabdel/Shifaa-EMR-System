@@ -111,6 +111,18 @@
       <DependentUpon>AppointmentListView.cs</DependentUpon>
     </Compile>
     <Compile Include="AutoComplete.cs" />
+    <Compile Include="CreateNewProviderAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewProviderAccount.Designer.cs">
+      <DependentUpon>CreateNewProviderAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewSchedulerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateNewSchedulerAccount.Designer.cs">
+      <DependentUpon>CreateNewSchedulerAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="RichTextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -264,6 +276,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AppointmentListView.resx">
       <DependentUpon>AppointmentListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNewProviderAccount.resx">
+      <DependentUpon>CreateNewProviderAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateNewSchedulerAccount.resx">
+      <DependentUpon>CreateNewSchedulerAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CredentialVerification.resx">
       <DependentUpon>CredentialVerification.cs</DependentUpon>

@@ -50,7 +50,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain, AppointmentListView appointmentList)
+        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  AppointmentListView appointmentList)
         {
             InitializeComponent();
             this.PatientNameLabel.Text = name;
@@ -212,11 +212,13 @@ namespace Shifaa_EMR_System
 
         private void newAppointmentButton_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
+            if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null)
             {
 
-                NewAppointment newAppointment = new NewAppointment();
-                thisProviderMain.setNewAppointment(newAppointment);
+                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID , thisProviderMain.getProviderID() , 
+                    thisProviderMain.getProviderName());
+                Center(newAppointment);
+                newAppointment.Show();
 
             }
         }
@@ -373,7 +375,8 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewNote"] as NewNote == null)
             {
-                NewNote newNoteForm = new NewNote(thisPatientID, thisProviderMain.getProviderName(), thisProviderMain.getProviderID());
+                NewNote newNoteForm = new NewNote(thisPatientID, thisProviderMain.getProviderName(),
+                    thisProviderMain.getProviderID() , this);
                 Center(newNoteForm);
                 newNoteForm.Show();
 
@@ -473,6 +476,7 @@ namespace Shifaa_EMR_System
         {
             thisProviderMain.menuStrip2.Items.Remove(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Remove(thisPrintPrescriptions);
+            thisProviderMain.AutoScroll = false;
             this.Close();
         }
 
@@ -607,6 +611,18 @@ namespace Shifaa_EMR_System
                 int currentRow = NoteHistoryTable.CurrentRow.Index;
 
                 int selectedNoteID = (Int32)NoteHistoryTable["NoteID", currentRow].Value;
+
+                DateTime noteDate = (DateTime)NoteHistoryTable["Date", currentRow].Value;
+                string noteDateString = noteDate.ToShortDateString();
+
+
+                if(noteDateString != DateTime.Today.ToShortDateString())
+                {
+                    MessageBox.Show("You can only delete notes from today.");
+
+                    return; 
+                }
+
                 if (MessageBox.Show(string.Format("Are you sure you want to delete this note?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
