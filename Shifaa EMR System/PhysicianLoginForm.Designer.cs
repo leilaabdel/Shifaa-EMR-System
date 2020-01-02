@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class PhysicianLoginForm
     {
@@ -50,7 +50,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(747, 47);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -61,7 +60,6 @@
             this.label1.Size = new System.Drawing.Size(359, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Shifaa Health Systems Provider Login";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // UsernameLabel
             // 
@@ -72,7 +70,6 @@
             this.UsernameLabel.Size = new System.Drawing.Size(100, 23);
             this.UsernameLabel.TabIndex = 2;
             this.UsernameLabel.Text = "Username ";
-            this.UsernameLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // PassCodeLabel
             // 
@@ -83,7 +80,6 @@
             this.PassCodeLabel.Size = new System.Drawing.Size(94, 23);
             this.PassCodeLabel.TabIndex = 3;
             this.PassCodeLabel.Text = "Passcode ";
-            this.PassCodeLabel.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // UsernameBox
             // 
@@ -93,7 +89,6 @@
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(189, 23);
             this.UsernameBox.TabIndex = 4;
-            this.UsernameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // PassCodeBox
             // 
@@ -103,7 +98,6 @@
             this.PassCodeBox.Name = "PassCodeBox";
             this.PassCodeBox.Size = new System.Drawing.Size(189, 23);
             this.PassCodeBox.TabIndex = 5;
-            this.PassCodeBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // LoginButton
             // 
@@ -127,7 +121,7 @@
             this.BackButton.TabIndex = 7;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
-            this.BackButton.Click += new System.EventHandler(this.button1_Click);
+            this.BackButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // ExitButton
             // 
@@ -139,7 +133,7 @@
             this.ExitButton.TabIndex = 8;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.button2_Click);
+            this.ExitButton.Click += new System.EventHandler(this.Button2_Click);
             // 
             // PhysicianLoginForm
             // 

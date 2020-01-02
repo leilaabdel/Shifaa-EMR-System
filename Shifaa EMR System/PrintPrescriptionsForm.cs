@@ -10,8 +10,9 @@ using System.Windows.Forms;
 using System.Data.Linq;
 using System.Drawing.Printing;
 using System.Drawing.Text;
+using System.IO;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
 
 
@@ -28,16 +29,16 @@ namespace Shifaa_EMR_System
           
             this.thisPatientID = patientID;
             this.thisProviderID = providerID;
-            _printDocument.BeginPrint += _printDocument_BeginPrint;
-            _printDocument.PrintPage += _printDocument_PrintPage;
+            _printDocument.BeginPrint += PrintDocument_BeginPrint;
+            _printDocument.PrintPage += PrintDocument_PrintPage;
 
 
         }
 
         private void PrintPrescriptionsForm_Load(object sender, EventArgs e)
         {
-            setPatientInformation();
-            setProviderInformation();
+            SetPatientInformation();
+            SetProviderInformation();
 
             foreach (Control con in Controls)
             {
@@ -52,20 +53,20 @@ namespace Shifaa_EMR_System
             Font header = new Font("Bahnschrift Bold", 15);
             Font smallheader = new Font("Bahnschrift Bold", 14);
             Font smallheadernonbold = new Font("Bahnschrift Light", 14);
-
-            Font content = new Font("Bahnschrift Light", 12);
+            _ = new Font("Bahnschrift Light", 12);
             Font nonBoldHeader = new Font("Bahnschrift Light", 15);
 
 
-            report = new RichTextBoxEx();
+            report = new RichTextBoxEx
+            {
+                SelectionAlignment = HorizontalAlignment.Center,
+                Multiline = true,
 
-            report.SelectionAlignment = HorizontalAlignment.Center;
-            report.Multiline = true;
+                //Add Attending info
 
-            //Add Attending info
-
-            report.SelectionFont = header;
-            report.SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n";
+                SelectionFont = header,
+                SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n"
+            };
             report.SelectionFont = nonBoldHeader;
             report.SelectedText = PhysicianNumberLabel.Text + "\n\n";
 
@@ -90,11 +91,22 @@ namespace Shifaa_EMR_System
             Clipboard.Clear();
 
             DataFormats.Format df = DataFormats.GetFormat(DataFormats.Bitmap);
-            Image img = Image.FromFile("C:/Users/coder/Source/Repos/lxa215/Shifaa-EMR-System/Shifaa EMR System/RxIcon.png");
+
+            Image img;
+
+            using (FileStream stream = File.Open(@"c:\RxIcon.png", FileMode.Open))
+            {
+                 img = Image.FromStream(stream);
+                 stream.Close();
+            }
+            
+          
+            
+            //FromFile("C:/Users/coder/Source/Repos/lxa215/Shifaa-EMR-System/Shifaa EMR System/RxIcon.png");
 
             report.SelectionAlignment = HorizontalAlignment.Left;
       
-            img = resizeImage(img, new Size(104, 91));
+            img = ResizeImage(img, new Size(104, 91));
             Clipboard.SetImage(img);
             report.Paste(df);
 
@@ -106,7 +118,7 @@ namespace Shifaa_EMR_System
             report.SelectedText = "\n\n";
 
 
-            setMedications(report);
+            SetMedications(report);
 
 
             report.Size = new Size(738, 1377);
@@ -122,13 +134,13 @@ namespace Shifaa_EMR_System
 
         }
 
-        private PrintDocument _printDocument = new PrintDocument();
+        private readonly PrintDocument _printDocument = new PrintDocument();
         private int _checkPrint;
 
 
 
 
-        private void _printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             // Print the content of RichTextBox. Store the last character printed.
             _checkPrint = report.Print(_checkPrint, report.TextLength, e);
@@ -137,20 +149,20 @@ namespace Shifaa_EMR_System
             e.HasMorePages = _checkPrint < report.TextLength;
         }
 
-        private void _printDocument_BeginPrint(object sender, PrintEventArgs e)
+        private void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
         {
             _checkPrint = 0;
         }
 
 
-        public static Image resizeImage(Image imgToResize, Size size)
+        public static Image ResizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
 
       
 
-        private void setMedications(RichTextBoxEx report)
+        private void SetMedications(RichTextBoxEx report)
         {
 
           
@@ -187,7 +199,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void setPatientInformation()
+        private void SetPatientInformation()
         {
             ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(thisPatientID);
             foreach (getPatientByIDResult r in result)
@@ -201,7 +213,7 @@ namespace Shifaa_EMR_System
 
             }
         }
-        private void setProviderInformation()
+        private void SetProviderInformation()
         {
             ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(thisProviderID);
             foreach (getProviderInfoResult r in result)
@@ -215,11 +227,6 @@ namespace Shifaa_EMR_System
 
 
 
-        private static int fontposition = 1;
-        private static float ypos = 1;
-
-
-   
 
         private void PrintButton_Click_1(object sender, EventArgs e)
         {
@@ -238,9 +245,6 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+ 
     }
 }

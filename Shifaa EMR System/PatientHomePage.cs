@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class PatientHomePage : Form
     {
@@ -16,11 +16,11 @@ namespace Shifaa_EMR_System
         public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
 
-        int thisPatientID;
+        readonly int thisPatientID;
         readonly ProviderMain thisProviderMain;
         readonly AppointmentListView thisAppointmentList;
-        ToolStripMenuItem thisGenerateReport;
-        ToolStripMenuItem thisPrintPrescriptions;
+        readonly ToolStripMenuItem thisGenerateReport;
+        readonly ToolStripMenuItem thisPrintPrescriptions;
 
 
         public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain)
@@ -32,7 +32,7 @@ namespace Shifaa_EMR_System
             this.PatientAgeLabel.Text = "Age: " + age;
             this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
 
-            setVitals(selectedPatientID);
+            SetVitals(selectedPatientID);
 
             thisPatientID = selectedPatientID;
             this.thisProviderMain = providerMain;
@@ -59,7 +59,7 @@ namespace Shifaa_EMR_System
             this.PatientAgeLabel.Text = "Age: " + age;
             this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
 
-            setVitals(selectedPatientID);
+            SetVitals(selectedPatientID);
 
             thisPatientID = selectedPatientID;
             this.thisProviderMain = providerMain;
@@ -91,7 +91,7 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["PrintableReport"] as PrintableReport == null)
             {
-                PrintableReport report = new PrintableReport(thisPatientID, thisProviderMain.getProviderID());
+                PrintableReport report = new PrintableReport(thisPatientID, thisProviderMain.GetProviderID());
                 Center(report);
                 report.Show();
             }
@@ -101,13 +101,13 @@ namespace Shifaa_EMR_System
        {
             if (Application.OpenForms["PrintableReport"] as PrintableReport == null)
             {
-                PrintPrescriptionsForm printPrescriptions = new PrintPrescriptionsForm(thisPatientID, thisProviderMain.getProviderID());
+                PrintPrescriptionsForm printPrescriptions = new PrintPrescriptionsForm(thisPatientID, thisProviderMain.GetProviderID());
                 Center(printPrescriptions);
                 printPrescriptions.Show();
             }
        }
 
-            private void setVitals(int selectedPatientID)
+            private void SetVitals(int selectedPatientID)
         {
             ISingleResult<getLatestPatientVitalsResult> result = doAction.getLatestPatientVitals(selectedPatientID);
 
@@ -126,7 +126,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void Panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -139,11 +139,6 @@ namespace Shifaa_EMR_System
         private void NoteHistoryLabel_Click(object sender, EventArgs e)
         {
 
-        }
-
-        public int getPatientID()
-        {
-            return thisPatientID;
         }
 
         
@@ -210,161 +205,19 @@ namespace Shifaa_EMR_System
 
 
 
-        private void newAppointmentButton_Click(object sender, EventArgs e)
+        private void NewAppointmentButton_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null)
             {
 
-                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID , thisProviderMain.getProviderID() , 
-                    thisProviderMain.getProviderName());
+                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID);
                 Center(newAppointment);
                 newAppointment.Show();
 
             }
         }
 
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-
-        private void panel14_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void BMIValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BMILabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WeightValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HeightValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TemperatureValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PulseValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BloodPressureValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WeightLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HeightLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TemperatureLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PulseLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BloodPressureLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel13_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MedicationsListDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
+     
 
         private void Center(Form form)
         {
@@ -375,8 +228,8 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewNote"] as NewNote == null)
             {
-                NewNote newNoteForm = new NewNote(thisPatientID, thisProviderMain.getProviderName(),
-                    thisProviderMain.getProviderID() , this);
+                NewNote newNoteForm = new NewNote(thisPatientID, thisProviderMain.GetProviderName(),
+                    thisProviderMain.GetProviderID() , this);
                 Center(newNoteForm);
                 newNoteForm.Show();
 
@@ -387,9 +240,11 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewPrescriptionForm"] as NewPrescriptionForm == null)
             {
-                NewPrescriptionForm newPrescription = new NewPrescriptionForm(thisPatientID, thisProviderMain.getProviderName(),
-                thisProviderMain.getProviderID());
-                newPrescription.Owner = this;
+                NewPrescriptionForm newPrescription = new NewPrescriptionForm(thisPatientID, thisProviderMain.GetProviderName(),
+                thisProviderMain.GetProviderID())
+                {
+                    Owner = this
+                };
                 Center(newPrescription);
                 newPrescription.Show();
             }
@@ -399,9 +254,11 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewAllergie"] as NewAllergie == null)
             {
-                NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.getProviderID(),
-                    thisProviderMain.getProviderName());
-                newAllergie.Owner = this;
+                NewAllergie newAllergie = new NewAllergie(thisPatientID, thisProviderMain.GetProviderID(),
+                    thisProviderMain.GetProviderName())
+                {
+                    Owner = this
+                };
                 Center(newAllergie);
                 newAllergie.Show();
             }
@@ -411,9 +268,11 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewScanOrder"] as NewScanOrder == null)
             {
-                NewScanOrder newScan = new NewScanOrder(thisPatientID, thisProviderMain.getProviderName(),
-                    thisProviderMain.getProviderID());
-                newScan.Owner = this;
+                NewScanOrder newScan = new NewScanOrder(thisPatientID, thisProviderMain.GetProviderName(),
+                    thisProviderMain.GetProviderID())
+                {
+                    Owner = this
+                };
                 Center(newScan);
                 newScan.Show();
             }
@@ -423,9 +282,11 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewLabOrder"] as NewLabOrder == null)
             {
-                NewLabOrder newLabOrder = new NewLabOrder(thisPatientID, thisProviderMain.getProviderID(),
-                    thisProviderMain.getProviderName());
-                newLabOrder.Owner = this;
+                NewLabOrder newLabOrder = new NewLabOrder(thisPatientID, thisProviderMain.GetProviderID(),
+                    thisProviderMain.GetProviderName())
+                {
+                    Owner = this
+                };
                 Center(newLabOrder);
                 newLabOrder.Show();
             }
@@ -436,16 +297,17 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewVital"] as NewVital == null)
             {
-                NewVital newVital = new NewVital(thisPatientID, thisProviderMain.getProviderName(),
-                    thisProviderMain.getProviderID());
-                newVital.Owner = this;
+                NewVital newVital = new NewVital(thisPatientID)
+                {
+                    Owner = this
+                };
                 Center(newVital);
                 newVital.Show();
             }
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -454,15 +316,16 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null)
             {
-                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderMain.getProviderID(),
-                    thisProviderMain.getProviderName());
-                newAppointment.Owner = this;
+                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID)
+                {
+                    Owner = this
+                };
                 Center(newAppointment);
                 newAppointment.Show();
             }
         }
 
-        private void patientClientToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PatientClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
@@ -480,17 +343,13 @@ namespace Shifaa_EMR_System
             this.Close();
         }
 
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void NoteHistoryTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void deleteAppointmentButton_Click(object sender, EventArgs e)
+        private void DeleteAppointmentButton_Click(object sender, EventArgs e)
         {
             if (AppointmentListView1.SelectedRows.Count > 0)
             {
@@ -513,7 +372,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void deletePrescriptionButton_Click(object sender, EventArgs e)
+        private void DeletePrescriptionButton_Click(object sender, EventArgs e)
         {
             if (MedicationsListDataGridView.SelectedRows.Count > 0)
             {
@@ -537,7 +396,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void deleteAllergyButton_Click(object sender, EventArgs e)
+        private void DeleteAllergyButton_Click(object sender, EventArgs e)
         {
             if (AllergiesTable.SelectedRows.Count > 0)
             {
@@ -561,7 +420,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void deleteScanButton_Click(object sender, EventArgs e)
+        private void DeleteScanButton_Click(object sender, EventArgs e)
         {
             int currentRow = ScansTable.CurrentRow.Index;
 
@@ -580,7 +439,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void deleteLabButton_Click(object sender, EventArgs e)
+        private void DeleteLabButton_Click(object sender, EventArgs e)
         {
             if (LabsTable.SelectedRows.Count > 0)
             {
@@ -603,7 +462,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void deleteNoteButton_Click(object sender, EventArgs e)
+        private void DeleteNoteButton_Click(object sender, EventArgs e)
         {
             if (NoteHistoryTable.SelectedRows.Count > 0)
             {
@@ -638,7 +497,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void deleteVitalButton_Click(object sender, EventArgs e)
+        private void DeleteVitalButton_Click(object sender, EventArgs e)
         {
             if (VitalHistoryTable.SelectedRows.Count > 0)
             {
@@ -661,19 +520,21 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void addProblemButton_Click(object sender, EventArgs e)
+        private void AddProblemButton_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms["NewProblem"] as NewProblem == null)
             {
-                NewProblem newProblem = new NewProblem(thisPatientID, thisProviderMain.getProviderName(),
-                    thisProviderMain.getProviderID());
-                newProblem.Owner = this;
+                NewProblem newProblem = new NewProblem(thisPatientID, thisProviderMain.GetProviderName(),
+                    thisProviderMain.GetProviderID())
+                {
+                    Owner = this
+                };
                 Center(newProblem);
                 newProblem.Show();
             }
         }
 
-        private void removeProblemButton_Click(object sender, EventArgs e)
+        private void RemoveProblemButton_Click(object sender, EventArgs e)
         {
             if (ProblemListView.SelectedRows.Count > 0)
             {
@@ -708,8 +569,10 @@ namespace Shifaa_EMR_System
 
                 if (Application.OpenForms["UpdateProblem"] as UpdateProblem == null)
                 {
-                    UpdateProblem updateProblem = new UpdateProblem(selectedProblemID, problemName, problemDescription, thisPatientID);
-                    updateProblem.Owner = this;
+                    UpdateProblem updateProblem = new UpdateProblem(selectedProblemID, problemName, problemDescription, thisPatientID)
+                    {
+                        Owner = this
+                    };
                     Center(updateProblem);
                     updateProblem.Show();
                 }
@@ -721,7 +584,7 @@ namespace Shifaa_EMR_System
         {
             // TO DO: Complete the Checked Out Button
             string checkedOut = "Complete at: " + DateTime.Now.ToString("HH:mm");
-            doAction.updateAppointment(checkedOut, thisAppointmentList.getSelectedAppointmentID());
+            doAction.updateAppointment(checkedOut, thisAppointmentList.GetSelectedAppointmentID());
         }
 
         private void ProblemListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -741,7 +604,6 @@ namespace Shifaa_EMR_System
                 string strength = (String)MedicationsListDataGridView["Strength", currentRow].Value;
                 string route = (String)MedicationsListDataGridView["Route", currentRow].Value;
                 string frequency = (String)MedicationsListDataGridView["Frequency", currentRow].Value;
-                string refills = null;
                 double? doubleRefills = null; 
                 //TODO: Fix the refills 
 
@@ -756,30 +618,8 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void PrintPrescriptionsButton_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["PrintPrescriptionsForm"] as PrintPrescriptionsForm == null)
-            {
-                PrintPrescriptionsForm printPrescriptions = new PrintPrescriptionsForm(thisPatientID, thisProviderMain.getProviderID());
-                Center(printPrescriptions);
-                printPrescriptions.Show();
-            }
-        }
+       
 
-        private void panel16_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["PrintableReport"] as PrintableReport == null)
-            {
-                PrintableReport printableReport = new PrintableReport(thisPatientID, thisProviderMain.getProviderID());
-                Center(printableReport);
-                printableReport.Show();
-            }
-        }
 
         private void ProblemListView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {

@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
 
  
     public partial class NewAllergie : Form
     {
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
-        int thispatientID;
-        string thisProviderID;
-        string thisProviderName;
+        readonly int thispatientID;
+        readonly string thisProviderID;
+        readonly string thisProviderName;
 
         public NewAllergie(int patientID, string providerID , string providerName)
         {
@@ -42,15 +42,22 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            try
+
+            if (String.IsNullOrWhiteSpace(AllergyNameBox.Text)) MessageBox.Show("Please enter a valid allergy name");
+            else
             {
-                doAction.createNewAllergy(thispatientID, AllergyNameBox.Text, DetailsBox.Text, thisProviderID, thisProviderName , DateTime.Today);
-                 ((PatientHomePage)this.Owner).allergieTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Allergie, thispatientID);
-                this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Please enter an allergy or close the current page");
+
+
+                try
+                {
+                    doAction.createNewAllergy(thispatientID, AllergyNameBox.Text, DetailsBox.Text, thisProviderID, thisProviderName, DateTime.Today);
+                    ((PatientHomePage)this.Owner).allergieTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Allergie, thispatientID);
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter an allergy or close the current page");
+                }
             }
 
           

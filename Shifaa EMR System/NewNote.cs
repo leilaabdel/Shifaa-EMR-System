@@ -9,16 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewNote : Form
     {
 
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        int thisPatientID;
-        string thisProviderName;
-        string thisProviderID;
-        PatientHomePage thisPatientHome;
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly int thisPatientID;
+        readonly string thisProviderName;
+        readonly string thisProviderID;
+        readonly PatientHomePage thisPatientHome;
 
         public NewNote(int patientID , string providerName , string providerID, PatientHomePage patientHomePage)
         {
@@ -314,7 +314,7 @@ namespace Shifaa_EMR_System
 
             //TO DO: ADD THE PROVIDER NAME 
             RichTextBox thisOldNoteBox = (RichTextBox)NewNoteTabControl.SelectedTab.Controls.Find("newNoteBox", false)[0];
-            String oldNoteContent = thisOldNoteBox.Text;
+            _ = thisOldNoteBox.Text;
             String currentDate = DateTime.Today.ToShortDateString();
             thisOldNoteBox.AppendText("\n\n");
             thisOldNoteBox.Font = new Font("Bahnschrift Bold", 10F, FontStyle.Bold);
@@ -372,13 +372,13 @@ namespace Shifaa_EMR_System
 
         private void ExitButtonClick(object sender, EventArgs e)
         {
-            //Remove the selected tab when the exit button is clicked
+            //Remove the selected tab when the exit Button is clicked
             NewNoteTabControl.TabPages.Remove(NewNoteTabControl.SelectedTab);
 
             
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
@@ -388,10 +388,6 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
@@ -400,11 +396,9 @@ namespace Shifaa_EMR_System
 
         private void SignButton_Click(object sender, EventArgs e)
         {
-
-            String noteTitle = "";
             if (String.IsNullOrWhiteSpace(NewNoteTitleBox.Text))  NewNoteTitleBox.Text = "Untitled";
 
-            noteTitle = NewNoteTitleBox.Text;
+            string noteTitle = NewNoteTitleBox.Text;
 
 
             String noteContent = "Subjective: " + SubjectiveNoteBox.Text + 
@@ -432,7 +426,7 @@ namespace Shifaa_EMR_System
            
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void TabPage1_Click(object sender, EventArgs e)
         {
 
         }
@@ -474,11 +468,9 @@ namespace Shifaa_EMR_System
 
         private void SaveDraftButton_Click(object sender, EventArgs e)
         {
-
-            String noteTitle = "";
             if (String.IsNullOrWhiteSpace(NewNoteTitleBox.Text)) NewNoteTitleBox.Text = "Untitled";
-            noteTitle = NewNoteTitleBox.Text;
-            
+            string noteTitle = NewNoteTitleBox.Text;
+
 
 
             String noteContent = "Subjective: " + SubjectiveNoteBox.Text +

@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class PrintPrescriptionsForm
     {
@@ -44,8 +44,8 @@
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.prescriptionTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -95,7 +95,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.RxSign;
+            this.panel2.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.RxSign;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(30, 276);
             this.panel2.Name = "panel2";
@@ -251,7 +251,7 @@
         private EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button PrintButton;
-        private System.Windows.Forms.Button CancelButton;
+        private new System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label PhysicianNumberLabel;
         private System.Windows.Forms.Label AttendingPhysicianLabel;

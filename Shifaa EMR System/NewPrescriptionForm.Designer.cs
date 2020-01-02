@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class NewPrescriptionForm
     {
@@ -50,9 +50,9 @@
             this.RouteBox = new System.Windows.Forms.TextBox();
             this.SubmitButton = new System.Windows.Forms.Button();
             this.RouteLabel = new System.Windows.Forms.Label();
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.prescriptionTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();

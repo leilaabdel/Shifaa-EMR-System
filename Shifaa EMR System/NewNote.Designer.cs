@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class NewNote
     {
@@ -37,7 +37,7 @@
             this.NewNoteLabel = new System.Windows.Forms.Label();
             this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
             this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.NewNoteTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -52,7 +52,7 @@
             this.NewNoteTitleBox = new System.Windows.Forms.TextBox();
             this.DateLabel = new System.Windows.Forms.Label();
             this.NoteTitleLabel = new System.Windows.Forms.Label();
-            this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
+            this.patientNoteTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
             this.NoteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,7 +201,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1133, 767);
             this.panel1.TabIndex = 47;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // NewNoteTabControl
             // 
@@ -234,7 +234,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Note";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPage1.Click += new System.EventHandler(this.TabPage1_Click);
             // 
             // SaveDraftButton
             // 

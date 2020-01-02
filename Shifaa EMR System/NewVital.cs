@@ -8,26 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewVital : Form
     {
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        int thisPatientID;
-        string thisProviderName;
-        string thisProviderID;
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly int thisPatientID;
+ 
 
-        public NewVital(int patientID , string providerName , string providerID)
+        public NewVital(int patientID)
         {
             this.thisPatientID = patientID;
-            this.thisProviderName = providerName;
-            this.thisProviderID = providerID;
+   
             InitializeComponent();
         }
 
 
 
-        private double getBMI()
+        private double GetBMI()
         {
             if (Convert.ToDouble(WeightBox.Text) != 0.0 && Convert.ToDouble(HeightBox.Text) != 0.0)
             {
@@ -42,29 +40,43 @@ namespace Shifaa_EMR_System
         {
             try
             {
-                double? pulse = null;
-                double? temperature = null;
                 double? height = null;
                 double? weight = null;
                 double? BMI = null;
-                if (!String.IsNullOrWhiteSpace(PulseBox.Text)) pulse = Convert.ToDouble(PulseBox.Text);
-                if (!String.IsNullOrWhiteSpace(TemperatureBox.Text)) temperature = Convert.ToDouble(TemperatureBox.Text);
+
+                string bpString = "-";
+                string pulseString = "-";
+                string tempString = "-";
+                string heightString = "-";
+                string weightString = "-";
+                string BMIstring = "-";
+
+                if (!String.IsNullOrWhiteSpace(BloodPressureBox.Text)) bpString = BloodPressureBox.Text;
+                if (!String.IsNullOrWhiteSpace(PulseBox.Text)) pulseString = PulseBox.Text;
+                if (!String.IsNullOrWhiteSpace(TemperatureBox.Text)) tempString = TemperatureBox.Text;
+                if (!String.IsNullOrWhiteSpace(HeightBox.Text)) heightString = HeightBox.Text;
+                if (!String.IsNullOrWhiteSpace(WeightBox.Text)) weightString = WeightBox.Text;
+               
+
                 if (!String.IsNullOrWhiteSpace(HeightBox.Text)) height = Convert.ToDouble(HeightBox.Text);
                 if (!String.IsNullOrWhiteSpace(WeightBox.Text)) weight = Convert.ToDouble(WeightBox.Text);
                 if(height != null && height != 0 && weight != null && weight != 0)
                 {
-                    BMI = getBMI();
+                    BMI = GetBMI();
                 }
 
-                doAction.createNewVitalSign(thisPatientID, BloodPressureBox.Text, pulse, temperature , height,
-                weight , BMI , DateTime.Today);
+                BMIstring = BMI.ToString();
+
+                doAction.createNewVitalSign(thisPatientID, bpString, pulseString , tempString , heightString , weightString, BMIstring, DateTime.Today);
                 ((PatientHomePage)this.Owner).vitalSignsTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.VitalSigns, thisPatientID);
 
                 this.Close();
+                doAction.Dispose();
             }
             catch
             {
                 MessageBox.Show("Please enter vitals or exit the page.");
+                doAction.Dispose();
             }
           
 
@@ -83,9 +95,7 @@ namespace Shifaa_EMR_System
 
         private void HeightBox_TextChanged(object sender, EventArgs e)
         {
-            double num;
-
-            if (!String.IsNullOrWhiteSpace(HeightBox.Text) && !double.TryParse(HeightBox.Text, out num))
+            if (!String.IsNullOrWhiteSpace(HeightBox.Text) && !double.TryParse(HeightBox.Text, out _) && HeightBox.Text != "-")
             {
                 MessageBox.Show("Please enter a valid height in cm");
                 HeightBox.Text = null;
@@ -94,10 +104,7 @@ namespace Shifaa_EMR_System
 
         private void PulseBox_TextChanged(object sender, EventArgs e)
         {
-
-            double num;
-
-            if (!String.IsNullOrWhiteSpace(PulseBox.Text) && !double.TryParse(PulseBox.Text , out num))
+            if (!String.IsNullOrWhiteSpace(PulseBox.Text) && !double.TryParse(PulseBox.Text , out _) && PulseBox.Text != "-")
             {
                 MessageBox.Show("Please enter a valid pulse");
                 PulseBox.Text = null;
@@ -106,9 +113,7 @@ namespace Shifaa_EMR_System
 
         private void TemperatureBox_TextChanged(object sender, EventArgs e)
         {
-            double num;
-
-            if (!String.IsNullOrWhiteSpace(TemperatureBox.Text) && !double.TryParse(TemperatureBox.Text, out num))
+            if (!String.IsNullOrWhiteSpace(TemperatureBox.Text) && !double.TryParse(TemperatureBox.Text, out _) && TemperatureBox.Text != "-")
             {
                 MessageBox.Show("Please enter a valid temperature");
                 TemperatureBox.Text = null;
@@ -117,13 +122,16 @@ namespace Shifaa_EMR_System
 
         private void WeightBox_TextChanged(object sender, EventArgs e)
         {
-            double num;
-
-            if (!String.IsNullOrWhiteSpace(WeightBox.Text) && !double.TryParse(WeightBox.Text, out num))
+            if (!String.IsNullOrWhiteSpace(WeightBox.Text) && !double.TryParse(WeightBox.Text, out _) && WeightBox.Text != "-")
             {
                 MessageBox.Show("Please enter a valid weight in Kg");
                 WeightBox.Text = null;
             }
+        }
+
+        private void BloodPressureBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

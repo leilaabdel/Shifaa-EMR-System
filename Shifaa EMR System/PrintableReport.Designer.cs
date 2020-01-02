@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class PrintableReport
     {
@@ -82,7 +82,6 @@
             this.DOBLabel.Size = new System.Drawing.Size(131, 19);
             this.DOBLabel.TabIndex = 37;
             this.DOBLabel.Text = "DOB: XX/XX/XXXX";
-            this.DOBLabel.Click += new System.EventHandler(this.DOBLabel_Click);
             // 
             // PatientAgeLabel
             // 
@@ -93,7 +92,6 @@
             this.PatientAgeLabel.Size = new System.Drawing.Size(88, 19);
             this.PatientAgeLabel.TabIndex = 36;
             this.PatientAgeLabel.Text = "X Years Old";
-            this.PatientAgeLabel.Click += new System.EventHandler(this.PatientAgeLabel_Click);
             // 
             // PatientGenderLabel
             // 
@@ -104,7 +102,6 @@
             this.PatientGenderLabel.Size = new System.Drawing.Size(64, 19);
             this.PatientGenderLabel.TabIndex = 35;
             this.PatientGenderLabel.Text = "Female";
-            this.PatientGenderLabel.Click += new System.EventHandler(this.PatientGenderLabel_Click);
             // 
             // PhoneNumberLabel
             // 
@@ -115,7 +112,6 @@
             this.PhoneNumberLabel.Size = new System.Drawing.Size(168, 19);
             this.PhoneNumberLabel.TabIndex = 34;
             this.PhoneNumberLabel.Text = "Phone: XXX-XXX-XXXX";
-            this.PhoneNumberLabel.Click += new System.EventHandler(this.PhoneNumberLabel_Click);
             // 
             // PatientNameLabel
             // 
@@ -126,7 +122,6 @@
             this.PatientNameLabel.Size = new System.Drawing.Size(136, 25);
             this.PatientNameLabel.TabIndex = 33;
             this.PatientNameLabel.Text = "Patient Name";
-            this.PatientNameLabel.Click += new System.EventHandler(this.PatientNameLabel_Click);
             // 
             // AttendingPhysicianLabel
             // 
@@ -138,7 +133,6 @@
             this.AttendingPhysicianLabel.Size = new System.Drawing.Size(160, 25);
             this.AttendingPhysicianLabel.TabIndex = 38;
             this.AttendingPhysicianLabel.Text = "Physician Name";
-            this.AttendingPhysicianLabel.Click += new System.EventHandler(this.AttendingPhysicianLabel_Click);
             // 
             // PhysicianNumberLabel
             // 
@@ -150,7 +144,6 @@
             this.PhysicianNumberLabel.Size = new System.Drawing.Size(168, 19);
             this.PhysicianNumberLabel.TabIndex = 39;
             this.PhysicianNumberLabel.Text = "Phone: XXX-XXX-XXXX";
-            this.PhysicianNumberLabel.Click += new System.EventHandler(this.PhysicianNumberLabel_Click);
             // 
             // TemperatureValueLabel
             // 
@@ -161,7 +154,6 @@
             this.TemperatureValueLabel.Size = new System.Drawing.Size(37, 19);
             this.TemperatureValueLabel.TabIndex = 50;
             this.TemperatureValueLabel.Text = "0 °C";
-            this.TemperatureValueLabel.Click += new System.EventHandler(this.TemperatureValueLabel_Click);
             // 
             // PulseValueLabel
             // 
@@ -172,7 +164,6 @@
             this.PulseValueLabel.Size = new System.Drawing.Size(53, 19);
             this.PulseValueLabel.TabIndex = 49;
             this.PulseValueLabel.Text = "0 bpm";
-            this.PulseValueLabel.Click += new System.EventHandler(this.PulseValueLabel_Click);
             // 
             // BloodPressureValueLabel
             // 
@@ -183,7 +174,6 @@
             this.BloodPressureValueLabel.Size = new System.Drawing.Size(72, 19);
             this.BloodPressureValueLabel.TabIndex = 48;
             this.BloodPressureValueLabel.Text = "0 mm Hg";
-            this.BloodPressureValueLabel.Click += new System.EventHandler(this.BloodPressureValueLabel_Click);
             // 
             // NoteBox
             // 
@@ -196,7 +186,6 @@
             this.NoteBox.Size = new System.Drawing.Size(738, 1377);
             this.NoteBox.TabIndex = 51;
             this.NoteBox.Text = "";
-            this.NoteBox.TextChanged += new System.EventHandler(this.NoteBox_TextChanged);
             // 
             // panel2
             // 
@@ -207,7 +196,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(467, 218);
             this.panel2.TabIndex = 55;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // PrimaryProblemsBox
             // 
@@ -240,7 +228,6 @@
             this.NotesLabel.Size = new System.Drawing.Size(67, 25);
             this.NotesLabel.TabIndex = 57;
             this.NotesLabel.Text = "Notes";
-            this.NotesLabel.Click += new System.EventHandler(this.NotesLabel_Click);
             // 
             // MedicationsListLabel
             // 
@@ -251,7 +238,6 @@
             this.MedicationsListLabel.Size = new System.Drawing.Size(126, 25);
             this.MedicationsListLabel.TabIndex = 58;
             this.MedicationsListLabel.Text = "Medications ";
-            this.MedicationsListLabel.Click += new System.EventHandler(this.MedicationsListLabel_Click);
             // 
             // MaritalStatusLabel
             // 
@@ -262,7 +248,6 @@
             this.MaritalStatusLabel.Size = new System.Drawing.Size(113, 19);
             this.MaritalStatusLabel.TabIndex = 59;
             this.MaritalStatusLabel.Text = "Marital Status:";
-            this.MaritalStatusLabel.Click += new System.EventHandler(this.MaritalStatusLabel_Click);
             // 
             // PregnantLabel
             // 
@@ -273,7 +258,6 @@
             this.PregnantLabel.Size = new System.Drawing.Size(80, 19);
             this.PregnantLabel.TabIndex = 60;
             this.PregnantLabel.Text = "Pregnant:";
-            this.PregnantLabel.Click += new System.EventHandler(this.PregnantLabel_Click);
             // 
             // MedicationsBox
             // 
@@ -286,7 +270,6 @@
             this.MedicationsBox.Size = new System.Drawing.Size(738, 254);
             this.MedicationsBox.TabIndex = 61;
             this.MedicationsBox.Text = "";
-            this.MedicationsBox.TextChanged += new System.EventHandler(this.MedicationsBox_TextChanged);
             // 
             // printDocument1
             // 
@@ -311,7 +294,6 @@
             this.WeightLabel.Size = new System.Drawing.Size(58, 19);
             this.WeightLabel.TabIndex = 47;
             this.WeightLabel.Text = "Weight";
-            this.WeightLabel.Click += new System.EventHandler(this.WeightLabel_Click);
             // 
             // HeightLabel
             // 
@@ -322,7 +304,6 @@
             this.HeightLabel.Size = new System.Drawing.Size(56, 19);
             this.HeightLabel.TabIndex = 46;
             this.HeightLabel.Text = "Height";
-            this.HeightLabel.Click += new System.EventHandler(this.HeightLabel_Click);
             // 
             // TemperatureLabel
             // 
@@ -333,7 +314,6 @@
             this.TemperatureLabel.Size = new System.Drawing.Size(103, 19);
             this.TemperatureLabel.TabIndex = 45;
             this.TemperatureLabel.Text = "Temperature";
-            this.TemperatureLabel.Click += new System.EventHandler(this.TemperatureLabel_Click);
             // 
             // HeightValueLabel
             // 
@@ -344,7 +324,6 @@
             this.HeightValueLabel.Size = new System.Drawing.Size(43, 19);
             this.HeightValueLabel.TabIndex = 51;
             this.HeightValueLabel.Text = "0 cm";
-            this.HeightValueLabel.Click += new System.EventHandler(this.HeightValueLabel_Click);
             // 
             // PulseLabel
             // 
@@ -355,7 +334,6 @@
             this.PulseLabel.Size = new System.Drawing.Size(50, 19);
             this.PulseLabel.TabIndex = 44;
             this.PulseLabel.Text = "Pulse";
-            this.PulseLabel.Click += new System.EventHandler(this.PulseLabel_Click);
             // 
             // WeightValueLabel
             // 
@@ -366,7 +344,6 @@
             this.WeightValueLabel.Size = new System.Drawing.Size(38, 19);
             this.WeightValueLabel.TabIndex = 52;
             this.WeightValueLabel.Text = "0 kg";
-            this.WeightValueLabel.Click += new System.EventHandler(this.WeightValueLabel_Click);
             // 
             // BloodPressureLabel
             // 
@@ -377,7 +354,6 @@
             this.BloodPressureLabel.Size = new System.Drawing.Size(121, 19);
             this.BloodPressureLabel.TabIndex = 43;
             this.BloodPressureLabel.Text = "Blood Pressure";
-            this.BloodPressureLabel.Click += new System.EventHandler(this.BloodPressureLabel_Click);
             // 
             // BMILabel
             // 
@@ -388,7 +364,6 @@
             this.BMILabel.Size = new System.Drawing.Size(35, 19);
             this.BMILabel.TabIndex = 53;
             this.BMILabel.Text = "BMI";
-            this.BMILabel.Click += new System.EventHandler(this.BMILabel_Click);
             // 
             // VitalLabel
             // 
@@ -399,7 +374,6 @@
             this.VitalLabel.Size = new System.Drawing.Size(64, 25);
             this.VitalLabel.TabIndex = 41;
             this.VitalLabel.Text = "Vitals";
-            this.VitalLabel.Click += new System.EventHandler(this.VitalLabel_Click);
             // 
             // BMIValueLabel
             // 
@@ -410,7 +384,6 @@
             this.BMIValueLabel.Size = new System.Drawing.Size(63, 19);
             this.BMIValueLabel.TabIndex = 54;
             this.BMIValueLabel.Text = "0 kg/m²";
-            this.BMIValueLabel.Click += new System.EventHandler(this.BMIValueLabel_Click);
             // 
             // Seperator
             // 
@@ -419,7 +392,6 @@
             this.Seperator.Name = "Seperator";
             this.Seperator.Size = new System.Drawing.Size(769, 18);
             this.Seperator.TabIndex = 62;
-            this.Seperator.Paint += new System.Windows.Forms.PaintEventHandler(this.Seperator_Paint);
             // 
             // panel1
             // 
@@ -430,7 +402,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(769, 48);
             this.panel1.TabIndex = 63;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // PrintButton
             // 

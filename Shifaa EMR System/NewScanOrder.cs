@@ -8,14 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewScanOrder : Form
     {
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        int thisPatientID;
-        string thisProviderName;
-        string thisProviderID;
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly int thisPatientID;
+        readonly string thisProviderName;
+        readonly string thisProviderID;
 
         public NewScanOrder(int patientID , string providerName , string providerID)
         {
@@ -38,12 +38,30 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            doAction.createNewScanOrProcedureOrder(ScanNameBox.Text, DetailsBox.Text, thisProviderName, thisProviderID, thisPatientID, ScheduledDatePicker.Value , DateTime.Today);
-            ((PatientHomePage)this.Owner).patientScanTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.PatientScan, thisPatientID);
-            this.Close();
+
+            if (String.IsNullOrWhiteSpace(ScanNameBox.Text)) MessageBox.Show("Please enter a valid scan or procedure name");
+            else
+            {
+                try
+                {
+                    doAction.createNewScanOrProcedureOrder(ScanNameBox.Text, DetailsBox.Text, thisProviderName, thisProviderID, thisPatientID, ScheduledDatePicker.Value, DateTime.Today);
+                    ((PatientHomePage)this.Owner).patientScanTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.PatientScan, thisPatientID);
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+          
         }
 
         private void NewScanOrder_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ScanNameBox_TextChanged(object sender, EventArgs e)
         {
 
         }

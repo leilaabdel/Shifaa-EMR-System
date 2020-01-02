@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 
 {
 
@@ -14,41 +14,28 @@ namespace Shifaa_EMR_System
     public partial class NewAppointment : Form
     {
 
-        private List<DateTime> dateList;
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-
-
-        ProviderMain thisProviderMain;
-        SchedulerMain thisSchedulerMain;
-        AppointmentListView thisAppointmentList;
-
-        public NewAppointment(ProviderMain providerMain , AppointmentListView appointmentListView)
-        {
-
-            InitializeComponent();
-            
-            this.thisProviderMain = providerMain;
-            this.thisAppointmentList = appointmentListView;
-            
-        }
-
-        public NewAppointment(SchedulerMain schedulerMain , AppointmentListView appointmentListView)
-        {
-
-            InitializeComponent();
      
-            this.thisSchedulerMain = schedulerMain;
-            this.thisAppointmentList = appointmentListView;
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
+
+        readonly AppointmentListView thisAppointmentList;
+
+        public NewAppointment(AppointmentListView appointmentListView)
+        {
+
+            InitializeComponent();
+          
+            this.thisAppointmentList = appointmentListView;
+            
         }
 
-        Type a = typeof(ProviderMain);
+       
+   
 
 
         private void NewAppointment_Load(object sender, EventArgs e)
 
         {
-            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Patient' table. You can move, or remove it, as needed.
             this.patientTableAdapter.Fill(this.eMRDatabaseDataSet.Patient);
            
 
@@ -56,30 +43,35 @@ namespace Shifaa_EMR_System
             this.PatientListView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.PatientListView.MultiSelect = false;
 
-            // TODO: This line of code loads data into the 'eMRDatabasePatients.Patient' table. You can move, or remove it, as needed.
+            PatientIDNum.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            PatientIDNum.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            PatientIDNum.AutoCompleteCustomSource = AutoComplete.PatientIDAutoComplete();
 
+
+          
+             FirstName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+             FirstName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+             FirstName.AutoCompleteCustomSource = AutoComplete.PatientFirstNameAutoComplete();
+     
 
          
+             LastName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+             LastName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+             LastName.AutoCompleteCustomSource = AutoComplete.PatientLastNameAutoComplete();
 
 
-            
 
 
 
 
-            readDatabase();
-
-            PatientIDAutoCompleteText();
-            FirstNameAutoCompleteText();
-            LastNameAutoCompleteText();
 
 
         }
 
 
-  
 
-   
+
+
 
         private void FirstNameClick(object sender, EventArgs e)
         {
@@ -110,7 +102,7 @@ namespace Shifaa_EMR_System
 
 
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void TextBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }
@@ -141,7 +133,7 @@ namespace Shifaa_EMR_System
         
                 if (thisAppointmentList != null)
                 {
-                    thisAppointmentList.fillByDate();
+                    thisAppointmentList.FillByDate();
                 }
                 
 
@@ -189,7 +181,7 @@ namespace Shifaa_EMR_System
 
 
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Label5_Click(object sender, EventArgs e)
         {
 
         }
@@ -300,89 +292,12 @@ namespace Shifaa_EMR_System
         }
 
 
-        private AutoCompleteStringCollection patientIDColl = new AutoCompleteStringCollection();
-        private AutoCompleteStringCollection firstNameColl = new AutoCompleteStringCollection();
-        private AutoCompleteStringCollection lastNameColl = new AutoCompleteStringCollection();
-
-        private void readDatabase()
-        {
-
-            AutoCompleteStringCollection[] collection = new AutoCompleteStringCollection[3];
-
-            collection[0] = patientIDColl;
-            collection[1] = firstNameColl;
-            collection[2] = lastNameColl;
+   
 
 
-            string conString = @"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!";
-            string Query = "select PatientID,  FirstName , LastName from dbo.Patient ;";
-            SqlConnection conDataBase = new SqlConnection(conString);
-            SqlCommand command = new SqlCommand(Query, conDataBase);
-            SqlDataReader reader;
 
 
-            try
-            {
-                conDataBase.Open();
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    int patientID = reader.GetInt32(0);
-                    string firstName = reader.GetString(1);
-                    string lastName = reader.GetString(2);
-
-
-                    foreach (AutoCompleteStringCollection coll in collection)
-                    {
-                        int i = Array.IndexOf(collection, coll);
-
-                        switch (i)
-                        {
-                            case 0:
-                                coll.Add(patientID.ToString());
-                                break;
-                            case 1:
-                                coll.Add(firstName);
-                                break;
-                            case 2:
-                                coll.Add(lastName);
-                                break;
-                        }
-                    }
-                }
-
-                reader.Close();
-            }
-            catch (FieldAccessException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-
-        private void PatientIDAutoCompleteText()
-        {
-            PatientIDNum.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            PatientIDNum.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            PatientIDNum.AutoCompleteCustomSource = patientIDColl;
-        }
-
-
-        private void FirstNameAutoCompleteText()
-        {
-            FirstName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            FirstName.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            FirstName.AutoCompleteCustomSource = firstNameColl;
-        }
-
-        void LastNameAutoCompleteText()
-        {
-            LastName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            LastName.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            LastName.AutoCompleteCustomSource = lastNameColl;
-        }
-
+      
 
 
         private void PatientListView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -403,7 +318,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void fillBySearchToolStripButton_Click(object sender, EventArgs e)
+        private void FillBySearchToolStripButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -428,12 +343,12 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }

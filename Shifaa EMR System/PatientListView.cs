@@ -1,24 +1,45 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
 
     //TO DO: FUNCTIONALIZE FOR SCHEDULER LIST VIEW
 
     public partial class PatientListView : Form
     {
-        ProviderMain thisProviderMain;
+      
 
         public PatientListView(ProviderMain providerMain)
         {
-            InitializeComponent();
-            thisProviderMain = providerMain;
            
+                InitializeComponent();
+
+                this.MdiParent = providerMain;
+                this.WindowState = FormWindowState.Maximized;
+
+                this.PatientListView1.Columns.Remove("PatientID");
+                DataGridViewButtonColumn patientID = new DataGridViewButtonColumn
+                {
+                    DataPropertyName = "PatientID"
+                };
+                patientID.DefaultCellStyle.Font = new Font("Bahnschrift Light", 10);
+                patientID.Name = "ProviderpatientID";
+                patientID.HeaderText = "Patient ID";
+
+
+                this.PatientListView1.Columns.Insert(0, patientID);
+
 
         }
 
-        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        public PatientListView(SchedulerMain schedulerMain)
+        {
+            this.MdiParent = schedulerMain;
+
+        }
+
 
 
 
@@ -32,18 +53,17 @@ namespace Shifaa_EMR_System
 
         }
 
-        public void activateSearch()
+        public void ActivateSearch()
         {
             // TODO: This line of code loads data into the 'eMRDatabasePatients.Patient' table. You can move, or remove it, as needed.
-            string searchText = ((ProviderMain)this.MdiParent).getSearchText();
+            string searchText = ((ProviderMain)this.MdiParent).GetSearchText();
 
             Console.WriteLine(searchText);
 
             this.WindowState = FormWindowState.Maximized;
 
-            int searchID = 0;
 
-            if (!Int32.TryParse(searchText, out searchID))
+            if (!Int32.TryParse(searchText, out int searchID))
             {
                 searchID = -1;
             }
@@ -64,18 +84,17 @@ namespace Shifaa_EMR_System
 
        
 
-        private void PatientListView1_RowDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void PatientListView1_RowClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (this.MdiParent.GetType() == typeof(ProviderMain))
-            {
-                if (e.RowIndex >= 0)
+            
+                if (e.RowIndex >= 0 && PatientListView1[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
                 {
                     this.PatientListView1.Rows[e.RowIndex].Selected = true;
 
 
 
-                    int selectedPatientID = (Int32)this.PatientListView1["PatientID", e.RowIndex].Value;
+                    int selectedPatientID = (int)this.PatientListView1["PatientID", e.RowIndex].Value;
 
 
                     EMRDatabaseDataSet.PatientDataTable selectedPatient = this.patientTableAdapter.GetDataByPatientID(selectedPatientID);
@@ -88,8 +107,10 @@ namespace Shifaa_EMR_System
 
                     if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
                     {
-                        PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, DOB, selectedPatientID, (ProviderMain)this.MdiParent);
-                        patientHome.MdiParent = (ProviderMain)this.MdiParent;
+                        PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, DOB, selectedPatientID, (ProviderMain)this.MdiParent)
+                        {
+                            MdiParent = (ProviderMain)this.MdiParent
+                        };
                         patientHome.Show();
                      
 
@@ -97,19 +118,13 @@ namespace Shifaa_EMR_System
 
                     Console.WriteLine("clicked");
                 }
-            }
-
+            
 
         }
 
   
 
-        private void Exit_Click(object sender, EventArgs e)
-        {
-           
-            this.Close();
-
-        }
+ 
 
         private void PatientListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

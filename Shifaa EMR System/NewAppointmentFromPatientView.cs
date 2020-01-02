@@ -9,21 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Linq;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewAppointmentFromPatientView : Form
     {
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         readonly int thisPatientID;
-        readonly string thisProviderID;
-        readonly string thisProviderName;
 
-        public NewAppointmentFromPatientView(int patientID, string providerID, string providerName)
+        public NewAppointmentFromPatientView(int patientID)
         {
             InitializeComponent();
+ 
             this.thisPatientID = patientID;
-            this.thisProviderID = providerID;
-            this.thisProviderName = providerName;
+
         }
 
         private void NewAppointmentFromPatientView_Load(object sender, EventArgs e)

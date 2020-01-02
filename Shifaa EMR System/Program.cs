@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     static class Program
     {
@@ -13,7 +13,8 @@ namespace Shifaa_EMR_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WelcomeHomePage());
+            //Application.Run(new WelcomeHomePage());
+            Application.Run(new ProviderMain("leila Ab", "0"));
         }
     }
 }

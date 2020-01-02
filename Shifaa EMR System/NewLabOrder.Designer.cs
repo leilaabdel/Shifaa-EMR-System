@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class NewLabOrder
     {
@@ -43,8 +43,8 @@
             this.SubmitButton = new System.Windows.Forms.Button();
             this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
             this.patientLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.patientLabTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();

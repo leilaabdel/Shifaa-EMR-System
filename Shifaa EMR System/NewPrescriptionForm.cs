@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewPrescriptionForm : Form
     {
 
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        int thisPatientID;
-        string thisProviderName;
-        string thisProviderID;
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly int thisPatientID;
+        readonly string thisProviderName;
+        readonly string thisProviderID;
 
 
         public NewPrescriptionForm(int patientID , string  providerName , string providerID)
@@ -51,17 +51,21 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            
-           
-            try
+            if (String.IsNullOrWhiteSpace(MedicationBox.Text)) MessageBox.Show("Please enter a valid medication name");
+            else
             {
-                doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text,
-                RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID , DateTime.Today);
-                ((PatientHomePage)this.Owner).prescriptionTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Prescription, thisPatientID);
 
-            } catch
-            {
-                MessageBox.Show("Please enter the medication name");
+                try
+                {
+                    doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text,
+                    RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID, DateTime.Today);
+                    ((PatientHomePage)this.Owner).prescriptionTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Prescription, thisPatientID);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter the medication name");
+                }
             }
        
             

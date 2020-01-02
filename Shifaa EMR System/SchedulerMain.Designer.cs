@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class SchedulerMain
     {
@@ -63,7 +63,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 273);
             this.panel3.TabIndex = 4;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel2
             // 
@@ -164,7 +163,7 @@
             this.monthCalendar2.Location = new System.Drawing.Point(20, 115);
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 8;
-            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar2_DateChanged);
+            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar2_DateChanged);
             // 
             // SchedulerMain
             // 

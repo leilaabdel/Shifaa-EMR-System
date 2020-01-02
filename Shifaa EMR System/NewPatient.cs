@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 
 {
 
@@ -36,73 +36,58 @@ namespace Shifaa_EMR_System
 
 
 
-        private void metroLabel1_Click(object sender, EventArgs e)
+        private void MetroLabel1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Label5_Click(object sender, EventArgs e)
         {
 
         }
 
         private void NewPatient_Load(object sender, EventArgs e)
         {
-
+            this.StartPosition = FormStartPosition.WindowsDefaultLocation;
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void Label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void Label8_Click(object sender, EventArgs e)
         {
 
         }
 
 
-        private string getAge()
+        private string GetAge()
         {
 
             DateTime now = DateTime.Today;
@@ -114,7 +99,7 @@ namespace Shifaa_EMR_System
             return age.ToString();
         }
 
-        private string getGender()
+        private string GetGender()
         {
             if (FemaleCheckBox.Checked && !MaleCheckBox.Checked)
             {
@@ -130,30 +115,28 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private double getBMI()
+        private double GetBMI()
         {
-            while (getWeight() != 0.0 && getHeight() != 0.0)
+            if (GetWeight() != 0.0 && GetHeight() != 0.0)
             {
-                double BMI = getWeight() / Math.Pow(getHeight(), 2) * 10000;
+                double BMI = GetWeight() / Math.Pow(GetHeight(), 2) * 10000;
                 return BMI;
             }
 
             return 0.0;
         }
 
-        private double getWeight()
+        private double GetWeight()
         {
 
-            double weight = 0.0;
-            double.TryParse(WeightBox.Text, out weight);
+            _ = double.TryParse(WeightBox.Text, out double weight);
             return weight;
 
         }
 
-        private Double getHeight()
+        private Double GetHeight()
         {
-            double height = 0.0;
-            double.TryParse(HeightBox.Text, out height);
+            _ = double.TryParse(HeightBox.Text, out double height);
 
             return height;
         }
@@ -192,7 +175,7 @@ namespace Shifaa_EMR_System
                 try
                 {
 
-                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, getAge(), getGender(), maritalStatus , pregnancyStatus, getWeight(), getHeight(), getBMI(), NationalityBox.Text , DateTime.Today);
+                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus , pregnancyStatus, GetWeight(), GetHeight(), GetBMI(), NationalityBox.Text , DateTime.Today);
 
                     System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
 
@@ -203,7 +186,7 @@ namespace Shifaa_EMR_System
                         selectedPatientID = result.PatientID;
                     }
 
-                    DoAction.createNewVitalSign(selectedPatientID, null, null, null, getHeight(), getWeight(), getBMI() , DateTime.Today);
+                    DoAction.createNewVitalSign(selectedPatientID, null, null, null, GetHeight().ToString(), GetWeight().ToString(), GetBMI().ToString() , DateTime.Today);
 
                     this.Close();
 
@@ -226,30 +209,9 @@ namespace Shifaa_EMR_System
           
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
 
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -322,16 +284,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+ 
    
 
         private void PhoneNumberBox_TextChanged(object sender, EventArgs e)

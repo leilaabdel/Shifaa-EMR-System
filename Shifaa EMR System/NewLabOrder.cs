@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewLabOrder : Form
     {
 
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        int thisPatientID;
-        string thisProviderID;
-        string thisProviderName;
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly int thisPatientID;
+        readonly string thisProviderID;
+        readonly string thisProviderName;
 
         public NewLabOrder(int patientID, string providerID , string providerName)
         {
@@ -34,16 +34,21 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                doAction.createNewLabOrder(LabNameBox.Text, thisProviderName, thisProviderID, ScheduledDatePicker.Value, thisPatientID , DateTime.Today);
-                ((PatientHomePage)this.Owner).patientLabTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.PatientLab, thisPatientID);
-                this.Close();
+            if (String.IsNullOrWhiteSpace(LabNameBox.Text)) MessageBox.Show("Please enter a valid lab order");
 
-            }
-            catch
+            else
             {
-                MessageBox.Show("Please enter a lab order or close the page");
+                try
+                {
+                    doAction.createNewLabOrder(LabNameBox.Text, thisProviderName, thisProviderID, ScheduledDatePicker.Value, thisPatientID, DateTime.Today);
+                    ((PatientHomePage)this.Owner).patientLabTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.PatientLab, thisPatientID);
+                    this.Close();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter a lab order or close the page");
+                }
             }
           
         }

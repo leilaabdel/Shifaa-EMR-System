@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class NewProblem : Form
     {
 
-        int thisPatientID;
-        string thisProviderName;
-        string thisProviderID;
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly int thisPatientID;
+        readonly string thisProviderName;
+        readonly string thisProviderID;
+        readonly private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
         public NewProblem(int patientID, string providerName, string providerID)
         {
@@ -36,16 +36,23 @@ namespace Shifaa_EMR_System
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                doAction.createNewProblem(thisPatientID, ProblemBox.Text, DescriptionBox.Text, thisProviderID, thisProviderName , DateTime.Today);
 
-                ((PatientHomePage)this.Owner).problemTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Problem, thisPatientID);
-                this.Close();
-            }
-            catch
+            if (String.IsNullOrWhiteSpace(ProblemBox.Text)) MessageBox.Show("Please enter a valid problem name");
+            else
             {
-                MessageBox.Show("Please enter a valid problem name");
+                try
+                {
+                    doAction.createNewProblem(thisPatientID, ProblemBox.Text, DescriptionBox.Text, thisProviderID, thisProviderName, DateTime.Today);
+
+                    ((PatientHomePage)this.Owner).problemTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Problem, thisPatientID);
+                    this.Close();
+                }
+                catch(Exception ex)
+                {
+                   
+                    MessageBox.Show("Please enter a valid problem name");
+                    throw (ex);
+                }
             }
         }
 

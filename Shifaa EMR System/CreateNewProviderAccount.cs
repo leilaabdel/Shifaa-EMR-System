@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class CreateNewProviderAccount : Form
     {
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
         public CreateNewProviderAccount()
         {
@@ -51,13 +51,13 @@ namespace Shifaa_EMR_System
                     }
                 }
 
-                    
+
             }
             catch
             {
                 MessageBox.Show("Please enter a valid username and passcode combination");
             }
-            
+
         }
 
         private void CreateNewProviderAccount_Load(object sender, EventArgs e)
@@ -69,5 +69,35 @@ namespace Shifaa_EMR_System
         {
             this.Close();
         }
+
+        private void PhoneNumberBox_TextChanged(object sender, EventArgs e)
+        {
+            var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
+
+
+            if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
+            {
+                try
+                {
+
+                    //TODO: FORMAT THE NUMBER USING ASYOUTYPE FORMATER
+                    phoneNumberUtil.Parse(PhoneNumberBox.Text, null);
+
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Please enter a valid phone number");
+                    PhoneNumberBox.Text = null;
+                }
+            }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WelcomeHomePage welcome = new WelcomeHomePage();
+            welcome.Show();
+        }
     }
 }
+

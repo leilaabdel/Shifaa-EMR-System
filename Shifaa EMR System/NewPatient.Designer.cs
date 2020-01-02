@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class NewPatient
     {
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.Label6 = new System.Windows.Forms.Label();
             this.WeightLabel = new System.Windows.Forms.Label();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.FirstNameBox = new System.Windows.Forms.TextBox();
@@ -50,7 +50,7 @@
             this.kgLabel = new System.Windows.Forms.Label();
             this.cmLabel = new System.Windows.Forms.Label();
             this.PhoneNumberBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
             this.MaritalStatusLabel = new System.Windows.Forms.Label();
             this.MarriedBox = new System.Windows.Forms.CheckBox();
             this.SingleBox = new System.Windows.Forms.CheckBox();
@@ -67,67 +67,67 @@
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(0, 0);
             this.metroLabel1.TabIndex = 1;
-            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
+            this.metroLabel1.Click += new System.EventHandler(this.MetroLabel1_Click);
             // 
-            // label1
+            // Label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(303, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "New Patient";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Location = new System.Drawing.Point(323, 22);
+            this.Label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(111, 23);
+            this.Label1.TabIndex = 2;
+            this.Label1.Text = "New Patient";
+            this.Label1.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // label3
+            // Label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(166, 95);
-            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "First Name";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.Label3.AutoSize = true;
+            this.Label3.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Location = new System.Drawing.Point(166, 95);
+            this.Label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(71, 16);
+            this.Label3.TabIndex = 4;
+            this.Label3.Text = "First Name";
+            this.Label3.Click += new System.EventHandler(this.Label3_Click);
             // 
-            // label4
+            // Label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(168, 132);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Last Name";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.Label4.AutoSize = true;
+            this.Label4.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label4.Location = new System.Drawing.Point(168, 132);
+            this.Label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(69, 16);
+            this.Label4.TabIndex = 5;
+            this.Label4.Text = "Last Name";
+            this.Label4.Click += new System.EventHandler(this.Label4_Click);
             // 
-            // label5
+            // Label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(168, 209);
-            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Date of Birth";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.Label5.AutoSize = true;
+            this.Label5.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label5.Location = new System.Drawing.Point(168, 209);
+            this.Label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(78, 16);
+            this.Label5.TabIndex = 6;
+            this.Label5.Text = "Date of Birth";
+            this.Label5.Click += new System.EventHandler(this.Label5_Click);
             // 
-            // label6
+            // Label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(166, 299);
-            this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 16);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Gender";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.Label6.AutoSize = true;
+            this.Label6.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label6.Location = new System.Drawing.Point(166, 299);
+            this.Label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Label6.Name = "Label6";
+            this.Label6.Size = new System.Drawing.Size(50, 16);
+            this.Label6.TabIndex = 7;
+            this.Label6.Text = "Gender";
+            this.Label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // WeightLabel
             // 
@@ -139,7 +139,7 @@
             this.WeightLabel.Size = new System.Drawing.Size(46, 16);
             this.WeightLabel.TabIndex = 8;
             this.WeightLabel.Text = "Weight";
-            this.WeightLabel.Click += new System.EventHandler(this.label7_Click);
+            this.WeightLabel.Click += new System.EventHandler(this.Label7_Click);
             // 
             // HeightLabel
             // 
@@ -151,7 +151,7 @@
             this.HeightLabel.Size = new System.Drawing.Size(45, 16);
             this.HeightLabel.TabIndex = 9;
             this.HeightLabel.Text = "Height";
-            this.HeightLabel.Click += new System.EventHandler(this.label8_Click);
+            this.HeightLabel.Click += new System.EventHandler(this.Label8_Click);
             // 
             // FirstNameBox
             // 
@@ -272,7 +272,7 @@
             this.CancelButton.TabIndex = 25;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = false;
-            this.CancelButton.Click += new System.EventHandler(this.button1_Click);
+            this.CancelButton.Click += new System.EventHandler(this.Button1_Click);
             // 
             // kgLabel
             // 
@@ -283,7 +283,6 @@
             this.kgLabel.Size = new System.Drawing.Size(42, 16);
             this.kgLabel.TabIndex = 26;
             this.kgLabel.Text = "(in kg)";
-            this.kgLabel.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // cmLabel
             // 
@@ -294,7 +293,6 @@
             this.cmLabel.Size = new System.Drawing.Size(45, 16);
             this.cmLabel.TabIndex = 27;
             this.cmLabel.Text = "(in cm)";
-            this.cmLabel.Click += new System.EventHandler(this.cmLabel_Click);
             // 
             // PhoneNumberBox
             // 
@@ -305,16 +303,16 @@
             this.PhoneNumberBox.TabIndex = 29;
             this.PhoneNumberBox.TextChanged += new System.EventHandler(this.PhoneNumberBox_TextChanged);
             // 
-            // label2
+            // Label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(170, 169);
-            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 16);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Phone Number";
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(170, 169);
+            this.Label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(93, 16);
+            this.Label2.TabIndex = 28;
+            this.Label2.Text = "Phone Number";
             // 
             // MaritalStatusLabel
             // 
@@ -404,7 +402,7 @@
             this.Controls.Add(this.SingleBox);
             this.Controls.Add(this.MaritalStatusLabel);
             this.Controls.Add(this.PhoneNumberBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Label2);
             this.Controls.Add(this.cmLabel);
             this.Controls.Add(this.kgLabel);
             this.Controls.Add(this.CancelButton);
@@ -420,20 +418,20 @@
             this.Controls.Add(this.FirstNameBox);
             this.Controls.Add(this.HeightLabel);
             this.Controls.Add(this.WeightLabel);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Label6);
+            this.Controls.Add(this.Label5);
+            this.Controls.Add(this.Label4);
+            this.Controls.Add(this.Label3);
+            this.Controls.Add(this.Label1);
             this.Controls.Add(this.metroLabel1);
             this.Font = new System.Drawing.Font("Bahnschrift Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(7);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewPatient";
             this.Padding = new System.Windows.Forms.Padding(0, 75, 0, 0);
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "New Patient";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.NewPatient_Load);
             this.ResumeLayout(false);
@@ -444,11 +442,11 @@
         #endregion
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Label1;
+        private System.Windows.Forms.Label Label3;
+        private System.Windows.Forms.Label Label4;
+        private System.Windows.Forms.Label Label5;
+        private System.Windows.Forms.Label Label6;
         private System.Windows.Forms.Label WeightLabel;
         private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.TextBox FirstNameBox;
@@ -465,7 +463,7 @@
         private System.Windows.Forms.Label kgLabel;
         private System.Windows.Forms.Label cmLabel;
         private System.Windows.Forms.TextBox PhoneNumberBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.Label MaritalStatusLabel;
         private System.Windows.Forms.CheckBox MarriedBox;
         private System.Windows.Forms.CheckBox SingleBox;

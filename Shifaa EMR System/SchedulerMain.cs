@@ -7,7 +7,7 @@ using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class SchedulerMain : Form
     {
@@ -15,10 +15,9 @@ namespace Shifaa_EMR_System
         {
             InitializeComponent();
             globalAppointmentList = new AppointmentListView(this);
-            globalNewAppointment = new NewAppointment(this , globalAppointmentList);
+            globalNewAppointment = new NewAppointment( globalAppointmentList);
         }
 
-        public static string type() => "Scheduler";
 
         private void Center(Form form)
         {
@@ -28,7 +27,7 @@ namespace Shifaa_EMR_System
         private NewAppointment globalNewAppointment;
 
 
-        public void setNewAppointment(NewAppointment newAppointment)
+        public void SetNewAppointment(NewAppointment newAppointment)
         {
             this.globalNewAppointment = newAppointment;
             this.globalNewAppointment.MdiParent = this;
@@ -41,16 +40,15 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
             {
-                DataGridViewTextBoxColumn TextBoxCell = new DataGridViewTextBoxColumn();
                 AppointmentListView appointmentListView = new AppointmentListView(this);
-                setAppointmentListView(appointmentListView);
-                for (int i = 0; i < globalAppointmentList.getAppointmentListView().Rows.Count - 1; i++)
+                SetAppointmentListView(appointmentListView);
+                for (int i = 0; i < globalAppointmentList.GetAppointmentListView().Rows.Count - 1; i++)
                 {
-                    globalAppointmentList.getAppointmentListView()["PatientID", i] = new DataGridViewTextBoxCell();
-                    globalAppointmentList.getAppointmentListView()["Status", i] = new DataGridViewButtonCell();
+                    globalAppointmentList.GetAppointmentListView()["PatientID", i] = new DataGridViewTextBoxCell();
+                    globalAppointmentList.GetAppointmentListView()["Status", i] = new DataGridViewButtonCell();
                 }
 
-                globalAppointmentList.fillByDate();
+                globalAppointmentList.FillByDate();
                 this.globalAppointmentList.Show();
 
 
@@ -59,7 +57,7 @@ namespace Shifaa_EMR_System
 
         AppointmentListView globalAppointmentList;
 
-        private void setAppointmentListView(AppointmentListView appointmentListView)
+        private void SetAppointmentListView(AppointmentListView appointmentListView)
         {
             this.globalAppointmentList = appointmentListView;
             this.globalAppointmentList.MdiParent = this;
@@ -74,9 +72,9 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
             {
-                NewAppointment newAppointment = new NewAppointment(this , globalAppointmentList);
+                NewAppointment newAppointment = new NewAppointment(globalAppointmentList);
                 Center(newAppointment);
-                setNewAppointment(newAppointment);
+                SetNewAppointment(newAppointment);
 
             }
 
@@ -87,7 +85,7 @@ namespace Shifaa_EMR_System
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void monthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
+        private void MonthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
         {
             dateList.Clear();
             for (var dt = monthCalendar2.SelectionStart; dt <= monthCalendar2.SelectionEnd; dt = dt.AddDays(1))
@@ -99,23 +97,13 @@ namespace Shifaa_EMR_System
 
 
             globalAppointmentList.MdiParent = this;
-            globalAppointmentList.fillByDate();
+            globalAppointmentList.FillByDate();
         }
 
-        public DateTime getDate()
-        {
-            return monthCalendar2.SelectionStart.Date;
-        }
+     
+        readonly List<DateTime> dateList = new List<DateTime>();
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        
-        
-        List<DateTime> dateList = new List<DateTime>();
-
-        public List<DateTime> getDateSelection()
+        public List<DateTime> GetDateSelection()
         {
 
             return dateList;

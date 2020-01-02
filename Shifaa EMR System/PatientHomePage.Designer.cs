@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class PatientHomePage
     {
@@ -52,7 +52,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Panel1 = new System.Windows.Forms.Panel();
             this.MaritalStatusLabel = new System.Windows.Forms.Label();
             this.FinishVisitButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@
             this.PatientGenderLabel = new System.Windows.Forms.Label();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.PatientNameLabel = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Panel2 = new System.Windows.Forms.Panel();
             this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
             this.NoteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,14 +78,14 @@
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
+            this.Panel7 = new System.Windows.Forms.Panel();
             this.deleteNoteButton = new System.Windows.Forms.Button();
             this.AddNoteButton = new System.Windows.Forms.Button();
             this.NoteHistoryLabel = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.Panel3 = new System.Windows.Forms.Panel();
             this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.appointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,10 +106,10 @@
             this.createdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientIDDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.Panel8 = new System.Windows.Forms.Panel();
             this.deleteAppointmentButton = new System.Windows.Forms.Button();
             this.AddNewAppointmentButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
             this.BloodPressureLabel = new System.Windows.Forms.Label();
             this.PulseLabel = new System.Windows.Forms.Label();
             this.TemperatureLabel = new System.Windows.Forms.Label();
@@ -122,7 +122,7 @@
             this.WeightValueLabel = new System.Windows.Forms.Label();
             this.BMILabel = new System.Windows.Forms.Label();
             this.BMIValueLabel = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.Panel5 = new System.Windows.Forms.Panel();
             this.MedicationsListDataGridView = new System.Windows.Forms.DataGridView();
             this.PrescriptionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,12 +138,12 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateStopped = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.Panel9 = new System.Windows.Forms.Panel();
             this.EditMedicationButton = new System.Windows.Forms.Button();
             this.deletePrescriptionButton = new System.Windows.Forms.Button();
             this.AddMedicationButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.Label2 = new System.Windows.Forms.Label();
+            this.Panel6 = new System.Windows.Forms.Panel();
             this.AllergiesTable = new System.Windows.Forms.DataGridView();
             this.AllergieName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,11 +160,11 @@
             this.providerNameDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCreatedDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allergieBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel10 = new System.Windows.Forms.Panel();
+            this.Panel10 = new System.Windows.Forms.Panel();
             this.deleteAllergyButton = new System.Windows.Forms.Button();
             this.AddAllergieButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Panel11 = new System.Windows.Forms.Panel();
             this.LabsTable = new System.Windows.Forms.DataGridView();
             this.PatientLabID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LabTestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -181,12 +181,12 @@
             this.patientIDDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduledDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel12 = new System.Windows.Forms.Panel();
+            this.Panel12 = new System.Windows.Forms.Panel();
             this.OpenLabButton = new System.Windows.Forms.Button();
             this.deleteLabButton = new System.Windows.Forms.Button();
             this.AddLabButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.Panel13 = new System.Windows.Forms.Panel();
             this.VitalHistoryTable = new System.Windows.Forms.DataGridView();
             this.VitalSignID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BloodPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -209,9 +209,9 @@
             this.VitalHistoryLabel = new System.Windows.Forms.Panel();
             this.deleteVitalButton = new System.Windows.Forms.Button();
             this.AddNewVitalButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
+            this.Label6 = new System.Windows.Forms.Label();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.Panel14 = new System.Windows.Forms.Panel();
             this.ScansTable = new System.Windows.Forms.DataGridView();
             this.PatientScanID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ScanName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -230,8 +230,8 @@
             this.patientIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduledDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientScanBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Panel15 = new System.Windows.Forms.Panel();
+            this.Button1 = new System.Windows.Forms.Button();
             this.deleteScanButton = new System.Windows.Forms.Button();
             this.AddNewScanButton = new System.Windows.Forms.Button();
             this.ScansLabel = new System.Windows.Forms.Label();
@@ -245,7 +245,7 @@
             this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.Panel4 = new System.Windows.Forms.Panel();
             this.ProblemListView = new System.Windows.Forms.DataGridView();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -260,74 +260,73 @@
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.problemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel17 = new System.Windows.Forms.Panel();
+            this.Panel17 = new System.Windows.Forms.Panel();
             this.UpdateProblemButton = new System.Windows.Forms.Button();
             this.removeProblemButton = new System.Windows.Forms.Button();
             this.addProblemButton = new System.Windows.Forms.Button();
             this.ProblemListLabel = new System.Windows.Forms.Label();
-            this.problemTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.ProblemTableAdapter();
-            this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
-            this.allergieTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
-            this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
-            this.patientLabTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
-            this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
-            this.vitalSignsTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
+            this.problemTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.ProblemTableAdapter();
+            this.prescriptionTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.allergieTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.AllergieTableAdapter();
+            this.patientNoteTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
+            this.patientLabTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientLabTableAdapter();
+            this.patientScanTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
+            this.vitalSignsTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
-            this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.appointmentTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            this.Panel1.SuspendLayout();
+            this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.Panel7.SuspendLayout();
+            this.Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
-            this.panel8.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.Panel8.SuspendLayout();
+            this.Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MedicationsListDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.Panel9.SuspendLayout();
+            this.Panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllergiesTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).BeginInit();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.Panel10.SuspendLayout();
+            this.Panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LabsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).BeginInit();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.Panel12.SuspendLayout();
+            this.Panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).BeginInit();
             this.VitalHistoryLabel.SuspendLayout();
-            this.panel14.SuspendLayout();
+            this.Panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScansTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).BeginInit();
-            this.panel15.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.Panel15.SuspendLayout();
+            this.Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProblemListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.problemBindingSource)).BeginInit();
-            this.panel17.SuspendLayout();
+            this.Panel17.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // Panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Azure;
-            this.panel1.Controls.Add(this.MaritalStatusLabel);
-            this.panel1.Controls.Add(this.FinishVisitButton);
-            this.panel1.Controls.Add(this.CancelButton);
-            this.panel1.Controls.Add(this.DOBLabel);
-            this.panel1.Controls.Add(this.PatientAgeLabel);
-            this.panel1.Controls.Add(this.PatientGenderLabel);
-            this.panel1.Controls.Add(this.PhoneNumberLabel);
-            this.panel1.Controls.Add(this.PatientNameLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1443, 86);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.Panel1.BackColor = System.Drawing.Color.Azure;
+            this.Panel1.Controls.Add(this.MaritalStatusLabel);
+            this.Panel1.Controls.Add(this.FinishVisitButton);
+            this.Panel1.Controls.Add(this.CancelButton);
+            this.Panel1.Controls.Add(this.DOBLabel);
+            this.Panel1.Controls.Add(this.PatientAgeLabel);
+            this.Panel1.Controls.Add(this.PatientGenderLabel);
+            this.Panel1.Controls.Add(this.PhoneNumberLabel);
+            this.Panel1.Controls.Add(this.PatientNameLabel);
+            this.Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel1.Location = new System.Drawing.Point(0, 20);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.Panel1.Size = new System.Drawing.Size(1460, 86);
+            this.Panel1.TabIndex = 0;
             // 
             // MaritalStatusLabel
             // 
@@ -348,7 +347,7 @@
             this.FinishVisitButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.FinishVisitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FinishVisitButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.FinishVisitButton.Location = new System.Drawing.Point(1192, 24);
+            this.FinishVisitButton.Location = new System.Drawing.Point(1209, 24);
             this.FinishVisitButton.Name = "FinishVisitButton";
             this.FinishVisitButton.Size = new System.Drawing.Size(142, 35);
             this.FinishVisitButton.TabIndex = 51;
@@ -364,7 +363,7 @@
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton.Location = new System.Drawing.Point(1340, 24);
+            this.CancelButton.Location = new System.Drawing.Point(1357, 24);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 35);
             this.CancelButton.TabIndex = 50;
@@ -426,15 +425,14 @@
             this.PatientNameLabel.Text = "Patient Name";
             this.PatientNameLabel.Click += new System.EventHandler(this.PatientNameLabel_Click);
             // 
-            // panel2
+            // Panel2
             // 
-            this.panel2.Controls.Add(this.NoteHistoryTable);
-            this.panel2.Controls.Add(this.panel7);
-            this.panel2.Location = new System.Drawing.Point(13, 471);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(494, 748);
-            this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.Panel2.Controls.Add(this.NoteHistoryTable);
+            this.Panel2.Controls.Add(this.Panel7);
+            this.Panel2.Location = new System.Drawing.Point(13, 471);
+            this.Panel2.Name = "Panel2";
+            this.Panel2.Size = new System.Drawing.Size(494, 748);
+            this.Panel2.TabIndex = 1;
             // 
             // NoteHistoryTable
             // 
@@ -614,17 +612,17 @@
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
             this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // panel7
+            // Panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Azure;
-            this.panel7.Controls.Add(this.deleteNoteButton);
-            this.panel7.Controls.Add(this.AddNoteButton);
-            this.panel7.Controls.Add(this.NoteHistoryLabel);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(494, 42);
-            this.panel7.TabIndex = 33;
+            this.Panel7.BackColor = System.Drawing.Color.Azure;
+            this.Panel7.Controls.Add(this.deleteNoteButton);
+            this.Panel7.Controls.Add(this.AddNoteButton);
+            this.Panel7.Controls.Add(this.NoteHistoryLabel);
+            this.Panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel7.Location = new System.Drawing.Point(0, 0);
+            this.Panel7.Name = "Panel7";
+            this.Panel7.Size = new System.Drawing.Size(494, 42);
+            this.Panel7.TabIndex = 33;
             // 
             // deleteNoteButton
             // 
@@ -642,7 +640,7 @@
             this.deleteNoteButton.TabIndex = 47;
             this.deleteNoteButton.Text = "-";
             this.deleteNoteButton.UseVisualStyleBackColor = false;
-            this.deleteNoteButton.Click += new System.EventHandler(this.deleteNoteButton_Click);
+            this.deleteNoteButton.Click += new System.EventHandler(this.DeleteNoteButton_Click);
             // 
             // AddNoteButton
             // 
@@ -671,18 +669,17 @@
             this.NoteHistoryLabel.Text = "Note History";
             this.NoteHistoryLabel.Click += new System.EventHandler(this.NoteHistoryLabel_Click);
             // 
-            // panel3
+            // Panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.AppointmentListView1);
-            this.panel3.Controls.Add(this.panel8);
-            this.panel3.Location = new System.Drawing.Point(513, 918);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(876, 1796);
-            this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.Panel3.Controls.Add(this.AppointmentListView1);
+            this.Panel3.Controls.Add(this.Panel8);
+            this.Panel3.Location = new System.Drawing.Point(513, 918);
+            this.Panel3.Name = "Panel3";
+            this.Panel3.Size = new System.Drawing.Size(825, 2992);
+            this.Panel3.TabIndex = 2;
             // 
             // AppointmentListView1
             // 
@@ -702,7 +699,7 @@
             this.AppointmentListView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.AppointmentListView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AppointmentListView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.appointmentID,
             this.FirstName,
             this.LastName,
             this.dataGridViewTextBoxColumn8,
@@ -746,16 +743,16 @@
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AppointmentListView1.RowHeadersVisible = false;
             this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentListView1.Size = new System.Drawing.Size(876, 1754);
+            this.AppointmentListView1.Size = new System.Drawing.Size(825, 2950);
             this.AppointmentListView1.TabIndex = 44;
             // 
-            // Column1
+            // appointmentID
             // 
-            this.Column1.DataPropertyName = "appointmentID";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
+            this.appointmentID.DataPropertyName = "appointmentID";
+            this.appointmentID.HeaderText = "appointmentID";
+            this.appointmentID.Name = "appointmentID";
+            this.appointmentID.ReadOnly = true;
+            this.appointmentID.Visible = false;
             // 
             // FirstName
             // 
@@ -910,17 +907,17 @@
             this.appointmentBindingSource.DataMember = "Appointment";
             this.appointmentBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // panel8
+            // Panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.Azure;
-            this.panel8.Controls.Add(this.deleteAppointmentButton);
-            this.panel8.Controls.Add(this.AddNewAppointmentButton);
-            this.panel8.Controls.Add(this.label1);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(876, 42);
-            this.panel8.TabIndex = 34;
+            this.Panel8.BackColor = System.Drawing.Color.Azure;
+            this.Panel8.Controls.Add(this.deleteAppointmentButton);
+            this.Panel8.Controls.Add(this.AddNewAppointmentButton);
+            this.Panel8.Controls.Add(this.Label1);
+            this.Panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel8.Location = new System.Drawing.Point(0, 0);
+            this.Panel8.Name = "Panel8";
+            this.Panel8.Size = new System.Drawing.Size(825, 42);
+            this.Panel8.TabIndex = 34;
             // 
             // deleteAppointmentButton
             // 
@@ -932,13 +929,13 @@
             this.deleteAppointmentButton.FlatAppearance.BorderSize = 0;
             this.deleteAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAppointmentButton.Location = new System.Drawing.Point(813, 2);
+            this.deleteAppointmentButton.Location = new System.Drawing.Point(762, 2);
             this.deleteAppointmentButton.Name = "deleteAppointmentButton";
             this.deleteAppointmentButton.Size = new System.Drawing.Size(22, 33);
             this.deleteAppointmentButton.TabIndex = 46;
             this.deleteAppointmentButton.Text = "-";
             this.deleteAppointmentButton.UseVisualStyleBackColor = false;
-            this.deleteAppointmentButton.Click += new System.EventHandler(this.deleteAppointmentButton_Click);
+            this.deleteAppointmentButton.Click += new System.EventHandler(this.DeleteAppointmentButton_Click);
             // 
             // AddNewAppointmentButton
             // 
@@ -949,7 +946,7 @@
             this.AddNewAppointmentButton.FlatAppearance.BorderSize = 0;
             this.AddNewAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewAppointmentButton.Location = new System.Drawing.Point(836, 2);
+            this.AddNewAppointmentButton.Location = new System.Drawing.Point(785, 2);
             this.AddNewAppointmentButton.Name = "AddNewAppointmentButton";
             this.AddNewAppointmentButton.Size = new System.Drawing.Size(37, 35);
             this.AddNewAppointmentButton.TabIndex = 45;
@@ -957,15 +954,15 @@
             this.AddNewAppointmentButton.UseVisualStyleBackColor = false;
             this.AddNewAppointmentButton.Click += new System.EventHandler(this.AddNewAppointmentButton_Click);
             // 
-            // label1
+            // Label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 23);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Appointment History";
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Location = new System.Drawing.Point(7, 9);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(181, 23);
+            this.Label1.TabIndex = 28;
+            this.Label1.Text = "Appointment History";
             // 
             // BloodPressureLabel
             // 
@@ -976,7 +973,6 @@
             this.BloodPressureLabel.Size = new System.Drawing.Size(121, 19);
             this.BloodPressureLabel.TabIndex = 31;
             this.BloodPressureLabel.Text = "Blood Pressure";
-            this.BloodPressureLabel.Click += new System.EventHandler(this.BloodPressureLabel_Click);
             // 
             // PulseLabel
             // 
@@ -987,7 +983,6 @@
             this.PulseLabel.Size = new System.Drawing.Size(50, 19);
             this.PulseLabel.TabIndex = 32;
             this.PulseLabel.Text = "Pulse";
-            this.PulseLabel.Click += new System.EventHandler(this.PulseLabel_Click);
             // 
             // TemperatureLabel
             // 
@@ -998,7 +993,6 @@
             this.TemperatureLabel.Size = new System.Drawing.Size(103, 19);
             this.TemperatureLabel.TabIndex = 33;
             this.TemperatureLabel.Text = "Temperature";
-            this.TemperatureLabel.Click += new System.EventHandler(this.TemperatureLabel_Click);
             // 
             // HeightLabel
             // 
@@ -1009,7 +1003,6 @@
             this.HeightLabel.Size = new System.Drawing.Size(56, 19);
             this.HeightLabel.TabIndex = 34;
             this.HeightLabel.Text = "Height";
-            this.HeightLabel.Click += new System.EventHandler(this.HeightLabel_Click);
             // 
             // WeightLabel
             // 
@@ -1020,7 +1013,6 @@
             this.WeightLabel.Size = new System.Drawing.Size(58, 19);
             this.WeightLabel.TabIndex = 35;
             this.WeightLabel.Text = "Weight";
-            this.WeightLabel.Click += new System.EventHandler(this.WeightLabel_Click);
             // 
             // BloodPressureValueLabel
             // 
@@ -1031,7 +1023,6 @@
             this.BloodPressureValueLabel.Size = new System.Drawing.Size(72, 19);
             this.BloodPressureValueLabel.TabIndex = 36;
             this.BloodPressureValueLabel.Text = "0 mm Hg";
-            this.BloodPressureValueLabel.Click += new System.EventHandler(this.BloodPressureValueLabel_Click);
             // 
             // PulseValueLabel
             // 
@@ -1042,7 +1033,6 @@
             this.PulseValueLabel.Size = new System.Drawing.Size(53, 19);
             this.PulseValueLabel.TabIndex = 37;
             this.PulseValueLabel.Text = "0 bpm";
-            this.PulseValueLabel.Click += new System.EventHandler(this.PulseValueLabel_Click);
             // 
             // TemperatureValueLabel
             // 
@@ -1053,7 +1043,6 @@
             this.TemperatureValueLabel.Size = new System.Drawing.Size(37, 19);
             this.TemperatureValueLabel.TabIndex = 38;
             this.TemperatureValueLabel.Text = "0 °C";
-            this.TemperatureValueLabel.Click += new System.EventHandler(this.TemperatureValueLabel_Click);
             // 
             // HeightValueLabel
             // 
@@ -1064,7 +1053,6 @@
             this.HeightValueLabel.Size = new System.Drawing.Size(43, 19);
             this.HeightValueLabel.TabIndex = 39;
             this.HeightValueLabel.Text = "0 cm";
-            this.HeightValueLabel.Click += new System.EventHandler(this.HeightValueLabel_Click);
             // 
             // WeightValueLabel
             // 
@@ -1075,7 +1063,6 @@
             this.WeightValueLabel.Size = new System.Drawing.Size(38, 19);
             this.WeightValueLabel.TabIndex = 40;
             this.WeightValueLabel.Text = "0 kg";
-            this.WeightValueLabel.Click += new System.EventHandler(this.WeightValueLabel_Click);
             // 
             // BMILabel
             // 
@@ -1086,7 +1073,6 @@
             this.BMILabel.Size = new System.Drawing.Size(35, 19);
             this.BMILabel.TabIndex = 41;
             this.BMILabel.Text = "BMI";
-            this.BMILabel.Click += new System.EventHandler(this.BMILabel_Click);
             // 
             // BMIValueLabel
             // 
@@ -1097,17 +1083,15 @@
             this.BMIValueLabel.Size = new System.Drawing.Size(63, 19);
             this.BMIValueLabel.TabIndex = 42;
             this.BMIValueLabel.Text = "0 kg/m²";
-            this.BMIValueLabel.Click += new System.EventHandler(this.BMIValueLabel_Click);
             // 
-            // panel5
+            // Panel5
             // 
-            this.panel5.Controls.Add(this.MedicationsListDataGridView);
-            this.panel5.Controls.Add(this.panel9);
-            this.panel5.Location = new System.Drawing.Point(513, 112);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(279, 270);
-            this.panel5.TabIndex = 3;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            this.Panel5.Controls.Add(this.MedicationsListDataGridView);
+            this.Panel5.Controls.Add(this.Panel9);
+            this.Panel5.Location = new System.Drawing.Point(513, 112);
+            this.Panel5.Name = "Panel5";
+            this.Panel5.Size = new System.Drawing.Size(279, 270);
+            this.Panel5.TabIndex = 3;
             // 
             // MedicationsListDataGridView
             // 
@@ -1166,7 +1150,6 @@
             this.MedicationsListDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.MedicationsListDataGridView.Size = new System.Drawing.Size(279, 228);
             this.MedicationsListDataGridView.TabIndex = 45;
-            this.MedicationsListDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MedicationsListDataGridView_CellContentClick);
             // 
             // PrescriptionID
             // 
@@ -1275,26 +1258,25 @@
             this.prescriptionBindingSource.DataMember = "Prescription";
             this.prescriptionBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // panel9
+            // Panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.Azure;
-            this.panel9.Controls.Add(this.EditMedicationButton);
-            this.panel9.Controls.Add(this.deletePrescriptionButton);
-            this.panel9.Controls.Add(this.AddMedicationButton);
-            this.panel9.Controls.Add(this.label2);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(279, 42);
-            this.panel9.TabIndex = 35;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            this.Panel9.BackColor = System.Drawing.Color.Azure;
+            this.Panel9.Controls.Add(this.EditMedicationButton);
+            this.Panel9.Controls.Add(this.deletePrescriptionButton);
+            this.Panel9.Controls.Add(this.AddMedicationButton);
+            this.Panel9.Controls.Add(this.Label2);
+            this.Panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel9.Location = new System.Drawing.Point(0, 0);
+            this.Panel9.Name = "Panel9";
+            this.Panel9.Size = new System.Drawing.Size(279, 42);
+            this.Panel9.TabIndex = 35;
             // 
             // EditMedicationButton
             // 
             this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.EditMedicationButton.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EditIcon;
             this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -1325,7 +1307,7 @@
             this.deletePrescriptionButton.TabIndex = 47;
             this.deletePrescriptionButton.Text = "-";
             this.deletePrescriptionButton.UseVisualStyleBackColor = false;
-            this.deletePrescriptionButton.Click += new System.EventHandler(this.deletePrescriptionButton_Click);
+            this.deletePrescriptionButton.Click += new System.EventHandler(this.DeletePrescriptionButton_Click);
             // 
             // AddMedicationButton
             // 
@@ -1343,28 +1325,27 @@
             this.AddMedicationButton.UseVisualStyleBackColor = false;
             this.AddMedicationButton.Click += new System.EventHandler(this.AddMedicationButton_Click);
             // 
-            // label2
+            // Label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 23);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Medications";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(19, 9);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(111, 23);
+            this.Label2.TabIndex = 28;
+            this.Label2.Text = "Medications";
+            this.Label2.Click += new System.EventHandler(this.Label2_Click);
             // 
-            // panel6
+            // Panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.Controls.Add(this.AllergiesTable);
-            this.panel6.Controls.Add(this.panel10);
-            this.panel6.Location = new System.Drawing.Point(798, 112);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(591, 270);
-            this.panel6.TabIndex = 4;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            this.Panel6.Controls.Add(this.AllergiesTable);
+            this.Panel6.Controls.Add(this.Panel10);
+            this.Panel6.Location = new System.Drawing.Point(798, 112);
+            this.Panel6.Name = "Panel6";
+            this.Panel6.Size = new System.Drawing.Size(540, 270);
+            this.Panel6.TabIndex = 4;
             // 
             // AllergiesTable
             // 
@@ -1423,7 +1404,7 @@
             this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.AllergiesTable.RowHeadersVisible = false;
             this.AllergiesTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AllergiesTable.Size = new System.Drawing.Size(591, 228);
+            this.AllergiesTable.Size = new System.Drawing.Size(540, 228);
             this.AllergiesTable.TabIndex = 46;
             // 
             // AllergieName
@@ -1541,17 +1522,17 @@
             this.allergieBindingSource.DataMember = "Allergie";
             this.allergieBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // panel10
+            // Panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.Azure;
-            this.panel10.Controls.Add(this.deleteAllergyButton);
-            this.panel10.Controls.Add(this.AddAllergieButton);
-            this.panel10.Controls.Add(this.label3);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(591, 42);
-            this.panel10.TabIndex = 36;
+            this.Panel10.BackColor = System.Drawing.Color.Azure;
+            this.Panel10.Controls.Add(this.deleteAllergyButton);
+            this.Panel10.Controls.Add(this.AddAllergieButton);
+            this.Panel10.Controls.Add(this.Label3);
+            this.Panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel10.Location = new System.Drawing.Point(0, 0);
+            this.Panel10.Name = "Panel10";
+            this.Panel10.Size = new System.Drawing.Size(540, 42);
+            this.Panel10.TabIndex = 36;
             // 
             // deleteAllergyButton
             // 
@@ -1563,13 +1544,13 @@
             this.deleteAllergyButton.FlatAppearance.BorderSize = 0;
             this.deleteAllergyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllergyButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAllergyButton.Location = new System.Drawing.Point(534, 2);
+            this.deleteAllergyButton.Location = new System.Drawing.Point(483, 2);
             this.deleteAllergyButton.Name = "deleteAllergyButton";
             this.deleteAllergyButton.Size = new System.Drawing.Size(24, 33);
             this.deleteAllergyButton.TabIndex = 48;
             this.deleteAllergyButton.Text = "-";
             this.deleteAllergyButton.UseVisualStyleBackColor = false;
-            this.deleteAllergyButton.Click += new System.EventHandler(this.deleteAllergyButton_Click);
+            this.deleteAllergyButton.Click += new System.EventHandler(this.DeleteAllergyButton_Click);
             // 
             // AddAllergieButton
             // 
@@ -1580,7 +1561,7 @@
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(560, 2);
+            this.AddAllergieButton.Location = new System.Drawing.Point(509, 2);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(28, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -1588,27 +1569,26 @@
             this.AddAllergieButton.UseVisualStyleBackColor = false;
             this.AddAllergieButton.Click += new System.EventHandler(this.AddAllergieButton_Click);
             // 
-            // label3
+            // Label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 23);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Allergies";
+            this.Label3.AutoSize = true;
+            this.Label3.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.Location = new System.Drawing.Point(23, 8);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(87, 23);
+            this.Label3.TabIndex = 28;
+            this.Label3.Text = "Allergies";
             // 
-            // panel11
+            // Panel11
             // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.Controls.Add(this.LabsTable);
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(798, 389);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(591, 257);
-            this.panel11.TabIndex = 35;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            this.Panel11.Controls.Add(this.LabsTable);
+            this.Panel11.Controls.Add(this.Panel12);
+            this.Panel11.Location = new System.Drawing.Point(798, 389);
+            this.Panel11.Name = "Panel11";
+            this.Panel11.Size = new System.Drawing.Size(540, 257);
+            this.Panel11.TabIndex = 35;
             // 
             // LabsTable
             // 
@@ -1666,9 +1646,8 @@
             this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.LabsTable.RowHeadersVisible = false;
             this.LabsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LabsTable.Size = new System.Drawing.Size(591, 215);
+            this.LabsTable.Size = new System.Drawing.Size(540, 215);
             this.LabsTable.TabIndex = 47;
-            this.LabsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
             // 
             // PatientLabID
             // 
@@ -1784,31 +1763,31 @@
             this.patientLabBindingSource.DataMember = "PatientLab";
             this.patientLabBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // panel12
+            // Panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.Azure;
-            this.panel12.Controls.Add(this.OpenLabButton);
-            this.panel12.Controls.Add(this.deleteLabButton);
-            this.panel12.Controls.Add(this.AddLabButton);
-            this.panel12.Controls.Add(this.label4);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(591, 42);
-            this.panel12.TabIndex = 34;
+            this.Panel12.BackColor = System.Drawing.Color.Azure;
+            this.Panel12.Controls.Add(this.OpenLabButton);
+            this.Panel12.Controls.Add(this.deleteLabButton);
+            this.Panel12.Controls.Add(this.AddLabButton);
+            this.Panel12.Controls.Add(this.Label4);
+            this.Panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel12.Location = new System.Drawing.Point(0, 0);
+            this.Panel12.Name = "Panel12";
+            this.Panel12.Size = new System.Drawing.Size(540, 42);
+            this.Panel12.TabIndex = 34;
             // 
             // OpenLabButton
             // 
             this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.OpenLabButton.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EyeIcon1;
             this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.OpenLabButton.FlatAppearance.BorderSize = 0;
             this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabButton.Location = new System.Drawing.Point(670, 10);
+            this.OpenLabButton.Location = new System.Drawing.Point(619, 10);
             this.OpenLabButton.Name = "OpenLabButton";
             this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
             this.OpenLabButton.TabIndex = 50;
@@ -1824,13 +1803,13 @@
             this.deleteLabButton.FlatAppearance.BorderSize = 0;
             this.deleteLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteLabButton.Location = new System.Drawing.Point(534, 1);
+            this.deleteLabButton.Location = new System.Drawing.Point(483, 1);
             this.deleteLabButton.Name = "deleteLabButton";
             this.deleteLabButton.Size = new System.Drawing.Size(22, 39);
             this.deleteLabButton.TabIndex = 49;
             this.deleteLabButton.Text = "-";
             this.deleteLabButton.UseVisualStyleBackColor = false;
-            this.deleteLabButton.Click += new System.EventHandler(this.deleteLabButton_Click);
+            this.deleteLabButton.Click += new System.EventHandler(this.DeleteLabButton_Click);
             // 
             // AddLabButton
             // 
@@ -1841,7 +1820,7 @@
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(560, 1);
+            this.AddLabButton.Location = new System.Drawing.Point(509, 1);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(28, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1849,27 +1828,26 @@
             this.AddLabButton.UseVisualStyleBackColor = false;
             this.AddLabButton.Click += new System.EventHandler(this.AddLabButton_Click);
             // 
-            // label4
+            // Label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 23);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Labs";
+            this.Label4.AutoSize = true;
+            this.Label4.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label4.Location = new System.Drawing.Point(19, 10);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(51, 23);
+            this.Label4.TabIndex = 28;
+            this.Label4.Text = "Labs";
             // 
-            // panel13
+            // Panel13
             // 
-            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Panel13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel13.Controls.Add(this.VitalHistoryTable);
-            this.panel13.Controls.Add(this.VitalHistoryLabel);
-            this.panel13.Location = new System.Drawing.Point(513, 652);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(876, 260);
-            this.panel13.TabIndex = 43;
-            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
+            this.Panel13.Controls.Add(this.VitalHistoryTable);
+            this.Panel13.Controls.Add(this.VitalHistoryLabel);
+            this.Panel13.Location = new System.Drawing.Point(513, 652);
+            this.Panel13.Name = "Panel13";
+            this.Panel13.Size = new System.Drawing.Size(825, 260);
+            this.Panel13.TabIndex = 43;
             // 
             // VitalHistoryTable
             // 
@@ -1930,9 +1908,8 @@
             this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.VitalHistoryTable.RowHeadersVisible = false;
             this.VitalHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VitalHistoryTable.Size = new System.Drawing.Size(876, 218);
+            this.VitalHistoryTable.Size = new System.Drawing.Size(825, 218);
             this.VitalHistoryTable.TabIndex = 45;
-            this.VitalHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // VitalSignID
             // 
@@ -2073,12 +2050,12 @@
             this.VitalHistoryLabel.BackColor = System.Drawing.Color.Azure;
             this.VitalHistoryLabel.Controls.Add(this.deleteVitalButton);
             this.VitalHistoryLabel.Controls.Add(this.AddNewVitalButton);
-            this.VitalHistoryLabel.Controls.Add(this.label6);
-            this.VitalHistoryLabel.Controls.Add(this.label5);
+            this.VitalHistoryLabel.Controls.Add(this.Label6);
+            this.VitalHistoryLabel.Controls.Add(this.Label5);
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(876, 42);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(825, 42);
             this.VitalHistoryLabel.TabIndex = 35;
             this.VitalHistoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.VitalHistoryLabel_Paint);
             // 
@@ -2092,13 +2069,13 @@
             this.deleteVitalButton.FlatAppearance.BorderSize = 0;
             this.deleteVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteVitalButton.Location = new System.Drawing.Point(819, 2);
+            this.deleteVitalButton.Location = new System.Drawing.Point(768, 2);
             this.deleteVitalButton.Name = "deleteVitalButton";
             this.deleteVitalButton.Size = new System.Drawing.Size(25, 33);
             this.deleteVitalButton.TabIndex = 50;
             this.deleteVitalButton.Text = "-";
             this.deleteVitalButton.UseVisualStyleBackColor = false;
-            this.deleteVitalButton.Click += new System.EventHandler(this.deleteVitalButton_Click);
+            this.deleteVitalButton.Click += new System.EventHandler(this.DeleteVitalButton_Click);
             // 
             // AddNewVitalButton
             // 
@@ -2109,7 +2086,7 @@
             this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
             this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewVitalButton.Location = new System.Drawing.Point(843, 4);
+            this.AddNewVitalButton.Location = new System.Drawing.Point(792, 4);
             this.AddNewVitalButton.Name = "AddNewVitalButton";
             this.AddNewVitalButton.Size = new System.Drawing.Size(30, 35);
             this.AddNewVitalButton.TabIndex = 44;
@@ -2117,37 +2094,34 @@
             this.AddNewVitalButton.UseVisualStyleBackColor = false;
             this.AddNewVitalButton.Click += new System.EventHandler(this.AddNewVitalButton_Click);
             // 
-            // label6
+            // Label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(112, 23);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Vital History";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.Label6.AutoSize = true;
+            this.Label6.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label6.Location = new System.Drawing.Point(7, 10);
+            this.Label6.Name = "Label6";
+            this.Label6.Size = new System.Drawing.Size(112, 23);
+            this.Label6.TabIndex = 31;
+            this.Label6.Text = "Vital History";
             // 
-            // label5
+            // Label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, -89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 23);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Vital History";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.Label5.AutoSize = true;
+            this.Label5.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label5.Location = new System.Drawing.Point(19, -89);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(112, 23);
+            this.Label5.TabIndex = 28;
+            this.Label5.Text = "Vital History";
             // 
-            // panel14
+            // Panel14
             // 
-            this.panel14.Controls.Add(this.ScansTable);
-            this.panel14.Controls.Add(this.panel15);
-            this.panel14.Location = new System.Drawing.Point(513, 389);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(279, 257);
-            this.panel14.TabIndex = 48;
-            this.panel14.Paint += new System.Windows.Forms.PaintEventHandler(this.panel14_Paint);
+            this.Panel14.Controls.Add(this.ScansTable);
+            this.Panel14.Controls.Add(this.Panel15);
+            this.Panel14.Location = new System.Drawing.Point(513, 389);
+            this.Panel14.Name = "Panel14";
+            this.Panel14.Size = new System.Drawing.Size(279, 257);
+            this.Panel14.TabIndex = 48;
             // 
             // ScansTable
             // 
@@ -2209,7 +2183,6 @@
             this.ScansTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ScansTable.Size = new System.Drawing.Size(279, 215);
             this.ScansTable.TabIndex = 47;
-            this.ScansTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
             // 
             // PatientScanID
             // 
@@ -2342,35 +2315,35 @@
             this.patientScanBindingSource.DataMember = "PatientScan";
             this.patientScanBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // panel15
+            // Panel15
             // 
-            this.panel15.BackColor = System.Drawing.Color.Azure;
-            this.panel15.Controls.Add(this.button1);
-            this.panel15.Controls.Add(this.deleteScanButton);
-            this.panel15.Controls.Add(this.AddNewScanButton);
-            this.panel15.Controls.Add(this.ScansLabel);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(279, 42);
-            this.panel15.TabIndex = 34;
+            this.Panel15.BackColor = System.Drawing.Color.Azure;
+            this.Panel15.Controls.Add(this.Button1);
+            this.Panel15.Controls.Add(this.deleteScanButton);
+            this.Panel15.Controls.Add(this.AddNewScanButton);
+            this.Panel15.Controls.Add(this.ScansLabel);
+            this.Panel15.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel15.Location = new System.Drawing.Point(0, 0);
+            this.Panel15.Name = "Panel15";
+            this.Panel15.Size = new System.Drawing.Size(279, 42);
+            this.Panel15.TabIndex = 34;
             // 
-            // button1
+            // Button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.Color.Azure;
-            this.button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(176, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 29);
-            this.button1.TabIndex = 51;
-            this.button1.UseVisualStyleBackColor = false;
+            this.Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button1.BackColor = System.Drawing.Color.Azure;
+            this.Button1.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EyeIcon1;
+            this.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
+            this.Button1.FlatAppearance.BorderSize = 0;
+            this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button1.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.Location = new System.Drawing.Point(176, 9);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(32, 29);
+            this.Button1.TabIndex = 51;
+            this.Button1.UseVisualStyleBackColor = false;
             // 
             // deleteScanButton
             // 
@@ -2388,7 +2361,7 @@
             this.deleteScanButton.TabIndex = 48;
             this.deleteScanButton.Text = "-";
             this.deleteScanButton.UseVisualStyleBackColor = false;
-            this.deleteScanButton.Click += new System.EventHandler(this.deleteScanButton_Click);
+            this.deleteScanButton.Click += new System.EventHandler(this.DeleteScanButton_Click);
             // 
             // AddNewScanButton
             // 
@@ -2486,14 +2459,14 @@
             this.noteContentDataGridViewTextBoxColumn.Name = "noteContentDataGridViewTextBoxColumn";
             this.noteContentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // panel4
+            // Panel4
             // 
-            this.panel4.Controls.Add(this.ProblemListView);
-            this.panel4.Controls.Add(this.panel17);
-            this.panel4.Location = new System.Drawing.Point(13, 195);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(492, 270);
-            this.panel4.TabIndex = 47;
+            this.Panel4.Controls.Add(this.ProblemListView);
+            this.Panel4.Controls.Add(this.Panel17);
+            this.Panel4.Location = new System.Drawing.Point(13, 195);
+            this.Panel4.Name = "Panel4";
+            this.Panel4.Size = new System.Drawing.Size(492, 270);
+            this.Panel4.TabIndex = 47;
             // 
             // ProblemListView
             // 
@@ -2641,25 +2614,25 @@
             this.problemBindingSource.DataMember = "Problem";
             this.problemBindingSource.DataSource = this.eMRDatabaseDataSet;
             // 
-            // panel17
+            // Panel17
             // 
-            this.panel17.BackColor = System.Drawing.Color.Azure;
-            this.panel17.Controls.Add(this.UpdateProblemButton);
-            this.panel17.Controls.Add(this.removeProblemButton);
-            this.panel17.Controls.Add(this.addProblemButton);
-            this.panel17.Controls.Add(this.ProblemListLabel);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel17.Location = new System.Drawing.Point(0, 0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(492, 42);
-            this.panel17.TabIndex = 36;
+            this.Panel17.BackColor = System.Drawing.Color.Azure;
+            this.Panel17.Controls.Add(this.UpdateProblemButton);
+            this.Panel17.Controls.Add(this.removeProblemButton);
+            this.Panel17.Controls.Add(this.addProblemButton);
+            this.Panel17.Controls.Add(this.ProblemListLabel);
+            this.Panel17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel17.Location = new System.Drawing.Point(0, 0);
+            this.Panel17.Name = "Panel17";
+            this.Panel17.Size = new System.Drawing.Size(492, 42);
+            this.Panel17.TabIndex = 36;
             // 
             // UpdateProblemButton
             // 
             this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.UpdateProblemButton.BackgroundImage = global::ShifaaEMRSystem.Properties.Resources.EditIcon;
             this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2690,7 +2663,7 @@
             this.removeProblemButton.TabIndex = 48;
             this.removeProblemButton.Text = "-";
             this.removeProblemButton.UseVisualStyleBackColor = false;
-            this.removeProblemButton.Click += new System.EventHandler(this.removeProblemButton_Click);
+            this.removeProblemButton.Click += new System.EventHandler(this.RemoveProblemButton_Click);
             // 
             // addProblemButton
             // 
@@ -2707,7 +2680,7 @@
             this.addProblemButton.TabIndex = 30;
             this.addProblemButton.Text = "+";
             this.addProblemButton.UseVisualStyleBackColor = false;
-            this.addProblemButton.Click += new System.EventHandler(this.addProblemButton_Click);
+            this.addProblemButton.Click += new System.EventHandler(this.AddProblemButton_Click);
             // 
             // ProblemListLabel
             // 
@@ -2763,16 +2736,16 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1460, 920);
+            this.ClientSize = new System.Drawing.Size(1477, 920);
             this.ControlBox = false;
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel13);
-            this.Controls.Add(this.panel11);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.Panel4);
+            this.Controls.Add(this.Panel14);
+            this.Controls.Add(this.Panel3);
+            this.Controls.Add(this.Panel2);
+            this.Controls.Add(this.Panel13);
+            this.Controls.Add(this.Panel11);
+            this.Controls.Add(this.Panel6);
+            this.Controls.Add(this.Panel5);
             this.Controls.Add(this.BMIValueLabel);
             this.Controls.Add(this.BMILabel);
             this.Controls.Add(this.WeightValueLabel);
@@ -2785,7 +2758,7 @@
             this.Controls.Add(this.TemperatureLabel);
             this.Controls.Add(this.PulseLabel);
             this.Controls.Add(this.BloodPressureLabel);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -2793,49 +2766,49 @@
             this.Padding = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.Text = "PatientHomePage";
             this.Load += new System.EventHandler(this.PatientHomePage_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.Panel1.ResumeLayout(false);
+            this.Panel1.PerformLayout();
+            this.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel3.ResumeLayout(false);
+            this.Panel7.ResumeLayout(false);
+            this.Panel7.PerformLayout();
+            this.Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel5.ResumeLayout(false);
+            this.Panel8.ResumeLayout(false);
+            this.Panel8.PerformLayout();
+            this.Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MedicationsListDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel6.ResumeLayout(false);
+            this.Panel9.ResumeLayout(false);
+            this.Panel9.PerformLayout();
+            this.Panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AllergiesTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allergieBindingSource)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel11.ResumeLayout(false);
+            this.Panel10.ResumeLayout(false);
+            this.Panel10.PerformLayout();
+            this.Panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LabsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).EndInit();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.panel13.ResumeLayout(false);
+            this.Panel12.ResumeLayout(false);
+            this.Panel12.PerformLayout();
+            this.Panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).EndInit();
             this.VitalHistoryLabel.ResumeLayout(false);
             this.VitalHistoryLabel.PerformLayout();
-            this.panel14.ResumeLayout(false);
+            this.Panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScansTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientScanBindingSource)).EndInit();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel4.ResumeLayout(false);
+            this.Panel15.ResumeLayout(false);
+            this.Panel15.PerformLayout();
+            this.Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ProblemListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.problemBindingSource)).EndInit();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
+            this.Panel17.ResumeLayout(false);
+            this.Panel17.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2843,9 +2816,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel Panel1;
+        private System.Windows.Forms.Panel Panel2;
+        private System.Windows.Forms.Panel Panel3;
         private System.Windows.Forms.Label PatientGenderLabel;
         private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.Label PatientNameLabel;
@@ -2863,25 +2836,25 @@
         private System.Windows.Forms.Label BMIValueLabel;
         private System.Windows.Forms.Label DOBLabel;
         private System.Windows.Forms.Label PatientAgeLabel;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel Panel5;
+        private System.Windows.Forms.Panel Panel7;
         private System.Windows.Forms.Label NoteHistoryLabel;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel Panel8;
+        private System.Windows.Forms.Label Label1;
+        private System.Windows.Forms.Panel Panel9;
+        private System.Windows.Forms.Label Label2;
+        private System.Windows.Forms.Panel Panel6;
+        private System.Windows.Forms.Panel Panel10;
+        private System.Windows.Forms.Label Label3;
+        private System.Windows.Forms.Panel Panel11;
+        private System.Windows.Forms.Panel Panel12;
+        private System.Windows.Forms.Label Label4;
         private System.Windows.Forms.Button AddMedicationButton;
         private System.Windows.Forms.Button AddAllergieButton;
         private System.Windows.Forms.Button AddLabButton;
-        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel Panel13;
         private System.Windows.Forms.Panel VitalHistoryLabel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label Label5;
         private System.Windows.Forms.DataGridView AppointmentListView1;
         private System.Windows.Forms.DataGridView NoteHistoryTable;
         private System.Windows.Forms.Button AddNoteButton;
@@ -2900,15 +2873,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCreatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView LabsTable;
-        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel Panel14;
         private System.Windows.Forms.DataGridView ScansTable;
-        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel Panel15;
         private System.Windows.Forms.Button AddNewScanButton;
         private System.Windows.Forms.Label ScansLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn allergieTypeDataGridViewTextBoxColumn1;
    
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Label6;
         private System.Windows.Forms.Button AddNewAppointmentButton;
     
         private System.Windows.Forms.Button AddNewVitalButton;
@@ -2921,14 +2894,14 @@
         private System.Windows.Forms.Button deleteLabButton;
         private System.Windows.Forms.Button deleteVitalButton;
         private System.Windows.Forms.Button deleteScanButton;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel Panel4;
+        private System.Windows.Forms.Panel Panel17;
         private System.Windows.Forms.Button removeProblemButton;
         private System.Windows.Forms.Button addProblemButton;
         private System.Windows.Forms.Label ProblemListLabel;
         private System.Windows.Forms.Button UpdateProblemButton;
         private System.Windows.Forms.Button OpenLabButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Button1;
         private System.Windows.Forms.Label MaritalStatusLabel;
         private System.Windows.Forms.Button EditMedicationButton;
         private System.Windows.Forms.DataGridView ProblemListView;
@@ -3004,7 +2977,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BloodPressure;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pulse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Temperature;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Height;
+        private new System.Windows.Forms.DataGridViewTextBoxColumn Height;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
         private System.Windows.Forms.DataGridViewTextBoxColumn BMI;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateUpdated;
@@ -3050,7 +3023,7 @@
         private MetroFramework.Controls.MetroContextMenu metroContextMenu1;
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter appointmentTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn appointmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;

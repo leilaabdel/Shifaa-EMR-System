@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class NewAppointment
     {
@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentDescriptionLabel = new System.Windows.Forms.Label();
             this.AppointmentDetails = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Label1 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Label2 = new System.Windows.Forms.Label();
             this.FirstName = new System.Windows.Forms.TextBox();
             this.LastName = new System.Windows.Forms.TextBox();
             this.DateLabel = new System.Windows.Forms.Label();
@@ -57,9 +57,9 @@
             this.maritalStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pregancyStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
             this.DateSelectionLabel = new System.Windows.Forms.Label();
-            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
+            this.patientTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.ScheduledTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DurationTimePicker = new System.Windows.Forms.DateTimePicker();
             this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -87,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentDetails.BackColor = System.Drawing.SystemColors.Window;
             this.AppointmentDetails.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppointmentDetails.Location = new System.Drawing.Point(53, 402);
+            this.AppointmentDetails.Location = new System.Drawing.Point(53, 257);
             this.AppointmentDetails.Multiline = true;
             this.AppointmentDetails.Name = "AppointmentDetails";
             this.AppointmentDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -95,20 +95,20 @@
             this.AppointmentDetails.TabIndex = 2;
             this.AppointmentDetails.Text = "Appointment Details";
             this.AppointmentDetails.Click += new System.EventHandler(this.AppointmentDetailsClick);
-            this.AppointmentDetails.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.AppointmentDetails.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
             // 
-            // label1
+            // Label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(379, 674);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 19);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Time";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.Label1.AutoSize = true;
+            this.Label1.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label1.Location = new System.Drawing.Point(386, 535);
+            this.Label1.Name = "Label1";
+            this.Label1.Size = new System.Drawing.Size(44, 19);
+            this.Label1.TabIndex = 5;
+            this.Label1.Text = "Time";
+            this.Label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Save
             // 
@@ -117,7 +117,7 @@
             this.Save.FlatAppearance.BorderSize = 0;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save.Location = new System.Drawing.Point(360, 807);
+            this.Save.Location = new System.Drawing.Point(367, 668);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 43);
             this.Save.TabIndex = 7;
@@ -125,18 +125,18 @@
             this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // label2
+            // Label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(364, 724);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 19);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Duration";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.Label2.AutoSize = true;
+            this.Label2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label2.Location = new System.Drawing.Point(371, 585);
+            this.Label2.Name = "Label2";
+            this.Label2.Size = new System.Drawing.Size(72, 19);
+            this.Label2.TabIndex = 9;
+            this.Label2.Text = "Duration";
+            this.Label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // FirstName
             // 
@@ -170,7 +170,7 @@
             this.DateLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DateLabel.AutoSize = true;
             this.DateLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateLabel.Location = new System.Drawing.Point(379, 603);
+            this.DateLabel.Location = new System.Drawing.Point(386, 464);
             this.DateLabel.Name = "DateLabel";
             this.DateLabel.Size = new System.Drawing.Size(43, 19);
             this.DateLabel.TabIndex = 20;
@@ -241,7 +241,7 @@
             this.PatientListView.ReadOnly = true;
             this.PatientListView.RowHeadersVisible = false;
             this.PatientListView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PatientListView.Size = new System.Drawing.Size(680, 300);
+            this.PatientListView.Size = new System.Drawing.Size(680, 155);
             this.PatientListView.TabIndex = 23;
             this.PatientListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView_CellContentClick);
             this.PatientListView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.PatientListView_RowStateChanged);
@@ -376,7 +376,7 @@
             this.DateSelectionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DateSelectionLabel.AutoSize = true;
             this.DateSelectionLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateSelectionLabel.Location = new System.Drawing.Point(348, 603);
+            this.DateSelectionLabel.Location = new System.Drawing.Point(355, 464);
             this.DateSelectionLabel.Name = "DateSelectionLabel";
             this.DateSelectionLabel.Size = new System.Drawing.Size(114, 19);
             this.DateSelectionLabel.TabIndex = 26;
@@ -394,7 +394,7 @@
             this.ScheduledTimePicker.CustomFormat = "HH:mm";
             this.ScheduledTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
             this.ScheduledTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ScheduledTimePicker.Location = new System.Drawing.Point(327, 696);
+            this.ScheduledTimePicker.Location = new System.Drawing.Point(334, 557);
             this.ScheduledTimePicker.Name = "ScheduledTimePicker";
             this.ScheduledTimePicker.ShowUpDown = true;
             this.ScheduledTimePicker.Size = new System.Drawing.Size(140, 25);
@@ -407,7 +407,7 @@
             this.DurationTimePicker.CustomFormat = "HH:mm";
             this.DurationTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
             this.DurationTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DurationTimePicker.Location = new System.Drawing.Point(327, 757);
+            this.DurationTimePicker.Location = new System.Drawing.Point(334, 618);
             this.DurationTimePicker.Name = "DurationTimePicker";
             this.DurationTimePicker.ShowUpDown = true;
             this.DurationTimePicker.Size = new System.Drawing.Size(140, 25);
@@ -420,7 +420,7 @@
             this.ScheduledDatePicker.CustomFormat = "dddd dd/MM/yyyy ";
             this.ScheduledDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
             this.ScheduledDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ScheduledDatePicker.Location = new System.Drawing.Point(291, 635);
+            this.ScheduledDatePicker.Location = new System.Drawing.Point(298, 496);
             this.ScheduledDatePicker.Name = "ScheduledDatePicker";
             this.ScheduledDatePicker.Size = new System.Drawing.Size(242, 25);
             this.ScheduledDatePicker.TabIndex = 46;
@@ -449,7 +449,7 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(787, 994);
+            this.ClientSize = new System.Drawing.Size(787, 881);
             this.ControlBox = false;
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.ScheduledDatePicker);
@@ -461,14 +461,15 @@
             this.Controls.Add(this.DateLabel);
             this.Controls.Add(this.LastName);
             this.Controls.Add(this.FirstName);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Label2);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Label1);
             this.Controls.Add(this.AppointmentDetails);
             this.Controls.Add(this.AppointmentDescriptionLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NewAppointment";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Appointment ";
             this.Load += new System.EventHandler(this.NewAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView)).EndInit();
@@ -483,9 +484,9 @@
 
         private System.Windows.Forms.Label AppointmentDescriptionLabel;
         private System.Windows.Forms.TextBox AppointmentDetails;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Label1;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.TextBox FirstName;
         private System.Windows.Forms.TextBox LastName;
         private System.Windows.Forms.Label DateLabel;

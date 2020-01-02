@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class PatientListView
     {
@@ -38,9 +38,9 @@
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.eMRDatabaseDataSet = new ShifaaEMRSystem.EMRDatabaseDataSet();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
+            this.patientTableAdapter = new ShifaaEMRSystem.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.Exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).BeginInit();
@@ -89,7 +89,7 @@
             this.PatientListView1.Size = new System.Drawing.Size(1070, 820);
             this.PatientListView1.TabIndex = 0;
             this.PatientListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_CellContentClick);
-            this.PatientListView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_RowDoubleClick);
+            this.PatientListView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_RowClick);
             // 
             // PatientID
             // 

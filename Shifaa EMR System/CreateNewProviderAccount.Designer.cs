@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class CreateNewProviderAccount
     {
@@ -49,12 +49,14 @@
             this.MaleCheckBox = new System.Windows.Forms.CheckBox();
             this.FemaleCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.BackButton);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.ExitButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -67,10 +69,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 9);
+            this.label1.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
+            this.label1.Location = new System.Drawing.Point(182, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(450, 25);
+            this.label1.Size = new System.Drawing.Size(391, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Shifaa Health Systems Create Provider Account";
             // 
@@ -134,9 +136,9 @@
             this.ExitButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
             this.ExitButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ExitButton.Location = new System.Drawing.Point(616, 4);
+            this.ExitButton.Location = new System.Drawing.Point(603, 6);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(119, 37);
@@ -239,6 +241,7 @@
             this.PhoneNumberBox.Name = "PhoneNumberBox";
             this.PhoneNumberBox.Size = new System.Drawing.Size(180, 23);
             this.PhoneNumberBox.TabIndex = 18;
+            this.PhoneNumberBox.TextChanged += new System.EventHandler(this.PhoneNumberBox_TextChanged);
             // 
             // PhoneNumberLabel
             // 
@@ -286,6 +289,22 @@
             this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "Gender";
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackButton.FlatAppearance.BorderSize = 0;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BackButton.Location = new System.Drawing.Point(3, 4);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(119, 37);
+            this.BackButton.TabIndex = 9;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // CreateNewProviderAccount
             // 
@@ -348,6 +367,7 @@
         private System.Windows.Forms.CheckBox MaleCheckBox;
         private System.Windows.Forms.CheckBox FemaleCheckBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button BackButton;
     }
 }
 

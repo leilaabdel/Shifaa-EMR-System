@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Drawing.Printing;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public class RichTextBoxEx : RichTextBox
     {

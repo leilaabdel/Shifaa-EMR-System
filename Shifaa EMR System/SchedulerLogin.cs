@@ -4,12 +4,12 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class SchedulerLogin : Form
     {
 
-        private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         public SchedulerLogin()
         {
 
@@ -20,22 +20,6 @@ namespace Shifaa_EMR_System
         private void Center(Form form)
         {
             form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Login_Click(object sender, EventArgs e)
@@ -53,7 +37,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }

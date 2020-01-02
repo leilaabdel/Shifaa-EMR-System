@@ -15,9 +15,13 @@
     }
 }
 
-namespace Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters {
-    
-    
-    public partial class AppointmentTableAdapter {
+namespace Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters
+{
+    partial class VitalSignsTableAdapter
+    {
+    }
+
+    public partial class AppointmentTableAdapter
+    {
     }
 }

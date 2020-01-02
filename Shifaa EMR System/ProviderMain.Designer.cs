@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     partial class ProviderMain
     {
@@ -48,9 +48,9 @@ namespace Shifaa_EMR_System
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Button3 = new System.Windows.Forms.Button();
+            this.Button2 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip1.SuspendLayout();
@@ -74,7 +74,6 @@ namespace Shifaa_EMR_System
             this.menuStrip1.Size = new System.Drawing.Size(1376, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -132,7 +131,6 @@ namespace Shifaa_EMR_System
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1376, 47);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
@@ -144,8 +142,7 @@ namespace Shifaa_EMR_System
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(266, 692);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
+
             // menuStrip2
             // 
             this.menuStrip2.AutoSize = false;
@@ -163,7 +160,6 @@ namespace Shifaa_EMR_System
             this.menuStrip2.Size = new System.Drawing.Size(266, 175);
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
-            this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
             // 
             // patientClientToolStripMenuItem
             // 
@@ -171,7 +167,6 @@ namespace Shifaa_EMR_System
             this.patientClientToolStripMenuItem.Name = "patientClientToolStripMenuItem";
             this.patientClientToolStripMenuItem.Size = new System.Drawing.Size(262, 27);
             this.patientClientToolStripMenuItem.Text = "Messages ";
-            this.patientClientToolStripMenuItem.Click += new System.EventHandler(this.patientClientToolStripMenuItem_Click);
             // 
             // feesToolStripMenuItem
             // 
@@ -179,7 +174,6 @@ namespace Shifaa_EMR_System
             this.feesToolStripMenuItem.Name = "feesToolStripMenuItem";
             this.feesToolStripMenuItem.Size = new System.Drawing.Size(262, 27);
             this.feesToolStripMenuItem.Text = "Patient/Client";
-            this.feesToolStripMenuItem.Click += new System.EventHandler(this.feesToolStripMenuItem_Click);
             // 
             // proceduresToolStripMenuItem
             // 
@@ -198,15 +192,14 @@ namespace Shifaa_EMR_System
             // panel3
             // 
             this.panel3.Controls.Add(this.searchBox);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.Button3);
+            this.panel3.Controls.Add(this.Button2);
+            this.panel3.Controls.Add(this.Button1);
             this.panel3.Controls.Add(this.monthCalendar1);
             this.panel3.Location = new System.Drawing.Point(-2, 17);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 326);
             this.panel3.TabIndex = 4;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // searchBox
             // 
@@ -215,50 +208,49 @@ namespace Shifaa_EMR_System
             this.searchBox.Size = new System.Drawing.Size(227, 20);
             this.searchBox.TabIndex = 5;
             this.searchBox.Text = "Search Patient ID/Name";
-            this.searchBox.Click += new System.EventHandler(this.searchBoxClick);
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged_1);
+            this.searchBox.Click += new System.EventHandler(this.SearchBoxClick);
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
-            // button3
+            // Button3
             // 
-            this.button3.AutoSize = true;
-            this.button3.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
-            this.button3.Location = new System.Drawing.Point(76, 38);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 33);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "New Patient";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.Button3.AutoSize = true;
+            this.Button3.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.Button3.Location = new System.Drawing.Point(76, 38);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(121, 33);
+            this.Button3.TabIndex = 6;
+            this.Button3.Text = "New Patient";
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
-            // button2
+            // Button2
             // 
-            this.button2.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(138, 257);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 46);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Existing Appointments";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.Button2.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button2.Location = new System.Drawing.Point(138, 257);
+            this.Button2.Name = "Button2";
+            this.Button2.Size = new System.Drawing.Size(100, 46);
+            this.Button2.TabIndex = 5;
+            this.Button2.Text = "Existing Appointments";
+            this.Button2.UseVisualStyleBackColor = true;
+            this.Button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // button1
+            // Button1
             // 
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(23, 257);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 46);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "New Appointment";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Button1.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.Location = new System.Drawing.Point(23, 257);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(109, 46);
+            this.Button1.TabIndex = 4;
+            this.Button1.Text = "New Appointment";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(17, 83);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 4;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar1_DateChanged);
             // 
             // contextMenuStrip1
             // 
@@ -314,14 +306,14 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Button1;
+        private System.Windows.Forms.Button Button2;
         private System.Windows.Forms.ToolStripMenuItem patientClientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proceduresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Button3;
         private System.Windows.Forms.TextBox searchBox;
         public System.Windows.Forms.MenuStrip menuStrip2;
     }

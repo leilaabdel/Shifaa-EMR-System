@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class NewVital
     {
@@ -155,6 +155,7 @@
             this.BloodPressureBox.Size = new System.Drawing.Size(148, 23);
             this.BloodPressureBox.TabIndex = 40;
             this.BloodPressureToolTip.SetToolTip(this.BloodPressureBox, "Enter bp as systolic/diastolic");
+            this.BloodPressureBox.TextChanged += new System.EventHandler(this.BloodPressureBox_TextChanged);
             // 
             // PulseBox
             // 

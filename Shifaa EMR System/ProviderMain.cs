@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class ProviderMain : Form
     {
 
-        string thisProviderName;
-        string thisProviderID;
-        List<DateTime> dateList = new List<DateTime>();
+        readonly string thisProviderName;
+        readonly string thisProviderID;
+        readonly List<DateTime> dateList = new List<DateTime>();
 
 
         public ProviderMain(string providerName , string providerID)
@@ -24,7 +24,7 @@ namespace Shifaa_EMR_System
             this.IsMdiContainer = true;
             this.globalAppointmentList = new AppointmentListView(this);
             globalAppointmentList.MdiParent = this;
-            this.globalNewAppointment = new NewAppointment(this, globalAppointmentList);
+            this.globalNewAppointment = new NewAppointment(globalAppointmentList);
             globalNewAppointment.MdiParent = this;
            
             this.thisProviderName = providerName;
@@ -33,12 +33,12 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
-        public string getProviderName()
+        public string GetProviderName()
         {
             return this.thisProviderName;
         }
 
-        public string getProviderID()
+        public string GetProviderID()
         {
             return this.thisProviderID;
         }
@@ -46,41 +46,7 @@ namespace Shifaa_EMR_System
 
        
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-  
-
-
-
-
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void patientClientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void feesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void ProviderMain_Load(object sender, EventArgs e)
         {
@@ -111,19 +77,18 @@ namespace Shifaa_EMR_System
         private NewAppointment globalNewAppointment;
  
 
-        public void setNewAppointment(NewAppointment newAppointment)
+        public void SetNewAppointment(NewAppointment newAppointment)
         {
 
-            this.AutoScroll = false;
+          
             this.globalNewAppointment = newAppointment;
             this.globalNewAppointment.MdiParent = this;
-          
-            
+            Center(globalNewAppointment);
             this.globalNewAppointment.Show();
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
             this.AutoScroll = false;
@@ -131,10 +96,12 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
             {
-                NewAppointment newAppointment = new NewAppointment(this , globalAppointmentList);
-                newAppointment.MdiParent = this;
+                NewAppointment newAppointment = new NewAppointment(globalAppointmentList)
+                {
+                    MdiParent = this
+                };
                 globalAppointmentList.Close();
-                setNewAppointment(newAppointment);
+                SetNewAppointment(newAppointment);
                 
             }
         }
@@ -148,7 +115,7 @@ namespace Shifaa_EMR_System
 
         AppointmentListView globalAppointmentList;
 
-        private void setAppointmentListView(AppointmentListView appointmentListView)
+        private void SetAppointmentListView(AppointmentListView appointmentListView)
         {
             this.globalAppointmentList = appointmentListView;
             this.globalAppointmentList.MdiParent = this;
@@ -162,17 +129,18 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
             {
-                DataGridViewTextBoxColumn TextBoxCell = new DataGridViewTextBoxColumn();
-                AppointmentListView appointmentListView = new AppointmentListView(this);
-                appointmentListView.MdiParent = this;
-                setAppointmentListView(appointmentListView);
-                for (int i = 0; i < globalAppointmentList.getAppointmentListView().Rows.Count - 1; i++)
+                AppointmentListView appointmentListView = new AppointmentListView(this)
                 {
-                    globalAppointmentList.getAppointmentListView()["Status", i] = new DataGridViewTextBoxCell();
-                    globalAppointmentList.getAppointmentListView()["PatientID", i] = new DataGridViewButtonCell();
+                    MdiParent = this
+                };
+                SetAppointmentListView(appointmentListView);
+                for (int i = 0; i < globalAppointmentList.GetAppointmentListView().Rows.Count - 1; i++)
+                {
+                    globalAppointmentList.GetAppointmentListView()["Status", i] = new DataGridViewTextBoxCell();
+                    globalAppointmentList.GetAppointmentListView()["PatientID", i] = new DataGridViewButtonCell();
                 }
 
-                globalAppointmentList.fillByDate();
+                globalAppointmentList.FillByDate();
                 this.globalAppointmentList.Show();
 
 
@@ -191,9 +159,11 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["NewPatient"] as NewPatient == null)
             {
-                NewPatient newPatient = new NewPatient();
-                newPatient.MdiParent = this;
-                newPatient.WindowState = FormWindowState.Maximized;
+                NewPatient newPatient = new NewPatient
+                {
+                    MdiParent = this
+                };
+                Center(newPatient);
                 newPatient.Show();
             }
 
@@ -203,23 +173,8 @@ namespace Shifaa_EMR_System
 
 
 
-        private void searchBox_TextChanged(object sender, EventArgs e)
-        {
 
-
-        }
-
-
-
-
-
-
-        private void TextBoxKeyUp(object sender, EventArgs e)
-        {
-
-        }
-
-        public string getSearchText()
+        public string GetSearchText()
         {
             return searchBox.Text;
         }
@@ -227,7 +182,7 @@ namespace Shifaa_EMR_System
 
         PatientListView globalPatientList;
 
-        private void setPatientListView(PatientListView patientListView)
+        private void SetPatientListView(PatientListView patientListView)
         {
             this.globalPatientList = patientListView;
             this.globalPatientList.MdiParent = this;
@@ -244,14 +199,14 @@ namespace Shifaa_EMR_System
 
             {
                 PatientListView patientListView = new PatientListView(this);
-                setPatientListView(patientListView);
-                globalPatientList.activateSearch();
+                SetPatientListView(patientListView);
+                globalPatientList.ActivateSearch();
               
             }
 
             if(e.KeyChar == (char)Keys.Return)
             {
-                globalPatientList.activateSearch();
+                globalPatientList.ActivateSearch();
             }
 
            
@@ -259,22 +214,18 @@ namespace Shifaa_EMR_System
 
 
 
-        private void searchBox_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchBoxClick(object sender, EventArgs e)
+     
+        private void SearchBoxClick(object sender, EventArgs e)
         {
             if (searchBox.Text == "Search Patient ID/Name") searchBox.Text = null;
         }
 
-        public List<DateTime> getDateSelection()
+        public List<DateTime> GetDateSelection()
         {
             return dateList;
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
 
@@ -290,13 +241,10 @@ namespace Shifaa_EMR_System
 
 
             globalAppointmentList.MdiParent = this;
-            globalAppointmentList.fillByDate();
+            globalAppointmentList.FillByDate();
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
+     
     }
 }

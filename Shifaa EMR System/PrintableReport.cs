@@ -12,7 +12,7 @@ using System.Drawing.Printing;
 using System.Windows.Documents;
 
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     public partial class PrintableReport : Form
     {
@@ -26,22 +26,21 @@ namespace Shifaa_EMR_System
             InitializeComponent();
             this.thisPatientID = patientID;
             this.thisProviderID = providerID;
-            _printDocument.BeginPrint += _printDocument_BeginPrint;
-            _printDocument.PrintPage += _printDocument_PrintPage;
+            _printDocument.BeginPrint += PrintDocument_BeginPrint;
+            _printDocument.PrintPage += PrintDocument_PrintPage;
             report = new RichTextBoxEx();
   
         }
 
-        RichTextBoxEx report;
-        int firstCharOnPage;
+        readonly RichTextBoxEx report;
 
-        private PrintDocument _printDocument = new PrintDocument();
+        private readonly PrintDocument _printDocument = new PrintDocument();
         private int _checkPrint;
        
 
       
 
-        private void _printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             // Print the content of RichTextBox. Store the last character printed.
             _checkPrint = report.Print(_checkPrint, report.TextLength, e);
@@ -50,7 +49,7 @@ namespace Shifaa_EMR_System
             e.HasMorePages = _checkPrint < report.TextLength;
         }
 
-        private void _printDocument_BeginPrint(object sender, PrintEventArgs e)
+        private void PrintDocument_BeginPrint(object sender, PrintEventArgs e)
         {
             _checkPrint = 0;
         }
@@ -58,9 +57,9 @@ namespace Shifaa_EMR_System
 
         private void PrintableReport_Load(object sender, EventArgs e)
         {
-            setPatientInformation();
-            setProviderInformation();
-            setPatientVitals();
+            SetPatientInformation();
+            SetProviderInformation();
+            SetPatientVitals();
 
             foreach (Control con in Controls)
             {
@@ -154,7 +153,7 @@ namespace Shifaa_EMR_System
             report.SelectionIndent = 30;
             report.SelectedText = "Problems List" + "\n";
             report.SelectionFont = smallheadernonbold;
-            setProblems(report);
+            SetProblems(report);
 
             report.SelectedText = "\n";
             report.SelectionIndent = 0;
@@ -166,7 +165,7 @@ namespace Shifaa_EMR_System
             report.SelectionFont = smallheader;
             report.SelectedText = "Notes" + "\n";
             report.SelectionFont = content;
-            setNotes(report);
+            SetNotes(report);
             report.SelectedText = "\n";
 
             report.SelectionIndent = 0;
@@ -176,7 +175,7 @@ namespace Shifaa_EMR_System
             report.SelectionFont = smallheader;
             report.SelectionIndent = 30;
             report.SelectedText = "Medication List" + "\n";
-            setMedications(report);
+            SetMedications(report);
 
 
             report.Size = new Size(738, 1377);
@@ -189,7 +188,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void setPatientInformation()
+        private void SetPatientInformation()
         {
             ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(thisPatientID);
             foreach ( getPatientByIDResult r in result)
@@ -209,7 +208,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void setProviderInformation()
+        private void SetProviderInformation()
         {
             ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(thisProviderID);
             foreach (getProviderInfoResult r in result)
@@ -219,7 +218,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void setPatientVitals()
+        private void SetPatientVitals()
         {
             ISingleResult<getLatestPatientVitalsResult> result = doAction.getLatestPatientVitals(thisPatientID);
             foreach(getLatestPatientVitalsResult r in result)
@@ -233,7 +232,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void setProblems(RichTextBoxEx report)
+        private void SetProblems(RichTextBoxEx report)
         {
 
             report.SelectionBullet = true;
@@ -249,7 +248,7 @@ namespace Shifaa_EMR_System
             report.SelectionBullet = false;
         }
 
-        private void setNotes(RichTextBoxEx report)
+        private void SetNotes(RichTextBoxEx report)
         {
             ISingleResult<selectNotesForReportResult> result = doAction.selectNotesForReport(thisPatientID, "Signed", DateTime.Today);
             foreach(selectNotesForReportResult r in result)
@@ -262,7 +261,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void setMedications(RichTextBoxEx report)
+        private void SetMedications(RichTextBoxEx report)
         {
 
 
@@ -299,146 +298,7 @@ namespace Shifaa_EMR_System
 
             }
         }
-        private void BMIValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VitalLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PregnantLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BMILabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MaritalStatusLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BloodPressureLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WeightValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PulseLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NotesLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HeightValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TemperatureLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Seperator_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void HeightLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TemperatureValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WeightLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PulseValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BloodPressureValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PhysicianNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AttendingPhysicianLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DOBLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PatientAgeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PatientGenderLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PhoneNumberLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NoteBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PatientNameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MedicationsBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MedicationsListLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -453,9 +313,6 @@ namespace Shifaa_EMR_System
                 _printDocument.Print();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

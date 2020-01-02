@@ -6,15 +6,124 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
-namespace Shifaa_EMR_System
+namespace ShifaaEMRSystem
 {
     class AutoComplete
     {
 
-        static SqlConnection conDataBase = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly static SqlConnection conDataBase = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         static SqlDataReader reader;
+
+
+        public static AutoCompleteStringCollection PatientLastNameAutoComplete()
+        {
+            AutoCompleteStringCollection patientLastNameCollection = new AutoCompleteStringCollection();
+
+
+            string Query = "select LastName from dbo.Patient ;";
+            SqlCommand command = new SqlCommand(Query, conDataBase);
+
+
+
+            try
+            {
+                conDataBase.Open();
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string lastName = reader.GetString(0);
+
+                    patientLastNameCollection.Add(lastName.ToString());
+
+
+                }
+
+                reader.Close();
+                conDataBase.Close();
+
+                return patientLastNameCollection;
+            }
+            catch (FieldAccessException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
+
+        public static AutoCompleteStringCollection PatientFirstNameAutoComplete()
+        {
+            AutoCompleteStringCollection patientFirstNameCollection = new AutoCompleteStringCollection();
+
+
+            string Query = "select FirstName from dbo.Patient ;";
+            SqlCommand command = new SqlCommand(Query, conDataBase);
+
+
+
+            try
+            {
+                conDataBase.Open();
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string firstName = reader.GetString(0);
+
+                    patientFirstNameCollection.Add(firstName.ToString());
+
+
+                }
+
+                reader.Close();
+                conDataBase.Close();
+
+                return patientFirstNameCollection;
+            }
+            catch (FieldAccessException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
+
+
+        public static AutoCompleteStringCollection PatientIDAutoComplete()
+        {
+            AutoCompleteStringCollection patientIDCollection = new AutoCompleteStringCollection();
+
+
+            string Query = "select PatientID from dbo.Patient ;";
+            SqlCommand command = new SqlCommand(Query, conDataBase);
+      
+
+
+            try
+            {
+                conDataBase.Open();
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int patientID = reader.GetInt32(0);
+
+                    patientIDCollection.Add(patientID.ToString());
+
+                    
+                }
+
+                reader.Close();
+                conDataBase.Close();
+
+                return patientIDCollection;
+            }
+            catch (FieldAccessException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
 
         public static AutoCompleteStringCollection AllergyNameAutoComplete()
         {

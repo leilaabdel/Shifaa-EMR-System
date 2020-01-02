@@ -1,4 +1,4 @@
-﻿namespace Shifaa_EMR_System
+﻿namespace ShifaaEMRSystem
 {
     partial class SchedulerLogin
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.Button();
             this.PasscodeBox = new System.Windows.Forms.TextBox();
             this.UserNameBox = new System.Windows.Forms.TextBox();
@@ -40,17 +40,17 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // Button1
             // 
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(177, 366);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 47);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Button1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.Location = new System.Drawing.Point(177, 366);
+            this.Button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(119, 47);
+            this.Button1.TabIndex = 14;
+            this.Button1.Text = "Exit";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // Login
             // 
@@ -72,7 +72,6 @@
             this.PasscodeBox.Name = "PasscodeBox";
             this.PasscodeBox.Size = new System.Drawing.Size(189, 23);
             this.PasscodeBox.TabIndex = 12;
-            this.PasscodeBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // UserNameBox
             // 
@@ -82,7 +81,6 @@
             this.UserNameBox.Name = "UserNameBox";
             this.UserNameBox.Size = new System.Drawing.Size(189, 23);
             this.UserNameBox.TabIndex = 11;
-            this.UserNameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -124,7 +122,6 @@
             this.label1.Size = new System.Drawing.Size(375, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Shifaa Health Systems Scheduler Login";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Back
             // 
@@ -145,7 +142,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.Back);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Button1);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.PasscodeBox);
             this.Controls.Add(this.UserNameBox);
@@ -165,7 +162,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Button1;
         private System.Windows.Forms.Button Login;
         private System.Windows.Forms.TextBox PasscodeBox;
         private System.Windows.Forms.TextBox UserNameBox;
