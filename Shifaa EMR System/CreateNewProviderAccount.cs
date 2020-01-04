@@ -33,8 +33,13 @@ namespace Shifaa_EMR_System
 
                 else
                 {
+
+                   
+   
+
                     int returnValue = doAction.createProviderAccount(FirstNameBox.Text, LastNameBox.Text,
-                        TitleBox.Text, gender, PhoneNumberBox.Text, UsernameBox.Text, PassCodeBox.Text, ReenterPasscodeBox.Text);
+                        TitleBox.Text, PhoneNumberBox.Text , EmailBox.Text , JobTypeBox.Text, gender, UsernameBox.Text , 
+                        PassCodeBox.Text, ReenterPasscodeBox.Text);
 
                     if (returnValue is 1)
                     {

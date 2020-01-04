@@ -134,7 +134,6 @@ namespace Shifaa_EMR_System
             if (selection.Count == 0) selection.Add(DateTime.Today);
            
 
-            this.appointmentTableAdapter.FillByDate(this.eMRDatabaseDataSet.Appointment, selection[0].ToString(), selection[selection.Count - 1].ToString());
 
 
             selection.Clear();

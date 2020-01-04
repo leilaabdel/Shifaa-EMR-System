@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PassCodeLabel = new System.Windows.Forms.Label();
             this.UsernameBox = new System.Windows.Forms.TextBox();
             this.PassCodeBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
             this.ReenterPasscodeBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TitleBox = new System.Windows.Forms.TextBox();
@@ -49,7 +50,10 @@
             this.MaleCheckBox = new System.Windows.Forms.CheckBox();
             this.FemaleCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.BackButton = new System.Windows.Forms.Button();
+            this.EmailBox = new System.Windows.Forms.TextBox();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.JobTypeBox = new System.Windows.Forms.TextBox();
+            this.JobTypeLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +70,22 @@
             this.panel2.Size = new System.Drawing.Size(734, 47);
             this.panel2.TabIndex = 1;
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackButton.FlatAppearance.BorderSize = 0;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
+            this.BackButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BackButton.Location = new System.Drawing.Point(3, 4);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(119, 37);
+            this.BackButton.TabIndex = 9;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -75,61 +95,6 @@
             this.label1.Size = new System.Drawing.Size(391, 22);
             this.label1.TabIndex = 2;
             this.label1.Text = "Shifaa Health Systems Create Provider Account";
-            // 
-            // UsernameLabel
-            // 
-            this.UsernameLabel.AutoSize = true;
-            this.UsernameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.UsernameLabel.Location = new System.Drawing.Point(200, 374);
-            this.UsernameLabel.Name = "UsernameLabel";
-            this.UsernameLabel.Size = new System.Drawing.Size(71, 16);
-            this.UsernameLabel.TabIndex = 2;
-            this.UsernameLabel.Text = "Username ";
-            // 
-            // PassCodeLabel
-            // 
-            this.PassCodeLabel.AutoSize = true;
-            this.PassCodeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.PassCodeLabel.Location = new System.Drawing.Point(206, 424);
-            this.PassCodeLabel.Name = "PassCodeLabel";
-            this.PassCodeLabel.Size = new System.Drawing.Size(66, 16);
-            this.PassCodeLabel.TabIndex = 3;
-            this.PassCodeLabel.Text = "Passcode ";
-            // 
-            // UsernameBox
-            // 
-            this.UsernameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UsernameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.UsernameBox.Location = new System.Drawing.Point(322, 374);
-            this.UsernameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UsernameBox.Name = "UsernameBox";
-            this.UsernameBox.Size = new System.Drawing.Size(180, 23);
-            this.UsernameBox.TabIndex = 4;
-            // 
-            // PassCodeBox
-            // 
-            this.PassCodeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PassCodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.PassCodeBox.Location = new System.Drawing.Point(322, 424);
-            this.PassCodeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PassCodeBox.Name = "PassCodeBox";
-            this.PassCodeBox.Size = new System.Drawing.Size(180, 23);
-            this.PassCodeBox.TabIndex = 5;
-            // 
-            // LoginButton
-            // 
-            this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LoginButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.LoginButton.Location = new System.Drawing.Point(284, 548);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(164, 48);
-            this.LoginButton.TabIndex = 6;
-            this.LoginButton.Text = "Create Account";
-            this.LoginButton.UseVisualStyleBackColor = true;
-            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // ExitButton
             // 
@@ -147,12 +112,67 @@
             this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // UsernameLabel
+            // 
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.UsernameLabel.Location = new System.Drawing.Point(200, 460);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(71, 16);
+            this.UsernameLabel.TabIndex = 2;
+            this.UsernameLabel.Text = "Username ";
+            // 
+            // PassCodeLabel
+            // 
+            this.PassCodeLabel.AutoSize = true;
+            this.PassCodeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.PassCodeLabel.Location = new System.Drawing.Point(206, 510);
+            this.PassCodeLabel.Name = "PassCodeLabel";
+            this.PassCodeLabel.Size = new System.Drawing.Size(66, 16);
+            this.PassCodeLabel.TabIndex = 3;
+            this.PassCodeLabel.Text = "Passcode ";
+            // 
+            // UsernameBox
+            // 
+            this.UsernameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UsernameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.UsernameBox.Location = new System.Drawing.Point(322, 460);
+            this.UsernameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UsernameBox.Name = "UsernameBox";
+            this.UsernameBox.Size = new System.Drawing.Size(180, 23);
+            this.UsernameBox.TabIndex = 4;
+            // 
+            // PassCodeBox
+            // 
+            this.PassCodeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PassCodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.PassCodeBox.Location = new System.Drawing.Point(322, 510);
+            this.PassCodeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PassCodeBox.Name = "PassCodeBox";
+            this.PassCodeBox.Size = new System.Drawing.Size(180, 23);
+            this.PassCodeBox.TabIndex = 5;
+            // 
+            // LoginButton
+            // 
+            this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LoginButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.LoginButton.Location = new System.Drawing.Point(284, 634);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(164, 48);
+            this.LoginButton.TabIndex = 6;
+            this.LoginButton.Text = "Create Account";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
             // ReenterPasscodeBox
             // 
             this.ReenterPasscodeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ReenterPasscodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.ReenterPasscodeBox.Location = new System.Drawing.Point(322, 474);
+            this.ReenterPasscodeBox.Location = new System.Drawing.Point(322, 560);
             this.ReenterPasscodeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ReenterPasscodeBox.Name = "ReenterPasscodeBox";
             this.ReenterPasscodeBox.Size = new System.Drawing.Size(180, 23);
@@ -162,7 +182,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.label2.Location = new System.Drawing.Point(164, 477);
+            this.label2.Location = new System.Drawing.Point(164, 563);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 9;
@@ -236,7 +256,7 @@
             this.PhoneNumberBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneNumberBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.PhoneNumberBox.Location = new System.Drawing.Point(322, 250);
+            this.PhoneNumberBox.Location = new System.Drawing.Point(322, 299);
             this.PhoneNumberBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PhoneNumberBox.Name = "PhoneNumberBox";
             this.PhoneNumberBox.Size = new System.Drawing.Size(180, 23);
@@ -247,7 +267,7 @@
             // 
             this.PhoneNumberLabel.AutoSize = true;
             this.PhoneNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.PhoneNumberLabel.Location = new System.Drawing.Point(183, 253);
+            this.PhoneNumberLabel.Location = new System.Drawing.Point(183, 302);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
             this.PhoneNumberLabel.Size = new System.Drawing.Size(93, 16);
             this.PhoneNumberLabel.TabIndex = 17;
@@ -259,7 +279,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MaleCheckBox.AutoSize = true;
             this.MaleCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.MaleCheckBox.Location = new System.Drawing.Point(427, 306);
+            this.MaleCheckBox.Location = new System.Drawing.Point(428, 413);
             this.MaleCheckBox.Name = "MaleCheckBox";
             this.MaleCheckBox.Size = new System.Drawing.Size(55, 20);
             this.MaleCheckBox.TabIndex = 25;
@@ -272,7 +292,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FemaleCheckBox.AutoSize = true;
             this.FemaleCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.FemaleCheckBox.Location = new System.Drawing.Point(318, 306);
+            this.FemaleCheckBox.Location = new System.Drawing.Point(319, 413);
             this.FemaleCheckBox.Name = "FemaleCheckBox";
             this.FemaleCheckBox.Size = new System.Drawing.Size(70, 20);
             this.FemaleCheckBox.TabIndex = 24;
@@ -283,34 +303,64 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
-            this.label6.Location = new System.Drawing.Point(222, 306);
+            this.label6.Location = new System.Drawing.Point(223, 413);
             this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 23;
             this.label6.Text = "Gender";
             // 
-            // BackButton
+            // EmailBox
             // 
-            this.BackButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BackButton.FlatAppearance.BorderSize = 0;
-            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BackButton.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
-            this.BackButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BackButton.Location = new System.Drawing.Point(3, 4);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.BackButton.Name = "BackButton";
-            this.BackButton.Size = new System.Drawing.Size(119, 37);
-            this.BackButton.TabIndex = 9;
-            this.BackButton.Text = "Back";
-            this.BackButton.UseVisualStyleBackColor = false;
-            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            this.EmailBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.EmailBox.Location = new System.Drawing.Point(322, 357);
+            this.EmailBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.EmailBox.Name = "EmailBox";
+            this.EmailBox.Size = new System.Drawing.Size(180, 23);
+            this.EmailBox.TabIndex = 27;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.EmailLabel.Location = new System.Drawing.Point(231, 357);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(41, 16);
+            this.EmailLabel.TabIndex = 26;
+            this.EmailLabel.Text = "Email";
+            // 
+            // JobTypeBox
+            // 
+            this.JobTypeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.JobTypeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.JobTypeBox.Location = new System.Drawing.Point(322, 251);
+            this.JobTypeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.JobTypeBox.Name = "JobTypeBox";
+            this.JobTypeBox.Size = new System.Drawing.Size(180, 23);
+            this.JobTypeBox.TabIndex = 29;
+            // 
+            // JobTypeLabel
+            // 
+            this.JobTypeLabel.AutoSize = true;
+            this.JobTypeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.JobTypeLabel.Location = new System.Drawing.Point(215, 251);
+            this.JobTypeLabel.Name = "JobTypeLabel";
+            this.JobTypeLabel.Size = new System.Drawing.Size(57, 16);
+            this.JobTypeLabel.TabIndex = 28;
+            this.JobTypeLabel.Text = "Job Type";
             // 
             // CreateNewProviderAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 724);
+            this.Controls.Add(this.JobTypeBox);
+            this.Controls.Add(this.JobTypeLabel);
+            this.Controls.Add(this.EmailBox);
+            this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.MaleCheckBox);
             this.Controls.Add(this.FemaleCheckBox);
             this.Controls.Add(this.label6);
@@ -368,6 +418,10 @@
         private System.Windows.Forms.CheckBox FemaleCheckBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.TextBox EmailBox;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.TextBox JobTypeBox;
+        private System.Windows.Forms.Label JobTypeLabel;
     }
 }
 

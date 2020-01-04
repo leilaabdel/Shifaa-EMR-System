@@ -30,6 +30,7 @@ namespace Shifaa_EMR_System
 
 
                 this.PatientListView1.Columns.Insert(0, patientID);
+             
 
 
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Linq;
+using System.Windows.Forms.Calendar;
 
 namespace Shifaa_EMR_System
 {
@@ -15,12 +16,16 @@ namespace Shifaa_EMR_System
     {
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
         readonly int thisPatientID;
+        readonly string providerID;
+        readonly CalendarItem calendarItem;
 
-        public NewAppointmentFromPatientView(int patientID)
+        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem )
         {
             InitializeComponent();
  
             this.thisPatientID = patientID;
+            this.providerID = providerID;
+            this.calendarItem = calendarItem;
 
         }
 
@@ -36,9 +41,7 @@ namespace Shifaa_EMR_System
                 string patientFirstName = "";
                 string patientLastName = "";
 
-                DateTime appointmentDate = AppointmentDateTimePicker.Value.Date;
-                string appointmentTime = AppointmentDateTimePicker.Value.TimeOfDay.ToString();
-                string appointmentDuration = DurationTimePicker.Value.TimeOfDay.ToString();
+              
 
                 ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(thisPatientID);
 
@@ -48,8 +51,9 @@ namespace Shifaa_EMR_System
                     patientLastName = r.LastName;
 
                 }
-                doAction.CreateAppointment(patientFirstName, patientLastName, AppointmentDetails.Text,
-                    appointmentDate, appointmentTime, appointmentDuration, thisPatientID , DateTime.Today);
+
+                doAction.CreateAppointment(patientFirstName, patientLastName, AppointmentDetails.Text, calendarItem.StartDate , 
+                    calendarItem.EndDate , thisPatientID , DateTime.Now , providerID);
                 //((PatientHomePage)this.Owner).appointmentTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Appointment, thisPatientID);
 
                 this.Close();

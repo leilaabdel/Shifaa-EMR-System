@@ -34,8 +34,8 @@ namespace Shifaa_EMR_System
 
                 else
                 {
-                    int returnValue = doAction.createSchedulerAccount(FirstNameBox.Text, LastNameBox.Text,
-                     gender, PhoneNumberBox.Text, UsernameBox.Text, PassCodeBox.Text, ReenterPasscodeBox.Text);
+                    int returnValue = doAction.createSchedulerAccount(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text,
+                        EmailBox.Text, gender, UsernameBox.Text, PassCodeBox.Text, ReenterPasscodeBox.Text);
 
                     if (returnValue is 1)
                     {
@@ -104,6 +104,51 @@ namespace Shifaa_EMR_System
             this.Hide();
             WelcomeHomePage welcome = new WelcomeHomePage();
             welcome.Show();
+        }
+
+        private void UsernameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FemaleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReenterPasscodeBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PassCodeBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MaleCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PassCodeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UsernameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

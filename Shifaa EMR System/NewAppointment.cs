@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms.Calendar;
+using System.Data.Linq;
 
 
 namespace Shifaa_EMR_System
@@ -17,15 +19,18 @@ namespace Shifaa_EMR_System
      
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
 
+        private  int  selectedPatientID;
+        private readonly CalendarItem calendarItem;
+        private readonly string providerID;
+        private readonly int appointmentID;
 
-        readonly AppointmentListView thisAppointmentList;
-
-        public NewAppointment(AppointmentListView appointmentListView)
+        public NewAppointment(CalendarItem item , string providerID)
         {
 
             InitializeComponent();
-          
-            this.thisAppointmentList = appointmentListView;
+
+            this.calendarItem = item;
+            this.providerID = providerID;
             
         }
 
@@ -68,10 +73,46 @@ namespace Shifaa_EMR_System
 
         }
 
+     
+        public string GetProviderName()
+        {
+            string name = "";
+            ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(providerID);
+            foreach (getProviderInfoResult r in result)
+            {
+                name =  r.FirstName + " " + r.LastName + " " + r.Title;
+            }
+
+            return name;
+        }
+
+        public int GetPatientID()
+        {
+            return selectedPatientID;
+        }
+
+        public int GetAppointmentID()
+        {
+            return appointmentID;
+        }
 
 
+        public string GetAppointmentDetails()
+        {
+            return this.AppointmentDetails.Text;
+        }
 
+        public string GetFirstName()
+        {
+            int rowIndex = this.PatientListView.CurrentRow.Index;
+            return (String)this.PatientListView["FirstName1", rowIndex].Value;
+        }
 
+        public string GetLastName()
+        {
+            int rowIndex = this.PatientListView.CurrentRow.Index;
+            return (String)this.PatientListView["LastName1", rowIndex].Value;
+        }
 
         private void FirstNameClick(object sender, EventArgs e)
         {
@@ -118,7 +159,7 @@ namespace Shifaa_EMR_System
 
                 int rowIndex = PatientListView.CurrentRow.Index;
                 var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
-                int selectedPatientID = (Int32)selectedPatientIDCell.Value;
+                selectedPatientID = (Int32)selectedPatientIDCell.Value;
 
                 Console.WriteLine(selectedPatientID);
 
@@ -128,9 +169,9 @@ namespace Shifaa_EMR_System
 
                 string firstName = (String)this.PatientListView["FirstName1", rowIndex].Value;
                 string lastName = (String)this.PatientListView["LastName1", rowIndex].Value;
-
-                doAction.CreateAppointment(firstName, lastName,  AppointmentDetails.Text, ScheduledDatePicker.Value, ScheduledTimePicker.Value.ToString("HH:mm"), DurationTimePicker.Value.ToString("HH:mm")
-                    , selectedPatientID , DateTime.Today);
+   
+                doAction.CreateAppointment(firstName, lastName, AppointmentDetails.Text, calendarItem.StartDate, calendarItem.EndDate, selectedPatientID, DateTime.Now,
+                    providerID);
 
 
                 this.Close();
@@ -314,46 +355,8 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void FillBySearchToolStripButton_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void StartDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void EndDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DateSelectionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ScheduledDatePicker_ValueChanged(object sender, EventArgs e)
-        {
-  
-        }
-
+   
         private void Exit_Click_1(object sender, EventArgs e)
         {
             this.Close();

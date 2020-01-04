@@ -33,12 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentDescriptionLabel = new System.Windows.Forms.Label();
             this.AppointmentDetails = new System.Windows.Forms.TextBox();
-            this.Label1 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
-            this.Label2 = new System.Windows.Forms.Label();
             this.FirstName = new System.Windows.Forms.TextBox();
             this.LastName = new System.Windows.Forms.TextBox();
-            this.DateLabel = new System.Windows.Forms.Label();
             this.PatientIDNum = new System.Windows.Forms.TextBox();
             this.PatientListView = new System.Windows.Forms.DataGridView();
             this.columnNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,14 +52,9 @@
             this.nationalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maritalStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pregancyStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.DateSelectionLabel = new System.Windows.Forms.Label();
             this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
-            this.ScheduledTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.DurationTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.ScheduledDatePicker = new System.Windows.Forms.DateTimePicker();
             this.Exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
@@ -97,19 +89,6 @@
             this.AppointmentDetails.Click += new System.EventHandler(this.AppointmentDetailsClick);
             this.AppointmentDetails.TextChanged += new System.EventHandler(this.TextBox1_TextChanged_1);
             // 
-            // Label1
-            // 
-            this.Label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label1.AutoSize = true;
-            this.Label1.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.Location = new System.Drawing.Point(386, 535);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(44, 19);
-            this.Label1.TabIndex = 5;
-            this.Label1.Text = "Time";
-            this.Label1.Click += new System.EventHandler(this.Label1_Click);
-            // 
             // Save
             // 
             this.Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -117,26 +96,13 @@
             this.Save.FlatAppearance.BorderSize = 0;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save.Location = new System.Drawing.Point(367, 668);
+            this.Save.Location = new System.Drawing.Point(373, 546);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 43);
             this.Save.TabIndex = 7;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Save_Click);
-            // 
-            // Label2
-            // 
-            this.Label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Label2.AutoSize = true;
-            this.Label2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label2.Location = new System.Drawing.Point(371, 585);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(72, 19);
-            this.Label2.TabIndex = 9;
-            this.Label2.Text = "Duration";
-            this.Label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // FirstName
             // 
@@ -164,17 +130,6 @@
             this.LastName.Text = "Last Name";
             this.LastName.Click += new System.EventHandler(this.LastNameClick);
             this.LastName.TextChanged += new System.EventHandler(this.LastName_TextChanged);
-            // 
-            // DateLabel
-            // 
-            this.DateLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.DateLabel.AutoSize = true;
-            this.DateLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateLabel.Location = new System.Drawing.Point(386, 464);
-            this.DateLabel.Name = "DateLabel";
-            this.DateLabel.Size = new System.Drawing.Size(43, 19);
-            this.DateLabel.TabIndex = 20;
-            this.DateLabel.Text = "Date";
             // 
             // PatientIDNum
             // 
@@ -225,8 +180,7 @@
             this.bMIDataGridViewTextBoxColumn,
             this.nationalityDataGridViewTextBoxColumn,
             this.createdDataGridViewTextBoxColumn,
-            this.maritalStatusDataGridViewTextBoxColumn,
-            this.pregancyStatusDataGridViewTextBoxColumn});
+            this.maritalStatusDataGridViewTextBoxColumn});
             this.PatientListView.DataSource = this.patientBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -353,14 +307,6 @@
             this.maritalStatusDataGridViewTextBoxColumn.ReadOnly = true;
             this.maritalStatusDataGridViewTextBoxColumn.Visible = false;
             // 
-            // pregancyStatusDataGridViewTextBoxColumn
-            // 
-            this.pregancyStatusDataGridViewTextBoxColumn.DataPropertyName = "PregancyStatus";
-            this.pregancyStatusDataGridViewTextBoxColumn.HeaderText = "PregancyStatus";
-            this.pregancyStatusDataGridViewTextBoxColumn.Name = "pregancyStatusDataGridViewTextBoxColumn";
-            this.pregancyStatusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pregancyStatusDataGridViewTextBoxColumn.Visible = false;
-            // 
             // patientBindingSource
             // 
             this.patientBindingSource.DataMember = "Patient";
@@ -371,60 +317,9 @@
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
             this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // DateSelectionLabel
-            // 
-            this.DateSelectionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.DateSelectionLabel.AutoSize = true;
-            this.DateSelectionLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateSelectionLabel.Location = new System.Drawing.Point(355, 464);
-            this.DateSelectionLabel.Name = "DateSelectionLabel";
-            this.DateSelectionLabel.Size = new System.Drawing.Size(114, 19);
-            this.DateSelectionLabel.TabIndex = 26;
-            this.DateSelectionLabel.Text = "Date Selection";
-            this.DateSelectionLabel.Click += new System.EventHandler(this.DateSelectionLabel_Click);
-            // 
             // patientTableAdapter
             // 
             this.patientTableAdapter.ClearBeforeFill = true;
-            // 
-            // ScheduledTimePicker
-            // 
-            this.ScheduledTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScheduledTimePicker.CustomFormat = "HH:mm";
-            this.ScheduledTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
-            this.ScheduledTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ScheduledTimePicker.Location = new System.Drawing.Point(334, 557);
-            this.ScheduledTimePicker.Name = "ScheduledTimePicker";
-            this.ScheduledTimePicker.ShowUpDown = true;
-            this.ScheduledTimePicker.Size = new System.Drawing.Size(140, 25);
-            this.ScheduledTimePicker.TabIndex = 35;
-            // 
-            // DurationTimePicker
-            // 
-            this.DurationTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DurationTimePicker.CustomFormat = "HH:mm";
-            this.DurationTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
-            this.DurationTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DurationTimePicker.Location = new System.Drawing.Point(334, 618);
-            this.DurationTimePicker.Name = "DurationTimePicker";
-            this.DurationTimePicker.ShowUpDown = true;
-            this.DurationTimePicker.Size = new System.Drawing.Size(140, 25);
-            this.DurationTimePicker.TabIndex = 36;
-            // 
-            // ScheduledDatePicker
-            // 
-            this.ScheduledDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ScheduledDatePicker.CustomFormat = "dddd dd/MM/yyyy ";
-            this.ScheduledDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 11F);
-            this.ScheduledDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ScheduledDatePicker.Location = new System.Drawing.Point(298, 496);
-            this.ScheduledDatePicker.Name = "ScheduledDatePicker";
-            this.ScheduledDatePicker.Size = new System.Drawing.Size(242, 25);
-            this.ScheduledDatePicker.TabIndex = 46;
-            this.ScheduledDatePicker.ValueChanged += new System.EventHandler(this.ScheduledDatePicker_ValueChanged);
             // 
             // Exit
             // 
@@ -452,18 +347,11 @@
             this.ClientSize = new System.Drawing.Size(787, 881);
             this.ControlBox = false;
             this.Controls.Add(this.Exit);
-            this.Controls.Add(this.ScheduledDatePicker);
-            this.Controls.Add(this.DurationTimePicker);
-            this.Controls.Add(this.ScheduledTimePicker);
-            this.Controls.Add(this.DateSelectionLabel);
             this.Controls.Add(this.PatientListView);
             this.Controls.Add(this.PatientIDNum);
-            this.Controls.Add(this.DateLabel);
             this.Controls.Add(this.LastName);
             this.Controls.Add(this.FirstName);
-            this.Controls.Add(this.Label2);
             this.Controls.Add(this.Save);
-            this.Controls.Add(this.Label1);
             this.Controls.Add(this.AppointmentDetails);
             this.Controls.Add(this.AppointmentDescriptionLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -484,12 +372,9 @@
 
         private System.Windows.Forms.Label AppointmentDescriptionLabel;
         private System.Windows.Forms.TextBox AppointmentDetails;
-        private System.Windows.Forms.Label Label1;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.TextBox FirstName;
         private System.Windows.Forms.TextBox LastName;
-        private System.Windows.Forms.Label DateLabel;
         private System.Windows.Forms.TextBox PatientIDNum;
         private System.Windows.Forms.DataGridView PatientListView;
       
@@ -503,11 +388,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Label DateSelectionLabel;
         private EMRDatabaseDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
-        private System.Windows.Forms.DateTimePicker ScheduledTimePicker;
-        private System.Windows.Forms.DateTimePicker DurationTimePicker;
-        private System.Windows.Forms.DateTimePicker ScheduledDatePicker;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;

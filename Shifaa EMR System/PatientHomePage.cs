@@ -18,7 +18,7 @@ namespace Shifaa_EMR_System
 
         readonly int thisPatientID;
         readonly ProviderMain thisProviderMain;
-        readonly AppointmentListView thisAppointmentList;
+        readonly SchedulingCalendar schedulingCalendar;
         readonly ToolStripMenuItem thisGenerateReport;
         readonly ToolStripMenuItem thisPrintPrescriptions;
 
@@ -50,7 +50,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  AppointmentListView appointmentList)
+        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  SchedulingCalendar schedulingCalendar)
         {
             InitializeComponent();
             this.PatientNameLabel.Text = name;
@@ -63,7 +63,7 @@ namespace Shifaa_EMR_System
 
             thisPatientID = selectedPatientID;
             this.thisProviderMain = providerMain;
-            this.thisAppointmentList = appointmentList;
+            this.schedulingCalendar = schedulingCalendar;
             this.FinishVisitButton.Show();
 
             this.NoteHistoryTable.AutoGenerateColumns = false;
@@ -207,17 +207,7 @@ namespace Shifaa_EMR_System
 
 
 
-        private void NewAppointmentButton_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null)
-            {
-
-                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID);
-                Center(newAppointment);
-                newAppointment.Show();
-
-            }
-        }
+     
 
      
 
@@ -316,14 +306,15 @@ namespace Shifaa_EMR_System
 
         private void AddNewAppointmentButton_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null)
+            if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisPatientID)
                 {
                     Owner = this
                 };
-                Center(newAppointment);
-                newAppointment.Show();
+                schedulingCalendar.WindowState = FormWindowState.Normal;
+                Center(schedulingCalendar);
+                schedulingCalendar.Show();
             }
         }
 
@@ -382,7 +373,7 @@ namespace Shifaa_EMR_System
 
                 int currentRow = MedicationsListDataGridView.CurrentRow.Index;
 
-                int selectedPrescriptionID = (Int32)MedicationsListDataGridView["prescriptionID", currentRow].Value;
+                int selectedPrescriptionID = (int)MedicationsListDataGridView["prescriptionID", currentRow].Value;
                 if (MessageBox.Show(string.Format("Are you sure you want to delete this Prescription?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
@@ -406,7 +397,7 @@ namespace Shifaa_EMR_System
 
                 int currentRow = AllergiesTable.CurrentRow.Index;
 
-                int selectedAllergyID = (Int32)AllergiesTable["PatientAllergieID", currentRow].Value;
+                int selectedAllergyID = (int)AllergiesTable["PatientAllergieID", currentRow].Value;
                 if (MessageBox.Show(string.Format("Are you sure you want to delete this Allergy?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
@@ -586,7 +577,7 @@ namespace Shifaa_EMR_System
         {
             // TO DO: Complete the Checked Out Button
             string checkedOut = "Complete at: " + DateTime.Now.ToString("HH:mm");
-            doAction.updateAppointment(checkedOut, thisAppointmentList.GetSelectedAppointmentID());
+            doAction.updateAppointment(checkedOut, schedulingCalendar.GetAppointmentID());
         }
 
         private void ProblemListView_CellContentClick(object sender, DataGridViewCellEventArgs e)

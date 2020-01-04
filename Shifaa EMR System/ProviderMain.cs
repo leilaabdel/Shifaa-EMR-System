@@ -22,11 +22,8 @@ namespace Shifaa_EMR_System
         public ProviderMain(string providerName , string providerID)
         {
             this.IsMdiContainer = true;
-            this.globalAppointmentList = new AppointmentListView(this);
-            globalAppointmentList.MdiParent = this;
-            this.globalNewAppointment = new NewAppointment(globalAppointmentList);
-            globalNewAppointment.MdiParent = this;
-           
+          
+        
             this.thisProviderName = providerName;
             this.thisProviderID = providerID;
             
@@ -74,74 +71,33 @@ namespace Shifaa_EMR_System
         }
 
 
-        private NewAppointment globalNewAppointment;
- 
-
-        public void SetNewAppointment(NewAppointment newAppointment)
-        {
-
-          
-            this.globalNewAppointment = newAppointment;
-            this.globalNewAppointment.MdiParent = this;
-            Center(globalNewAppointment);
-            this.globalNewAppointment.Show();
-        }
-
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
-            this.AutoScroll = false;
-          
-
-            if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
-            {
-                NewAppointment newAppointment = new NewAppointment(globalAppointmentList)
-                {
-                    MdiParent = this
-                };
-                globalAppointmentList.Close();
-                SetNewAppointment(newAppointment);
-                
-            }
-        }
-
-
 
         private void Center(Form form)
         {
             form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
         }
 
-        AppointmentListView globalAppointmentList;
 
-        private void SetAppointmentListView(AppointmentListView appointmentListView)
-        {
-            this.globalAppointmentList = appointmentListView;
-            this.globalAppointmentList.MdiParent = this;
-            this.globalAppointmentList.WindowState = FormWindowState.Maximized;
-            this.globalAppointmentList.StartPosition = FormStartPosition.CenterScreen;
-         
-        }
+
 
         public void Button2_Click(object sender, EventArgs e)
         {
 
-            if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
+            if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                AppointmentListView appointmentListView = new AppointmentListView(this)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisProviderID , this)
                 {
-                    MdiParent = this
-                };
-                SetAppointmentListView(appointmentListView);
-                for (int i = 0; i < globalAppointmentList.GetAppointmentListView().Rows.Count - 1; i++)
-                {
-                    globalAppointmentList.GetAppointmentListView()["Status", i] = new DataGridViewTextBoxCell();
-                    globalAppointmentList.GetAppointmentListView()["PatientID", i] = new DataGridViewButtonCell();
-                }
+                    MdiParent = this,
+                    WindowState = FormWindowState.Maximized
+                    
 
-                globalAppointmentList.FillByDate();
-                this.globalAppointmentList.Show();
+         
+               
+                };
+
+                Center(schedulingCalendar);
+                schedulingCalendar.Show();
+                
 
 
             }
@@ -237,14 +193,20 @@ namespace Shifaa_EMR_System
                 dateList.Add(dt);
             }
 
-            globalNewAppointment.MdiParent = this;
-
-
-            globalAppointmentList.MdiParent = this;
-            globalAppointmentList.FillByDate();
-
         }
 
-     
+        private void ContactsToolStripItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["SystemContacts"] as SystemContacts == null)
+            {
+                SystemContacts systemContacts = new SystemContacts()
+                {
+                    MdiParent = this
+                };
+                Center(systemContacts);
+                systemContacts.Show();
+            }
+
+        }
     }
 }

@@ -14,8 +14,7 @@ namespace Shifaa_EMR_System
         public SchedulerMain()
         {
             InitializeComponent();
-            globalAppointmentList = new AppointmentListView(this);
-            globalNewAppointment = new NewAppointment( globalAppointmentList);
+
         }
 
 
@@ -38,79 +37,57 @@ namespace Shifaa_EMR_System
 
         private void ExistingAppointments_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms["AppointmentListView"] as AppointmentListView == null)
+
+            if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                AppointmentListView appointmentListView = new AppointmentListView(this);
-                SetAppointmentListView(appointmentListView);
-                for (int i = 0; i < globalAppointmentList.GetAppointmentListView().Rows.Count - 1; i++)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisProviderID, this)
                 {
-                    globalAppointmentList.GetAppointmentListView()["PatientID", i] = new DataGridViewTextBoxCell();
-                    globalAppointmentList.GetAppointmentListView()["Status", i] = new DataGridViewButtonCell();
-                }
-
-                globalAppointmentList.FillByDate();
-                this.globalAppointmentList.Show();
+                    MdiParent = this,
+                    WindowState = FormWindowState.Maximized
 
 
-            }
-        }
-
-        AppointmentListView globalAppointmentList;
-
-        private void SetAppointmentListView(AppointmentListView appointmentListView)
-        {
-            this.globalAppointmentList = appointmentListView;
-            this.globalAppointmentList.MdiParent = this;
-            this.globalAppointmentList.WindowState = FormWindowState.Maximized;
-            this.globalAppointmentList.StartPosition = FormStartPosition.CenterScreen;
-         
-
-        }
 
 
-        private void NewAppointment_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms["NewAppointment"] as NewAppointment == null)
-            {
-                NewAppointment newAppointment = new NewAppointment(globalAppointmentList);
-                Center(newAppointment);
-                SetNewAppointment(newAppointment);
+                };
+
+                Center(schedulingCalendar);
+                schedulingCalendar.Show();
+
+
 
             }
-
         }
+
+
+
+
 
         private void SchedulerMain_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
         }
 
+
+        List<DateTime> dateList = new List<DateTime>();
+
         private void MonthCalendar2_DateChanged(object sender, DateRangeEventArgs e)
         {
             dateList.Clear();
+
+
             for (var dt = monthCalendar2.SelectionStart; dt <= monthCalendar2.SelectionEnd; dt = dt.AddDays(1))
             {
                 dateList.Add(dt);
             }
 
-            globalNewAppointment.MdiParent = this;
 
 
-            globalAppointmentList.MdiParent = this;
-            globalAppointmentList.FillByDate();
         }
-
-     
-        readonly List<DateTime> dateList = new List<DateTime>();
 
         public List<DateTime> GetDateSelection()
         {
-
             return dateList;
-
-
         }
 
     }
-
 }

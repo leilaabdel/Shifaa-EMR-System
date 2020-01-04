@@ -119,12 +119,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppointmentListView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppointmentListView.Designer.cs">
-      <DependentUpon>AppointmentListView.cs</DependentUpon>
-    </Compile>
     <Compile Include="AutoComplete.cs" />
     <Compile Include="CreateNewProviderAccount.cs">
       <SubType>Form</SubType>
@@ -137,6 +131,13 @@
     </Compile>
     <Compile Include="CreateNewSchedulerAccount.Designer.cs">
       <DependentUpon>CreateNewSchedulerAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemInfo.cs" />
+    <Compile Include="MessagesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessagesView.Designer.cs">
+      <DependentUpon>MessagesView.cs</DependentUpon>
     </Compile>
     <Compile Include="RichTextBoxEx.cs">
       <SubType>Component</SubType>
@@ -246,10 +247,22 @@
     <Compile Include="SchedulerMain.Designer.cs">
       <DependentUpon>SchedulerMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="SchedulingCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SchedulingCalendar.Designer.cs">
+      <DependentUpon>SchedulingCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="SiteFunctions.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SiteFunctions.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemContacts.Designer.cs">
+      <DependentUpon>SystemContacts.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdatePrescription.cs">
       <SubType>Form</SubType>
@@ -289,9 +302,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AppointmentListView.resx">
-      <DependentUpon>AppointmentListView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CreateNewProviderAccount.resx">
       <DependentUpon>CreateNewProviderAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CredentialVerification.resx">
       <DependentUpon>CredentialVerification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessagesView.resx">
+      <DependentUpon>MessagesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewAllergie.resx">
       <DependentUpon>NewAllergie.cs</DependentUpon>
@@ -365,6 +378,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SchedulingCalendar.resx">
+      <DependentUpon>SchedulingCalendar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemContacts.resx">
+      <DependentUpon>SystemContacts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdatePrescription.resx">
       <DependentUpon>UpdatePrescription.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,7 +454,6 @@
     <None Include="RxSign.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Image1.jpg" />
     <Content Include="RxIcon.jpg" />
     <Content Include="RxIcon.png" />
   </ItemGroup>
@@ -449,6 +468,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Windows.Forms.Calendar\System.Windows.Forms.Calendar.csproj">
+      <Project>{25649f08-3046-4891-adb8-7ea787b57063}</Project>
+      <Name>System.Windows.Forms.Calendar</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -40,9 +40,9 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExistingAppointments = new System.Windows.Forms.Button();
-            this.NewAppointment = new System.Windows.Forms.Button();
             this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.ExistingAppointments);
             this.panel3.Location = new System.Drawing.Point(-2, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 273);
@@ -139,24 +140,13 @@
             // ExistingAppointments
             // 
             this.ExistingAppointments.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExistingAppointments.Location = new System.Drawing.Point(141, 289);
+            this.ExistingAppointments.Location = new System.Drawing.Point(91, 217);
             this.ExistingAppointments.Name = "ExistingAppointments";
             this.ExistingAppointments.Size = new System.Drawing.Size(100, 46);
             this.ExistingAppointments.TabIndex = 9;
-            this.ExistingAppointments.Text = "Existing Appointments";
+            this.ExistingAppointments.Text = "View Appointments";
             this.ExistingAppointments.UseVisualStyleBackColor = true;
             this.ExistingAppointments.Click += new System.EventHandler(this.ExistingAppointments_Click);
-            // 
-            // NewAppointment
-            // 
-            this.NewAppointment.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewAppointment.Location = new System.Drawing.Point(26, 289);
-            this.NewAppointment.Name = "NewAppointment";
-            this.NewAppointment.Size = new System.Drawing.Size(109, 46);
-            this.NewAppointment.TabIndex = 7;
-            this.NewAppointment.Text = "New Appointment";
-            this.NewAppointment.UseVisualStyleBackColor = true;
-            this.NewAppointment.Click += new System.EventHandler(this.NewAppointment_Click);
             // 
             // monthCalendar2
             // 
@@ -170,8 +160,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1343, 763);
-            this.Controls.Add(this.ExistingAppointments);
-            this.Controls.Add(this.NewAppointment);
             this.Controls.Add(this.monthCalendar2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -181,6 +169,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.SchedulerMain_Load);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -204,7 +193,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Button ExistingAppointments;
-        private System.Windows.Forms.Button NewAppointment;
         private System.Windows.Forms.MonthCalendar monthCalendar2;
     }
 }
