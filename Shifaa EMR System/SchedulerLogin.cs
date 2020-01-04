@@ -27,7 +27,7 @@ namespace Shifaa_EMR_System
             if(doAction.authenticateScheduler(UserNameBox.Text , PasscodeBox.Text) == 0)
             {
                 this.Hide();
-                SchedulerMain sMain = new SchedulerMain();
+                SchedulerMain sMain = new SchedulerMain(UserNameBox.Text);
                 sMain.Show();
             }
             else

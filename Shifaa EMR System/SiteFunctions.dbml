@@ -197,6 +197,7 @@
       <Column Name="Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Physician_Login_Info_Appointment" Member="Appointments" ThisKey="USERNAME" OtherKey="ProviderID" Type="Appointment" />
+      <Association Name="Physician_Login_Info_SchedulersBelongingToProvider" Member="SchedulersBelongingToProviders" ThisKey="USERNAME" OtherKey="ProviderID" Type="SchedulersBelongingToProvider" />
       <Association Name="ProviderHashTable_Physician_Login_Info" Member="ProviderHashTable" ThisKey="USERNAME" OtherKey="Username" Type="ProviderHashTable" IsForeignKey="true" />
       <Association Name="AllEmployee_Physician_Login_Info" Member="AllEmployee" ThisKey="USERNAME" OtherKey="EmployeeID" Type="AllEmployee" IsForeignKey="true" />
     </Type>
@@ -210,6 +211,7 @@
       <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="JobRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="SchedulerInfo_SchedulersBelongingToProvider" Member="SchedulersBelongingToProviders" ThisKey="Username" OtherKey="SchedulerID" Type="SchedulersBelongingToProvider" />
       <Association Name="SchedulerHashTable_SchedulerInfo" Member="SchedulerHashTable" ThisKey="Username" OtherKey="Username" Type="SchedulerHashTable" IsForeignKey="true" />
       <Association Name="SchedulerHashTable1_SchedulerInfo" Member="SchedulerHashTable1" ThisKey="Username" OtherKey="Username" Type="SchedulerHashTable1" IsForeignKey="true" />
       <Association Name="AllEmployee_SchedulerInfo" Member="AllEmployee" ThisKey="Username" OtherKey="EmployeeID" Type="AllEmployee" IsForeignKey="true" />
@@ -258,6 +260,16 @@
       <Column Name="MessageTitle" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="MessageContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="AllEmployee_Message" Member="AllEmployee" ThisKey="SenderID" OtherKey="EmployeeID" Type="AllEmployee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SchedulersBelongingToProvider" Member="SchedulersBelongingToProviders">
+    <Type Name="SchedulersBelongingToProvider">
+      <Column Name="RowNum" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SchedulerID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProviderName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Physician_Login_Info_SchedulersBelongingToProvider" Member="Physician_Login_Info" ThisKey="ProviderID" OtherKey="USERNAME" Type="Physician_Login_Info" IsForeignKey="true" />
+      <Association Name="SchedulerInfo_SchedulersBelongingToProvider" Member="SchedulerInfo" ThisKey="SchedulerID" OtherKey="Username" Type="SchedulerInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.getNewPatientVitals" Method="getNewPatientVitals">
@@ -624,17 +636,6 @@
       <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.createNewMessage" Method="createNewMessage">
-    <Parameter Name="SenderID" Parameter="senderID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SenderName" Parameter="senderName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.SendMessage" Method="SendMessage">
     <Parameter Name="SenderID" Parameter="senderID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="SenderName" Parameter="senderName" Type="System.String" DbType="VarChar(50)" />
@@ -653,5 +654,22 @@
       <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.updateMessageDraft" Method="updateMessageDraft">
+    <Parameter Name="SenderID" Parameter="senderID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SenderName" Parameter="senderName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.createProviderSchedulerRelation" Method="createProviderSchedulerRelation">
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderName" Parameter="providerName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SchedulerID" Parameter="schedulerID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -11,10 +11,14 @@ namespace Shifaa_EMR_System
 {
     public partial class SchedulerMain : Form
     {
-        public SchedulerMain()
+
+        private string schedulerID;
+        private string[] providerID;
+          
+        public SchedulerMain(string schedulerID)
         {
             InitializeComponent();
-
+            this.schedulerID = schedulerID;
         }
 
 
@@ -23,16 +27,7 @@ namespace Shifaa_EMR_System
             form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
         }
 
-        private NewAppointment globalNewAppointment;
-
-
-        public void SetNewAppointment(NewAppointment newAppointment)
-        {
-            this.globalNewAppointment = newAppointment;
-            this.globalNewAppointment.MdiParent = this;
-
-            this.globalNewAppointment.Show();
-        }
+        
 
 
         private void ExistingAppointments_Click(object sender, EventArgs e)
@@ -40,7 +35,7 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisProviderID, this)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(schedulerID , this)
                 {
                     MdiParent = this,
                     WindowState = FormWindowState.Maximized
@@ -89,5 +84,32 @@ namespace Shifaa_EMR_System
             return dateList;
         }
 
+        private void ContactsToolStripItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["SystemContacts"] as SystemContacts == null)
+            {
+                SystemContacts systemContacts = new SystemContacts()
+                {
+                    MdiParent = this,
+                    WindowState = FormWindowState.Maximized
+                };
+                Center(systemContacts);
+                systemContacts.Show();
+            }
+        }
+
+        private void MessagesToolStripItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["MessagesView"] as MessagesView == null)
+            {
+                MessagesView mesagesView = new MessagesView(schedulerID)
+                {
+                    MdiParent = this,
+                    WindowState = FormWindowState.Maximized
+                };
+                Center(mesagesView);
+                mesagesView.Show();
+            }
+        }
     }
 }

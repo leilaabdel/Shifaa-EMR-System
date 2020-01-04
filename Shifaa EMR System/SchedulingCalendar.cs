@@ -18,10 +18,12 @@ namespace Shifaa_EMR_System
         List<CalendarItem> _items = new List<CalendarItem>();
         CalendarItem contextItem = null;
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        string thisProviderID = null;
-        int thisPatientID = 0;
+        readonly string thisProviderID = null;
+        readonly int thisPatientID = 0;
         int selectedAppointmentID = 0;
-        ProviderMain providerMain;
+        readonly ProviderMain providerMain;
+        private List<String> providerIDList;
+
 
         SchedulerMain schedulerMain;
         public SchedulingCalendar(string providerID , ProviderMain providerMain)
@@ -29,6 +31,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
             this.thisProviderID = providerID;
 
+            providerIDList.Add(thisProviderID);
 
             //Monthview colors
             monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
@@ -41,18 +44,35 @@ namespace Shifaa_EMR_System
 
             this.providerMain = providerMain ?? new ProviderMain(thisProviderID , thisProviderID);
 
+            ProviderComboBox.Hide();
+            SelectProviderLabel.Hide();
+            panel1.Hide();
+            calendar1.Location =  new Point(213, 0);
+            calendar1.Size = new Size(673, 1263);
+
             calendar1.SetViewRange(this.providerMain.GetDateSelection()[0], providerMain.GetDateSelection()[providerMain.GetDateSelection().Count - 1]); ;
 
         }
 
-        public SchedulingCalendar(string providerID , SchedulerMain schedulerMain)
+        public SchedulingCalendar(string schedulerID , SchedulerMain schedulerMain)
         {
             monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
             monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
             monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
             monthView1.DaySelectedTextColor = monthView1.ForeColor;
 
-            this.schedulerMain = schedulerMain ?? new SchedulerMain();
+            this.schedulerMain = schedulerMain ?? new SchedulerMain("123");
+
+            DataTable providersForScheduler = schedulersBelongingToProviderTableAdapter.GetDataBySchedulerID(schedulerID);
+
+            ProviderComboBox.DisplayMember = "ProviderName";
+            ProviderComboBox.ValueMember = "ProviderID";
+
+            ProviderComboBox.DataSource = providersForScheduler;
+            
+            calendar1.Size = new Size(673, 1188);
+            calendar1.Location = new Point(213, 75);
+                
 
             calendar1.SetViewRange(this.schedulerMain.GetDateSelection()[0], schedulerMain.GetDateSelection()[schedulerMain.GetDateSelection().Count - 1]); ;
         }
@@ -70,52 +90,40 @@ namespace Shifaa_EMR_System
 
         private void Form1_Load(object sender, EventArgs e)
         {
+ 
+          
 
-            if (thisPatientID == 0)
-            {
+                    ISingleResult<getAppointmentForCurrentProviderResult> result = doAction.getAppointmentForCurrentProvider(thisProviderID);
 
-                ISingleResult<getAppointmentForCurrentProviderResult> result = doAction.getAppointmentForCurrentProvider(thisProviderID);
+                    foreach (getAppointmentForCurrentProviderResult r in result)
+                    {
 
-                foreach (getAppointmentForCurrentProviderResult r in result)
-                {
+                        DateTime startDateTime = r.StartDateTime ?? DateTime.Now;
+                        DateTime endDateTime = r.EndDateTime ?? DateTime.Now;
 
-                    DateTime startDateTime = r.StartDateTime ?? DateTime.Now;
-                    DateTime endDateTime = r.EndDateTime ?? DateTime.Now;
+                        string patientName = r.FirstName + " " + r.LastName;
+                        int patientID = r.patientID;
+                        CalendarItem cal = new CalendarItem(calendar1, startDateTime, endDateTime, r.Details, patientName, r.appointmentID, r.patientID, r.ProviderID);
+                        
+                        if (r.patientID == thisPatientID)
+                    {
+                        cal.ApplyColor(Color.AliceBlue);
+                    }
 
-                    string patientName = r.FirstName + " " + r.LastName;
-                    int patientID = r.patientID;
-                    CalendarItem cal = new CalendarItem(calendar1, startDateTime, endDateTime, r.Details, patientName, r.appointmentID, r.patientID, r.ProviderID);
+                        _items.Add(cal);
+                    }
 
+                    PlaceItems();
+                
 
-                    _items.Add(cal);
-                }
-
-                PlaceItems();
-            } 
-            else
-            {
-                ISingleResult<getAppointmentsForCurrentPatientResult> result = doAction.getAppointmentsForCurrentPatient(thisPatientID);
-
-                foreach (getAppointmentsForCurrentPatientResult r in result)
-                {
-                    DateTime startDateTime = r.StartDateTime ?? DateTime.Now;
-                    DateTime endDateTime = r.EndDateTime ?? DateTime.Now;
-
-                    string patientName = r.FirstName + " " + r.LastName;
-                    int patientID = r.patientID;
-                    CalendarItem cal = new CalendarItem(calendar1, startDateTime, endDateTime, r.Details, patientName, r.appointmentID, r.patientID, r.ProviderID);
+           
 
 
-                    _items.Add(cal);
-                }
 
-                PlaceItems();
 
             }
-            
-        }
 
-        public int GetAppointmentID()
+            public int GetAppointmentID()
         {
             return selectedAppointmentID;
         }
@@ -425,6 +433,49 @@ namespace Shifaa_EMR_System
             }
 
             
+        }
+
+        private void ProviderComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+           
+                string selectedProviderID = (String)ProviderComboBox.SelectedValue;
+                if (!providerIDList.Contains(selectedProviderID))
+                {
+                    providerIDList.Add(selectedProviderID);
+
+
+                    ISingleResult<getAppointmentForCurrentProviderResult> result = doAction.getAppointmentForCurrentProvider(selectedProviderID);
+
+                    foreach (getAppointmentForCurrentProviderResult r in result)
+                    {
+
+                        DateTime startDateTime = r.StartDateTime ?? DateTime.Now;
+                        DateTime endDateTime = r.EndDateTime ?? DateTime.Now;
+
+                        string patientName = r.FirstName + " " + r.LastName;
+                        int patientID = r.patientID;
+                        CalendarItem cal = new CalendarItem(calendar1, startDateTime, endDateTime, r.Details, patientName, r.appointmentID, r.patientID, r.ProviderID);
+
+                        if (r.patientID == thisPatientID)
+                        {
+                            cal.ApplyColor(Color.AliceBlue);
+                        }
+
+                        _items.Add(cal);
+                    }
+
+                    PlaceItems();
+
+
+                }
+
+                else
+                {
+                    providerIDList.Remove(selectedProviderID);
+                }
+            
+           
         }
     }
 }

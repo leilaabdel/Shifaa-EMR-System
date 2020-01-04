@@ -93,6 +93,9 @@ namespace Shifaa_EMR_System
     partial void InsertMessage(Message instance);
     partial void UpdateMessage(Message instance);
     partial void DeleteMessage(Message instance);
+    partial void InsertSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
+    partial void UpdateSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
+    partial void DeleteSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
     #endregion
 		
 		public SiteFunctionsDataContext() : 
@@ -290,6 +293,14 @@ namespace Shifaa_EMR_System
 			get
 			{
 				return this.GetTable<Message>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SchedulersBelongingToProvider> SchedulersBelongingToProviders
+		{
+			get
+			{
+				return this.GetTable<SchedulersBelongingToProvider>();
 			}
 		}
 		
@@ -580,13 +591,6 @@ namespace Shifaa_EMR_System
 			return ((ISingleResult<convertNameToIDResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewMessage")]
-		public int createNewMessage([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderID", DbType="VarChar(50)")] string senderID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderName", DbType="VarChar(50)")] string senderName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), senderID, senderName, messageTitle, messageContent, dateTime, recipientName, recipientID, status);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SendMessage")]
 		public int SendMessage([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderID", DbType="VarChar(50)")] string senderID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderName", DbType="VarChar(50)")] string senderName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageID", DbType="Int")] System.Nullable<int> messageID)
 		{
@@ -599,6 +603,20 @@ namespace Shifaa_EMR_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
 			return ((ISingleResult<convertIDToNameResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateMessageDraft")]
+		public int updateMessageDraft([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderID", DbType="VarChar(50)")] string senderID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderName", DbType="VarChar(50)")] string senderName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), senderID, senderName, messageTitle, messageContent, dateTime, recipientName, recipientID, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createProviderSchedulerRelation")]
+		public int createProviderSchedulerRelation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderName", DbType="VarChar(50)")] string providerName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchedulerID", DbType="VarChar(50)")] string schedulerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerID, providerName, schedulerID);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -4442,6 +4460,8 @@ namespace Shifaa_EMR_System
 		
 		private EntitySet<Appointment> _Appointments;
 		
+		private EntitySet<SchedulersBelongingToProvider> _SchedulersBelongingToProviders;
+		
 		private EntityRef<ProviderHashTable> _ProviderHashTable;
 		
 		private EntityRef<AllEmployee> _AllEmployee;
@@ -4471,6 +4491,7 @@ namespace Shifaa_EMR_System
 		public Physician_Login_Info()
 		{
 			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
+			this._SchedulersBelongingToProviders = new EntitySet<SchedulersBelongingToProvider>(new Action<SchedulersBelongingToProvider>(this.attach_SchedulersBelongingToProviders), new Action<SchedulersBelongingToProvider>(this.detach_SchedulersBelongingToProviders));
 			this._ProviderHashTable = default(EntityRef<ProviderHashTable>);
 			this._AllEmployee = default(EntityRef<AllEmployee>);
 			OnCreated();
@@ -4653,6 +4674,19 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_SchedulersBelongingToProvider", Storage="_SchedulersBelongingToProviders", ThisKey="USERNAME", OtherKey="ProviderID")]
+		public EntitySet<SchedulersBelongingToProvider> SchedulersBelongingToProviders
+		{
+			get
+			{
+				return this._SchedulersBelongingToProviders;
+			}
+			set
+			{
+				this._SchedulersBelongingToProviders.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProviderHashTable_Physician_Login_Info", Storage="_ProviderHashTable", ThisKey="USERNAME", OtherKey="Username", IsForeignKey=true)]
 		public ProviderHashTable ProviderHashTable
 		{
@@ -4752,6 +4786,18 @@ namespace Shifaa_EMR_System
 			this.SendPropertyChanging();
 			entity.Physician_Login_Info = null;
 		}
+		
+		private void attach_SchedulersBelongingToProviders(SchedulersBelongingToProvider entity)
+		{
+			this.SendPropertyChanging();
+			entity.Physician_Login_Info = this;
+		}
+		
+		private void detach_SchedulersBelongingToProviders(SchedulersBelongingToProvider entity)
+		{
+			this.SendPropertyChanging();
+			entity.Physician_Login_Info = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SchedulerInfo")]
@@ -4773,6 +4819,8 @@ namespace Shifaa_EMR_System
 		private string _Email;
 		
 		private string _JobRole;
+		
+		private EntitySet<SchedulersBelongingToProvider> _SchedulersBelongingToProviders;
 		
 		private EntityRef<SchedulerHashTable> _SchedulerHashTable;
 		
@@ -4802,6 +4850,7 @@ namespace Shifaa_EMR_System
 		
 		public SchedulerInfo()
 		{
+			this._SchedulersBelongingToProviders = new EntitySet<SchedulersBelongingToProvider>(new Action<SchedulersBelongingToProvider>(this.attach_SchedulersBelongingToProviders), new Action<SchedulersBelongingToProvider>(this.detach_SchedulersBelongingToProviders));
 			this._SchedulerHashTable = default(EntityRef<SchedulerHashTable>);
 			this._SchedulerHashTable1 = default(EntityRef<SchedulerHashTable1>);
 			this._AllEmployee = default(EntityRef<AllEmployee>);
@@ -4953,6 +5002,19 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SchedulerInfo_SchedulersBelongingToProvider", Storage="_SchedulersBelongingToProviders", ThisKey="Username", OtherKey="SchedulerID")]
+		public EntitySet<SchedulersBelongingToProvider> SchedulersBelongingToProviders
+		{
+			get
+			{
+				return this._SchedulersBelongingToProviders;
+			}
+			set
+			{
+				this._SchedulersBelongingToProviders.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SchedulerHashTable_SchedulerInfo", Storage="_SchedulerHashTable", ThisKey="Username", OtherKey="Username", IsForeignKey=true)]
 		public SchedulerHashTable SchedulerHashTable
 		{
@@ -5073,6 +5135,18 @@ namespace Shifaa_EMR_System
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_SchedulersBelongingToProviders(SchedulersBelongingToProvider entity)
+		{
+			this.SendPropertyChanging();
+			entity.SchedulerInfo = this;
+		}
+		
+		private void detach_SchedulersBelongingToProviders(SchedulersBelongingToProvider entity)
+		{
+			this.SendPropertyChanging();
+			entity.SchedulerInfo = null;
 		}
 	}
 	
@@ -6028,6 +6102,222 @@ namespace Shifaa_EMR_System
 						this._SenderID = default(string);
 					}
 					this.SendPropertyChanged("AllEmployee");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SchedulersBelongingToProvider")]
+	public partial class SchedulersBelongingToProvider : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RowNum;
+		
+		private string _ProviderID;
+		
+		private string _SchedulerID;
+		
+		private string _ProviderName;
+		
+		private EntityRef<Physician_Login_Info> _Physician_Login_Info;
+		
+		private EntityRef<SchedulerInfo> _SchedulerInfo;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRowNumChanging(int value);
+    partial void OnRowNumChanged();
+    partial void OnProviderIDChanging(string value);
+    partial void OnProviderIDChanged();
+    partial void OnSchedulerIDChanging(string value);
+    partial void OnSchedulerIDChanged();
+    partial void OnProviderNameChanging(string value);
+    partial void OnProviderNameChanged();
+    #endregion
+		
+		public SchedulersBelongingToProvider()
+		{
+			this._Physician_Login_Info = default(EntityRef<Physician_Login_Info>);
+			this._SchedulerInfo = default(EntityRef<SchedulerInfo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNum", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RowNum
+		{
+			get
+			{
+				return this._RowNum;
+			}
+			set
+			{
+				if ((this._RowNum != value))
+				{
+					this.OnRowNumChanging(value);
+					this.SendPropertyChanging();
+					this._RowNum = value;
+					this.SendPropertyChanged("RowNum");
+					this.OnRowNumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ProviderID
+		{
+			get
+			{
+				return this._ProviderID;
+			}
+			set
+			{
+				if ((this._ProviderID != value))
+				{
+					if (this._Physician_Login_Info.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProviderIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderID = value;
+					this.SendPropertyChanged("ProviderID");
+					this.OnProviderIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchedulerID", DbType="VarChar(50)")]
+		public string SchedulerID
+		{
+			get
+			{
+				return this._SchedulerID;
+			}
+			set
+			{
+				if ((this._SchedulerID != value))
+				{
+					if (this._SchedulerInfo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSchedulerIDChanging(value);
+					this.SendPropertyChanging();
+					this._SchedulerID = value;
+					this.SendPropertyChanged("SchedulerID");
+					this.OnSchedulerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderName", DbType="VarChar(50)")]
+		public string ProviderName
+		{
+			get
+			{
+				return this._ProviderName;
+			}
+			set
+			{
+				if ((this._ProviderName != value))
+				{
+					this.OnProviderNameChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderName = value;
+					this.SendPropertyChanged("ProviderName");
+					this.OnProviderNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_SchedulersBelongingToProvider", Storage="_Physician_Login_Info", ThisKey="ProviderID", OtherKey="USERNAME", IsForeignKey=true)]
+		public Physician_Login_Info Physician_Login_Info
+		{
+			get
+			{
+				return this._Physician_Login_Info.Entity;
+			}
+			set
+			{
+				Physician_Login_Info previousValue = this._Physician_Login_Info.Entity;
+				if (((previousValue != value) 
+							|| (this._Physician_Login_Info.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Physician_Login_Info.Entity = null;
+						previousValue.SchedulersBelongingToProviders.Remove(this);
+					}
+					this._Physician_Login_Info.Entity = value;
+					if ((value != null))
+					{
+						value.SchedulersBelongingToProviders.Add(this);
+						this._ProviderID = value.USERNAME;
+					}
+					else
+					{
+						this._ProviderID = default(string);
+					}
+					this.SendPropertyChanged("Physician_Login_Info");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SchedulerInfo_SchedulersBelongingToProvider", Storage="_SchedulerInfo", ThisKey="SchedulerID", OtherKey="Username", IsForeignKey=true)]
+		public SchedulerInfo SchedulerInfo
+		{
+			get
+			{
+				return this._SchedulerInfo.Entity;
+			}
+			set
+			{
+				SchedulerInfo previousValue = this._SchedulerInfo.Entity;
+				if (((previousValue != value) 
+							|| (this._SchedulerInfo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SchedulerInfo.Entity = null;
+						previousValue.SchedulersBelongingToProviders.Remove(this);
+					}
+					this._SchedulerInfo.Entity = value;
+					if ((value != null))
+					{
+						value.SchedulersBelongingToProviders.Add(this);
+						this._SchedulerID = value.Username;
+					}
+					else
+					{
+						this._SchedulerID = default(string);
+					}
+					this.SendPropertyChanged("SchedulerInfo");
 				}
 			}
 		}

@@ -29,11 +29,11 @@ namespace Shifaa_EMR_System
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange1 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange2 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange3 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange4 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange5 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange6 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange7 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange8 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange9 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange10 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.redTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yellowTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +67,16 @@ namespace Shifaa_EMR_System
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
             this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SelectProviderLabel = new System.Windows.Forms.Label();
+            this.ProviderComboBox = new System.Windows.Forms.ComboBox();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.schedulersBelongingToProviderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.schedulersBelongingToProviderTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter();
             this.contextMenuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulersBelongingToProviderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -305,40 +314,41 @@ namespace Shifaa_EMR_System
             // 
             this.splitter1.Location = new System.Drawing.Point(208, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(5, 1192);
+            this.splitter1.Size = new System.Drawing.Size(5, 1263);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
             // calendar1
             // 
+            this.calendar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.calendar1.AutoScroll = true;
             this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
-            this.calendar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
-            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
-            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
-            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
-            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Sunday;
-            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange6.DayOfWeek = System.DayOfWeek.Monday;
+            calendarHighlightRange6.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange6.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange7.DayOfWeek = System.DayOfWeek.Tuesday;
+            calendarHighlightRange7.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange7.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange8.DayOfWeek = System.DayOfWeek.Wednesday;
+            calendarHighlightRange8.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange8.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange9.DayOfWeek = System.DayOfWeek.Thursday;
+            calendarHighlightRange9.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange9.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange10.DayOfWeek = System.DayOfWeek.Sunday;
+            calendarHighlightRange10.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange10.StartTime = System.TimeSpan.Parse("08:00:00");
             this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
-        calendarHighlightRange1,
-        calendarHighlightRange2,
-        calendarHighlightRange3,
-        calendarHighlightRange4,
-        calendarHighlightRange5};
-            this.calendar1.Location = new System.Drawing.Point(213, 0);
+        calendarHighlightRange6,
+        calendarHighlightRange7,
+        calendarHighlightRange8,
+        calendarHighlightRange9,
+        calendarHighlightRange10};
+            this.calendar1.Location = new System.Drawing.Point(213, 75);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(739, 1192);
+            this.calendar1.Size = new System.Drawing.Size(673, 1188);
             this.calendar1.TabIndex = 2;
             this.calendar1.Text = "calendar1";
             this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
@@ -366,18 +376,66 @@ namespace Shifaa_EMR_System
             this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(208, 1192);
+            this.monthView1.Size = new System.Drawing.Size(208, 1263);
             this.monthView1.TabIndex = 3;
             this.monthView1.Text = "monthView1";
             this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
             this.monthView1.SelectionChanged += new System.EventHandler(this.monthView1_SelectionChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.SelectProviderLabel);
+            this.panel1.Controls.Add(this.ProviderComboBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(213, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(690, 69);
+            this.panel1.TabIndex = 5;
+            // 
+            // SelectProviderLabel
+            // 
+            this.SelectProviderLabel.AutoSize = true;
+            this.SelectProviderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectProviderLabel.Location = new System.Drawing.Point(207, 25);
+            this.SelectProviderLabel.Name = "SelectProviderLabel";
+            this.SelectProviderLabel.Size = new System.Drawing.Size(124, 19);
+            this.SelectProviderLabel.TabIndex = 1;
+            this.SelectProviderLabel.Text = "Select Provider:";
+            // 
+            // ProviderComboBox
+            // 
+            this.ProviderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProviderComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProviderComboBox.FormattingEnabled = true;
+            this.ProviderComboBox.Location = new System.Drawing.Point(355, 25);
+            this.ProviderComboBox.MaxDropDownItems = 20;
+            this.ProviderComboBox.Name = "ProviderComboBox";
+            this.ProviderComboBox.Size = new System.Drawing.Size(121, 24);
+            this.ProviderComboBox.TabIndex = 0;
+            this.ProviderComboBox.SelectedIndexChanged += new System.EventHandler(this.ProviderComboBox_SelectedIndexChanged);
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // schedulersBelongingToProviderBindingSource
+            // 
+            this.schedulersBelongingToProviderBindingSource.DataMember = "SchedulersBelongingToProvider";
+            this.schedulersBelongingToProviderBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // schedulersBelongingToProviderTableAdapter
+            // 
+            this.schedulersBelongingToProviderTableAdapter.ClearBeforeFill = true;
             // 
             // SchedulingCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(969, 675);
+            this.ClientSize = new System.Drawing.Size(920, 620);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.calendar1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.monthView1);
@@ -386,6 +444,10 @@ namespace Shifaa_EMR_System
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DemoForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulersBelongingToProviderBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,6 +487,12 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.ToolStripMenuItem eastToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem southToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem westToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label SelectProviderLabel;
+        private System.Windows.Forms.ComboBox ProviderComboBox;
+        private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private System.Windows.Forms.BindingSource schedulersBelongingToProviderBindingSource;
+        private EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter schedulersBelongingToProviderTableAdapter;
     }
 }
 

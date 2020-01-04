@@ -297,7 +297,7 @@
             this.EditMedicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditMedicationButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditMedicationButton.ForeColor = System.Drawing.Color.DimGray;
-            this.EditMedicationButton.Location = new System.Drawing.Point(1045, 33);
+            this.EditMedicationButton.Location = new System.Drawing.Point(1028, 33);
             this.EditMedicationButton.Name = "EditMedicationButton";
             this.EditMedicationButton.Size = new System.Drawing.Size(38, 31);
             this.EditMedicationButton.TabIndex = 56;
@@ -312,7 +312,7 @@
             this.Exit.FlatAppearance.BorderSize = 0;
             this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.Exit.Location = new System.Drawing.Point(1089, 29);
+            this.Exit.Location = new System.Drawing.Point(1072, 29);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(98, 35);
             this.Exit.TabIndex = 52;
@@ -436,7 +436,7 @@
             this.ReplyButton.FlatAppearance.BorderSize = 0;
             this.ReplyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReplyButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.ReplyButton.Location = new System.Drawing.Point(1230, 92);
+            this.ReplyButton.Location = new System.Drawing.Point(1213, 92);
             this.ReplyButton.Name = "ReplyButton";
             this.ReplyButton.Size = new System.Drawing.Size(98, 35);
             this.ReplyButton.TabIndex = 58;

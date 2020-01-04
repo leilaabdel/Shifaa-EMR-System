@@ -17,6 +17,8 @@ namespace Shifaa_EMR_System
         public CreateNewProviderAccount()
         {
             InitializeComponent();
+         
+
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -41,6 +43,8 @@ namespace Shifaa_EMR_System
                         TitleBox.Text, PhoneNumberBox.Text , EmailBox.Text , JobTypeBox.Text, gender, UsernameBox.Text , 
                         PassCodeBox.Text, ReenterPasscodeBox.Text);
 
+
+
                     if (returnValue is 1)
                     {
                         MessageBox.Show("That username already exists. Please try another one");
@@ -53,6 +57,17 @@ namespace Shifaa_EMR_System
                     if (returnValue is 3)
                     {
                         MessageBox.Show("Please pick a different passcode. That passcode already exists");
+                    }
+                    if (returnValue is 0)
+                    {
+
+                        string providerName = FirstNameBox.Text + " " + LastNameBox.Text;
+                        foreach (DataGridViewRow data in SchedulerTable.SelectedRows)
+                        {
+                            doAction.createProviderSchedulerRelation(UsernameBox.Text, providerName, 
+                                (String)SchedulerTable[0, data.Index].Value);
+                        }
+                        
                     }
                 }
 
@@ -67,6 +82,12 @@ namespace Shifaa_EMR_System
 
         private void CreateNewProviderAccount_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.SchedulerInfo' table. You can move, or remove it, as needed.
+            this.schedulerInfoTableAdapter.Fill(this.eMRDatabaseDataSet.SchedulerInfo);
+            this.SchedulerTable.MultiSelect = true;
+
+           
+
 
         }
 
@@ -102,6 +123,16 @@ namespace Shifaa_EMR_System
             this.Hide();
             WelcomeHomePage welcome = new WelcomeHomePage();
             welcome.Show();
+        }
+
+        private void ChooseSchedulerBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

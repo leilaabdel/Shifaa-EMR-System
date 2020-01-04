@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ExistingAppointments = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -39,17 +40,21 @@
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExistingAppointments = new System.Windows.Forms.Button();
             this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.ContactsToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MessagesToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.menuStrip2);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 71);
@@ -64,6 +69,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 273);
             this.panel3.TabIndex = 4;
+            // 
+            // ExistingAppointments
+            // 
+            this.ExistingAppointments.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExistingAppointments.Location = new System.Drawing.Point(91, 217);
+            this.ExistingAppointments.Name = "ExistingAppointments";
+            this.ExistingAppointments.Size = new System.Drawing.Size(100, 46);
+            this.ExistingAppointments.TabIndex = 9;
+            this.ExistingAppointments.Text = "View Appointments";
+            this.ExistingAppointments.UseVisualStyleBackColor = true;
+            this.ExistingAppointments.Click += new System.EventHandler(this.ExistingAppointments_Click);
             // 
             // panel2
             // 
@@ -137,23 +153,44 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // ExistingAppointments
-            // 
-            this.ExistingAppointments.Font = new System.Drawing.Font("Bahnschrift Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExistingAppointments.Location = new System.Drawing.Point(91, 217);
-            this.ExistingAppointments.Name = "ExistingAppointments";
-            this.ExistingAppointments.Size = new System.Drawing.Size(100, 46);
-            this.ExistingAppointments.TabIndex = 9;
-            this.ExistingAppointments.Text = "View Appointments";
-            this.ExistingAppointments.UseVisualStyleBackColor = true;
-            this.ExistingAppointments.Click += new System.EventHandler(this.ExistingAppointments_Click);
-            // 
             // monthCalendar2
             // 
             this.monthCalendar2.Location = new System.Drawing.Point(20, 115);
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 8;
             this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar2_DateChanged);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.AutoSize = false;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContactsToolStripItem,
+            this.MessagesToolStripItem});
+            this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.menuStrip2.Location = new System.Drawing.Point(0, 274);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(266, 175);
+            this.menuStrip2.TabIndex = 5;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // ContactsToolStripItem
+            // 
+            this.ContactsToolStripItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContactsToolStripItem.Name = "ContactsToolStripItem";
+            this.ContactsToolStripItem.Size = new System.Drawing.Size(262, 27);
+            this.ContactsToolStripItem.Text = "Contacts";
+            this.ContactsToolStripItem.Click += new System.EventHandler(this.ContactsToolStripItem_Click);
+            // 
+            // MessagesToolStripItem
+            // 
+            this.MessagesToolStripItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.MessagesToolStripItem.Name = "MessagesToolStripItem";
+            this.MessagesToolStripItem.Size = new System.Drawing.Size(262, 27);
+            this.MessagesToolStripItem.Text = "Messages";
+            this.MessagesToolStripItem.Click += new System.EventHandler(this.MessagesToolStripItem_Click);
             // 
             // SchedulerMain
             // 
@@ -174,6 +211,8 @@
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +233,8 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Button ExistingAppointments;
         private System.Windows.Forms.MonthCalendar monthCalendar2;
+        public System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem ContactsToolStripItem;
+        private System.Windows.Forms.ToolStripMenuItem MessagesToolStripItem;
     }
 }

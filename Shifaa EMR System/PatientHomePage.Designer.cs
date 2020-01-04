@@ -38,12 +38,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientHomePage));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridView VitalHistoryTable;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -185,7 +187,6 @@
             this.AddLabButton = new System.Windows.Forms.Button();
             this.Label4 = new System.Windows.Forms.Label();
             this.Panel13 = new System.Windows.Forms.Panel();
-            this.VitalHistoryTable = new System.Windows.Forms.DataGridView();
             this.VitalSignID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BloodPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pulse = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -272,6 +273,7 @@
             this.patientScanTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientScanTableAdapter();
             this.vitalSignsTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.VitalSignsTableAdapter();
             this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
+            VitalHistoryTable = new System.Windows.Forms.DataGridView();
             this.Panel1.SuspendLayout();
             this.Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
@@ -295,7 +297,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.patientLabBindingSource)).BeginInit();
             this.Panel12.SuspendLayout();
             this.Panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(VitalHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).BeginInit();
             this.VitalHistoryLabel.SuspendLayout();
             this.Panel14.SuspendLayout();
@@ -676,7 +678,7 @@
             this.Panel3.Controls.Add(this.Panel8);
             this.Panel3.Location = new System.Drawing.Point(527, 945);
             this.Panel3.Name = "Panel3";
-            this.Panel3.Size = new System.Drawing.Size(689, 5855);
+            this.Panel3.Size = new System.Drawing.Size(907, 6181);
             this.Panel3.TabIndex = 2;
             // 
             // AppointmentListView1
@@ -738,7 +740,7 @@
             this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AppointmentListView1.RowHeadersVisible = false;
             this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentListView1.Size = new System.Drawing.Size(689, 5813);
+            this.AppointmentListView1.Size = new System.Drawing.Size(907, 6139);
             this.AppointmentListView1.TabIndex = 44;
             // 
             // appointmentID
@@ -887,7 +889,7 @@
             this.Panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel8.Location = new System.Drawing.Point(0, 0);
             this.Panel8.Name = "Panel8";
-            this.Panel8.Size = new System.Drawing.Size(689, 42);
+            this.Panel8.Size = new System.Drawing.Size(907, 42);
             this.Panel8.TabIndex = 34;
             // 
             // deleteAppointmentButton
@@ -900,7 +902,7 @@
             this.deleteAppointmentButton.FlatAppearance.BorderSize = 0;
             this.deleteAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAppointmentButton.Location = new System.Drawing.Point(626, 2);
+            this.deleteAppointmentButton.Location = new System.Drawing.Point(844, 2);
             this.deleteAppointmentButton.Name = "deleteAppointmentButton";
             this.deleteAppointmentButton.Size = new System.Drawing.Size(22, 33);
             this.deleteAppointmentButton.TabIndex = 46;
@@ -917,7 +919,7 @@
             this.AddNewAppointmentButton.FlatAppearance.BorderSize = 0;
             this.AddNewAppointmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewAppointmentButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewAppointmentButton.Location = new System.Drawing.Point(649, 2);
+            this.AddNewAppointmentButton.Location = new System.Drawing.Point(867, 2);
             this.AddNewAppointmentButton.Name = "AddNewAppointmentButton";
             this.AddNewAppointmentButton.Size = new System.Drawing.Size(37, 35);
             this.AddNewAppointmentButton.TabIndex = 45;
@@ -1247,7 +1249,7 @@
             this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.EditMedicationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditMedicationButton.BackgroundImage")));
             this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -1315,7 +1317,7 @@
             this.Panel6.Controls.Add(this.Panel10);
             this.Panel6.Location = new System.Drawing.Point(812, 139);
             this.Panel6.Name = "Panel6";
-            this.Panel6.Size = new System.Drawing.Size(404, 270);
+            this.Panel6.Size = new System.Drawing.Size(622, 270);
             this.Panel6.TabIndex = 4;
             // 
             // AllergiesTable
@@ -1375,7 +1377,7 @@
             this.AllergiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.AllergiesTable.RowHeadersVisible = false;
             this.AllergiesTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AllergiesTable.Size = new System.Drawing.Size(404, 228);
+            this.AllergiesTable.Size = new System.Drawing.Size(622, 228);
             this.AllergiesTable.TabIndex = 46;
             // 
             // AllergieName
@@ -1502,7 +1504,7 @@
             this.Panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel10.Location = new System.Drawing.Point(0, 0);
             this.Panel10.Name = "Panel10";
-            this.Panel10.Size = new System.Drawing.Size(404, 42);
+            this.Panel10.Size = new System.Drawing.Size(622, 42);
             this.Panel10.TabIndex = 36;
             // 
             // deleteAllergyButton
@@ -1515,7 +1517,7 @@
             this.deleteAllergyButton.FlatAppearance.BorderSize = 0;
             this.deleteAllergyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllergyButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteAllergyButton.Location = new System.Drawing.Point(347, 2);
+            this.deleteAllergyButton.Location = new System.Drawing.Point(565, 2);
             this.deleteAllergyButton.Name = "deleteAllergyButton";
             this.deleteAllergyButton.Size = new System.Drawing.Size(24, 33);
             this.deleteAllergyButton.TabIndex = 48;
@@ -1532,7 +1534,7 @@
             this.AddAllergieButton.FlatAppearance.BorderSize = 0;
             this.AddAllergieButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAllergieButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAllergieButton.Location = new System.Drawing.Point(373, 2);
+            this.AddAllergieButton.Location = new System.Drawing.Point(591, 2);
             this.AddAllergieButton.Name = "AddAllergieButton";
             this.AddAllergieButton.Size = new System.Drawing.Size(28, 38);
             this.AddAllergieButton.TabIndex = 30;
@@ -1558,7 +1560,7 @@
             this.Panel11.Controls.Add(this.Panel12);
             this.Panel11.Location = new System.Drawing.Point(812, 416);
             this.Panel11.Name = "Panel11";
-            this.Panel11.Size = new System.Drawing.Size(404, 257);
+            this.Panel11.Size = new System.Drawing.Size(622, 257);
             this.Panel11.TabIndex = 35;
             // 
             // LabsTable
@@ -1617,7 +1619,7 @@
             this.LabsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.LabsTable.RowHeadersVisible = false;
             this.LabsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LabsTable.Size = new System.Drawing.Size(404, 215);
+            this.LabsTable.Size = new System.Drawing.Size(622, 215);
             this.LabsTable.TabIndex = 47;
             // 
             // PatientLabID
@@ -1744,21 +1746,21 @@
             this.Panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.Panel12.Location = new System.Drawing.Point(0, 0);
             this.Panel12.Name = "Panel12";
-            this.Panel12.Size = new System.Drawing.Size(404, 42);
+            this.Panel12.Size = new System.Drawing.Size(622, 42);
             this.Panel12.TabIndex = 34;
             // 
             // OpenLabButton
             // 
             this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.OpenLabButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OpenLabButton.BackgroundImage")));
             this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
             this.OpenLabButton.FlatAppearance.BorderSize = 0;
             this.OpenLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OpenLabButton.Location = new System.Drawing.Point(483, 10);
+            this.OpenLabButton.Location = new System.Drawing.Point(701, 10);
             this.OpenLabButton.Name = "OpenLabButton";
             this.OpenLabButton.Size = new System.Drawing.Size(32, 29);
             this.OpenLabButton.TabIndex = 50;
@@ -1774,7 +1776,7 @@
             this.deleteLabButton.FlatAppearance.BorderSize = 0;
             this.deleteLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteLabButton.Location = new System.Drawing.Point(347, 1);
+            this.deleteLabButton.Location = new System.Drawing.Point(565, 1);
             this.deleteLabButton.Name = "deleteLabButton";
             this.deleteLabButton.Size = new System.Drawing.Size(22, 39);
             this.deleteLabButton.TabIndex = 49;
@@ -1791,7 +1793,7 @@
             this.AddLabButton.FlatAppearance.BorderSize = 0;
             this.AddLabButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddLabButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabButton.Location = new System.Drawing.Point(373, 1);
+            this.AddLabButton.Location = new System.Drawing.Point(591, 1);
             this.AddLabButton.Name = "AddLabButton";
             this.AddLabButton.Size = new System.Drawing.Size(28, 35);
             this.AddLabButton.TabIndex = 43;
@@ -1813,21 +1815,21 @@
             // 
             this.Panel13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Panel13.Controls.Add(this.VitalHistoryTable);
+            this.Panel13.Controls.Add(VitalHistoryTable);
             this.Panel13.Controls.Add(this.VitalHistoryLabel);
             this.Panel13.Location = new System.Drawing.Point(527, 679);
             this.Panel13.Name = "Panel13";
-            this.Panel13.Size = new System.Drawing.Size(689, 260);
+            this.Panel13.Size = new System.Drawing.Size(907, 260);
             this.Panel13.TabIndex = 43;
             // 
             // VitalHistoryTable
             // 
-            this.VitalHistoryTable.AllowUserToAddRows = false;
-            this.VitalHistoryTable.AllowUserToOrderColumns = true;
-            this.VitalHistoryTable.AutoGenerateColumns = false;
-            this.VitalHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.VitalHistoryTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.VitalHistoryTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            VitalHistoryTable.AllowUserToAddRows = false;
+            VitalHistoryTable.AllowUserToOrderColumns = true;
+            VitalHistoryTable.AutoGenerateColumns = false;
+            VitalHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            VitalHistoryTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            VitalHistoryTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle16.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -1835,9 +1837,9 @@
             dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VitalHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.VitalHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.VitalHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            VitalHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            VitalHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VitalHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VitalSignID,
             this.BloodPressure,
             this.Pulse,
@@ -1855,20 +1857,20 @@
             this.weightDataGridViewTextBoxColumn,
             this.bMIDataGridViewTextBoxColumn,
             this.dateUpdatedDataGridViewTextBoxColumn});
-            this.VitalHistoryTable.DataSource = this.vitalSignsBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            VitalHistoryTable.DataSource = this.vitalSignsBindingSource;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Bahnschrift Light", 8F);
             dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.VitalHistoryTable.DefaultCellStyle = dataGridViewCellStyle17;
-            this.VitalHistoryTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VitalHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.VitalHistoryTable.Location = new System.Drawing.Point(0, 42);
-            this.VitalHistoryTable.Name = "VitalHistoryTable";
-            this.VitalHistoryTable.ReadOnly = true;
+            VitalHistoryTable.DefaultCellStyle = dataGridViewCellStyle17;
+            VitalHistoryTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            VitalHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            VitalHistoryTable.Location = new System.Drawing.Point(0, 42);
+            VitalHistoryTable.Name = "VitalHistoryTable";
+            VitalHistoryTable.ReadOnly = true;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1876,11 +1878,11 @@
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.VitalHistoryTable.RowHeadersVisible = false;
-            this.VitalHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.VitalHistoryTable.Size = new System.Drawing.Size(689, 218);
-            this.VitalHistoryTable.TabIndex = 45;
+            VitalHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            VitalHistoryTable.RowHeadersVisible = false;
+            VitalHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            VitalHistoryTable.Size = new System.Drawing.Size(907, 218);
+            VitalHistoryTable.TabIndex = 45;
             // 
             // VitalSignID
             // 
@@ -2026,7 +2028,7 @@
             this.VitalHistoryLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.VitalHistoryLabel.Location = new System.Drawing.Point(0, 0);
             this.VitalHistoryLabel.Name = "VitalHistoryLabel";
-            this.VitalHistoryLabel.Size = new System.Drawing.Size(689, 42);
+            this.VitalHistoryLabel.Size = new System.Drawing.Size(907, 42);
             this.VitalHistoryLabel.TabIndex = 35;
             this.VitalHistoryLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.VitalHistoryLabel_Paint);
             // 
@@ -2040,7 +2042,7 @@
             this.deleteVitalButton.FlatAppearance.BorderSize = 0;
             this.deleteVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteVitalButton.Location = new System.Drawing.Point(632, 2);
+            this.deleteVitalButton.Location = new System.Drawing.Point(850, 2);
             this.deleteVitalButton.Name = "deleteVitalButton";
             this.deleteVitalButton.Size = new System.Drawing.Size(25, 33);
             this.deleteVitalButton.TabIndex = 50;
@@ -2057,7 +2059,7 @@
             this.AddNewVitalButton.FlatAppearance.BorderSize = 0;
             this.AddNewVitalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewVitalButton.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNewVitalButton.Location = new System.Drawing.Point(656, 4);
+            this.AddNewVitalButton.Location = new System.Drawing.Point(874, 4);
             this.AddNewVitalButton.Name = "AddNewVitalButton";
             this.AddNewVitalButton.Size = new System.Drawing.Size(30, 35);
             this.AddNewVitalButton.TabIndex = 44;
@@ -2303,7 +2305,7 @@
             // 
             this.Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Button1.BackColor = System.Drawing.Color.Azure;
-            this.Button1.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EyeIcon1;
+            this.Button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button1.BackgroundImage")));
             this.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2611,7 +2613,7 @@
             this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.UpdateProblemButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpdateProblemButton.BackgroundImage")));
             this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2774,7 +2776,7 @@
             this.Panel12.ResumeLayout(false);
             this.Panel12.PerformLayout();
             this.Panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.VitalHistoryTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(VitalHistoryTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vitalSignsBindingSource)).EndInit();
             this.VitalHistoryLabel.ResumeLayout(false);
             this.VitalHistoryLabel.PerformLayout();
@@ -2843,7 +2845,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn medicationNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn strengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridView VitalHistoryTable;
         private System.Windows.Forms.DataGridView AllergiesTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientAllergieIDDataGridViewTextBoxColumn;

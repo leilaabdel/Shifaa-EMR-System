@@ -201,10 +201,26 @@ namespace Shifaa_EMR_System
             {
                 SystemContacts systemContacts = new SystemContacts()
                 {
-                    MdiParent = this
+                    MdiParent = this,
+                    WindowState = FormWindowState.Maximized
                 };
                 Center(systemContacts);
                 systemContacts.Show();
+            }
+
+        }
+
+        private void MessagesToolStripItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["MessagesView"] as MessagesView == null)
+            {
+                MessagesView mesagesView = new MessagesView(thisProviderID)
+                {
+                    MdiParent = this,
+                    WindowState = FormWindowState.Maximized
+                };
+                Center(mesagesView);
+                mesagesView.Show();
             }
 
         }

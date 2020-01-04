@@ -174,6 +174,7 @@ namespace Shifaa_EMR_System
             this.MessagesToolStripItem.Name = "MessagesToolStripItem";
             this.MessagesToolStripItem.Size = new System.Drawing.Size(262, 27);
             this.MessagesToolStripItem.Text = "Messages";
+            this.MessagesToolStripItem.Click += new System.EventHandler(this.MessagesToolStripItem_Click);
             // 
             // proceduresToolStripMenuItem
             // 

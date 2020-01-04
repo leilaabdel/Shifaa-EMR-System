@@ -202,7 +202,7 @@ namespace Shifaa_EMR_System
 
             try
             {
-                doAction.createNewMessage(userID, userFullName, SubjectBox.Text, MessageContent1.Text, DateTime.Now, recipientFullName, destinationID, "Draft");
+                doAction.updateMessageDraft(userID, userFullName, SubjectBox.Text, MessageContent1.Text, DateTime.Now, recipientFullName, destinationID, "Draft");
 
             }
             catch(Exception ex)
