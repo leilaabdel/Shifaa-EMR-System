@@ -85,12 +85,11 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisProviderID , this)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisProviderID, this)
                 {
+
                     MdiParent = this,
                     WindowState = FormWindowState.Maximized
-                    
-
          
                
                 };
@@ -222,6 +221,11 @@ namespace Shifaa_EMR_System
                 Center(mesagesView);
                 mesagesView.Show();
             }
+
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

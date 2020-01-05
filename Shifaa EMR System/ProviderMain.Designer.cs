@@ -210,6 +210,7 @@ namespace Shifaa_EMR_System
             this.searchBox.TabIndex = 5;
             this.searchBox.Text = "Search Patient ID/Name";
             this.searchBox.Click += new System.EventHandler(this.SearchBoxClick);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // Button3

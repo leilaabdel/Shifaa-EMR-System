@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Windows.Forms.Calendar;
 using System.Data.Linq;
+using System.Drawing;
 
 
 namespace Shifaa_EMR_System
@@ -22,25 +23,61 @@ namespace Shifaa_EMR_System
         private  int  selectedPatientID;
         private readonly CalendarItem calendarItem;
         private readonly string providerID;
-        private readonly int appointmentID;
+        private bool saved = false;
+        private List<CalendarItem> items;
+        private SchedulingCalendar scheduleForm;
+        bool isUpdated = false;
+        private string firstNameFromAppt;
+        private string lastNameFromAppt;
 
-        public NewAppointment(CalendarItem item , string providerID)
+             
+        private Calendar calendar1;
+        public NewAppointment(CalendarItem item , string providerID , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar schedulingCalendar)
+        {
+
+            InitializeComponent();
+
+           this.calendarItem = item;
+            this.providerID = providerID;
+            this.calendar1 = calendar1;
+            this.items = items;
+            this.scheduleForm = schedulingCalendar;
+            
+        }
+
+        public NewAppointment(bool isUpdated, CalendarItem item, string providerID, Calendar calendar1, List<CalendarItem> items, SchedulingCalendar schedulingCalendar)
         {
 
             InitializeComponent();
 
             this.calendarItem = item;
             this.providerID = providerID;
-            
+            this.calendar1 = calendar1;
+            this.items = items;
+            this.scheduleForm = schedulingCalendar;
+            this.isUpdated = isUpdated;
+
+            Console.WriteLine(PatientIDNum.Text);
+            string[] names = calendarItem.PatientName.Split();
+            firstNameFromAppt = names[0];
+            lastNameFromAppt = names[1];
+
+            AppointmentDetails.Text = calendarItem.Text;
+
+
+
         }
 
-       
-   
+
+
 
 
         private void NewAppointment_Load(object sender, EventArgs e)
 
         {
+
+            this.Visible = true;
+
             this.patientTableAdapter.Fill(this.eMRDatabaseDataSet.Patient);
            
 
@@ -66,7 +103,15 @@ namespace Shifaa_EMR_System
 
 
 
+            this.dateTimePicker1.Value = calendarItem.StartDate;
+            this.dateTimePicker2.Value = calendarItem.EndDate;
 
+
+            if (isUpdated)
+            {
+
+             
+            }
 
 
 
@@ -91,10 +136,7 @@ namespace Shifaa_EMR_System
             return selectedPatientID;
         }
 
-        public int GetAppointmentID()
-        {
-            return appointmentID;
-        }
+       
 
 
         public string GetAppointmentDetails()
@@ -104,14 +146,27 @@ namespace Shifaa_EMR_System
 
         public string GetFirstName()
         {
-            int rowIndex = this.PatientListView.CurrentRow.Index;
-            return (String)this.PatientListView["FirstName1", rowIndex].Value;
+            if (PatientListView.Rows.Count > 0)
+            {
+                int rowIndex = this.PatientListView.CurrentRow.Index;
+                return (String)this.PatientListView["FirstName1", rowIndex].Value;
+
+            }
+
+            return null;
         }
 
         public string GetLastName()
         {
-            int rowIndex = this.PatientListView.CurrentRow.Index;
-            return (String)this.PatientListView["LastName1", rowIndex].Value;
+
+            if (PatientListView.Rows.Count > 0)
+            {
+                int rowIndex = this.PatientListView.CurrentRow.Index;
+                return (String)this.PatientListView["LastName1", rowIndex].Value;
+            }
+
+            return null;
+
         }
 
         private void FirstNameClick(object sender, EventArgs e)
@@ -141,7 +196,10 @@ namespace Shifaa_EMR_System
 
    
 
-
+        public bool isSaved()
+        {
+            return saved;
+        }
 
         private void TextBox1_TextChanged_1(object sender, EventArgs e)
         {
@@ -150,50 +208,153 @@ namespace Shifaa_EMR_System
 
         private void Save_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("saveBlah");
-            try
+            if (PatientListView.Rows.Count > 0)
             {
-
-
-
-
-                int rowIndex = PatientListView.CurrentRow.Index;
-                var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
-                selectedPatientID = (Int32)selectedPatientIDCell.Value;
-
-                Console.WriteLine(selectedPatientID);
-
-                Console.WriteLine(selectedPatientID.ToString());
-
-
-
-                string firstName = (String)this.PatientListView["FirstName1", rowIndex].Value;
-                string lastName = (String)this.PatientListView["LastName1", rowIndex].Value;
-   
-                doAction.CreateAppointment(firstName, lastName, AppointmentDetails.Text, calendarItem.StartDate, calendarItem.EndDate, selectedPatientID, DateTime.Now,
-                    providerID);
-
-
-                this.Close();
-
-            }
-            catch (Exception ex)
-            {
-
-                System.Windows.Forms.MessageBox.Show("This patient is not in the system. Please add them as a new patient");
-                this.Close();
-
-                Exception ex2 = ex;
-                while (ex2.InnerException != null)
+                if (!isUpdated)
                 {
-                    ex2 = ex2.InnerException;
+                    try
+                    {
+
+
+
+
+                        int rowIndex = PatientListView.CurrentRow.Index;
+                        var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
+                        selectedPatientID = (Int32)selectedPatientIDCell.Value;
+
+                
+
+
+                        string firstName = (String)this.PatientListView["FirstName1", rowIndex].Value;
+                        string lastName = (String)this.PatientListView["LastName1", rowIndex].Value;
+
+                        doAction.CreateAppointment(firstName, lastName, AppointmentDetails.Text, dateTimePicker1.Value, dateTimePicker2.Value, selectedPatientID, System.DateTime.Now,
+                            providerID);
+
+                        string calText = firstName + " " + lastName + "\n" +
+                            GetProviderName() + "\n" + AppointmentDetails.Text;
+
+                        calendarItem.StartDate = dateTimePicker1.Value;
+                        calendarItem.EndDate = dateTimePicker2.Value;
+
+                        ISingleResult<getJustCreatedAppointmentIDResult> result = doAction.getJustCreatedAppointmentID();
+
+                        int apptID = 0;
+
+                        foreach (getJustCreatedAppointmentIDResult r in result)
+                        {
+                            apptID = r.appointmentID;
+
+                        }
+
+          
+                        CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value, dateTimePicker2.Value, calText,
+                            firstName + " " + lastName, apptID, selectedPatientID, providerID);
+
+
+
+                        Console.WriteLine("this item text on main screen: " + calendarItem.Text);
+
+
+                        items.Add(cal);
+
+
+                        scheduleForm.SetCalendarItems(items);
+
+                        scheduleForm.PlaceItems(scheduleForm.GetCalendarItems());
+
+                        saved = true;
+                        this.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        System.Windows.Forms.MessageBox.Show("This patient is not in the system. Please add them as a new patient");
+                        this.Close();
+
+                        Exception ex2 = ex;
+                        while (ex2.InnerException != null)
+                        {
+                            ex2 = ex2.InnerException;
+                        }
+                        Console.WriteLine(ex.InnerException);
+                        throw;
+
+
+
+                    }
                 }
-                Console.WriteLine(ex.InnerException);
-                throw;
+
+                else
+                {
+                    try
+                    {
+
+                       
+
+                        int rowIndex = PatientListView.CurrentRow.Index;
+                        var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
+                        selectedPatientID = (Int32)selectedPatientIDCell.Value;
+
+                    
 
 
 
+                        string firstName = (String)this.PatientListView["FirstName1", rowIndex].Value;
+                        string lastName = (String)this.PatientListView["LastName1", rowIndex].Value;
+
+                        doAction.editAppointment(calendarItem.AppointmentID , firstName, lastName, AppointmentDetails.Text, dateTimePicker1.Value, dateTimePicker2.Value, selectedPatientID,
+                            providerID);
+
+                        string calText = firstName + " " + lastName + "\n" +
+                            GetProviderName() + "\n" + AppointmentDetails.Text;
+
+                        calendarItem.StartDate = dateTimePicker1.Value;
+                        calendarItem.EndDate = dateTimePicker2.Value;
+
+                        ISingleResult<getJustCreatedAppointmentIDResult> result = doAction.getJustCreatedAppointmentID();
+
+                      
+
+
+                        scheduleForm.GetCalendarItems().Remove(calendarItem);
+
+                        CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value, dateTimePicker2.Value, calText,
+                            firstName + " " + lastName, calendarItem.AppointmentID, selectedPatientID, providerID);
+
+
+                        scheduleForm.GetCalendarItems().Add(cal);
+
+
+                        scheduleForm.PlaceItems(scheduleForm.GetCalendarItems());
+
+                        saved = true;
+
+                        this.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        System.Windows.Forms.MessageBox.Show("This patient is not in the system. Please add them as a new patient");
+                        this.Close();
+
+                        Exception ex2 = ex;
+                        while (ex2.InnerException != null)
+                        {
+                            ex2 = ex2.InnerException;
+                        }
+                        Console.WriteLine(ex.InnerException);
+                        throw;
+
+
+
+                    }
+
+                }
             }
+            
 
 
         }

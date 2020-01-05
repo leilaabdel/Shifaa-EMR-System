@@ -15,6 +15,7 @@ namespace Shifaa_EMR_System
 
             
             InitializeComponent();
+            PasscodeBox.UseSystemPasswordChar = true;
         }
 
         private void Center(Form form)

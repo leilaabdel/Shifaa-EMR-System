@@ -577,7 +577,8 @@ namespace Shifaa_EMR_System
         {
             // TO DO: Complete the Checked Out Button
             string checkedOut = "Complete at: " + DateTime.Now.ToString("HH:mm");
-            doAction.updateAppointment(checkedOut, schedulingCalendar.GetAppointmentID());
+            doAction.updateAppointmentStatus(checkedOut, schedulingCalendar.GetAppointmentID() , "Green");
+            this.Close();
         }
 
         private void ProblemListView_CellContentClick(object sender, DataGridViewCellEventArgs e)

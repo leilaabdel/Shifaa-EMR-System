@@ -29,11 +29,11 @@ namespace Shifaa_EMR_System
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange6 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange7 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange8 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange9 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
-            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange10 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange1 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange2 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange3 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange4 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
+            System.Windows.Forms.Calendar.CalendarHighlightRange calendarHighlightRange5 = new System.Windows.Forms.Calendar.CalendarHighlightRange();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.redTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yellowTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +55,9 @@ namespace Shifaa_EMR_System
             this.minutesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.minutesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.minutesToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduledStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkedInStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.completeStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.selectImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageAlignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,16 +66,19 @@ namespace Shifaa_EMR_System
             this.southToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.westToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
-            this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SelectProviderLabel = new System.Windows.Forms.Label();
             this.ProviderComboBox = new System.Windows.Forms.ComboBox();
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.schedulersBelongingToProviderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schedulersBelongingToProviderTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
+            this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -94,50 +100,52 @@ namespace Shifaa_EMR_System
             this.selectImageToolStripMenuItem,
             this.imageAlignmentToolStripMenuItem,
             this.toolStripMenuItem5,
-            this.editItemToolStripMenuItem});
+            this.deleteItemToolStripMenuItem,
+            this.editItemToolStripMenuItem,
+            this.updateStatusToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 242);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(222, 286);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // redTagToolStripMenuItem
             // 
             this.redTagToolStripMenuItem.Name = "redTagToolStripMenuItem";
-            this.redTagToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.redTagToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.redTagToolStripMenuItem.Text = "Red tag";
             this.redTagToolStripMenuItem.Click += new System.EventHandler(this.redTagToolStripMenuItem_Click);
             // 
             // yellowTagToolStripMenuItem
             // 
             this.yellowTagToolStripMenuItem.Name = "yellowTagToolStripMenuItem";
-            this.yellowTagToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.yellowTagToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.yellowTagToolStripMenuItem.Text = "Yellow tag";
             this.yellowTagToolStripMenuItem.Click += new System.EventHandler(this.yellowTagToolStripMenuItem_Click);
             // 
             // greenTagToolStripMenuItem
             // 
             this.greenTagToolStripMenuItem.Name = "greenTagToolStripMenuItem";
-            this.greenTagToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.greenTagToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.greenTagToolStripMenuItem.Text = "Green tag";
             this.greenTagToolStripMenuItem.Click += new System.EventHandler(this.greenTagToolStripMenuItem_Click);
             // 
             // blueTagToolStripMenuItem
             // 
             this.blueTagToolStripMenuItem.Name = "blueTagToolStripMenuItem";
-            this.blueTagToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.blueTagToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.blueTagToolStripMenuItem.Text = "Blue tag";
             this.blueTagToolStripMenuItem.Click += new System.EventHandler(this.blueTagToolStripMenuItem_Click);
             // 
             // otherColorTagToolStripMenuItem
             // 
             this.otherColorTagToolStripMenuItem.Name = "otherColorTagToolStripMenuItem";
-            this.otherColorTagToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.otherColorTagToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.otherColorTagToolStripMenuItem.Text = "Other color tag...";
             this.otherColorTagToolStripMenuItem.Click += new System.EventHandler(this.otherColorTagToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(163, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(218, 6);
             // 
             // patternToolStripMenuItem
             // 
@@ -149,7 +157,7 @@ namespace Shifaa_EMR_System
             this.toolStripMenuItem3,
             this.noneToolStripMenuItem});
             this.patternToolStripMenuItem.Name = "patternToolStripMenuItem";
-            this.patternToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.patternToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.patternToolStripMenuItem.Text = "Pattern";
             // 
             // diagonalToolStripMenuItem
@@ -202,60 +210,81 @@ namespace Shifaa_EMR_System
             this.minutesToolStripMenuItem2,
             this.minutesToolStripMenuItem3});
             this.timescaleToolStripMenuItem.Name = "timescaleToolStripMenuItem";
-            this.timescaleToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.timescaleToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.timescaleToolStripMenuItem.Text = "Timescale";
             // 
             // hourToolStripMenuItem
             // 
             this.hourToolStripMenuItem.Name = "hourToolStripMenuItem";
-            this.hourToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.hourToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.hourToolStripMenuItem.Text = "1 hour";
             this.hourToolStripMenuItem.Click += new System.EventHandler(this.hourToolStripMenuItem_Click);
             // 
             // minutesToolStripMenuItem
             // 
             this.minutesToolStripMenuItem.Name = "minutesToolStripMenuItem";
-            this.minutesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.minutesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.minutesToolStripMenuItem.Text = "30 minutes";
             this.minutesToolStripMenuItem.Click += new System.EventHandler(this.minutesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(132, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(133, 22);
             this.toolStripMenuItem4.Text = "15 minutes";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // minutesToolStripMenuItem1
             // 
             this.minutesToolStripMenuItem1.Name = "minutesToolStripMenuItem1";
-            this.minutesToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.minutesToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
             this.minutesToolStripMenuItem1.Text = "10 minutes";
             this.minutesToolStripMenuItem1.Click += new System.EventHandler(this.minutesToolStripMenuItem1_Click);
             // 
             // minutesToolStripMenuItem2
             // 
             this.minutesToolStripMenuItem2.Name = "minutesToolStripMenuItem2";
-            this.minutesToolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
+            this.minutesToolStripMenuItem2.Size = new System.Drawing.Size(133, 22);
             this.minutesToolStripMenuItem2.Text = "6 minutes";
             this.minutesToolStripMenuItem2.Click += new System.EventHandler(this.minutesToolStripMenuItem2_Click);
             // 
             // minutesToolStripMenuItem3
             // 
             this.minutesToolStripMenuItem3.Name = "minutesToolStripMenuItem3";
-            this.minutesToolStripMenuItem3.Size = new System.Drawing.Size(132, 22);
+            this.minutesToolStripMenuItem3.Size = new System.Drawing.Size(133, 22);
             this.minutesToolStripMenuItem3.Text = "5 minutes";
             this.minutesToolStripMenuItem3.Click += new System.EventHandler(this.minutesToolStripMenuItem3_Click);
+            // 
+            // scheduledStatusToolStripMenuItem
+            // 
+            this.scheduledStatusToolStripMenuItem.Name = "scheduledStatusToolStripMenuItem";
+            this.scheduledStatusToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.scheduledStatusToolStripMenuItem.Text = "Scheduled";
+            this.scheduledStatusToolStripMenuItem.Click += new System.EventHandler(this.ScheduledClick);
+            // 
+            // checkedInStatusToolStripMenuItem
+            // 
+            this.checkedInStatusToolStripMenuItem.Name = "checkedInStatusToolStripMenuItem";
+            this.checkedInStatusToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.checkedInStatusToolStripMenuItem.Text = "Checked In";
+            this.checkedInStatusToolStripMenuItem.Click += new System.EventHandler(this.CheckedInClick);
+            // 
+            // completeStatusToolStripMenuItem
+            // 
+            this.completeStatusToolStripMenuItem.Name = "completeStatusToolStripMenuItem";
+            this.completeStatusToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.completeStatusToolStripMenuItem.Text = "Complete";
+            this.completeStatusToolStripMenuItem.Click += new System.EventHandler(this.CompleteClick);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(163, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(218, 6);
             // 
             // selectImageToolStripMenuItem
             // 
             this.selectImageToolStripMenuItem.Name = "selectImageToolStripMenuItem";
-            this.selectImageToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.selectImageToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.selectImageToolStripMenuItem.Text = "Select Image...";
             this.selectImageToolStripMenuItem.Click += new System.EventHandler(this.selectImageToolStripMenuItem_Click);
             // 
@@ -267,7 +296,7 @@ namespace Shifaa_EMR_System
             this.southToolStripMenuItem,
             this.westToolStripMenuItem});
             this.imageAlignmentToolStripMenuItem.Name = "imageAlignmentToolStripMenuItem";
-            this.imageAlignmentToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.imageAlignmentToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.imageAlignmentToolStripMenuItem.Text = "Image Alignment";
             // 
             // northToolStripMenuItem
@@ -301,86 +330,39 @@ namespace Shifaa_EMR_System
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(163, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(218, 6);
+            // 
+            // deleteItemToolStripMenuItem
+            // 
+            this.deleteItemToolStripMenuItem.Name = "deleteItemToolStripMenuItem";
+            this.deleteItemToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.deleteItemToolStripMenuItem.Text = "Delete this appointment";
+            this.deleteItemToolStripMenuItem.Click += new System.EventHandler(this.deleteItemToolStripMenuItem_Click);
             // 
             // editItemToolStripMenuItem
             // 
             this.editItemToolStripMenuItem.Name = "editItemToolStripMenuItem";
-            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.editItemToolStripMenuItem.Text = "Edit item\'s text";
+            this.editItemToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.editItemToolStripMenuItem.Text = "Edit this appointment";
             this.editItemToolStripMenuItem.Click += new System.EventHandler(this.editItemToolStripMenuItem_Click);
+            // 
+            // updateStatusToolStripMenuItem
+            // 
+            this.updateStatusToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.scheduledStatusToolStripMenuItem,
+            this.checkedInStatusToolStripMenuItem,
+            this.completeStatusToolStripMenuItem});
+            this.updateStatusToolStripMenuItem.Name = "updateStatusToolStripMenuItem";
+            this.updateStatusToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.updateStatusToolStripMenuItem.Text = "Update appointment status ";
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(208, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(5, 1263);
+            this.splitter1.Size = new System.Drawing.Size(5, 1257);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
-            // 
-            // calendar1
-            // 
-            this.calendar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.calendar1.AutoScroll = true;
-            this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
-            this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            calendarHighlightRange6.DayOfWeek = System.DayOfWeek.Monday;
-            calendarHighlightRange6.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange6.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange7.DayOfWeek = System.DayOfWeek.Tuesday;
-            calendarHighlightRange7.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange7.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange8.DayOfWeek = System.DayOfWeek.Wednesday;
-            calendarHighlightRange8.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange8.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange9.DayOfWeek = System.DayOfWeek.Thursday;
-            calendarHighlightRange9.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange9.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange10.DayOfWeek = System.DayOfWeek.Sunday;
-            calendarHighlightRange10.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange10.StartTime = System.TimeSpan.Parse("08:00:00");
-            this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
-        calendarHighlightRange6,
-        calendarHighlightRange7,
-        calendarHighlightRange8,
-        calendarHighlightRange9,
-        calendarHighlightRange10};
-            this.calendar1.Location = new System.Drawing.Point(213, 75);
-            this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(673, 1188);
-            this.calendar1.TabIndex = 2;
-            this.calendar1.Text = "calendar1";
-            this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
-            this.calendar1.DayHeaderClick += new System.Windows.Forms.Calendar.Calendar.CalendarDayEventHandler(this.calendar1_DayHeaderClick);
-            this.calendar1.ItemCreated += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);
-            this.calendar1.ItemDeleted += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemDeleted);
-            this.calendar1.ItemClick += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemClick);
-            this.calendar1.ItemMouseHover += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemMouseHover);
-            // 
-            // monthView1
-            // 
-            this.monthView1.ArrowsColor = System.Drawing.SystemColors.Window;
-            this.monthView1.ArrowsSelectedColor = System.Drawing.Color.Gold;
-            this.monthView1.DayBackgroundColor = System.Drawing.Color.Empty;
-            this.monthView1.DayGrayedText = System.Drawing.SystemColors.GrayText;
-            this.monthView1.DaySelectedBackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.monthView1.DaySelectedColor = System.Drawing.SystemColors.WindowText;
-            this.monthView1.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
-            this.monthView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
-            this.monthView1.Location = new System.Drawing.Point(0, 0);
-            this.monthView1.MaxSelectionCount = 35;
-            this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
-            this.monthView1.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
-            this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
-            this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(208, 1263);
-            this.monthView1.TabIndex = 3;
-            this.monthView1.Text = "monthView1";
-            this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
-            this.monthView1.SelectionChanged += new System.EventHandler(this.monthView1_SelectionChanged);
             // 
             // panel1
             // 
@@ -388,10 +370,11 @@ namespace Shifaa_EMR_System
             this.panel1.Controls.Add(this.SelectProviderLabel);
             this.panel1.Controls.Add(this.ProviderComboBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(213, 0);
+            this.panel1.Location = new System.Drawing.Point(213, 1188);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 69);
+            this.panel1.Size = new System.Drawing.Size(1132, 69);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // SelectProviderLabel
             // 
@@ -429,18 +412,86 @@ namespace Shifaa_EMR_System
             // 
             this.schedulersBelongingToProviderTableAdapter.ClearBeforeFill = true;
             // 
+            // calendar1
+            // 
+            this.calendar1.AutoScroll = true;
+            this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
+            this.calendar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Sunday;
+            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("00:00:00");
+            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("00:00:00");
+            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
+            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
+            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
+            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Sunday;
+            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
+            this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
+        calendarHighlightRange1,
+        calendarHighlightRange2,
+        calendarHighlightRange3,
+        calendarHighlightRange4,
+        calendarHighlightRange5};
+            this.calendar1.Location = new System.Drawing.Point(213, 0);
+            this.calendar1.Name = "calendar1";
+            this.calendar1.Size = new System.Drawing.Size(1132, 1188);
+            this.calendar1.TabIndex = 2;
+            this.calendar1.Text = "calendar1";
+            this.calendar1.TextBox = null;
+            this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
+            this.calendar1.DayHeaderClick += new System.Windows.Forms.Calendar.Calendar.CalendarDayEventHandler(this.calendar1_DayHeaderClick);
+            this.calendar1.ItemCreating += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreating);
+            this.calendar1.ItemCreated += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);
+            this.calendar1.ItemDeleted += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemDeleted);
+            this.calendar1.ItemClick += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemClick);
+            this.calendar1.ItemMouseHover += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemMouseHover);
+            this.calendar1.DragOver += new System.Windows.Forms.DragEventHandler(this.calender1_DragOver);
+            this.calendar1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.calendar1_MouseMove);
+            // 
+            // monthView1
+            // 
+            this.monthView1.ArrowsColor = System.Drawing.SystemColors.Window;
+            this.monthView1.ArrowsSelectedColor = System.Drawing.Color.Gold;
+            this.monthView1.DayBackgroundColor = System.Drawing.Color.Empty;
+            this.monthView1.DayGrayedText = System.Drawing.SystemColors.GrayText;
+            this.monthView1.DaySelectedBackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.monthView1.DaySelectedColor = System.Drawing.SystemColors.WindowText;
+            this.monthView1.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
+            this.monthView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
+            this.monthView1.Location = new System.Drawing.Point(0, 0);
+            this.monthView1.MaxSelectionCount = 35;
+            this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
+            this.monthView1.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
+            this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
+            this.monthView1.Name = "monthView1";
+            this.monthView1.Size = new System.Drawing.Size(208, 1257);
+            this.monthView1.TabIndex = 3;
+            this.monthView1.Text = "monthView1";
+            this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
+            this.monthView1.SelectionChanged += new System.EventHandler(this.monthView1_SelectionChanged);
+            // 
             // SchedulingCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(920, 620);
+            this.ClientSize = new System.Drawing.Size(1362, 620);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.calendar1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.monthView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SchedulingCalendar";
-            this.Text = "Calendar Demo";
+            this.Text = "Schedule";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DemoForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -478,6 +529,7 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.ToolStripMenuItem hatchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem noneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateStatusToolStripMenuItem;
         private System.Windows.Forms.Calendar.MonthView monthView1;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
@@ -487,12 +539,17 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.ToolStripMenuItem eastToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem southToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem westToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteItemToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem checkedInStatusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduledStatusToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem completeStatusToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label SelectProviderLabel;
         private System.Windows.Forms.ComboBox ProviderComboBox;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource schedulersBelongingToProviderBindingSource;
         private EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter schedulersBelongingToProviderTableAdapter;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

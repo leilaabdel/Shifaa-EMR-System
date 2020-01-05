@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,9 +57,6 @@
             this.JobTypeLabel = new System.Windows.Forms.Label();
             this.ChooseSchedulerLabel = new System.Windows.Forms.Label();
             this.SchedulerTable = new System.Windows.Forms.DataGridView();
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.schedulerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.schedulerInfoTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulerInfoTableAdapter();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,10 +64,13 @@
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobRoleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schedulerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.schedulerInfoTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulerInfoTableAdapter();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SchedulerTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -82,9 +81,9 @@
             this.panel2.Controls.Add(this.ExitButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(713, 47);
+            this.panel2.Size = new System.Drawing.Size(746, 47);
             this.panel2.TabIndex = 1;
             // 
             // BackButton
@@ -95,7 +94,7 @@
             this.BackButton.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
             this.BackButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BackButton.Location = new System.Drawing.Point(4, 4);
-            this.BackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BackButton.Margin = new System.Windows.Forms.Padding(4);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(119, 37);
             this.BackButton.TabIndex = 9;
@@ -122,7 +121,7 @@
             this.ExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 13F);
             this.ExitButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.ExitButton.Location = new System.Drawing.Point(603, 6);
-            this.ExitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(4);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(119, 37);
             this.ExitButton.TabIndex = 8;
@@ -158,10 +157,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.UsernameBox.Location = new System.Drawing.Point(322, 637);
-            this.UsernameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UsernameBox.Margin = new System.Windows.Forms.Padding(4);
             this.UsernameBox.Name = "UsernameBox";
-            this.UsernameBox.Size = new System.Drawing.Size(163, 23);
-            this.UsernameBox.TabIndex = 4;
+            this.UsernameBox.Size = new System.Drawing.Size(179, 23);
+            this.UsernameBox.TabIndex = 22;
             // 
             // PassCodeBox
             // 
@@ -169,20 +168,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PassCodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.PassCodeBox.Location = new System.Drawing.Point(322, 688);
-            this.PassCodeBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PassCodeBox.Margin = new System.Windows.Forms.Padding(4);
             this.PassCodeBox.Name = "PassCodeBox";
-            this.PassCodeBox.Size = new System.Drawing.Size(163, 23);
-            this.PassCodeBox.TabIndex = 5;
+            this.PassCodeBox.Size = new System.Drawing.Size(179, 23);
+            this.PassCodeBox.TabIndex = 23;
+            this.PassCodeBox.TextChanged += new System.EventHandler(this.PassCodeBox_TextChanged);
             // 
             // LoginButton
             // 
             this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LoginButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.LoginButton.Location = new System.Drawing.Point(318, 790);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginButton.Location = new System.Drawing.Point(314, 793);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(164, 48);
-            this.LoginButton.TabIndex = 6;
+            this.LoginButton.TabIndex = 25;
             this.LoginButton.Text = "Create Account";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
@@ -193,10 +193,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ReenterPasscodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.ReenterPasscodeBox.Location = new System.Drawing.Point(322, 739);
-            this.ReenterPasscodeBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReenterPasscodeBox.Margin = new System.Windows.Forms.Padding(4);
             this.ReenterPasscodeBox.Name = "ReenterPasscodeBox";
-            this.ReenterPasscodeBox.Size = new System.Drawing.Size(163, 23);
-            this.ReenterPasscodeBox.TabIndex = 10;
+            this.ReenterPasscodeBox.Size = new System.Drawing.Size(179, 23);
+            this.ReenterPasscodeBox.TabIndex = 24;
             // 
             // label2
             // 
@@ -215,10 +215,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TitleBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.TitleBox.Location = new System.Drawing.Point(322, 201);
-            this.TitleBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TitleBox.Margin = new System.Windows.Forms.Padding(4);
             this.TitleBox.Name = "TitleBox";
-            this.TitleBox.Size = new System.Drawing.Size(163, 23);
-            this.TitleBox.TabIndex = 16;
+            this.TitleBox.Size = new System.Drawing.Size(179, 23);
+            this.TitleBox.TabIndex = 15;
             // 
             // Title
             // 
@@ -237,9 +237,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LastNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.LastNameBox.Location = new System.Drawing.Point(322, 150);
-            this.LastNameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LastNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.LastNameBox.Name = "LastNameBox";
-            this.LastNameBox.Size = new System.Drawing.Size(163, 23);
+            this.LastNameBox.Size = new System.Drawing.Size(179, 23);
             this.LastNameBox.TabIndex = 14;
             // 
             // FirstNameBox
@@ -248,9 +248,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FirstNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.FirstNameBox.Location = new System.Drawing.Point(322, 100);
-            this.FirstNameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FirstNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.FirstNameBox.Name = "FirstNameBox";
-            this.FirstNameBox.Size = new System.Drawing.Size(163, 23);
+            this.FirstNameBox.Size = new System.Drawing.Size(179, 23);
             this.FirstNameBox.TabIndex = 13;
             // 
             // LastNameLabel
@@ -281,10 +281,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PhoneNumberBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.PhoneNumberBox.Location = new System.Drawing.Point(322, 299);
-            this.PhoneNumberBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PhoneNumberBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumberBox.Name = "PhoneNumberBox";
-            this.PhoneNumberBox.Size = new System.Drawing.Size(163, 23);
-            this.PhoneNumberBox.TabIndex = 18;
+            this.PhoneNumberBox.Size = new System.Drawing.Size(179, 23);
+            this.PhoneNumberBox.TabIndex = 17;
             this.PhoneNumberBox.TextChanged += new System.EventHandler(this.PhoneNumberBox_TextChanged);
             // 
             // PhoneNumberLabel
@@ -305,10 +305,10 @@
             this.MaleCheckBox.AutoSize = true;
             this.MaleCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.MaleCheckBox.Location = new System.Drawing.Point(428, 591);
-            this.MaleCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaleCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.MaleCheckBox.Name = "MaleCheckBox";
             this.MaleCheckBox.Size = new System.Drawing.Size(55, 20);
-            this.MaleCheckBox.TabIndex = 25;
+            this.MaleCheckBox.TabIndex = 21;
             this.MaleCheckBox.Text = "Male";
             this.MaleCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -319,10 +319,10 @@
             this.FemaleCheckBox.AutoSize = true;
             this.FemaleCheckBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.FemaleCheckBox.Location = new System.Drawing.Point(318, 591);
-            this.FemaleCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FemaleCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.FemaleCheckBox.Name = "FemaleCheckBox";
             this.FemaleCheckBox.Size = new System.Drawing.Size(70, 20);
-            this.FemaleCheckBox.TabIndex = 24;
+            this.FemaleCheckBox.TabIndex = 20;
             this.FemaleCheckBox.Text = "Female";
             this.FemaleCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -343,10 +343,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.EmailBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.EmailBox.Location = new System.Drawing.Point(322, 357);
-            this.EmailBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmailBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailBox.Name = "EmailBox";
-            this.EmailBox.Size = new System.Drawing.Size(163, 23);
-            this.EmailBox.TabIndex = 27;
+            this.EmailBox.Size = new System.Drawing.Size(179, 23);
+            this.EmailBox.TabIndex = 18;
             // 
             // EmailLabel
             // 
@@ -365,10 +365,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.JobTypeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
             this.JobTypeBox.Location = new System.Drawing.Point(322, 251);
-            this.JobTypeBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.JobTypeBox.Margin = new System.Windows.Forms.Padding(4);
             this.JobTypeBox.Name = "JobTypeBox";
-            this.JobTypeBox.Size = new System.Drawing.Size(163, 23);
-            this.JobTypeBox.TabIndex = 29;
+            this.JobTypeBox.Size = new System.Drawing.Size(179, 23);
+            this.JobTypeBox.TabIndex = 16;
             // 
             // JobTypeLabel
             // 
@@ -399,14 +399,6 @@
             this.SchedulerTable.AutoGenerateColumns = false;
             this.SchedulerTable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SchedulerTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.SchedulerTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.SchedulerTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SchedulerTable.ColumnHeadersVisible = false;
             this.SchedulerTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -420,28 +412,14 @@
             this.SchedulerTable.DataSource = this.schedulerInfoBindingSource;
             this.SchedulerTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SchedulerTable.Location = new System.Drawing.Point(318, 404);
-            this.SchedulerTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SchedulerTable.Margin = new System.Windows.Forms.Padding(4);
             this.SchedulerTable.Name = "SchedulerTable";
             this.SchedulerTable.ReadOnly = true;
             this.SchedulerTable.RowHeadersVisible = false;
             this.SchedulerTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.SchedulerTable.Size = new System.Drawing.Size(183, 150);
-            this.SchedulerTable.TabIndex = 32;
+            this.SchedulerTable.TabIndex = 19;
             this.SchedulerTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // schedulerInfoBindingSource
-            // 
-            this.schedulerInfoBindingSource.DataMember = "SchedulerInfo";
-            this.schedulerInfoBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // schedulerInfoTableAdapter
-            // 
-            this.schedulerInfoTableAdapter.ClearBeforeFill = true;
             // 
             // usernameDataGridViewTextBoxColumn
             // 
@@ -496,12 +474,26 @@
             this.jobRoleDataGridViewTextBoxColumn.ReadOnly = true;
             this.jobRoleDataGridViewTextBoxColumn.Visible = false;
             // 
+            // schedulerInfoBindingSource
+            // 
+            this.schedulerInfoBindingSource.DataMember = "SchedulerInfo";
+            this.schedulerInfoBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // schedulerInfoTableAdapter
+            // 
+            this.schedulerInfoTableAdapter.ClearBeforeFill = true;
+            // 
             // CreateNewProviderAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(730, 838);
+            this.ClientSize = new System.Drawing.Size(746, 920);
             this.Controls.Add(this.SchedulerTable);
             this.Controls.Add(this.ChooseSchedulerLabel);
             this.Controls.Add(this.JobTypeBox);
@@ -529,7 +521,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Kristen ITC", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateNewProviderAccount";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -539,8 +531,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SchedulerTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

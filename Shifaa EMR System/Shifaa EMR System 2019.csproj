@@ -137,6 +137,14 @@
     <Compile Include="CreateNewSchedulerAccount.Designer.cs">
       <DependentUpon>CreateNewSchedulerAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="EMRDatabaseDataSet.cs">
+      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EMRDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ItemInfo.cs" />
     <Compile Include="MessagesView.cs">
       <SubType>Form</SubType>
@@ -152,14 +160,6 @@
     </Compile>
     <Compile Include="CredentialVerification.Designer.cs">
       <DependentUpon>CredentialVerification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EMRDatabaseDataSet.cs">
-      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="EMRDatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="NewAllergie.cs">
       <SubType>Form</SubType>

@@ -20,6 +20,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
             this.BringToFront();
             this.Focus();
+            PassCodeBox.UseSystemPasswordChar = true;
         }
 
    

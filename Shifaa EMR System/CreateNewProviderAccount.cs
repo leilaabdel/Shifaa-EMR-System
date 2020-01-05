@@ -17,6 +17,8 @@ namespace Shifaa_EMR_System
         public CreateNewProviderAccount()
         {
             InitializeComponent();
+            PassCodeBox.UseSystemPasswordChar = true;
+            ReenterPasscodeBox.UseSystemPasswordChar = true;
          
 
         }
@@ -32,6 +34,30 @@ namespace Shifaa_EMR_System
                 if (!FemaleCheckBox.Checked && MaleCheckBox.Checked) gender = "Male";
                 if (FemaleCheckBox.Checked && MaleCheckBox.Checked) MessageBox.Show("Please pick only one gender");
 
+                var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
+
+
+                if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
+                {
+                    try
+                    {
+
+                        //TODO: FORMAT THE NUMBER USING ASYOUTYPE FORMATER
+                        phoneNumberUtil.Parse(PhoneNumberBox.Text, null);
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please enter a valid phone number");
+                        PhoneNumberBox.Text = null;
+                    }
+                }
+
+                //TODO: Configure for email validation.
+                if(!EmailBox.Text.Contains("@") || !EmailBox.Text.Contains("."))
+                {
+                    MessageBox.Show("Please enter a valid email account.");
+                }
 
                 else
                 {
@@ -43,7 +69,9 @@ namespace Shifaa_EMR_System
                         TitleBox.Text, PhoneNumberBox.Text , EmailBox.Text , JobTypeBox.Text, gender, UsernameBox.Text , 
                         PassCodeBox.Text, ReenterPasscodeBox.Text);
 
-
+                    this.Close();
+                    WelcomeHomePage welcome = new WelcomeHomePage();
+                    welcome.Show();
 
                     if (returnValue is 1)
                     {
@@ -66,6 +94,7 @@ namespace Shifaa_EMR_System
                         {
                             doAction.createProviderSchedulerRelation(UsernameBox.Text, providerName, 
                                 (String)SchedulerTable[0, data.Index].Value);
+                           
                         }
                         
                     }
@@ -98,24 +127,7 @@ namespace Shifaa_EMR_System
 
         private void PhoneNumberBox_TextChanged(object sender, EventArgs e)
         {
-            var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
-
-
-            if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
-            {
-                try
-                {
-
-                    //TODO: FORMAT THE NUMBER USING ASYOUTYPE FORMATER
-                    phoneNumberUtil.Parse(PhoneNumberBox.Text, null);
-
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Please enter a valid phone number");
-                    PhoneNumberBox.Text = null;
-                }
-            }
+            
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -131,6 +143,11 @@ namespace Shifaa_EMR_System
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void PassCodeBox_TextChanged(object sender, EventArgs e)
         {
 
         }

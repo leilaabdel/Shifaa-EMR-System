@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentDescriptionLabel = new System.Windows.Forms.Label();
             this.AppointmentDetails = new System.Windows.Forms.TextBox();
             this.Save = new System.Windows.Forms.Button();
@@ -56,6 +56,10 @@
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.Exit = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.StartTimePicker = new System.Windows.Forms.Label();
+            this.EndDatePicker = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -96,7 +100,7 @@
             this.Save.FlatAppearance.BorderSize = 0;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save.Location = new System.Drawing.Point(373, 546);
+            this.Save.Location = new System.Drawing.Point(365, 649);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 43);
             this.Save.TabIndex = 7;
@@ -114,7 +118,9 @@
             this.FirstName.Name = "FirstName";
             this.FirstName.Size = new System.Drawing.Size(196, 26);
             this.FirstName.TabIndex = 17;
-            this.FirstName.Text = "First Name";
+            if(!isUpdated) this.FirstName.Text = "First Name";
+            if (isUpdated) this.FirstName.Text = firstNameFromAppt;
+
             this.FirstName.Click += new System.EventHandler(this.FirstNameClick);
             this.FirstName.TextChanged += new System.EventHandler(this.FirstName_TextChanged);
             // 
@@ -127,7 +133,8 @@
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(212, 26);
             this.LastName.TabIndex = 18;
-            this.LastName.Text = "Last Name";
+            if(!isUpdated)this.LastName.Text = "Last Name";
+            if (isUpdated) this.LastName.Text = lastNameFromAppt;
             this.LastName.Click += new System.EventHandler(this.LastNameClick);
             this.LastName.TextChanged += new System.EventHandler(this.LastName_TextChanged);
             // 
@@ -143,7 +150,8 @@
             this.PatientIDNum.Name = "PatientIDNum";
             this.PatientIDNum.Size = new System.Drawing.Size(260, 26);
             this.PatientIDNum.TabIndex = 22;
-            this.PatientIDNum.Text = "Patient ID #";
+            if(!isUpdated) this.PatientIDNum.Text = "Patient ID #";
+            if (isUpdated) this.PatientIDNum.Text = this.calendarItem.PatientID.ToString();
             this.PatientIDNum.Click += new System.EventHandler(this.PatientIDNum_Click);
             this.PatientIDNum.TextChanged += new System.EventHandler(this.PatientIDNum_TextChanged);
             // 
@@ -157,14 +165,14 @@
             this.PatientListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PatientListView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PatientListView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PatientListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PatientListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.PatientListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PatientListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNumberDataGridViewTextBoxColumn,
@@ -182,14 +190,14 @@
             this.createdDataGridViewTextBoxColumn,
             this.maritalStatusDataGridViewTextBoxColumn});
             this.PatientListView.DataSource = this.patientBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PatientListView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PatientListView.DefaultCellStyle = dataGridViewCellStyle4;
             this.PatientListView.Location = new System.Drawing.Point(53, 96);
             this.PatientListView.Name = "PatientListView";
             this.PatientListView.ReadOnly = true;
@@ -337,6 +345,50 @@
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click_1);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy - HH:mm";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(307, 514);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 23);
+            this.dateTimePicker1.TabIndex = 52;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.CustomFormat = "MM/dd/yyyy - HH:mm";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(307, 579);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(220, 23);
+            this.dateTimePicker2.TabIndex = 53;
+            // 
+            // StartTimePicker
+            // 
+            this.StartTimePicker.AutoSize = true;
+            this.StartTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.StartTimePicker.Location = new System.Drawing.Point(187, 516);
+            this.StartTimePicker.Name = "StartTimePicker";
+            this.StartTimePicker.Size = new System.Drawing.Size(57, 19);
+            this.StartTimePicker.TabIndex = 54;
+            this.StartTimePicker.Text = "Starts:";
+            // 
+            // EndDatePicker
+            // 
+            this.EndDatePicker.AutoSize = true;
+            this.EndDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.EndDatePicker.Location = new System.Drawing.Point(187, 581);
+            this.EndDatePicker.Name = "EndDatePicker";
+            this.EndDatePicker.Size = new System.Drawing.Size(49, 19);
+            this.EndDatePicker.TabIndex = 55;
+            this.EndDatePicker.Text = "Ends:";
+            // 
             // NewAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +398,10 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(787, 881);
             this.ControlBox = false;
+            this.Controls.Add(this.EndDatePicker);
+            this.Controls.Add(this.StartTimePicker);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.PatientListView);
             this.Controls.Add(this.PatientIDNum);
@@ -407,5 +463,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pregancyStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource patientBindingSource;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label StartTimePicker;
+        private System.Windows.Forms.Label EndDatePicker;
     }
 }

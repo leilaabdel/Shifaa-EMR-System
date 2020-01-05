@@ -75,6 +75,9 @@
             this.MessagesToolStrip.SuspendLayout();
             this.DraftPanel.SuspendLayout();
             this.SuspendLayout();
+
+
+
             // 
             // MessageTable
             // 

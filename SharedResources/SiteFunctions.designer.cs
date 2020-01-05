@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Shifaa_EMR_System
+namespace System.Windows.Forms.Calendar
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -99,7 +99,7 @@ namespace Shifaa_EMR_System
     #endregion
 		
 		public SiteFunctionsDataContext() : 
-				base(global::Shifaa_EMR_System.Properties.Settings.Default.EMRDatabaseConnectionString, mappingSource)
+				base(global::System.Windows.Forms.Calendar.Properties.Settings.Default.EMRDatabaseConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -381,6 +381,13 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAppointment")]
+		public int updateAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(50)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] System.Nullable<int> appointmentID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, appointmentID);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectMedicationForReport")]
 		public ISingleResult<selectMedicationForReportResult> selectMedicationForReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
 		{
@@ -542,11 +549,32 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAppointmentForCurrentProvider")]
+		public ISingleResult<getAppointmentForCurrentProviderResult> getAppointmentForCurrentProvider([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerID);
+			return ((ISingleResult<getAppointmentForCurrentProviderResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAppointmentsForCurrentPatient")]
+		public ISingleResult<getAppointmentsForCurrentPatientResult> getAppointmentsForCurrentPatient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
+			return ((ISingleResult<getAppointmentsForCurrentPatientResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CreateAppointment")]
 		public int CreateAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="VarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDateTime", DbType="DateTime")] System.Nullable<System.DateTime> startDateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDateTime", DbType="DateTime")] System.Nullable<System.DateTime> endDateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Provider", DbType="VarChar(50)")] string provider)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, details, startDateTime, endDateTime, patientID, date, provider);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getJustCreatedAppointmentID")]
+		public ISingleResult<getJustCreatedAppointmentIDResult> getJustCreatedAppointmentID()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getJustCreatedAppointmentIDResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sendMessageToJunk")]
@@ -589,41 +617,6 @@ namespace Shifaa_EMR_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerID, providerName, schedulerID);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getJustCreatedAppointmentID")]
-		public ISingleResult<getJustCreatedAppointmentIDResult> getJustCreatedAppointmentID()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<getJustCreatedAppointmentIDResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.editAppointment")]
-		public int editAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> appointmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="NVarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartTime", DbType="DateTime")] System.Nullable<System.DateTime> startTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndTime", DbType="DateTime")] System.Nullable<System.DateTime> endTime, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), appointmentID, firstName, lastName, details, startTime, endTime, patientID, providerID);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAppointmentStatus")]
-		public int updateAppointmentStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(50)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] System.Nullable<int> appointmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Color", DbType="VarChar(20)")] string color)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, appointmentID, color);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAppointmentForCurrentProvider")]
-		public ISingleResult<getAppointmentForCurrentProviderResult> getAppointmentForCurrentProvider([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerID);
-			return ((ISingleResult<getAppointmentForCurrentProviderResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAppointmentsForCurrentPatient")]
-		public ISingleResult<getAppointmentsForCurrentPatientResult> getAppointmentsForCurrentPatient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
-			return ((ISingleResult<getAppointmentsForCurrentPatientResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -7348,174 +7341,6 @@ namespace Shifaa_EMR_System
 		}
 	}
 	
-	public partial class convertNameToIDResult
-	{
-		
-		private string _EmployeeID;
-		
-		public convertNameToIDResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this._EmployeeID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class convertIDToNameResult
-	{
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		public convertIDToNameResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50)")]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this._FirstName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50)")]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this._LastName = value;
-				}
-			}
-		}
-	}
-	
-	public partial class getJustCreatedAppointmentIDResult
-	{
-		
-		private int _appointmentID;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Details;
-		
-		private int _patientID;
-		
-		public getJustCreatedAppointmentIDResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointmentID", DbType="Int NOT NULL")]
-		public int appointmentID
-		{
-			get
-			{
-				return this._appointmentID;
-			}
-			set
-			{
-				if ((this._appointmentID != value))
-				{
-					this._appointmentID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this._FirstName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this._LastName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(MAX)")]
-		public string Details
-		{
-			get
-			{
-				return this._Details;
-			}
-			set
-			{
-				if ((this._Details != value))
-				{
-					this._Details = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patientID", DbType="Int NOT NULL")]
-		public int patientID
-		{
-			get
-			{
-				return this._patientID;
-			}
-			set
-			{
-				if ((this._patientID != value))
-				{
-					this._patientID = value;
-				}
-			}
-		}
-	}
-	
 	public partial class getAppointmentForCurrentProviderResult
 	{
 		
@@ -7538,8 +7363,6 @@ namespace Shifaa_EMR_System
 		private int _patientID;
 		
 		private string _ProviderID;
-		
-		private string _Color;
 		
 		public getAppointmentForCurrentProviderResult()
 		{
@@ -7657,7 +7480,7 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="Date")]
 		public System.Nullable<System.DateTime> Created
 		{
 			get
@@ -7704,22 +7527,6 @@ namespace Shifaa_EMR_System
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Color", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Color
-		{
-			get
-			{
-				return this._Color;
-			}
-			set
-			{
-				if ((this._Color != value))
-				{
-					this._Color = value;
-				}
-			}
-		}
 	}
 	
 	public partial class getAppointmentsForCurrentPatientResult
@@ -7744,8 +7551,6 @@ namespace Shifaa_EMR_System
 		private int _patientID;
 		
 		private string _ProviderID;
-		
-		private string _Color;
 		
 		public getAppointmentsForCurrentPatientResult()
 		{
@@ -7863,7 +7668,7 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="Date")]
 		public System.Nullable<System.DateTime> Created
 		{
 			get
@@ -7910,19 +7715,99 @@ namespace Shifaa_EMR_System
 				}
 			}
 		}
+	}
+	
+	public partial class getJustCreatedAppointmentIDResult
+	{
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Color", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Color
+		private int _appointmentID;
+		
+		public getJustCreatedAppointmentIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointmentID", DbType="Int NOT NULL")]
+		public int appointmentID
 		{
 			get
 			{
-				return this._Color;
+				return this._appointmentID;
 			}
 			set
 			{
-				if ((this._Color != value))
+				if ((this._appointmentID != value))
 				{
-					this._Color = value;
+					this._appointmentID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class convertNameToIDResult
+	{
+		
+		private string _EmployeeID;
+		
+		public convertNameToIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this._EmployeeID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class convertIDToNameResult
+	{
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		public convertIDToNameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50)")]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50)")]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
 				}
 			}
 		}

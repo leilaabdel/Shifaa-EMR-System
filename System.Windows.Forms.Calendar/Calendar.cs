@@ -4,6 +4,8 @@ using System.Text;
 using System.ComponentModel;
 using System.Drawing;
 
+
+
 namespace System.Windows.Forms.Calendar
 {
     /// <summary>
@@ -512,7 +514,7 @@ namespace System.Windows.Forms.Calendar
         /// <summary>
         /// Gets the TextBox of the edit mode
         /// </summary>
-        internal CalendarTextBox TextBox
+        public CalendarTextBox TextBox
         {
             get { return _textBox; }
             set { _textBox = value; }
@@ -605,27 +607,29 @@ namespace System.Windows.Forms.Calendar
 
         #region Public Methods
 
+       
+
         /// <summary>
         /// Activates the edit mode on the first selected item
         /// </summary>
         /// <param name="item"></param>
-        public void ActivateEditMode()
+         public void ActivateEditMode()
         {
             foreach (CalendarItem item in Items)
             {
                 if (item.Selected)
                 {
-                    ActivateEditMode(item);
+                    ActivateEditMode(item , item.StartDate , item.EndDate);
                     return;
                 }
             }
-        }
+        } 
 
         /// <summary>
         /// Activates the edit mode on the specified item
         /// </summary>
         /// <param name="item"></param>
-        public void ActivateEditMode(CalendarItem item)
+        public void ActivateEditMode(CalendarItem item , DateTime start , DateTime end)
         {
             CalendarItemCancelEventArgs evt = new CalendarItemCancelEventArgs(item);
 
@@ -640,24 +644,44 @@ namespace System.Windows.Forms.Calendar
             }
 
             _editModeItem = item;
+            
+            
+            /*
+           
             TextBox = new CalendarTextBox(this);
-            TextBox.KeyDown += new KeyEventHandler(TextBox_KeyDown);
-            TextBox.LostFocus += new EventHandler(TextBox_LostFocus);
+            TextBox.Font = new Font("Bahnschrift Light", 7);
+            //TextBox.KeyDown += new KeyEventHandler(TextBox_KeyDown);
+            //TextBox.LostFocus += new EventHandler(TextBox_LostFocus);
+           
             Rectangle r = item.Bounds;
             r.Inflate(-2, -2);
             TextBox.Bounds = r;
             TextBox.BorderStyle = BorderStyle.None;
             TextBox.Text = item.Text;
+            Console.WriteLine("this item text:" + TextBox.Text);
             TextBox.Multiline = true;
+            //TextBox.Text = "calendar blah";
+            TextBox.ReadOnly = true;
 
             Controls.Add(TextBox);
-            TextBox.Visible = true;
-            TextBox.Focus();
+            TextBox.Visible = false;
+            //TextBox.Focus();
             TextBox.SelectionStart = TextBox.Text.Length;
+           
+            
 
             SetState(CalendarState.EditingItemText);
+            FinalizeEditMode(true);
+            */
+
+
+
+
         }
 
+    
+
+ 
         /// <summary>
         /// Creates a new item on the current selection. 
         /// If there's no selection, this will be ignored.
@@ -694,12 +718,12 @@ namespace System.Windows.Forms.Calendar
 
             if (!evtA.Cancel)
             {
-                Items.Add(item);
+                //Items.Add(item);
 
                 if (editMode)
                 {
                     _creatingItem = true;
-                    ActivateEditMode(item);
+                    ActivateEditMode(item, item.StartDate, item.EndDate);
                 }
             }
 
@@ -1864,5 +1888,12 @@ namespace System.Windows.Forms.Calendar
         }
 
         #endregion
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            this.ResumeLayout(false);
+
+        }
     }
 }

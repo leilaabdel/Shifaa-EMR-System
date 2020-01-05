@@ -70,7 +70,7 @@ namespace CalendarDemo
 
         private void calendar1_LoadItems(object sender, CalendarLoadEventArgs e)
         {
-            PlaceItems();
+            //PlaceItems();
         }
 
         private void PlaceItems()

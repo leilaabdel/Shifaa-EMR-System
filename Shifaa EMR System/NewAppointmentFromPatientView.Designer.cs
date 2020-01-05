@@ -37,6 +37,10 @@
             this.appointmentTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.EndDatePicker = new System.Windows.Forms.Label();
+            this.StartTimePicker = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -44,8 +48,7 @@
             // 
             // AppointmentDetails
             // 
-            this.AppointmentDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.AppointmentDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentDetails.BackColor = System.Drawing.SystemColors.Window;
             this.AppointmentDetails.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
@@ -53,7 +56,7 @@
             this.AppointmentDetails.Multiline = true;
             this.AppointmentDetails.Name = "AppointmentDetails";
             this.AppointmentDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentDetails.Size = new System.Drawing.Size(506, 235);
+            this.AppointmentDetails.Size = new System.Drawing.Size(506, 241);
             this.AppointmentDetails.TabIndex = 2;
             this.AppointmentDetails.Text = "Appointment Details";
             this.AppointmentDetails.Click += new System.EventHandler(this.AppointmentDetails_Clicked);
@@ -66,7 +69,7 @@
             this.SaveButton.FlatAppearance.BorderSize = 0;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SaveButton.Location = new System.Drawing.Point(269, 348);
+            this.SaveButton.Location = new System.Drawing.Point(263, 486);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 33);
             this.SaveButton.TabIndex = 7;
@@ -121,6 +124,50 @@
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
             this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // EndDatePicker
+            // 
+            this.EndDatePicker.AutoSize = true;
+            this.EndDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.EndDatePicker.Location = new System.Drawing.Point(143, 411);
+            this.EndDatePicker.Name = "EndDatePicker";
+            this.EndDatePicker.Size = new System.Drawing.Size(49, 19);
+            this.EndDatePicker.TabIndex = 59;
+            this.EndDatePicker.Text = "Ends:";
+            // 
+            // StartTimePicker
+            // 
+            this.StartTimePicker.AutoSize = true;
+            this.StartTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.StartTimePicker.Location = new System.Drawing.Point(143, 346);
+            this.StartTimePicker.Name = "StartTimePicker";
+            this.StartTimePicker.Size = new System.Drawing.Size(57, 19);
+            this.StartTimePicker.TabIndex = 58;
+            this.StartTimePicker.Text = "Starts:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.CustomFormat = "MM/dd/yyyy - HH:mm";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(263, 409);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(220, 23);
+            this.dateTimePicker2.TabIndex = 57;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy - HH:mm";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(263, 344);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 23);
+            this.dateTimePicker1.TabIndex = 56;
+            // 
             // NewAppointmentFromPatientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,8 +175,12 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(617, 475);
+            this.ClientSize = new System.Drawing.Size(617, 552);
             this.ControlBox = false;
+            this.Controls.Add(this.EndDatePicker);
+            this.Controls.Add(this.StartTimePicker);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.AppointmentDetails);
@@ -167,5 +218,9 @@
         private EMRDatabaseDataSetTableAdapters.AppointmentTableAdapter appointmentTableAdapter;
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private System.Windows.Forms.Label EndDatePicker;
+        private System.Windows.Forms.Label StartTimePicker;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

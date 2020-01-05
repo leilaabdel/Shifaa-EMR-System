@@ -18,20 +18,43 @@ namespace Shifaa_EMR_System
         readonly int thisPatientID;
         readonly string providerID;
         readonly CalendarItem calendarItem;
+        Calendar calendar1;
+        List<CalendarItem> items;
+        private SchedulingCalendar schedulingCalendar;
 
-        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem )
+        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem  , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar scheduling)
         {
             InitializeComponent();
  
             this.thisPatientID = patientID;
             this.providerID = providerID;
             this.calendarItem = calendarItem;
+            this.calendar1 = calendar1;
+            this.items = items;
+            this.schedulingCalendar = schedulingCalendar;
+
+
+
 
         }
 
         private void NewAppointmentFromPatientView_Load(object sender, EventArgs e)
         {
+            dateTimePicker1.Value = calendarItem.StartDate;
+            dateTimePicker2.Value = calendarItem.EndDate;
+        }
 
+
+        public string GetProviderName()
+        {
+            string name = "";
+            ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(providerID);
+            foreach (getProviderInfoResult r in result)
+            {
+                name = r.FirstName + " " + r.LastName + " " + r.Title;
+            }
+
+            return name;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -52,11 +75,36 @@ namespace Shifaa_EMR_System
 
                 }
 
-                doAction.CreateAppointment(patientFirstName, patientLastName, AppointmentDetails.Text, calendarItem.StartDate , 
-                    calendarItem.EndDate , thisPatientID , DateTime.Now , providerID);
-                //((PatientHomePage)this.Owner).appointmentTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Appointment, thisPatientID);
+                doAction.CreateAppointment(patientFirstName, patientLastName, AppointmentDetails.Text, dateTimePicker1.Value, dateTimePicker2.Value, thisPatientID, System.DateTime.Now,
+                    providerID);
 
-                this.Close();
+                calendarItem.StartDate = dateTimePicker1.Value;
+                calendarItem.EndDate = dateTimePicker2.Value;
+
+                ISingleResult<getJustCreatedAppointmentIDResult> result1 = doAction.getJustCreatedAppointmentID();
+
+
+                int apptID = 0;
+                foreach (getJustCreatedAppointmentIDResult r in result1)
+                {
+                    apptID = r.appointmentID;
+               
+                }
+
+
+                string apptText =  patientFirstName + " " + patientLastName + "\n" +
+                GetProviderName() + "\n" + AppointmentDetails.Text;
+
+                CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value,
+                    dateTimePicker2.Value, apptText, patientFirstName + " " + patientLastName,
+                    apptID, thisPatientID, providerID);
+
+
+                items.Add(cal);
+
+                schedulingCalendar.PlaceItems(items);
+
+
             }
             catch
             {
