@@ -8,6 +8,7 @@ using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Linq;
 
 
 
@@ -22,16 +23,37 @@ namespace Shifaa_EMR_System
 
 
         private SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private ProviderMain providerMain;
+        private SchedulerMain schedulerMain;
+        private List<String> providerIDList = new List<String>();
 
-        public SiteFunctionsDataContext DoAction { get => doAction; set => doAction = value; }
-
-        public NewPatient()
+        public NewPatient(ProviderMain providerMain)
         {
             InitializeComponent();
             PregnantBox.Hide();
             PregnantLabel.Hide();
             NotPregnantBox.Hide();
+            ProviderList.Hide();
+            ChooseProviderLabel.Hide();
+            this.providerMain = providerMain;
+            providerIDList.Add(providerMain.GetProviderID());
            
+        }
+
+        public NewPatient(SchedulerMain schedulerMain)
+        {
+            InitializeComponent();
+            PregnantBox.Hide();
+            PregnantLabel.Hide();
+            NotPregnantBox.Hide();
+            this.schedulerMain = schedulerMain;
+            ProviderList.ValueMember = "ProviderID";
+            ProviderList.DisplayMember = "ProviderName";        
+            ProviderList.DataSource = schedulersBelongingToProviderTableAdapter1.GetDataBySchedulerID(schedulerMain.GetSchedulerID());
+           
+
+
+
         }
 
 
@@ -68,7 +90,9 @@ namespace Shifaa_EMR_System
 
         private void NewPatient_Load(object sender, EventArgs e)
         {
-            this.StartPosition = FormStartPosition.WindowsDefaultLocation;
+            this.CenterToParent();
+            this.WindowState = FormWindowState.Normal;
+            this.Focus();
         }
 
         private void Label7_Click(object sender, EventArgs e)
@@ -210,23 +234,47 @@ namespace Shifaa_EMR_System
                     if (!String.IsNullOrWhiteSpace(WeightBox.Text) && !String.IsNullOrWhiteSpace(HeightBox.Text)) BMI = Math.Round(GetBMI() , 2).ToString();
 
 
-                    DoAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus ,
+                    int newPatientActionResult = doAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus ,
                         pregnancyStatus, Weight, Height, BMI , NationalityBox.Text , DateTime.Today);
 
-                    System.Data.Linq.ISingleResult<getNewPatientVitalsResult> newPatientVitals = DoAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
+                if (newPatientActionResult == 1)
+                {
+                    MessageBox.Show("This patient already exists in the system.");
+                    return;
+                }
 
-                    int selectedPatientID = 0;
+                ISingleResult<getNewPatientVitalsResult> newPatientVitals = doAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
 
-                    foreach (getNewPatientVitalsResult result in newPatientVitals)
+                int selectedPatientID = 0;
+
+                foreach (getNewPatientVitalsResult result in newPatientVitals)
+                {
+                    selectedPatientID = result.PatientID;
+                    
+                }
+
+
+
+
+                Double BMiDouble = Math.Round(GetBMI(), 2);
+
+                doAction.createNewVitalSign(selectedPatientID, "-", "-", "-" , Height , Weight , BMI , DateTime.Today);
+
+                foreach (string provider in providerIDList)
+                {
+                    ISingleResult<getProviderInfoResult> providerInfo = doAction.getProviderInfo(provider);
+                    foreach (getProviderInfoResult providerResult in providerInfo)
                     {
-                        selectedPatientID = result.PatientID;
+                        doAction.createPatientProviderRelation(selectedPatientID, FirstNameBox.Text, LastNameBox.Text, provider,
+                            providerResult.FirstName, providerResult.LastName, providerResult.Title, providerResult.JobRole);
+                        
                     }
 
-                     Double BMiDouble = Math.Round(GetBMI(), 2);
 
-                    DoAction.createNewVitalSign(selectedPatientID, "-", "-", "-" , Height , Weight , BMI , DateTime.Today);
 
-                    this.Close();
+                    
+                }
+                        this.Close();
 
                 }
                 catch (Exception ex)
@@ -391,5 +439,19 @@ namespace Shifaa_EMR_System
         {
             if (!SingleBox.Checked && MarriedBox.Checked) maritalStatus = "Married";
         }
+
+        private void ProviderList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!providerIDList.Contains((String)ProviderList.SelectedValue))
+            {
+                providerIDList.Add((String)ProviderList.SelectedValue);
+
+            }
+            else
+            {
+                providerIDList.Remove((String)ProviderList.SelectedValue);
+            }
+        }
+
     }
 }

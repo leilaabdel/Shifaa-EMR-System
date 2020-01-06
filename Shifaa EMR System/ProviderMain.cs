@@ -114,7 +114,7 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["NewPatient"] as NewPatient == null)
             {
-                NewPatient newPatient = new NewPatient
+                NewPatient newPatient = new NewPatient(this)
                 {
                     MdiParent = this
                 };
@@ -225,6 +225,11 @@ namespace Shifaa_EMR_System
         }
 
         private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
         }

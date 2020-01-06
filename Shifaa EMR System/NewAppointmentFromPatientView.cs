@@ -22,7 +22,7 @@ namespace Shifaa_EMR_System
         List<CalendarItem> items;
         private SchedulingCalendar schedulingCalendar;
 
-        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem  , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar scheduling)
+        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem  , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar schedulingCalendar)
         {
             InitializeComponent();
  
@@ -90,17 +90,17 @@ namespace Shifaa_EMR_System
                     apptID = r.appointmentID;
                
                 }
-
+                
 
                 string apptText =  patientFirstName + " " + patientLastName + "\n" +
                 GetProviderName() + "\n" + AppointmentDetails.Text;
 
                 CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value,
-                    dateTimePicker2.Value, apptText, patientFirstName + " " + patientLastName,
-                    apptID, thisPatientID, providerID);
+                    dateTimePicker2.Value, apptText, patientFirstName , patientLastName , 
+                    apptID, thisPatientID, providerID, "Scheduled");
+                cal.BackgroundColor = Color.Blue;
 
-
-                items.Add(cal);
+                schedulingCalendar.GetCalendarItems().Add(cal);
 
                 schedulingCalendar.PlaceItems(items);
 

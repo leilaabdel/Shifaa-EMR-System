@@ -87,15 +87,18 @@ namespace Shifaa_EMR_System
     partial void InsertAllEmployee(AllEmployee instance);
     partial void UpdateAllEmployee(AllEmployee instance);
     partial void DeleteAllEmployee(AllEmployee instance);
-    partial void InsertAppointment(Appointment instance);
-    partial void UpdateAppointment(Appointment instance);
-    partial void DeleteAppointment(Appointment instance);
     partial void InsertMessage(Message instance);
     partial void UpdateMessage(Message instance);
     partial void DeleteMessage(Message instance);
     partial void InsertSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
     partial void UpdateSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
     partial void DeleteSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
+    partial void InsertPatientProviderRelation(PatientProviderRelation instance);
+    partial void UpdatePatientProviderRelation(PatientProviderRelation instance);
+    partial void DeletePatientProviderRelation(PatientProviderRelation instance);
+    partial void InsertAppointment(Appointment instance);
+    partial void UpdateAppointment(Appointment instance);
+    partial void DeleteAppointment(Appointment instance);
     #endregion
 		
 		public SiteFunctionsDataContext() : 
@@ -280,14 +283,6 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		public System.Data.Linq.Table<Appointment> Appointments
-		{
-			get
-			{
-				return this.GetTable<Appointment>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Message> Messages
 		{
 			get
@@ -301,6 +296,22 @@ namespace Shifaa_EMR_System
 			get
 			{
 				return this.GetTable<SchedulersBelongingToProvider>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PatientProviderRelation> PatientProviderRelations
+		{
+			get
+			{
+				return this.GetTable<PatientProviderRelation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Appointment> Appointments
+		{
+			get
+			{
+				return this.GetTable<Appointment>();
 			}
 		}
 		
@@ -409,13 +420,6 @@ namespace Shifaa_EMR_System
 			return ((ISingleResult<getPatientByIDResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getProviderInfo")]
-		public ISingleResult<getProviderInfoResult> getProviderInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderUserName", DbType="VarChar(50)")] string providerUserName)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerUserName);
-			return ((ISingleResult<getProviderInfoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updatePrescription")]
 		public int updatePrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrescriptionID", DbType="Int")] System.Nullable<int> prescriptionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MedicationName", DbType="NVarChar(255)")] string medicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="VarChar(50)")] string amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strength", DbType="NChar(10)")] string strength, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Route", DbType="NChar(30)")] string route, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Frequency", DbType="VarChar(50)")] string frequency, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Refills", DbType="NChar(10)")] string refills, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateStopped", DbType="Date")] System.Nullable<System.DateTime> dateStopped, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
 		{
@@ -446,13 +450,6 @@ namespace Shifaa_EMR_System
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.authenticateProvider")]
 		public int authenticateProvider([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode", DbType="VarChar(32)")] string passcode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, passcode);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.authenticateScheduler")]
-		public int authenticateScheduler([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode", DbType="VarChar(32)")] string passcode)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, passcode);
 			return ((int)(result.ReturnValue));
@@ -528,20 +525,6 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createProviderAccount")]
-		public int createProviderAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NChar(10)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NChar(20)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JobType", DbType="VarChar(50)")] string jobType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="NChar(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode1", DbType="VarChar(32)")] string passcode1, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode2", DbType="VarChar(32)")] string passcode2)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, title, phoneNumber, email, jobType, gender, username, passcode1, passcode2);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createSchedulerAccount")]
-		public int createSchedulerAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NChar(20)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="NChar(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode1", DbType="VarChar(32)")] string passcode1, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode2", DbType="VarChar(32)")] string passcode2)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, phoneNumber, email, gender, username, passcode1, passcode2);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CreateAppointment")]
 		public int CreateAppointment([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Details", DbType="VarChar(MAX)")] string details, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDateTime", DbType="DateTime")] System.Nullable<System.DateTime> startDateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDateTime", DbType="DateTime")] System.Nullable<System.DateTime> endDateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Date", DbType="DateTime")] System.Nullable<System.DateTime> date, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Provider", DbType="VarChar(50)")] string provider)
 		{
@@ -605,10 +588,31 @@ namespace Shifaa_EMR_System
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAppointmentStatus")]
-		public int updateAppointmentStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(50)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] System.Nullable<int> appointmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Color", DbType="VarChar(20)")] string color)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createPatientProviderRelation")]
+		public int createPatientProviderRelation([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientID", DbType="Int")] System.Nullable<int> patientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderID", DbType="VarChar(50)")] string providerID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderFirstName", DbType="VarChar(50)")] string providerFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderLastName", DbType="VarChar(50)")] string providerLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderTitle", DbType="NChar(10)")] string providerTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderJobType", DbType="VarChar(50)")] string providerJobType)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, appointmentID, color);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID, firstName, lastName, providerID, providerFirstName, providerLastName, providerTitle, providerJobType);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getPatientID")]
+		public ISingleResult<getPatientIDResult> getPatientID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientFirstName", DbType="VarChar(50)")] string patientFirstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatientLastName", DbType="VarChar(50)")] string patientLastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DOB", DbType="Date")] System.Nullable<System.DateTime> dOB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(20)")] string gender)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientFirstName, patientLastName, dOB, gender);
+			return ((ISingleResult<getPatientIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getProviderInfo")]
+		public ISingleResult<getProviderInfoResult> getProviderInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProviderUserName", DbType="VarChar(50)")] string providerUserName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), providerUserName);
+			return ((ISingleResult<getProviderInfoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAppointmentStatus")]
+		public int updateAppointmentStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(50)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AppointmentID", DbType="Int")] System.Nullable<int> appointmentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Color", DbType="VarChar(20)")] string color, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pattern", DbType="VarChar(20)")] string pattern, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatternColor", DbType="VarChar(20)")] string patternColor)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), status, appointmentID, color, pattern, patternColor);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -624,6 +628,27 @@ namespace Shifaa_EMR_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
 			return ((ISingleResult<getAppointmentsForCurrentPatientResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createProviderAccount")]
+		public int createProviderAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NChar(10)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NChar(20)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="JobType", DbType="VarChar(50)")] string jobType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="NChar(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode1", DbType="VarChar(32)")] string passcode1, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode2", DbType="VarChar(32)")] string passcode2)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, title, phoneNumber, email, jobType, gender, username, passcode1, passcode2);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createSchedulerAccount")]
+		public int createSchedulerAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FirstName", DbType="VarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LastName", DbType="VarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PhoneNumber", DbType="NChar(20)")] string phoneNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="NChar(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode1", DbType="VarChar(32)")] string passcode1, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode2", DbType="VarChar(32)")] string passcode2)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, lastName, phoneNumber, email, gender, username, passcode1, passcode2);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.authenticateScheduler")]
+		public int authenticateScheduler([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode", DbType="VarChar(32)")] string passcode)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, passcode);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -3753,6 +3778,8 @@ namespace Shifaa_EMR_System
 		
 		private EntitySet<VitalSign> _VitalSigns;
 		
+		private EntitySet<PatientProviderRelation> _PatientProviderRelations;
+		
 		private EntitySet<Appointment> _Appointments;
 		
     #region Extensibility Method Definitions
@@ -3800,6 +3827,7 @@ namespace Shifaa_EMR_System
 			this._Prescriptions = new EntitySet<Prescription>(new Action<Prescription>(this.attach_Prescriptions), new Action<Prescription>(this.detach_Prescriptions));
 			this._Problems = new EntitySet<Problem>(new Action<Problem>(this.attach_Problems), new Action<Problem>(this.detach_Problems));
 			this._VitalSigns = new EntitySet<VitalSign>(new Action<VitalSign>(this.attach_VitalSigns), new Action<VitalSign>(this.detach_VitalSigns));
+			this._PatientProviderRelations = new EntitySet<PatientProviderRelation>(new Action<PatientProviderRelation>(this.attach_PatientProviderRelations), new Action<PatientProviderRelation>(this.detach_PatientProviderRelations));
 			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 			OnCreated();
 		}
@@ -4195,6 +4223,19 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_PatientProviderRelation", Storage="_PatientProviderRelations", ThisKey="PatientID", OtherKey="PatientID")]
+		public EntitySet<PatientProviderRelation> PatientProviderRelations
+		{
+			get
+			{
+				return this._PatientProviderRelations;
+			}
+			set
+			{
+				this._PatientProviderRelations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Appointments", ThisKey="PatientID", OtherKey="patientID")]
 		public EntitySet<Appointment> Appointments
 		{
@@ -4307,6 +4348,18 @@ namespace Shifaa_EMR_System
 		}
 		
 		private void detach_VitalSigns(VitalSign entity)
+		{
+			this.SendPropertyChanging();
+			entity.Patient = null;
+		}
+		
+		private void attach_PatientProviderRelations(PatientProviderRelation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Patient = this;
+		}
+		
+		private void detach_PatientProviderRelations(PatientProviderRelation entity)
 		{
 			this.SendPropertyChanging();
 			entity.Patient = null;
@@ -4465,9 +4518,11 @@ namespace Shifaa_EMR_System
 		
 		private string _Email;
 		
-		private EntitySet<Appointment> _Appointments;
-		
 		private EntitySet<SchedulersBelongingToProvider> _SchedulersBelongingToProviders;
+		
+		private EntitySet<PatientProviderRelation> _PatientProviderRelations;
+		
+		private EntitySet<Appointment> _Appointments;
 		
 		private EntityRef<ProviderHashTable> _ProviderHashTable;
 		
@@ -4497,8 +4552,9 @@ namespace Shifaa_EMR_System
 		
 		public Physician_Login_Info()
 		{
-			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 			this._SchedulersBelongingToProviders = new EntitySet<SchedulersBelongingToProvider>(new Action<SchedulersBelongingToProvider>(this.attach_SchedulersBelongingToProviders), new Action<SchedulersBelongingToProvider>(this.detach_SchedulersBelongingToProviders));
+			this._PatientProviderRelations = new EntitySet<PatientProviderRelation>(new Action<PatientProviderRelation>(this.attach_PatientProviderRelations), new Action<PatientProviderRelation>(this.detach_PatientProviderRelations));
+			this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.attach_Appointments), new Action<Appointment>(this.detach_Appointments));
 			this._ProviderHashTable = default(EntityRef<ProviderHashTable>);
 			this._AllEmployee = default(EntityRef<AllEmployee>);
 			OnCreated();
@@ -4668,19 +4724,6 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_Appointment", Storage="_Appointments", ThisKey="USERNAME", OtherKey="ProviderID")]
-		public EntitySet<Appointment> Appointments
-		{
-			get
-			{
-				return this._Appointments;
-			}
-			set
-			{
-				this._Appointments.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_SchedulersBelongingToProvider", Storage="_SchedulersBelongingToProviders", ThisKey="USERNAME", OtherKey="ProviderID")]
 		public EntitySet<SchedulersBelongingToProvider> SchedulersBelongingToProviders
 		{
@@ -4691,6 +4734,32 @@ namespace Shifaa_EMR_System
 			set
 			{
 				this._SchedulersBelongingToProviders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_PatientProviderRelation", Storage="_PatientProviderRelations", ThisKey="USERNAME", OtherKey="ProviderID")]
+		public EntitySet<PatientProviderRelation> PatientProviderRelations
+		{
+			get
+			{
+				return this._PatientProviderRelations;
+			}
+			set
+			{
+				this._PatientProviderRelations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_Appointment", Storage="_Appointments", ThisKey="USERNAME", OtherKey="ProviderID")]
+		public EntitySet<Appointment> Appointments
+		{
+			get
+			{
+				return this._Appointments;
+			}
+			set
+			{
+				this._Appointments.Assign(value);
 			}
 		}
 		
@@ -4782,18 +4851,6 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		private void attach_Appointments(Appointment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Physician_Login_Info = this;
-		}
-		
-		private void detach_Appointments(Appointment entity)
-		{
-			this.SendPropertyChanging();
-			entity.Physician_Login_Info = null;
-		}
-		
 		private void attach_SchedulersBelongingToProviders(SchedulersBelongingToProvider entity)
 		{
 			this.SendPropertyChanging();
@@ -4801,6 +4858,30 @@ namespace Shifaa_EMR_System
 		}
 		
 		private void detach_SchedulersBelongingToProviders(SchedulersBelongingToProvider entity)
+		{
+			this.SendPropertyChanging();
+			entity.Physician_Login_Info = null;
+		}
+		
+		private void attach_PatientProviderRelations(PatientProviderRelation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Physician_Login_Info = this;
+		}
+		
+		private void detach_PatientProviderRelations(PatientProviderRelation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Physician_Login_Info = null;
+		}
+		
+		private void attach_Appointments(Appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Physician_Login_Info = this;
+		}
+		
+		private void detach_Appointments(Appointment entity)
 		{
 			this.SendPropertyChanging();
 			entity.Physician_Login_Info = null;
@@ -5455,366 +5536,6 @@ namespace Shifaa_EMR_System
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Appointment")]
-	public partial class Appointment : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _appointmentID;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Details;
-		
-		private System.Nullable<System.DateTime> _StartDateTime;
-		
-		private System.Nullable<System.DateTime> _EndDateTime;
-		
-		private string _Status;
-		
-		private System.Nullable<System.DateTime> _Created;
-		
-		private int _patientID;
-		
-		private string _ProviderID;
-		
-		private EntityRef<Patient> _Patient;
-		
-		private EntityRef<Physician_Login_Info> _Physician_Login_Info;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnappointmentIDChanging(int value);
-    partial void OnappointmentIDChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnDetailsChanging(string value);
-    partial void OnDetailsChanged();
-    partial void OnStartDateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnStartDateTimeChanged();
-    partial void OnEndDateTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnEndDateTimeChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnCreatedChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedChanged();
-    partial void OnpatientIDChanging(int value);
-    partial void OnpatientIDChanged();
-    partial void OnProviderIDChanging(string value);
-    partial void OnProviderIDChanged();
-    #endregion
-		
-		public Appointment()
-		{
-			this._Patient = default(EntityRef<Patient>);
-			this._Physician_Login_Info = default(EntityRef<Physician_Login_Info>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int appointmentID
-		{
-			get
-			{
-				return this._appointmentID;
-			}
-			set
-			{
-				if ((this._appointmentID != value))
-				{
-					this.OnappointmentIDChanging(value);
-					this.SendPropertyChanging();
-					this._appointmentID = value;
-					this.SendPropertyChanged("appointmentID");
-					this.OnappointmentIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(MAX)")]
-		public string Details
-		{
-			get
-			{
-				return this._Details;
-			}
-			set
-			{
-				if ((this._Details != value))
-				{
-					this.OnDetailsChanging(value);
-					this.SendPropertyChanging();
-					this._Details = value;
-					this.SendPropertyChanged("Details");
-					this.OnDetailsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> StartDateTime
-		{
-			get
-			{
-				return this._StartDateTime;
-			}
-			set
-			{
-				if ((this._StartDateTime != value))
-				{
-					this.OnStartDateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._StartDateTime = value;
-					this.SendPropertyChanged("StartDateTime");
-					this.OnStartDateTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDateTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> EndDateTime
-		{
-			get
-			{
-				return this._EndDateTime;
-			}
-			set
-			{
-				if ((this._EndDateTime != value))
-				{
-					this.OnEndDateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._EndDateTime = value;
-					this.SendPropertyChanged("EndDateTime");
-					this.OnEndDateTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Created
-		{
-			get
-			{
-				return this._Created;
-			}
-			set
-			{
-				if ((this._Created != value))
-				{
-					this.OnCreatedChanging(value);
-					this.SendPropertyChanging();
-					this._Created = value;
-					this.SendPropertyChanged("Created");
-					this.OnCreatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patientID", DbType="Int NOT NULL")]
-		public int patientID
-		{
-			get
-			{
-				return this._patientID;
-			}
-			set
-			{
-				if ((this._patientID != value))
-				{
-					if (this._Patient.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnpatientIDChanging(value);
-					this.SendPropertyChanging();
-					this._patientID = value;
-					this.SendPropertyChanged("patientID");
-					this.OnpatientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ProviderID
-		{
-			get
-			{
-				return this._ProviderID;
-			}
-			set
-			{
-				if ((this._ProviderID != value))
-				{
-					if (this._Physician_Login_Info.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProviderIDChanging(value);
-					this.SendPropertyChanging();
-					this._ProviderID = value;
-					this.SendPropertyChanged("ProviderID");
-					this.OnProviderIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Patient", ThisKey="patientID", OtherKey="PatientID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Patient Patient
-		{
-			get
-			{
-				return this._Patient.Entity;
-			}
-			set
-			{
-				Patient previousValue = this._Patient.Entity;
-				if (((previousValue != value) 
-							|| (this._Patient.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Patient.Entity = null;
-						previousValue.Appointments.Remove(this);
-					}
-					this._Patient.Entity = value;
-					if ((value != null))
-					{
-						value.Appointments.Add(this);
-						this._patientID = value.PatientID;
-					}
-					else
-					{
-						this._patientID = default(int);
-					}
-					this.SendPropertyChanged("Patient");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_Appointment", Storage="_Physician_Login_Info", ThisKey="ProviderID", OtherKey="USERNAME", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Physician_Login_Info Physician_Login_Info
-		{
-			get
-			{
-				return this._Physician_Login_Info.Entity;
-			}
-			set
-			{
-				Physician_Login_Info previousValue = this._Physician_Login_Info.Entity;
-				if (((previousValue != value) 
-							|| (this._Physician_Login_Info.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Physician_Login_Info.Entity = null;
-						previousValue.Appointments.Remove(this);
-					}
-					this._Physician_Login_Info.Entity = value;
-					if ((value != null))
-					{
-						value.Appointments.Add(this);
-						this._ProviderID = value.USERNAME;
-					}
-					else
-					{
-						this._ProviderID = default(string);
-					}
-					this.SendPropertyChanged("Physician_Login_Info");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
 	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6325,6 +6046,774 @@ namespace Shifaa_EMR_System
 						this._SchedulerID = default(string);
 					}
 					this.SendPropertyChanged("SchedulerInfo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PatientProviderRelation")]
+	public partial class PatientProviderRelation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RowNumber;
+		
+		private int _PatientID;
+		
+		private string _PatientFirstName;
+		
+		private string _PatientLastName;
+		
+		private string _ProviderID;
+		
+		private string _ProviderFirstName;
+		
+		private string _ProviderLastName;
+		
+		private string _ProviderJobType;
+		
+		private string _ProviderTitle;
+		
+		private EntityRef<Patient> _Patient;
+		
+		private EntityRef<Physician_Login_Info> _Physician_Login_Info;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRowNumberChanging(int value);
+    partial void OnRowNumberChanged();
+    partial void OnPatientIDChanging(int value);
+    partial void OnPatientIDChanged();
+    partial void OnPatientFirstNameChanging(string value);
+    partial void OnPatientFirstNameChanged();
+    partial void OnPatientLastNameChanging(string value);
+    partial void OnPatientLastNameChanged();
+    partial void OnProviderIDChanging(string value);
+    partial void OnProviderIDChanged();
+    partial void OnProviderFirstNameChanging(string value);
+    partial void OnProviderFirstNameChanged();
+    partial void OnProviderLastNameChanging(string value);
+    partial void OnProviderLastNameChanged();
+    partial void OnProviderJobTypeChanging(string value);
+    partial void OnProviderJobTypeChanged();
+    partial void OnProviderTitleChanging(string value);
+    partial void OnProviderTitleChanged();
+    #endregion
+		
+		public PatientProviderRelation()
+		{
+			this._Patient = default(EntityRef<Patient>);
+			this._Physician_Login_Info = default(EntityRef<Physician_Login_Info>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RowNumber", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RowNumber
+		{
+			get
+			{
+				return this._RowNumber;
+			}
+			set
+			{
+				if ((this._RowNumber != value))
+				{
+					this.OnRowNumberChanging(value);
+					this.SendPropertyChanging();
+					this._RowNumber = value;
+					this.SendPropertyChanged("RowNumber");
+					this.OnRowNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
+		{
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					if (this._Patient.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPatientIDChanging(value);
+					this.SendPropertyChanging();
+					this._PatientID = value;
+					this.SendPropertyChanged("PatientID");
+					this.OnPatientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientFirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientFirstName
+		{
+			get
+			{
+				return this._PatientFirstName;
+			}
+			set
+			{
+				if ((this._PatientFirstName != value))
+				{
+					this.OnPatientFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._PatientFirstName = value;
+					this.SendPropertyChanged("PatientFirstName");
+					this.OnPatientFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientLastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string PatientLastName
+		{
+			get
+			{
+				return this._PatientLastName;
+			}
+			set
+			{
+				if ((this._PatientLastName != value))
+				{
+					this.OnPatientLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._PatientLastName = value;
+					this.SendPropertyChanged("PatientLastName");
+					this.OnPatientLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ProviderID
+		{
+			get
+			{
+				return this._ProviderID;
+			}
+			set
+			{
+				if ((this._ProviderID != value))
+				{
+					if (this._Physician_Login_Info.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProviderIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderID = value;
+					this.SendPropertyChanged("ProviderID");
+					this.OnProviderIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderFirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ProviderFirstName
+		{
+			get
+			{
+				return this._ProviderFirstName;
+			}
+			set
+			{
+				if ((this._ProviderFirstName != value))
+				{
+					this.OnProviderFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderFirstName = value;
+					this.SendPropertyChanged("ProviderFirstName");
+					this.OnProviderFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderLastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ProviderLastName
+		{
+			get
+			{
+				return this._ProviderLastName;
+			}
+			set
+			{
+				if ((this._ProviderLastName != value))
+				{
+					this.OnProviderLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderLastName = value;
+					this.SendPropertyChanged("ProviderLastName");
+					this.OnProviderLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderJobType", DbType="VarChar(50)")]
+		public string ProviderJobType
+		{
+			get
+			{
+				return this._ProviderJobType;
+			}
+			set
+			{
+				if ((this._ProviderJobType != value))
+				{
+					this.OnProviderJobTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderJobType = value;
+					this.SendPropertyChanged("ProviderJobType");
+					this.OnProviderJobTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderTitle", DbType="NChar(10)")]
+		public string ProviderTitle
+		{
+			get
+			{
+				return this._ProviderTitle;
+			}
+			set
+			{
+				if ((this._ProviderTitle != value))
+				{
+					this.OnProviderTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderTitle = value;
+					this.SendPropertyChanged("ProviderTitle");
+					this.OnProviderTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_PatientProviderRelation", Storage="_Patient", ThisKey="PatientID", OtherKey="PatientID", IsForeignKey=true)]
+		public Patient Patient
+		{
+			get
+			{
+				return this._Patient.Entity;
+			}
+			set
+			{
+				Patient previousValue = this._Patient.Entity;
+				if (((previousValue != value) 
+							|| (this._Patient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Patient.Entity = null;
+						previousValue.PatientProviderRelations.Remove(this);
+					}
+					this._Patient.Entity = value;
+					if ((value != null))
+					{
+						value.PatientProviderRelations.Add(this);
+						this._PatientID = value.PatientID;
+					}
+					else
+					{
+						this._PatientID = default(int);
+					}
+					this.SendPropertyChanged("Patient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_PatientProviderRelation", Storage="_Physician_Login_Info", ThisKey="ProviderID", OtherKey="USERNAME", IsForeignKey=true)]
+		public Physician_Login_Info Physician_Login_Info
+		{
+			get
+			{
+				return this._Physician_Login_Info.Entity;
+			}
+			set
+			{
+				Physician_Login_Info previousValue = this._Physician_Login_Info.Entity;
+				if (((previousValue != value) 
+							|| (this._Physician_Login_Info.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Physician_Login_Info.Entity = null;
+						previousValue.PatientProviderRelations.Remove(this);
+					}
+					this._Physician_Login_Info.Entity = value;
+					if ((value != null))
+					{
+						value.PatientProviderRelations.Add(this);
+						this._ProviderID = value.USERNAME;
+					}
+					else
+					{
+						this._ProviderID = default(string);
+					}
+					this.SendPropertyChanged("Physician_Login_Info");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Appointment")]
+	public partial class Appointment : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _appointmentID;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Details;
+		
+		private System.Nullable<System.DateTime> _StartDateTime;
+		
+		private System.Nullable<System.DateTime> _EndDateTime;
+		
+		private string _Status;
+		
+		private System.Nullable<System.DateTime> _Created;
+		
+		private int _patientID;
+		
+		private string _ProviderID;
+		
+		private string _Color;
+		
+		private string _Pattern;
+		
+		private string _PatternColor;
+		
+		private EntityRef<Patient> _Patient;
+		
+		private EntityRef<Physician_Login_Info> _Physician_Login_Info;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnappointmentIDChanging(int value);
+    partial void OnappointmentIDChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnDetailsChanging(string value);
+    partial void OnDetailsChanged();
+    partial void OnStartDateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateTimeChanged();
+    partial void OnEndDateTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateTimeChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnCreatedChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedChanged();
+    partial void OnpatientIDChanging(int value);
+    partial void OnpatientIDChanged();
+    partial void OnProviderIDChanging(string value);
+    partial void OnProviderIDChanged();
+    partial void OnColorChanging(string value);
+    partial void OnColorChanged();
+    partial void OnPatternChanging(string value);
+    partial void OnPatternChanged();
+    partial void OnPatternColorChanging(string value);
+    partial void OnPatternColorChanged();
+    #endregion
+		
+		public Appointment()
+		{
+			this._Patient = default(EntityRef<Patient>);
+			this._Physician_Login_Info = default(EntityRef<Physician_Login_Info>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointmentID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int appointmentID
+		{
+			get
+			{
+				return this._appointmentID;
+			}
+			set
+			{
+				if ((this._appointmentID != value))
+				{
+					this.OnappointmentIDChanging(value);
+					this.SendPropertyChanging();
+					this._appointmentID = value;
+					this.SendPropertyChanged("appointmentID");
+					this.OnappointmentIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(MAX)")]
+		public string Details
+		{
+			get
+			{
+				return this._Details;
+			}
+			set
+			{
+				if ((this._Details != value))
+				{
+					this.OnDetailsChanging(value);
+					this.SendPropertyChanging();
+					this._Details = value;
+					this.SendPropertyChanged("Details");
+					this.OnDetailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDateTime
+		{
+			get
+			{
+				return this._StartDateTime;
+			}
+			set
+			{
+				if ((this._StartDateTime != value))
+				{
+					this.OnStartDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._StartDateTime = value;
+					this.SendPropertyChanged("StartDateTime");
+					this.OnStartDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDateTime
+		{
+			get
+			{
+				return this._EndDateTime;
+			}
+			set
+			{
+				if ((this._EndDateTime != value))
+				{
+					this.OnEndDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EndDateTime = value;
+					this.SendPropertyChanged("EndDateTime");
+					this.OnEndDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(50)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Created", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Created
+		{
+			get
+			{
+				return this._Created;
+			}
+			set
+			{
+				if ((this._Created != value))
+				{
+					this.OnCreatedChanging(value);
+					this.SendPropertyChanging();
+					this._Created = value;
+					this.SendPropertyChanged("Created");
+					this.OnCreatedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patientID", DbType="Int NOT NULL")]
+		public int patientID
+		{
+			get
+			{
+				return this._patientID;
+			}
+			set
+			{
+				if ((this._patientID != value))
+				{
+					if (this._Patient.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnpatientIDChanging(value);
+					this.SendPropertyChanging();
+					this._patientID = value;
+					this.SendPropertyChanged("patientID");
+					this.OnpatientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProviderID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ProviderID
+		{
+			get
+			{
+				return this._ProviderID;
+			}
+			set
+			{
+				if ((this._ProviderID != value))
+				{
+					if (this._Physician_Login_Info.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProviderIDChanging(value);
+					this.SendPropertyChanging();
+					this._ProviderID = value;
+					this.SendPropertyChanged("ProviderID");
+					this.OnProviderIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Color", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Color
+		{
+			get
+			{
+				return this._Color;
+			}
+			set
+			{
+				if ((this._Color != value))
+				{
+					this.OnColorChanging(value);
+					this.SendPropertyChanging();
+					this._Color = value;
+					this.SendPropertyChanged("Color");
+					this.OnColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pattern", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Pattern
+		{
+			get
+			{
+				return this._Pattern;
+			}
+			set
+			{
+				if ((this._Pattern != value))
+				{
+					this.OnPatternChanging(value);
+					this.SendPropertyChanging();
+					this._Pattern = value;
+					this.SendPropertyChanged("Pattern");
+					this.OnPatternChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatternColor", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string PatternColor
+		{
+			get
+			{
+				return this._PatternColor;
+			}
+			set
+			{
+				if ((this._PatternColor != value))
+				{
+					this.OnPatternColorChanging(value);
+					this.SendPropertyChanging();
+					this._PatternColor = value;
+					this.SendPropertyChanged("PatternColor");
+					this.OnPatternColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Patient_Appointment", Storage="_Patient", ThisKey="patientID", OtherKey="PatientID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Patient Patient
+		{
+			get
+			{
+				return this._Patient.Entity;
+			}
+			set
+			{
+				Patient previousValue = this._Patient.Entity;
+				if (((previousValue != value) 
+							|| (this._Patient.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Patient.Entity = null;
+						previousValue.Appointments.Remove(this);
+					}
+					this._Patient.Entity = value;
+					if ((value != null))
+					{
+						value.Appointments.Add(this);
+						this._patientID = value.PatientID;
+					}
+					else
+					{
+						this._patientID = default(int);
+					}
+					this.SendPropertyChanged("Patient");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Physician_Login_Info_Appointment", Storage="_Physician_Login_Info", ThisKey="ProviderID", OtherKey="USERNAME", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Physician_Login_Info Physician_Login_Info
+		{
+			get
+			{
+				return this._Physician_Login_Info.Entity;
+			}
+			set
+			{
+				Physician_Login_Info previousValue = this._Physician_Login_Info.Entity;
+				if (((previousValue != value) 
+							|| (this._Physician_Login_Info.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Physician_Login_Info.Entity = null;
+						previousValue.Appointments.Remove(this);
+					}
+					this._Physician_Login_Info.Entity = value;
+					if ((value != null))
+					{
+						value.Appointments.Add(this);
+						this._ProviderID = value.USERNAME;
+					}
+					else
+					{
+						this._ProviderID = default(string);
+					}
+					this.SendPropertyChanged("Physician_Login_Info");
 				}
 			}
 		}
@@ -7000,104 +7489,6 @@ namespace Shifaa_EMR_System
 		}
 	}
 	
-	public partial class getProviderInfoResult
-	{
-		
-		private string _USERNAME;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Title;
-		
-		private string _PhoneNumber;
-		
-		public getProviderInfoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string USERNAME
-		{
-			get
-			{
-				return this._USERNAME;
-			}
-			set
-			{
-				if ((this._USERNAME != value))
-				{
-					this._USERNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this._FirstName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this._LastName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NChar(10)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this._Title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NChar(20)")]
-		public string PhoneNumber
-		{
-			get
-			{
-				return this._PhoneNumber;
-			}
-			set
-			{
-				if ((this._PhoneNumber != value))
-				{
-					this._PhoneNumber = value;
-				}
-			}
-		}
-	}
-	
 	public partial class selectPrescriptionforPrintResult
 	{
 		
@@ -7516,6 +7907,148 @@ namespace Shifaa_EMR_System
 		}
 	}
 	
+	public partial class getPatientIDResult
+	{
+		
+		private int _PatientID;
+		
+		public getPatientIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientID", DbType="Int NOT NULL")]
+		public int PatientID
+		{
+			get
+			{
+				return this._PatientID;
+			}
+			set
+			{
+				if ((this._PatientID != value))
+				{
+					this._PatientID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getProviderInfoResult
+	{
+		
+		private string _USERNAME;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Title;
+		
+		private string _PhoneNumber;
+		
+		private string _JobRole;
+		
+		public getProviderInfoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERNAME
+		{
+			get
+			{
+				return this._USERNAME;
+			}
+			set
+			{
+				if ((this._USERNAME != value))
+				{
+					this._USERNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NChar(10)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="NChar(20)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this._PhoneNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobRole", DbType="VarChar(50)")]
+		public string JobRole
+		{
+			get
+			{
+				return this._JobRole;
+			}
+			set
+			{
+				if ((this._JobRole != value))
+				{
+					this._JobRole = value;
+				}
+			}
+		}
+	}
+	
 	public partial class getAppointmentForCurrentProviderResult
 	{
 		
@@ -7540,6 +8073,10 @@ namespace Shifaa_EMR_System
 		private string _ProviderID;
 		
 		private string _Color;
+		
+		private string _Pattern;
+		
+		private string _PatternColor;
 		
 		public getAppointmentForCurrentProviderResult()
 		{
@@ -7720,6 +8257,38 @@ namespace Shifaa_EMR_System
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pattern", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Pattern
+		{
+			get
+			{
+				return this._Pattern;
+			}
+			set
+			{
+				if ((this._Pattern != value))
+				{
+					this._Pattern = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatternColor", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string PatternColor
+		{
+			get
+			{
+				return this._PatternColor;
+			}
+			set
+			{
+				if ((this._PatternColor != value))
+				{
+					this._PatternColor = value;
+				}
+			}
+		}
 	}
 	
 	public partial class getAppointmentsForCurrentPatientResult
@@ -7746,6 +8315,10 @@ namespace Shifaa_EMR_System
 		private string _ProviderID;
 		
 		private string _Color;
+		
+		private string _Pattern;
+		
+		private string _PatternColor;
 		
 		public getAppointmentsForCurrentPatientResult()
 		{
@@ -7923,6 +8496,38 @@ namespace Shifaa_EMR_System
 				if ((this._Color != value))
 				{
 					this._Color = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pattern", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Pattern
+		{
+			get
+			{
+				return this._Pattern;
+			}
+			set
+			{
+				if ((this._Pattern != value))
+				{
+					this._Pattern = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatternColor", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string PatternColor
+		{
+			get
+			{
+				return this._PatternColor;
+			}
+			set
+			{
+				if ((this._PatternColor != value))
+				{
+					this._PatternColor = value;
 				}
 			}
 		}

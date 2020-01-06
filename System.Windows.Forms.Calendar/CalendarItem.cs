@@ -57,6 +57,9 @@ namespace System.Windows.Forms.Calendar
         private object _tag;
         private string _text;
         private string _providerID;
+        private string _patientFirstName;
+        private string _patientLastName;
+        private string _status;
         #endregion
 
         #region Ctor
@@ -84,17 +87,19 @@ namespace System.Windows.Forms.Calendar
         /// <param name="startDate">Start date of the item</param>
         /// <param name="endDate">End date of the item</param>
         /// <param name="text">Text of the item</param>
-        public CalendarItem(Calendar calendar, DateTime startDate, DateTime endDate, string text , string patientName , int appointmentID , int patientID, 
-            string providerID)
+        public CalendarItem(Calendar calendar, DateTime startDate, DateTime endDate, string text , string patientFirstName, string patientLastName , int appointmentID , int patientID, 
+            string providerID , string status)
             : this(calendar)
         {
             StartDate = startDate;
             EndDate = endDate;
             Text = text;
-            PatientName = patientName;
+            PatientFirstName = patientFirstName;
+            PatientLastName = patientLastName;           
             AppointmentID = appointmentID;
             PatientID = patientID;
             ProviderID = providerID;
+            Status = status;
         }
 
         /// <summary>
@@ -104,8 +109,8 @@ namespace System.Windows.Forms.Calendar
         /// <param name="startDate">Start date of the item</param>
         /// <param name="duration">Duration of the item</param>
         /// <param name="text">Text of the item</param>
-        public CalendarItem(Calendar calendar, DateTime startDate, TimeSpan duration, string text , string patientName , int appointmentID, int patientID , string providerID)
-            : this(calendar, startDate, startDate.Add(duration), text , patientName , appointmentID , patientID , providerID)
+        public CalendarItem(Calendar calendar, DateTime startDate, TimeSpan duration, string text , string patientFirstName, string patientLastName , int appointmentID, int patientID , string providerID, string status)
+            : this(calendar, startDate, startDate.Add(duration), text , patientFirstName , patientLastName , appointmentID , patientID , providerID, status)
         { }
 
         #endregion
@@ -521,12 +526,21 @@ namespace System.Windows.Forms.Calendar
             }
         }
 
-        public virtual String PatientName
+        public virtual String PatientFirstName
         { 
-            get { return _patientName; }
+            get { return _patientFirstName; }
             set
             {
-                _patientName = value;
+                _patientFirstName = value;
+            }
+        }
+
+        public virtual String PatientLastName
+        {
+            get { return _patientLastName; }
+            set
+            {
+                _patientLastName = value;
             }
         }
 
@@ -546,6 +560,15 @@ namespace System.Windows.Forms.Calendar
             set
             {
                 _appointmentID = value; 
+            }
+        }
+
+        public virtual string Status
+        {
+            get { return _status; }
+            set
+            {
+                _status = value;
             }
         }
 
@@ -868,6 +891,8 @@ namespace System.Windows.Forms.Calendar
         {
             _minuteEndTop = top;
         }
+
+
 
         #endregion
 

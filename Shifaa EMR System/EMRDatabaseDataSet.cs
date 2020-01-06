@@ -1,5 +1,4 @@
-﻿namespace SharedResources
-
+﻿namespace Shifaa_EMR_System
 {
 
 

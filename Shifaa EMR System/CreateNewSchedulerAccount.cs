@@ -27,12 +27,23 @@ namespace Shifaa_EMR_System
             try
             {
 
+                if(String.IsNullOrEmpty(FirstNameBox.Text) || String.IsNullOrEmpty(LastNameBox.Text))
+                {
+                    MessageBox.Show("The First Name and Last Name fields are required");
+                }
+
                 string gender = null;
 
                 if (FemaleCheckBox.Checked && !MaleCheckBox.Checked) gender = "Female";
                 if (!FemaleCheckBox.Checked && MaleCheckBox.Checked) gender = "Male";
                 if (FemaleCheckBox.Checked && MaleCheckBox.Checked) MessageBox.Show("Please pick only one gender");
+                if (!FemaleCheckBox.Checked && !MaleCheckBox.Checked) MessageBox.Show("Please pick a gender");
 
+                if (String.IsNullOrWhiteSpace(UsernameBox.Text) || String.IsNullOrWhiteSpace(PassCodeBox.Text))
+                {
+                    MessageBox.Show("The username and password fields are required");
+                    return;
+                }
 
                 var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
 
@@ -48,8 +59,9 @@ namespace Shifaa_EMR_System
                     }
                     catch
                     {
-                        MessageBox.Show("Please enter a valid phone number in the format\n Ex: +20-2-1234-1234");
+                        MessageBox.Show("Please enter a valid phone number in the format. Ex: +20-2-1234-1234");
                         PhoneNumberBox.Text = null;
+                        return;
                     }
                 }
 
@@ -57,6 +69,7 @@ namespace Shifaa_EMR_System
                 if (!EmailBox.Text.Contains("@") || !EmailBox.Text.Contains("."))
                 {
                     MessageBox.Show("Please enter a valid email account.");
+                    return;
                 }
 
                 else
@@ -77,14 +90,20 @@ namespace Shifaa_EMR_System
                     {
                         MessageBox.Show("Please pick a different passcode. That passcode already exists");
                     }
+                    if (returnValue is 0)
+                    {
+                        this.Close();
+                        WelcomeHomePage welcome = new WelcomeHomePage();
+                        welcome.Show();
+                    }
                 }
 
 
 
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Please enter a valid username and passcode combination");
+                throw ex;
             }
 
         }
@@ -106,24 +125,7 @@ namespace Shifaa_EMR_System
 
         private void PhoneNumberBox_TextChanged(object sender, EventArgs e)
         {
-            var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
-
-
-            if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
-            {
-                try
-                {
-
-                    //TODO: FORMAT THE NUMBER USING ASYOUTYPE FORMATER
-                    phoneNumberUtil.Parse(PhoneNumberBox.Text, null);
-
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Please enter a valid phone number");
-                    PhoneNumberBox.Text = null;
-                }
-            }
+            
         }
 
         private void BackButton_Click(object sender, EventArgs e)

@@ -7,6 +7,7 @@ using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Calendar;
 
 namespace Shifaa_EMR_System
 {
@@ -21,6 +22,7 @@ namespace Shifaa_EMR_System
         readonly SchedulingCalendar schedulingCalendar;
         readonly ToolStripMenuItem thisGenerateReport;
         readonly ToolStripMenuItem thisPrintPrescriptions;
+        CalendarItem item;
 
 
         public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain)
@@ -50,7 +52,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  SchedulingCalendar schedulingCalendar)
+        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  SchedulingCalendar schedulingCalendar, CalendarItem item)
         {
             InitializeComponent();
             this.PatientNameLabel.Text = name;
@@ -81,6 +83,8 @@ namespace Shifaa_EMR_System
             thisPrintPrescriptions.Click += new System.EventHandler(PrintPrescriptionsClick);
             thisProviderMain.menuStrip2.Items.Add(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Add(thisPrintPrescriptions);
+
+            this.item = item;
 
             this.WindowState = FormWindowState.Maximized;
            
@@ -577,8 +581,13 @@ namespace Shifaa_EMR_System
         {
             // TO DO: Complete the Checked Out Button
             string checkedOut = "Complete at: " + DateTime.Now.ToString("HH:mm");
-            doAction.updateAppointmentStatus(checkedOut, schedulingCalendar.GetAppointmentID() , "Green");
+            doAction.updateAppointmentStatus(checkedOut, schedulingCalendar.GetAppointmentID() , "Green" , item.Pattern.ToString() , item.PatternColor.ToString());
+            item.BackgroundColor = Color.Green;
+            thisProviderMain.menuStrip2.Items.Remove(thisGenerateReport);
+            thisProviderMain.menuStrip2.Items.Remove(thisPrintPrescriptions);
+            thisProviderMain.AutoScroll = false;
             this.Close();
+
         }
 
         private void ProblemListView_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -57,6 +57,11 @@
             this.NotPregnantBox = new System.Windows.Forms.CheckBox();
             this.PregnantBox = new System.Windows.Forms.CheckBox();
             this.PregnantLabel = new System.Windows.Forms.Label();
+            this.ChooseProviderLabel = new System.Windows.Forms.Label();
+            this.ProviderList = new System.Windows.Forms.ComboBox();
+            this.emrDatabaseDataSet1 = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.schedulersBelongingToProviderTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -388,6 +393,36 @@
             this.PregnantLabel.TabIndex = 33;
             this.PregnantLabel.Text = "Pregnant?";
             // 
+            // ChooseProviderLabel
+            // 
+            this.ChooseProviderLabel.AutoSize = true;
+            this.ChooseProviderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChooseProviderLabel.Location = new System.Drawing.Point(166, 470);
+            this.ChooseProviderLabel.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.ChooseProviderLabel.Name = "ChooseProviderLabel";
+            this.ChooseProviderLabel.Size = new System.Drawing.Size(139, 16);
+            this.ChooseProviderLabel.TabIndex = 36;
+            this.ChooseProviderLabel.Text = "Choose the Provider(s)";
+            // 
+            // ProviderList
+            // 
+            this.ProviderList.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.ProviderList.FormattingEnabled = true;
+            this.ProviderList.Location = new System.Drawing.Point(328, 467);
+            this.ProviderList.Name = "ProviderList";
+            this.ProviderList.Size = new System.Drawing.Size(163, 24);
+            this.ProviderList.TabIndex = 37;
+            this.ProviderList.SelectedIndexChanged += new System.EventHandler(this.ProviderList_SelectedIndexChanged);
+            // 
+            // emrDatabaseDataSet1
+            // 
+            this.emrDatabaseDataSet1.DataSetName = "EMRDatabaseDataSet";
+            this.emrDatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // schedulersBelongingToProviderTableAdapter1
+            // 
+            this.schedulersBelongingToProviderTableAdapter1.ClearBeforeFill = true;
+            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
@@ -395,6 +430,8 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(715, 697);
             this.ControlBox = false;
+            this.Controls.Add(this.ProviderList);
+            this.Controls.Add(this.ChooseProviderLabel);
             this.Controls.Add(this.NotPregnantBox);
             this.Controls.Add(this.PregnantBox);
             this.Controls.Add(this.PregnantLabel);
@@ -434,6 +471,7 @@
             this.Text = "New Patient";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.NewPatient_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,5 +508,9 @@
         private System.Windows.Forms.CheckBox NotPregnantBox;
         private System.Windows.Forms.CheckBox PregnantBox;
         private System.Windows.Forms.Label PregnantLabel;
+        private System.Windows.Forms.Label ChooseProviderLabel;
+        private System.Windows.Forms.ComboBox ProviderList;
+        private EMRDatabaseDataSet emrDatabaseDataSet1;
+        private EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter schedulersBelongingToProviderTableAdapter1;
     }
 }

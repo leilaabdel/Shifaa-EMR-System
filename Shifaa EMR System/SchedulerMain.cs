@@ -14,7 +14,7 @@ namespace Shifaa_EMR_System
 
         private string schedulerID;
         private string[] providerID;
-          
+       
         public SchedulerMain(string schedulerID)
         {
             InitializeComponent();
@@ -27,7 +27,10 @@ namespace Shifaa_EMR_System
             form.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (form.Size.Width / 2), (Screen.PrimaryScreen.Bounds.Size.Height / 2) - (form.Size.Height / 2));
         }
 
-        
+        public string GetSchedulerID()
+        {
+            return this.schedulerID;
+        }
 
 
         private void ExistingAppointments_Click(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(schedulerID , this)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(this.schedulerID , this)
                 {
                     MdiParent = this,
                     WindowState = FormWindowState.Maximized
@@ -62,6 +65,17 @@ namespace Shifaa_EMR_System
             this.WindowState = FormWindowState.Maximized;
         }
 
+        PatientListView globalPatientList;
+
+        private void SetPatientListView(PatientListView patientListView)
+        {
+            this.globalPatientList = patientListView;
+            this.globalPatientList.MdiParent = this;
+            this.globalPatientList.WindowState = FormWindowState.Maximized;
+            this.globalPatientList.StartPosition = FormStartPosition.CenterScreen;
+            this.globalPatientList.Show();
+
+        }
 
         List<DateTime> dateList = new List<DateTime>();
 
@@ -111,5 +125,60 @@ namespace Shifaa_EMR_System
                 mesagesView.Show();
             }
         }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+
+            if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar != null)
+            {
+                SchedulingCalendar s = (SchedulingCalendar)Application.OpenForms["SchedulingCalendar"];
+                s.Close();
+            }
+
+
+            if (Application.OpenForms["NewPatient"] as NewPatient == null)
+            {
+                NewPatient newPatient = new NewPatient(this)
+                {
+                    MdiParent = this
+                    
+                };
+                Center(newPatient);
+                newPatient.Show();
+               
+            }
+           
+        }
+
+        private void searchBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchBoxClick(object sender, EventArgs e)
+        {
+            if (searchBox.Text == "Search Patient ID/Name") searchBox.Text = null;
+        }
+
+        private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return && Application.OpenForms["PatientListView"] as PatientListView == null)
+
+            {
+                PatientListView patientListView = new PatientListView(this);
+                SetPatientListView(patientListView);
+                globalPatientList.ActivateSearch();
+
+            }
+
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                globalPatientList.ActivateSearch();
+            }
+
+
+        }
+
+
     }
 }

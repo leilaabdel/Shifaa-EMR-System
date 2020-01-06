@@ -24,28 +24,17 @@ namespace Shifaa_EMR_System
         private readonly CalendarItem calendarItem;
         private readonly string providerID;
         private bool saved = false;
-        private List<CalendarItem> items;
         private SchedulingCalendar scheduleForm;
         bool isUpdated = false;
         private string firstNameFromAppt;
         private string lastNameFromAppt;
+        private List<String> providerIDList = new List<String>();
+
 
              
         private Calendar calendar1;
-        public NewAppointment(CalendarItem item , string providerID , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar schedulingCalendar)
-        {
 
-            InitializeComponent();
-
-           this.calendarItem = item;
-            this.providerID = providerID;
-            this.calendar1 = calendar1;
-            this.items = items;
-            this.scheduleForm = schedulingCalendar;
-            
-        }
-
-        public NewAppointment(bool isUpdated, CalendarItem item, string providerID, Calendar calendar1, List<CalendarItem> items, SchedulingCalendar schedulingCalendar)
+        public NewAppointment(CalendarItem item, string providerID, Calendar calendar1, SchedulingCalendar schedulingCalendar)
         {
 
             InitializeComponent();
@@ -53,28 +42,84 @@ namespace Shifaa_EMR_System
             this.calendarItem = item;
             this.providerID = providerID;
             this.calendar1 = calendar1;
-            this.items = items;
+
+            this.scheduleForm = schedulingCalendar;
+
+
+            if (this.scheduleForm.Type == "Provider")
+            {
+                ChooseProviderLabel.Hide();
+                ProviderForPatientList.Hide();
+            }
+            if (this.scheduleForm.Type == "Scheduler")
+            {
+                if (PatientListView.Rows.Count > 0)
+                {
+
+
+                    int rowIndex = PatientListView.CurrentRow.Index;
+                    var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
+                    selectedPatientID = (Int32)selectedPatientIDCell.Value;
+                    ProviderForPatientList.DataSource = patientProviderRelationTableAdapter.GetDataByPatientID(selectedPatientID);
+                    ProviderForPatientList.ValueMember = "ProviderID";
+                    ProviderForPatientList.DisplayMember = "ProviderInfo";
+                }
+
+            }
+        }
+
+
+            public NewAppointment(bool isUpdated, CalendarItem item, string providerID, Calendar calendar1, SchedulingCalendar schedulingCalendar)
+        {
+
+            InitializeComponent();
+
+            this.calendarItem = item;
+            this.providerID = providerID;
+            this.calendar1 = calendar1;
             this.scheduleForm = schedulingCalendar;
             this.isUpdated = isUpdated;
 
+
             Console.WriteLine(PatientIDNum.Text);
-            string[] names = calendarItem.PatientName.Split();
-            firstNameFromAppt = names[0];
-            lastNameFromAppt = names[1];
+            firstNameFromAppt = calendarItem.PatientFirstName;
+            lastNameFromAppt = calendarItem.PatientLastName;
 
-            AppointmentDetails.Text = calendarItem.Text;
+            string[] text = calendarItem.Text.Split('\n');
+            AppointmentDetails.Text = text[2];
+
+            if (this.scheduleForm.Type == "Provider")
+            {
+                ChooseProviderLabel.Hide();
+                ProviderForPatientList.Hide();
+            }
+            if (this.scheduleForm.Type == "Scheduler")
+            {
+                if (PatientListView.Rows.Count > 0)
+                {
 
 
-
+                    int rowIndex = PatientListView.CurrentRow.Index;
+                    var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
+                    selectedPatientID = (Int32)selectedPatientIDCell.Value;
+                    ProviderForPatientList.DataSource = patientProviderRelationTableAdapter.GetDataByPatientID(selectedPatientID);
+                    ProviderForPatientList.ValueMember = "ProviderID";
+                    ProviderForPatientList.DisplayMember = "ProviderInfo";
+                }
+            }
         }
 
 
 
 
 
-        private void NewAppointment_Load(object sender, EventArgs e)
+
+
+            private void NewAppointment_Load(object sender, EventArgs e)
 
         {
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.PatientProviderRelation' table. You can move, or remove it, as needed.
+            this.patientProviderRelationTableAdapter.Fill(this.eMRDatabaseDataSet.PatientProviderRelation);
 
             this.Visible = true;
 
@@ -249,17 +294,15 @@ namespace Shifaa_EMR_System
 
           
                         CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value, dateTimePicker2.Value, calText,
-                            firstName + " " + lastName, apptID, selectedPatientID, providerID);
+                            firstName , lastName, apptID, selectedPatientID, providerID, "Scheduled");
 
-
+                        cal.BackgroundColor = Color.Blue;
 
                         Console.WriteLine("this item text on main screen: " + calendarItem.Text);
 
 
-                        items.Add(cal);
+                        scheduleForm.GetCalendarItems().Add(cal);
 
-
-                        scheduleForm.SetCalendarItems(items);
 
                         scheduleForm.PlaceItems(scheduleForm.GetCalendarItems());
 
@@ -297,9 +340,6 @@ namespace Shifaa_EMR_System
                         var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
                         selectedPatientID = (Int32)selectedPatientIDCell.Value;
 
-                    
-
-
 
                         string firstName = (String)this.PatientListView["FirstName1", rowIndex].Value;
                         string lastName = (String)this.PatientListView["LastName1", rowIndex].Value;
@@ -313,19 +353,18 @@ namespace Shifaa_EMR_System
                         calendarItem.StartDate = dateTimePicker1.Value;
                         calendarItem.EndDate = dateTimePicker2.Value;
 
-                        ISingleResult<getJustCreatedAppointmentIDResult> result = doAction.getJustCreatedAppointmentID();
-
-                      
-
 
                         scheduleForm.GetCalendarItems().Remove(calendarItem);
 
                         CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value, dateTimePicker2.Value, calText,
-                            firstName + " " + lastName, calendarItem.AppointmentID, selectedPatientID, providerID);
+                            firstName , lastName, calendarItem.AppointmentID, selectedPatientID, providerID, "Scheduled");
 
+
+                        cal.BackgroundColor = calendarItem.BackgroundColor;
 
                         scheduleForm.GetCalendarItems().Add(cal);
 
+                        calendar1.Items.Clear();
 
                         scheduleForm.PlaceItems(scheduleForm.GetCalendarItems());
 
@@ -360,7 +399,10 @@ namespace Shifaa_EMR_System
         }
 
 
-
+        private void LostFormFocus(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -502,18 +544,26 @@ namespace Shifaa_EMR_System
         {
             if (e.StateChanged != DataGridViewElementStates.Selected) return;
 
-            // TO DO: Insert Code Here 
 
-      
+            if (this.scheduleForm.Type == "Scheduler")
+            { 
+                int rowIndex = PatientListView.CurrentRow.Index;
+                var selectedPatientIDCell = this.PatientListView["PatientID", rowIndex];
+                selectedPatientID = (Int32)selectedPatientIDCell.Value;
+                ProviderForPatientList.DataSource = patientProviderRelationTableAdapter.GetDataByPatientID(selectedPatientID);
+                ProviderForPatientList.ValueMember = "ProviderID";
+                ProviderForPatientList.DisplayMember = "ProviderInfo";
+
+            }
+
+
         }
 
 
       
         private void PatientListView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
-
+          
         }
 
 
@@ -521,6 +571,20 @@ namespace Shifaa_EMR_System
         private void Exit_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ProviderForPatientList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string selectedValue = (String)ProviderForPatientList.SelectedValue;
+            if (!providerIDList.Contains(selectedValue))
+            {
+                providerIDList.Add(selectedValue);
+            }
+            else
+            {
+                providerIDList.Remove(selectedValue);
+            }
         }
     }
 }

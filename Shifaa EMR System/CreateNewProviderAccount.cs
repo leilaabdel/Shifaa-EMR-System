@@ -28,11 +28,23 @@ namespace Shifaa_EMR_System
 
             try
             {
+
+                if (String.IsNullOrEmpty(FirstNameBox.Text) || String.IsNullOrEmpty(LastNameBox.Text))
+                {
+                    MessageBox.Show("The First Name and Last Name fields are required");
+                }
+
                 string gender = null;
 
                 if (FemaleCheckBox.Checked && !MaleCheckBox.Checked) gender = "Female";
                 if (!FemaleCheckBox.Checked && MaleCheckBox.Checked) gender = "Male";
                 if (FemaleCheckBox.Checked && MaleCheckBox.Checked) MessageBox.Show("Please pick only one gender");
+
+                if(String.IsNullOrWhiteSpace(UsernameBox.Text) || String.IsNullOrWhiteSpace(PassCodeBox.Text))
+                {
+                    MessageBox.Show("The username and password fields are required");
+                     return;
+                }
 
                 var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
 
@@ -50,6 +62,7 @@ namespace Shifaa_EMR_System
                     {
                         MessageBox.Show("Please enter a valid phone number");
                         PhoneNumberBox.Text = null;
+                        return;
                     }
                 }
 
@@ -69,9 +82,7 @@ namespace Shifaa_EMR_System
                         TitleBox.Text, PhoneNumberBox.Text , EmailBox.Text , JobTypeBox.Text, gender, UsernameBox.Text , 
                         PassCodeBox.Text, ReenterPasscodeBox.Text);
 
-                    this.Close();
-                    WelcomeHomePage welcome = new WelcomeHomePage();
-                    welcome.Show();
+                    
 
                     if (returnValue is 1)
                     {
@@ -96,7 +107,11 @@ namespace Shifaa_EMR_System
                                 (String)SchedulerTable[0, data.Index].Value);
                            
                         }
-                        
+
+                        this.Close();
+                        WelcomeHomePage welcome = new WelcomeHomePage();
+                        welcome.Show();
+
                     }
                 }
 
@@ -114,7 +129,8 @@ namespace Shifaa_EMR_System
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.SchedulerInfo' table. You can move, or remove it, as needed.
             this.schedulerInfoTableAdapter.Fill(this.eMRDatabaseDataSet.SchedulerInfo);
             this.SchedulerTable.MultiSelect = true;
-
+            this.SchedulerTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.SchedulerTable.DefaultCellStyle.Font = new Font("Bahnschrift Light", 8);
            
 
 

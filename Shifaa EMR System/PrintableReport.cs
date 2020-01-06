@@ -82,6 +82,7 @@ namespace Shifaa_EMR_System
 
             report.BorderStyle = BorderStyle.None;
             report.Multiline = true;
+            report.ScrollBars = RichTextBoxScrollBars.Vertical;
 
             report.SelectionFont = header;
             report.SelectedText = (PatientNameLabel.Text + "\n");
@@ -99,7 +100,7 @@ namespace Shifaa_EMR_System
             //Add background info
            
             report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
             report.SelectionAlignment = HorizontalAlignment.Left;
 
             report.SelectionFont = smallheader;
@@ -122,7 +123,7 @@ namespace Shifaa_EMR_System
 
             report.SelectionIndent = 0;
             report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
             report.SelectionAlignment = HorizontalAlignment.Left;
 
             report.SelectionFont = smallheader;
@@ -147,7 +148,7 @@ namespace Shifaa_EMR_System
 
             report.SelectionIndent = 0;
             report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
             report.SelectionAlignment = HorizontalAlignment.Left;
             report.SelectionFont = smallheader;
             report.SelectionIndent = 30;
@@ -158,7 +159,7 @@ namespace Shifaa_EMR_System
             report.SelectedText = "\n";
             report.SelectionIndent = 0;
             report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
 
             report.SelectionAlignment = HorizontalAlignment.Left;
             report.SelectionIndent = 30;
@@ -170,7 +171,7 @@ namespace Shifaa_EMR_System
 
             report.SelectionIndent = 0;
             report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectedText = "------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
             report.SelectionAlignment = HorizontalAlignment.Left;
             report.SelectionFont = smallheader;
             report.SelectionIndent = 30;

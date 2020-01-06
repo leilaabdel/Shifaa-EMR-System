@@ -176,6 +176,7 @@
       <Association Name="Patient_Prescription" Member="Prescriptions" ThisKey="PatientID" OtherKey="PatientID" Type="Prescription" />
       <Association Name="Patient_Problem" Member="Problems" ThisKey="PatientID" OtherKey="PatientID" Type="Problem" />
       <Association Name="Patient_VitalSign" Member="VitalSigns" ThisKey="PatientID" OtherKey="PatientID" Type="VitalSign" />
+      <Association Name="Patient_PatientProviderRelation" Member="PatientProviderRelations" ThisKey="PatientID" OtherKey="PatientID" Type="PatientProviderRelation" />
       <Association Name="Patient_Appointment" Member="Appointments" ThisKey="PatientID" OtherKey="patientID" Type="Appointment" />
     </Type>
   </Table>
@@ -196,8 +197,9 @@
       <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Physician_Login_Info_Appointment" Member="Appointments" ThisKey="USERNAME" OtherKey="ProviderID" Type="Appointment" />
       <Association Name="Physician_Login_Info_SchedulersBelongingToProvider" Member="SchedulersBelongingToProviders" ThisKey="USERNAME" OtherKey="ProviderID" Type="SchedulersBelongingToProvider" />
+      <Association Name="Physician_Login_Info_PatientProviderRelation" Member="PatientProviderRelations" ThisKey="USERNAME" OtherKey="ProviderID" Type="PatientProviderRelation" />
+      <Association Name="Physician_Login_Info_Appointment" Member="Appointments" ThisKey="USERNAME" OtherKey="ProviderID" Type="Appointment" />
       <Association Name="ProviderHashTable_Physician_Login_Info" Member="ProviderHashTable" ThisKey="USERNAME" OtherKey="Username" Type="ProviderHashTable" IsForeignKey="true" />
       <Association Name="AllEmployee_Physician_Login_Info" Member="AllEmployee" ThisKey="USERNAME" OtherKey="EmployeeID" Type="AllEmployee" IsForeignKey="true" />
     </Type>
@@ -231,22 +233,6 @@
       <Association Name="AllEmployee_Message" Member="Messages" ThisKey="EmployeeID" OtherKey="SenderID" Type="Message" />
     </Type>
   </Table>
-  <Table Name="dbo.Appointment" Member="Appointments">
-    <Type Name="Appointment">
-      <Column Name="appointmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="StartDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="EndDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="patientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Patient_Appointment" Member="Patient" ThisKey="patientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Physician_Login_Info_Appointment" Member="Physician_Login_Info" ThisKey="ProviderID" OtherKey="USERNAME" Type="Physician_Login_Info" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Message" Member="Messages">
     <Type Name="Message">
       <Column Name="MessageIDNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -270,6 +256,40 @@
       <Column Name="ProviderName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Physician_Login_Info_SchedulersBelongingToProvider" Member="Physician_Login_Info" ThisKey="ProviderID" OtherKey="USERNAME" Type="Physician_Login_Info" IsForeignKey="true" />
       <Association Name="SchedulerInfo_SchedulersBelongingToProvider" Member="SchedulerInfo" ThisKey="SchedulerID" OtherKey="Username" Type="SchedulerInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PatientProviderRelation" Member="PatientProviderRelations">
+    <Type Name="PatientProviderRelation">
+      <Column Name="RowNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientFirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PatientLastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderFirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderLastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderJobType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ProviderTitle" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Patient_PatientProviderRelation" Member="Patient" ThisKey="PatientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" />
+      <Association Name="Physician_Login_Info_PatientProviderRelation" Member="Physician_Login_Info" ThisKey="ProviderID" OtherKey="USERNAME" Type="Physician_Login_Info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Appointment" Member="Appointments">
+    <Type Name="Appointment">
+      <Column Name="appointmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Details" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="StartDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="patientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Pattern" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PatternColor" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Patient_Appointment" Member="Patient" ThisKey="patientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Physician_Login_Info_Appointment" Member="Physician_Login_Info" ThisKey="ProviderID" OtherKey="USERNAME" Type="Physician_Login_Info" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.getNewPatientVitals" Method="getNewPatientVitals">
@@ -384,16 +404,6 @@
       <Column Name="PregnancyStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.getProviderInfo" Method="getProviderInfo">
-    <Parameter Name="ProviderUserName" Parameter="providerUserName" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="getProviderInfoResult">
-      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.updatePrescription" Method="updatePrescription">
     <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
     <Parameter Name="MedicationName" Parameter="medicationName" Type="System.String" DbType="NVarChar(255)" />
@@ -430,11 +440,6 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.authenticateProvider" Method="authenticateProvider">
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Passcode" Parameter="passcode" Type="System.String" DbType="VarChar(32)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.authenticateScheduler" Method="authenticateScheduler">
     <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Passcode" Parameter="passcode" Type="System.String" DbType="VarChar(32)" />
     <Return Type="System.Int32" />
@@ -549,30 +554,6 @@
     <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.createProviderAccount" Method="createProviderAccount">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NChar(10)" />
-    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NChar(20)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="JobType" Parameter="jobType" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NChar(10)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Passcode1" Parameter="passcode1" Type="System.String" DbType="VarChar(32)" />
-    <Parameter Name="Passcode2" Parameter="passcode2" Type="System.String" DbType="VarChar(32)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.createSchedulerAccount" Method="createSchedulerAccount">
-    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NChar(20)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NChar(10)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Passcode1" Parameter="passcode1" Type="System.String" DbType="VarChar(32)" />
-    <Parameter Name="Passcode2" Parameter="passcode2" Type="System.String" DbType="VarChar(32)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.CreateAppointment" Method="CreateAppointment">
     <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(50)" />
@@ -652,10 +633,43 @@
     <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.createPatientProviderRelation" Method="createPatientProviderRelation">
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderFirstName" Parameter="providerFirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderLastName" Parameter="providerLastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ProviderTitle" Parameter="providerTitle" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ProviderJobType" Parameter="providerJobType" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getPatientID" Method="getPatientID">
+    <Parameter Name="PatientFirstName" Parameter="patientFirstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PatientLastName" Parameter="patientLastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DOB" Parameter="dOB" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="getPatientIDResult">
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getProviderInfo" Method="getProviderInfo">
+    <Parameter Name="ProviderUserName" Parameter="providerUserName" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="getProviderInfoResult">
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="JobRole" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.updateAppointmentStatus" Method="updateAppointmentStatus">
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
     <Parameter Name="Color" Parameter="color" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Pattern" Parameter="pattern" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PatternColor" Parameter="patternColor" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.getAppointmentForCurrentProvider" Method="getAppointmentForCurrentProvider">
@@ -672,6 +686,8 @@
       <Column Name="patientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Color" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Pattern" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PatternColor" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.getAppointmentsForCurrentPatient" Method="getAppointmentsForCurrentPatient">
@@ -688,6 +704,37 @@
       <Column Name="patientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ProviderID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Color" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Pattern" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PatternColor" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.createProviderAccount" Method="createProviderAccount">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="JobType" Parameter="jobType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Passcode1" Parameter="passcode1" Type="System.String" DbType="VarChar(32)" />
+    <Parameter Name="Passcode2" Parameter="passcode2" Type="System.String" DbType="VarChar(32)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.createSchedulerAccount" Method="createSchedulerAccount">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PhoneNumber" Parameter="phoneNumber" Type="System.String" DbType="NChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Passcode1" Parameter="passcode1" Type="System.String" DbType="VarChar(32)" />
+    <Parameter Name="Passcode2" Parameter="passcode2" Type="System.String" DbType="VarChar(32)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.authenticateScheduler" Method="authenticateScheduler">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Passcode" Parameter="passcode" Type="System.String" DbType="VarChar(32)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

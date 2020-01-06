@@ -399,6 +399,7 @@
     <EmbeddedResource Include="WelcomeHomePage.resx">
       <DependentUpon>WelcomeHomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="Connected Services\AzureStorage1\ConnectedService.json" />
     <None Include="EMRDatabaseDataSet.xsc">
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>

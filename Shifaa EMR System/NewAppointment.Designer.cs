@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentDescriptionLabel = new System.Windows.Forms.Label();
             this.AppointmentDetails = new System.Windows.Forms.TextBox();
             this.Save = new System.Windows.Forms.Button();
@@ -38,6 +38,18 @@
             this.LastName = new System.Windows.Forms.TextBox();
             this.PatientIDNum = new System.Windows.Forms.TextBox();
             this.PatientListView = new System.Windows.Forms.DataGridView();
+            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
+            this.Exit = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.StartTimePicker = new System.Windows.Forms.Label();
+            this.EndDatePicker = new System.Windows.Forms.Label();
+            this.ChooseProviderLabel = new System.Windows.Forms.Label();
+            this.ProviderForPatientList = new System.Windows.Forms.ComboBox();
+            this.patientProviderRelationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientProviderRelationTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientProviderRelationTableAdapter();
             this.columnNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,17 +64,10 @@
             this.nationalityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maritalStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
-            this.Exit = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.StartTimePicker = new System.Windows.Forms.Label();
-            this.EndDatePicker = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientProviderRelationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // AppointmentDescriptionLabel
@@ -70,7 +75,7 @@
             this.AppointmentDescriptionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AppointmentDescriptionLabel.AutoSize = true;
             this.AppointmentDescriptionLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppointmentDescriptionLabel.Location = new System.Drawing.Point(330, 13);
+            this.AppointmentDescriptionLabel.Location = new System.Drawing.Point(261, 17);
             this.AppointmentDescriptionLabel.Name = "AppointmentDescriptionLabel";
             this.AppointmentDescriptionLabel.Size = new System.Drawing.Size(177, 25);
             this.AppointmentDescriptionLabel.TabIndex = 1;
@@ -82,12 +87,12 @@
             this.AppointmentDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentDetails.BackColor = System.Drawing.SystemColors.Window;
-            this.AppointmentDetails.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppointmentDetails.Location = new System.Drawing.Point(53, 257);
+            this.AppointmentDetails.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.AppointmentDetails.Location = new System.Drawing.Point(53, 188);
             this.AppointmentDetails.Multiline = true;
             this.AppointmentDetails.Name = "AppointmentDetails";
             this.AppointmentDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentDetails.Size = new System.Drawing.Size(680, 190);
+            this.AppointmentDetails.Size = new System.Drawing.Size(572, 118);
             this.AppointmentDetails.TabIndex = 2;
             this.AppointmentDetails.Text = "Appointment Details";
             this.AppointmentDetails.Click += new System.EventHandler(this.AppointmentDetailsClick);
@@ -100,7 +105,7 @@
             this.Save.FlatAppearance.BorderSize = 0;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save.Location = new System.Drawing.Point(365, 649);
+            this.Save.Location = new System.Drawing.Point(301, 521);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(75, 43);
             this.Save.TabIndex = 7;
@@ -113,14 +118,12 @@
             this.FirstName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.FirstName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.FirstName.BackColor = System.Drawing.SystemColors.Window;
-            this.FirstName.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
+            this.FirstName.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.FirstName.Location = new System.Drawing.Point(55, 64);
             this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(196, 26);
+            this.FirstName.Size = new System.Drawing.Size(196, 24);
             this.FirstName.TabIndex = 17;
-            if(!isUpdated) this.FirstName.Text = "First Name";
-            if (isUpdated) this.FirstName.Text = firstNameFromAppt;
-
+            this.FirstName.Text = "First Name";
             this.FirstName.Click += new System.EventHandler(this.FirstNameClick);
             this.FirstName.TextChanged += new System.EventHandler(this.FirstName_TextChanged);
             // 
@@ -128,13 +131,12 @@
             // 
             this.LastName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.LastName.BackColor = System.Drawing.SystemColors.Window;
-            this.LastName.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
+            this.LastName.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.LastName.Location = new System.Drawing.Point(257, 64);
             this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(212, 26);
+            this.LastName.Size = new System.Drawing.Size(212, 24);
             this.LastName.TabIndex = 18;
-            if(!isUpdated)this.LastName.Text = "Last Name";
-            if (isUpdated) this.LastName.Text = lastNameFromAppt;
+            this.LastName.Text = "Last Name";
             this.LastName.Click += new System.EventHandler(this.LastNameClick);
             this.LastName.TextChanged += new System.EventHandler(this.LastName_TextChanged);
             // 
@@ -145,13 +147,12 @@
             this.PatientIDNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.PatientIDNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.PatientIDNum.BackColor = System.Drawing.SystemColors.Window;
-            this.PatientIDNum.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F);
+            this.PatientIDNum.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.PatientIDNum.Location = new System.Drawing.Point(473, 64);
             this.PatientIDNum.Name = "PatientIDNum";
-            this.PatientIDNum.Size = new System.Drawing.Size(260, 26);
+            this.PatientIDNum.Size = new System.Drawing.Size(152, 24);
             this.PatientIDNum.TabIndex = 22;
-            if(!isUpdated) this.PatientIDNum.Text = "Patient ID #";
-            if (isUpdated) this.PatientIDNum.Text = this.calendarItem.PatientID.ToString();
+            this.PatientIDNum.Text = "Patient ID #";
             this.PatientIDNum.Click += new System.EventHandler(this.PatientIDNum_Click);
             this.PatientIDNum.TextChanged += new System.EventHandler(this.PatientIDNum_TextChanged);
             // 
@@ -165,14 +166,14 @@
             this.PatientListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PatientListView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.PatientListView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PatientListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PatientListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.PatientListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PatientListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNumberDataGridViewTextBoxColumn,
@@ -190,23 +191,126 @@
             this.createdDataGridViewTextBoxColumn,
             this.maritalStatusDataGridViewTextBoxColumn});
             this.PatientListView.DataSource = this.patientBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PatientListView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PatientListView.DefaultCellStyle = dataGridViewCellStyle2;
             this.PatientListView.Location = new System.Drawing.Point(53, 96);
             this.PatientListView.Name = "PatientListView";
             this.PatientListView.ReadOnly = true;
             this.PatientListView.RowHeadersVisible = false;
             this.PatientListView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PatientListView.Size = new System.Drawing.Size(680, 155);
+            this.PatientListView.Size = new System.Drawing.Size(572, 86);
             this.PatientListView.TabIndex = 23;
             this.PatientListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView_CellContentClick);
             this.PatientListView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.PatientListView_RowStateChanged);
+            // 
+            // patientBindingSource
+            // 
+            this.patientBindingSource.DataMember = "Patient";
+            this.patientBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // patientTableAdapter
+            // 
+            this.patientTableAdapter.ClearBeforeFill = true;
+            // 
+            // Exit
+            // 
+            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Exit.BackColor = System.Drawing.SystemColors.Control;
+            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Exit.FlatAppearance.BorderSize = 0;
+            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.Exit.Location = new System.Drawing.Point(578, 17);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(98, 35);
+            this.Exit.TabIndex = 51;
+            this.Exit.Text = "Cancel";
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click_1);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy - HH:mm";
+            this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(315, 398);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 23);
+            this.dateTimePicker1.TabIndex = 52;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.CustomFormat = "MM/dd/yyyy - HH:mm";
+            this.dateTimePicker2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(315, 463);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(220, 23);
+            this.dateTimePicker2.TabIndex = 53;
+            // 
+            // StartTimePicker
+            // 
+            this.StartTimePicker.AutoSize = true;
+            this.StartTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.StartTimePicker.Location = new System.Drawing.Point(195, 400);
+            this.StartTimePicker.Name = "StartTimePicker";
+            this.StartTimePicker.Size = new System.Drawing.Size(50, 17);
+            this.StartTimePicker.TabIndex = 54;
+            this.StartTimePicker.Text = "Starts:";
+            // 
+            // EndDatePicker
+            // 
+            this.EndDatePicker.AutoSize = true;
+            this.EndDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.EndDatePicker.Location = new System.Drawing.Point(195, 465);
+            this.EndDatePicker.Name = "EndDatePicker";
+            this.EndDatePicker.Size = new System.Drawing.Size(42, 17);
+            this.EndDatePicker.TabIndex = 55;
+            this.EndDatePicker.Text = "Ends:";
+            // 
+            // ChooseProviderLabel
+            // 
+            this.ChooseProviderLabel.AutoSize = true;
+            this.ChooseProviderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.ChooseProviderLabel.Location = new System.Drawing.Point(118, 336);
+            this.ChooseProviderLabel.Name = "ChooseProviderLabel";
+            this.ChooseProviderLabel.Size = new System.Drawing.Size(154, 17);
+            this.ChooseProviderLabel.TabIndex = 56;
+            this.ChooseProviderLabel.Text = "Choose the Provider(s)";
+            // 
+            // ProviderForPatientList
+            // 
+            this.ProviderForPatientList.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.ProviderForPatientList.FormattingEnabled = true;
+            this.ProviderForPatientList.Location = new System.Drawing.Point(315, 336);
+            this.ProviderForPatientList.Name = "ProviderForPatientList";
+            this.ProviderForPatientList.Size = new System.Drawing.Size(220, 24);
+            this.ProviderForPatientList.TabIndex = 57;
+            this.ProviderForPatientList.SelectedIndexChanged += new System.EventHandler(this.ProviderForPatientList_SelectedIndexChanged);
+            // 
+            // patientProviderRelationBindingSource
+            // 
+            this.patientProviderRelationBindingSource.DataMember = "PatientProviderRelation";
+            this.patientProviderRelationBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // patientProviderRelationTableAdapter
+            // 
+            this.patientProviderRelationTableAdapter.ClearBeforeFill = true;
             // 
             // columnNumberDataGridViewTextBoxColumn
             // 
@@ -219,21 +323,21 @@
             // PatientID
             // 
             this.PatientID.DataPropertyName = "PatientID";
-            this.PatientID.HeaderText = "PatientID";
+            this.PatientID.HeaderText = "Patient ID";
             this.PatientID.Name = "PatientID";
             this.PatientID.ReadOnly = true;
             // 
             // FirstName1
             // 
             this.FirstName1.DataPropertyName = "FirstName";
-            this.FirstName1.HeaderText = "FirstName";
+            this.FirstName1.HeaderText = "First Name";
             this.FirstName1.Name = "FirstName1";
             this.FirstName1.ReadOnly = true;
             // 
             // LastName1
             // 
             this.LastName1.DataPropertyName = "LastName";
-            this.LastName1.HeaderText = "LastName";
+            this.LastName1.HeaderText = "Last Name";
             this.LastName1.Name = "LastName1";
             this.LastName1.ReadOnly = true;
             // 
@@ -315,80 +419,6 @@
             this.maritalStatusDataGridViewTextBoxColumn.ReadOnly = true;
             this.maritalStatusDataGridViewTextBoxColumn.Visible = false;
             // 
-            // patientBindingSource
-            // 
-            this.patientBindingSource.DataMember = "Patient";
-            this.patientBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // patientTableAdapter
-            // 
-            this.patientTableAdapter.ClearBeforeFill = true;
-            // 
-            // Exit
-            // 
-            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Exit.BackColor = System.Drawing.SystemColors.Control;
-            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Exit.FlatAppearance.BorderSize = 0;
-            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.Exit.Location = new System.Drawing.Point(686, 9);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(98, 35);
-            this.Exit.TabIndex = 51;
-            this.Exit.Text = "Cancel";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click_1);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy - HH:mm";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(307, 514);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 23);
-            this.dateTimePicker1.TabIndex = 52;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.CustomFormat = "MM/dd/yyyy - HH:mm";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(307, 579);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(220, 23);
-            this.dateTimePicker2.TabIndex = 53;
-            // 
-            // StartTimePicker
-            // 
-            this.StartTimePicker.AutoSize = true;
-            this.StartTimePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.StartTimePicker.Location = new System.Drawing.Point(187, 516);
-            this.StartTimePicker.Name = "StartTimePicker";
-            this.StartTimePicker.Size = new System.Drawing.Size(57, 19);
-            this.StartTimePicker.TabIndex = 54;
-            this.StartTimePicker.Text = "Starts:";
-            // 
-            // EndDatePicker
-            // 
-            this.EndDatePicker.AutoSize = true;
-            this.EndDatePicker.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.EndDatePicker.Location = new System.Drawing.Point(187, 581);
-            this.EndDatePicker.Name = "EndDatePicker";
-            this.EndDatePicker.Size = new System.Drawing.Size(49, 19);
-            this.EndDatePicker.TabIndex = 55;
-            this.EndDatePicker.Text = "Ends:";
-            // 
             // NewAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,8 +426,10 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(787, 881);
+            this.ClientSize = new System.Drawing.Size(679, 612);
             this.ControlBox = false;
+            this.Controls.Add(this.ProviderForPatientList);
+            this.Controls.Add(this.ChooseProviderLabel);
             this.Controls.Add(this.EndDatePicker);
             this.Controls.Add(this.StartTimePicker);
             this.Controls.Add(this.dateTimePicker2);
@@ -415,10 +447,12 @@
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Appointment ";
+            this.Deactivate += new System.EventHandler(this.LostFormFocus);
             this.Load += new System.EventHandler(this.NewAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientProviderRelationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,6 +480,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private EMRDatabaseDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pregancyStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource patientBindingSource;
+        private EMRDatabaseDataSet eMRDatabaseDataSet;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label StartTimePicker;
+        private System.Windows.Forms.Label EndDatePicker;
+        private System.Windows.Forms.Label ChooseProviderLabel;
+        private System.Windows.Forms.ComboBox ProviderForPatientList;
+        private System.Windows.Forms.BindingSource patientProviderRelationBindingSource;
+        private EMRDatabaseDataSetTableAdapters.PatientProviderRelationTableAdapter patientProviderRelationTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName1;
@@ -460,12 +505,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nationalityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn createdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maritalStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pregancyStatusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource patientBindingSource;
-        private EMRDatabaseDataSet eMRDatabaseDataSet;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label StartTimePicker;
-        private System.Windows.Forms.Label EndDatePicker;
     }
 }

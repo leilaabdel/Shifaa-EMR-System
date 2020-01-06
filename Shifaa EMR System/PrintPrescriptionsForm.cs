@@ -60,11 +60,12 @@ namespace Shifaa_EMR_System
 
             report = new RichTextBoxEx
             {
+                ScrollBars = RichTextBoxScrollBars.Vertical,
                 SelectionAlignment = HorizontalAlignment.Center,
                 Multiline = true,
 
                 //Add Attending info
-
+               
                 SelectionFont = header,
                 SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n"
             };
@@ -73,7 +74,7 @@ namespace Shifaa_EMR_System
 
 
             report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
             report.SelectionAlignment = HorizontalAlignment.Left;
 
 
@@ -84,10 +85,11 @@ namespace Shifaa_EMR_System
             report.SelectionFont = smallheadernonbold;
             report.SelectedText =   PhoneNumberLabel.Text + " " +  PhoneNumberValueLabel.Text + "\n";
 
-           
 
 
-            report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+
+            report.SelectedText = "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
+            report.SelectedText = "\n\n         ";
 
             Clipboard.Clear();
 
