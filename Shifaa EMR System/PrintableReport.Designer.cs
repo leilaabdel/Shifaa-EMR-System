@@ -128,7 +128,7 @@
             this.AttendingPhysicianLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AttendingPhysicianLabel.AutoSize = true;
             this.AttendingPhysicianLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttendingPhysicianLabel.Location = new System.Drawing.Point(464, 64);
+            this.AttendingPhysicianLabel.Location = new System.Drawing.Point(447, 64);
             this.AttendingPhysicianLabel.Name = "AttendingPhysicianLabel";
             this.AttendingPhysicianLabel.Size = new System.Drawing.Size(160, 25);
             this.AttendingPhysicianLabel.TabIndex = 38;
@@ -139,7 +139,7 @@
             this.PhysicianNumberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PhysicianNumberLabel.AutoSize = true;
             this.PhysicianNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.PhysicianNumberLabel.Location = new System.Drawing.Point(456, 100);
+            this.PhysicianNumberLabel.Location = new System.Drawing.Point(439, 100);
             this.PhysicianNumberLabel.Name = "PhysicianNumberLabel";
             this.PhysicianNumberLabel.Size = new System.Drawing.Size(168, 19);
             this.PhysicianNumberLabel.TabIndex = 39;
@@ -439,6 +439,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(803, 725);
             this.ControlBox = false;

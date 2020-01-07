@@ -125,6 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoComplete.cs" />
+    <Compile Include="ConversationItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConversationItem.Designer.cs">
+      <DependentUpon>ConversationItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateNewProviderAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +152,23 @@
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ItemInfo.cs" />
+    <Compile Include="MessageListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MessageListItem.Designer.cs">
+      <DependentUpon>MessageListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessagesView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MessagesView.Designer.cs">
       <DependentUpon>MessagesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewMessageItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewMessageItem.Designer.cs">
+      <DependentUpon>NewMessageItem.cs</DependentUpon>
     </Compile>
     <Compile Include="RichTextBoxEx.cs">
       <SubType>Component</SubType>
@@ -307,6 +325,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConversationItem.resx">
+      <DependentUpon>ConversationItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateNewProviderAccount.resx">
       <DependentUpon>CreateNewProviderAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CredentialVerification.resx">
       <DependentUpon>CredentialVerification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageListItem.resx">
+      <DependentUpon>MessageListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessagesView.resx">
       <DependentUpon>MessagesView.cs</DependentUpon>
@@ -327,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewLabOrder.resx">
       <DependentUpon>NewLabOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewMessageItem.resx">
+      <DependentUpon>NewMessageItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewNote.resx">
       <DependentUpon>NewNote.cs</DependentUpon>
@@ -414,7 +441,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
@@ -460,6 +487,12 @@
     <None Include="RxSign.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\rubbish-bins-waste-paper-baskets-recycling-bin-computer-icons-trash-icon.bmp" />
+    <None Include="GarbageCan.png" />
+    <None Include="OpenLetter.png" />
+    <None Include="ClosedLetter.png" />
+    <None Include="ReplyButton.png" />
+    <None Include="ForwardIcon.png" />
     <Content Include="RxIcon.jpg" />
     <Content Include="RxIcon.png" />
   </ItemGroup>

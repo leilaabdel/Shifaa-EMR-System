@@ -7,216 +7,108 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Linq;
-
-//TODO: Configure so that you can reply to conversations an view conversation history
 
 namespace Shifaa_EMR_System
 {
     public partial class MessagesView : Form
     {
-        readonly string userID;
-        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
-        private int messageID;
+        private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
+        private readonly string _recipientID;
+
+        #region Properties
+
+        public string RecipientID
+        {
+            get { return _recipientID; }
+        }
 
 
-        public MessagesView(string userID)
+        #endregion
+
+        public MessagesView(string recipientID)
         {
             InitializeComponent();
-            this.userID = userID;
-            this.MessageTable.MultiSelect = false;
-            this.MessageTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            _recipientID = recipientID;
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID);
 
         }
 
-       
+        private DataTable _messagesTable;
 
-        private void MessagesView_Load_1(object sender, EventArgs e)
+        private void populateMessages(DataTable input)
         {
-            this.messageTableAdapter.FillByRecipientID(this.eMRDatabaseDataSet.Message, userID);
+            messageListFlowPanel.Controls.Clear();
+
+
+            for(int i = 0; i < input.Rows.Count; i++)
+            {
+                MessageListItem messageListItem = new MessageListItem();
+                messageListItem.SenderName = (String)input.Rows[i]["SenderName"];
+                messageListItem.Subject = (String)input.Rows[i]["MessageTitle"];
+                messageListItem.MessageContent = (String)input.Rows[i]["MessageContent"];
+                messageListItem.ReadOrNotRead = (String)input.Rows[i]["ReadOrNotRead"];
+                messageListItem.Click += new EventHandler(MessageListItemClick);
+               
+                if (messageListFlowPanel.Controls.Count < 0)
+                {
+                    messageListFlowPanel.Controls.Clear();
+                }
+                else
+                messageListFlowPanel.Controls.Add(messageListItem);
+
+
+            }
 
         }
 
-        private void SentItemsToolStrip_Click(object sender, EventArgs e)
+        private void populateMessageConversation(string conversationID)
         {
-            this.messageTableAdapter.FillBySent(this.eMRDatabaseDataSet.Message, userID);
+
+        }
+
+        private void MessageListItemClick(object sender, EventArgs e)
+        {
+            ConversationFlowPanel.Controls.Clear();
 
 
+
+        }
+
+        private void MessagesView_Load(object sender, EventArgs e)
+        {
+            populateMessages(_messagesTable);
+
+
+        }
+
+        private void InboxToolStripItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InboxToolStripItem_Click_1(object sender, EventArgs e)
+        {
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this._recipientID);
+            populateMessages(_messagesTable);
+        }
+
+        private void SentToolStripItem_Click(object sender, EventArgs e)
+        {
+            _messagesTable = this.messageTableAdapter.GetDataBySent(this._recipientID);
+            populateMessages(_messagesTable);
         }
 
         private void DraftsToolStripItem_Click(object sender, EventArgs e)
         {
-            this.messageTableAdapter.FillByDraft(this.eMRDatabaseDataSet.Message, userID);
+            _messagesTable = this.messageTableAdapter.GetDataByDraft(this._recipientID);
+            populateMessages(_messagesTable);
         }
 
-        private void DeletedItemsMenuToolStripItem_Click(object sender, EventArgs e)
+        private void JunkToolStripItem_Click(object sender, EventArgs e)
         {
-            this.messageTableAdapter.FillByJunk(this.eMRDatabaseDataSet.Message, userID);
-        }
-
-        private void MessageTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void MessageTable_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(MessageTable.Rows.Count > 0)
-            {
-                messageID = (int)MessageTable["MessageIDNumber", e.RowIndex].Value;
-                string title = (String)MessageTable["MessageTitle", e.RowIndex].Value;
-                string senderName = (String)MessageTable["SenderName", e.RowIndex].Value;
-                string messageContent = (String)MessageTable["MessageContent", e.RowIndex].Value;
-                DateTime timeStamp = (DateTime)MessageTable["DateTimeSent", e.RowIndex].Value;
-                string dateSent = timeStamp.ToShortDateString();
-                string timeSent = timeStamp.ToShortTimeString();
-
-
-                MessageContentViewBox.SelectionFont = new Font("Bahnschrift Light", 12);
-                MessageContentViewBox.SelectedText = title + "\n\n";
-                MessageContentViewBox.SelectionFont = new Font("Bahnschrift Light", 10);
-                MessageContentViewBox.SelectedText = "On " + dateSent + " at " + timeSent + " " + senderName +  " wrote: \n ";
-                MessageContentViewBox.SelectionFont = new Font("Bahnscrhift Light", 10);
-                MessageContentViewBox.SelectedText = messageContent;
-
-
-                SubjectBox.Text = (String)MessageTable["MessageTitle", MessageTable.CurrentRow.Index].Value;
-                DestinationBox.Text = (String)MessageTable["RecipientName", MessageTable.CurrentRow.Index].Value;
-
-            }
-        }
-
-        private void EditMedicationButton_Click(object sender, EventArgs e)
-        {
-            this.ShowWritingMessageContent();
-            DestinationBox.Text = null;
-            SubjectBox.Text = null;
-        }
-
-
-
-        private void ShowWritingMessageContent()
-        {
-            this.DraftPanel.Show();
-            this.ToLabel.Show();
-            this.SaveDraftButton.Show();
-            this.CancelButton.Show();
-            this.SendButton.Show();
-            this.MessageContent1.Show();
-            this.DestinationBox.Show();
-            this.ReplyButton.Hide();
-            this.SubjectBox.Hide();
-            this.SubjectLabel.Hide();
-        }
-
-
-        private void HideWritingMessageContent()
-        {
-            this.DraftPanel.Hide();
-            this.ToLabel.Hide();
-            this.SaveDraftButton.Hide();
-            this.CancelButton.Hide();
-            this.SendButton.Hide();
-            this.MessageContent1.Hide();
-            this.DestinationBox.Hide();
-            this.ReplyButton.Show();
-            this.SubjectLabel.Show();
-            this.SubjectBox.Show();
-
-        }
-        private void SendButton_Click(object sender, EventArgs e)
-        {
-            HideWritingMessageContent();
-
-
-            string[] destination = DestinationBox.Text.Split(' ');
-            string firstName = destination[0];
-            string lastName = destination[1];
-            string jobType = destination[2];
-            string destinationID = null;
-
-            ISingleResult<convertNameToIDResult> result = doAction.convertNameToID(firstName,
-                lastName, jobType);
-            foreach (convertNameToIDResult r in result)
-            {
-                destinationID = r.EmployeeID;
-            }
-
-            string recipientFullName = firstName + " " + lastName;
-
-            string userFirstName = null;
-            string userLastName = null;
-            ISingleResult<convertIDToNameResult> result1 = doAction.convertIDToName(userID);
-            foreach (convertIDToNameResult r in result1)
-            {
-                userFirstName = r.FirstName;
-                userLastName = r.LastName;
-            }
-
-            string userFullName = userFirstName + " " + userLastName;
-
-            
-
-            try
-            {
-                doAction.SendMessage(userID, userFullName, SubjectBox.Text, MessageContent1.Text, DateTime.Now, recipientFullName, destinationID, "Sent" , messageID);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error");
-            }
-
-        }
-
-        private void SaveDraftButton_Click(object sender, EventArgs e)
-        {
-            HideWritingMessageContent();
-
-
-            string[] destination = DestinationBox.Text.Split(' ');
-            string firstName = destination[0];
-            string lastName = destination[1];
-            string jobType = destination[2];
-            string destinationID = null;
-
-            ISingleResult<convertNameToIDResult> result = doAction.convertNameToID(firstName,
-                lastName, jobType);
-            foreach (convertNameToIDResult r in result)
-            {
-                destinationID = r.EmployeeID;
-            }
-
-            string recipientFullName = firstName + " " + lastName;
-
-            string userFirstName = null;
-            string userLastName = null;
-            ISingleResult<convertIDToNameResult> result1 = doAction.convertIDToName(userID);
-            foreach (convertIDToNameResult r in result1)
-            {
-                userFirstName = r.FirstName;
-                userLastName = r.LastName;
-            }
-
-            string userFullName = userFirstName + " " + userLastName;
-
-            try
-            {
-                doAction.updateMessageDraft(userID, userFullName, SubjectBox.Text, MessageContent1.Text, DateTime.Now, recipientFullName, destinationID, "Draft");
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error");
-            }
-
-        }
-
-        private void ReplyButton_Click(object sender, EventArgs e)
-        {
-            ShowWritingMessageContent();
-
-           
+            _messagesTable = this.messageTableAdapter.GetDataByJunk(this._recipientID);
+            populateMessages(_messagesTable);
         }
     }
 }

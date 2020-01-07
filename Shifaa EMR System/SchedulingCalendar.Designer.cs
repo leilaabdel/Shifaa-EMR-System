@@ -342,7 +342,7 @@ namespace Shifaa_EMR_System
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(213, 1188);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1166, 69);
+            this.panel1.Size = new System.Drawing.Size(1183, 69);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -405,7 +405,7 @@ namespace Shifaa_EMR_System
         calendarHighlightRange5};
             this.calendar1.Location = new System.Drawing.Point(213, 0);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(1166, 1188);
+            this.calendar1.Size = new System.Drawing.Size(1183, 1188);
             this.calendar1.TabIndex = 2;
             this.calendar1.Text = "calendar1";
             this.calendar1.TextBox = null;
@@ -463,7 +463,7 @@ namespace Shifaa_EMR_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1396, 620);
+            this.ClientSize = new System.Drawing.Size(1413, 620);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.calendar1);
             this.Controls.Add(this.splitter1);

@@ -12,10 +12,46 @@ namespace Shifaa_EMR_System
     class AutoComplete
     {
 
-        readonly static SqlConnection conDataBase = new SqlConnection(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        readonly static SqlConnection conDataBase = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
         static SqlDataReader reader;
 
+        public static AutoCompleteStringCollection EmployeeNamesAutoCompete()
+        {
+            AutoCompleteStringCollection employeeNameCollection = new AutoCompleteStringCollection();
 
+
+            string Query = "select FirstName,LastName,JobType from dbo.AllEmployees ;";
+            SqlCommand command = new SqlCommand(Query, conDataBase);
+
+
+
+            try
+            {
+                conDataBase.Open();
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string firstName = reader.GetString(0);
+                    string lastName = reader.GetString(1);
+                    string jobType = reader.GetString(2);
+
+                    employeeNameCollection.Add(firstName + " " + lastName + "-" + jobType);
+
+
+                }
+
+                reader.Close();
+                conDataBase.Close();
+
+                return employeeNameCollection;
+            }
+            catch (FieldAccessException ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
         public static AutoCompleteStringCollection PatientLastNameAutoComplete()
         {
             AutoCompleteStringCollection patientLastNameCollection = new AutoCompleteStringCollection();

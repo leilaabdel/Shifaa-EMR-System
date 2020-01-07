@@ -87,9 +87,6 @@ namespace Shifaa_EMR_System
     partial void InsertAllEmployee(AllEmployee instance);
     partial void UpdateAllEmployee(AllEmployee instance);
     partial void DeleteAllEmployee(AllEmployee instance);
-    partial void InsertMessage(Message instance);
-    partial void UpdateMessage(Message instance);
-    partial void DeleteMessage(Message instance);
     partial void InsertSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
     partial void UpdateSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
     partial void DeleteSchedulersBelongingToProvider(SchedulersBelongingToProvider instance);
@@ -99,6 +96,9 @@ namespace Shifaa_EMR_System
     partial void InsertAppointment(Appointment instance);
     partial void UpdateAppointment(Appointment instance);
     partial void DeleteAppointment(Appointment instance);
+    partial void InsertMessage(Message instance);
+    partial void UpdateMessage(Message instance);
+    partial void DeleteMessage(Message instance);
     #endregion
 		
 		public SiteFunctionsDataContext() : 
@@ -283,14 +283,6 @@ namespace Shifaa_EMR_System
 			}
 		}
 		
-		public System.Data.Linq.Table<Message> Messages
-		{
-			get
-			{
-				return this.GetTable<Message>();
-			}
-		}
-		
 		public System.Data.Linq.Table<SchedulersBelongingToProvider> SchedulersBelongingToProviders
 		{
 			get
@@ -312,6 +304,14 @@ namespace Shifaa_EMR_System
 			get
 			{
 				return this.GetTable<Appointment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Message> Messages
+		{
+			get
+			{
+				return this.GetTable<Message>();
 			}
 		}
 		
@@ -418,13 +418,6 @@ namespace Shifaa_EMR_System
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), patientID);
 			return ((ISingleResult<getPatientByIDResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updatePrescription")]
-		public int updatePrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrescriptionID", DbType="Int")] System.Nullable<int> prescriptionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MedicationName", DbType="NVarChar(255)")] string medicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="VarChar(50)")] string amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strength", DbType="NChar(10)")] string strength, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Route", DbType="NChar(30)")] string route, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Frequency", DbType="VarChar(50)")] string frequency, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Refills", DbType="NChar(10)")] string refills, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateStopped", DbType="Date")] System.Nullable<System.DateTime> dateStopped, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), prescriptionID, medicationName, amount, strength, route, frequency, refills, dateStopped, status);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectPrescriptionforPrint")]
@@ -546,25 +539,11 @@ namespace Shifaa_EMR_System
 			return ((ISingleResult<convertNameToIDResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SendMessage")]
-		public int SendMessage([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderID", DbType="VarChar(50)")] string senderID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderName", DbType="VarChar(50)")] string senderName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageID", DbType="Int")] System.Nullable<int> messageID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), senderID, senderName, messageTitle, messageContent, dateTime, recipientName, recipientID, status, messageID);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.convertIDToName")]
 		public ISingleResult<convertIDToNameResult> convertIDToName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="VarChar(50)")] string employeeID)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
 			return ((ISingleResult<convertIDToNameResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateMessageDraft")]
-		public int updateMessageDraft([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderID", DbType="VarChar(50)")] string senderID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderName", DbType="VarChar(50)")] string senderName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), senderID, senderName, messageTitle, messageContent, dateTime, recipientName, recipientID, status);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createProviderSchedulerRelation")]
@@ -648,6 +627,48 @@ namespace Shifaa_EMR_System
 		public int authenticateScheduler([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Passcode", DbType="VarChar(32)")] string passcode)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, passcode);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updatePrescription")]
+		public int updatePrescription([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrescriptionID", DbType="Int")] System.Nullable<int> prescriptionID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MedicationName", DbType="NVarChar(255)")] string medicationName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="VarChar(50)")] string amount, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Strength", DbType="NChar(10)")] string strength, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Route", DbType="NChar(30)")] string route, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Frequency", DbType="VarChar(50)")] string frequency, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Refills", DbType="NChar(10)")] string refills, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateStopped", DbType="Date")] System.Nullable<System.DateTime> dateStopped, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), prescriptionID, medicationName, amount, strength, route, frequency, refills, dateStopped, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateMessageReadOrNotRead")]
+		public int updateMessageReadOrNotRead([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> messageID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReadOrNotRead", DbType="VarChar(20)")] string readOrNotRead)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), messageID, readOrNotRead);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateMessageDraft")]
+		public int updateMessageDraft([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageIDNumber", DbType="Int")] System.Nullable<int> messageIDNumber)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), messageTitle, messageContent, dateTime, recipientName, recipientID, messageIDNumber);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SendMessage")]
+		public int SendMessage([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageID", DbType="Int")] System.Nullable<int> messageID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), messageTitle, messageContent, dateTime, recipientName, recipientID, messageID);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.createNewMessage")]
+		public int createNewMessage([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageTitle", DbType="VarChar(255)")] string messageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageContent", DbType="VarChar(MAX)")] string messageContent, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateTime", DbType="DateTime")] System.Nullable<System.DateTime> dateTime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderName", DbType="VarChar(50)")] string senderName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderID", DbType="VarChar(50)")] string senderID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientName", DbType="VarChar(50)")] string recipientName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ConversationID", DbType="VarChar(50)")] string conversationID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), messageTitle, messageContent, dateTime, senderName, senderID, recipientName, recipientID, conversationID, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteMessage")]
+		public int deleteMessage([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MessageIDNumber", DbType="Int")] System.Nullable<int> messageIDNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientID", DbType="VarChar(50)")] string recipientID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), messageIDNumber, recipientID);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -5536,325 +5557,6 @@ namespace Shifaa_EMR_System
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
-	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MessageIDNumber;
-		
-		private string _SenderName;
-		
-		private string _SenderID;
-		
-		private string _RecipientName;
-		
-		private string _RecipientID;
-		
-		private System.Nullable<System.DateTime> _DateTimeDraft;
-		
-		private System.Nullable<System.DateTime> _DateTimeSent;
-		
-		private string _Status;
-		
-		private string _MessageTitle;
-		
-		private string _MessageContent;
-		
-		private EntityRef<AllEmployee> _AllEmployee;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMessageIDNumberChanging(int value);
-    partial void OnMessageIDNumberChanged();
-    partial void OnSenderNameChanging(string value);
-    partial void OnSenderNameChanged();
-    partial void OnSenderIDChanging(string value);
-    partial void OnSenderIDChanged();
-    partial void OnRecipientNameChanging(string value);
-    partial void OnRecipientNameChanged();
-    partial void OnRecipientIDChanging(string value);
-    partial void OnRecipientIDChanged();
-    partial void OnDateTimeDraftChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateTimeDraftChanged();
-    partial void OnDateTimeSentChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateTimeSentChanged();
-    partial void OnStatusChanging(string value);
-    partial void OnStatusChanged();
-    partial void OnMessageTitleChanging(string value);
-    partial void OnMessageTitleChanged();
-    partial void OnMessageContentChanging(string value);
-    partial void OnMessageContentChanged();
-    #endregion
-		
-		public Message()
-		{
-			this._AllEmployee = default(EntityRef<AllEmployee>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageIDNumber", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MessageIDNumber
-		{
-			get
-			{
-				return this._MessageIDNumber;
-			}
-			set
-			{
-				if ((this._MessageIDNumber != value))
-				{
-					this.OnMessageIDNumberChanging(value);
-					this.SendPropertyChanging();
-					this._MessageIDNumber = value;
-					this.SendPropertyChanged("MessageIDNumber");
-					this.OnMessageIDNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderName", DbType="VarChar(50)")]
-		public string SenderName
-		{
-			get
-			{
-				return this._SenderName;
-			}
-			set
-			{
-				if ((this._SenderName != value))
-				{
-					this.OnSenderNameChanging(value);
-					this.SendPropertyChanging();
-					this._SenderName = value;
-					this.SendPropertyChanged("SenderName");
-					this.OnSenderNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderID", DbType="VarChar(50)")]
-		public string SenderID
-		{
-			get
-			{
-				return this._SenderID;
-			}
-			set
-			{
-				if ((this._SenderID != value))
-				{
-					if (this._AllEmployee.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSenderIDChanging(value);
-					this.SendPropertyChanging();
-					this._SenderID = value;
-					this.SendPropertyChanged("SenderID");
-					this.OnSenderIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipientName", DbType="VarChar(50)")]
-		public string RecipientName
-		{
-			get
-			{
-				return this._RecipientName;
-			}
-			set
-			{
-				if ((this._RecipientName != value))
-				{
-					this.OnRecipientNameChanging(value);
-					this.SendPropertyChanging();
-					this._RecipientName = value;
-					this.SendPropertyChanged("RecipientName");
-					this.OnRecipientNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipientID", DbType="VarChar(50)")]
-		public string RecipientID
-		{
-			get
-			{
-				return this._RecipientID;
-			}
-			set
-			{
-				if ((this._RecipientID != value))
-				{
-					this.OnRecipientIDChanging(value);
-					this.SendPropertyChanging();
-					this._RecipientID = value;
-					this.SendPropertyChanged("RecipientID");
-					this.OnRecipientIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeDraft", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateTimeDraft
-		{
-			get
-			{
-				return this._DateTimeDraft;
-			}
-			set
-			{
-				if ((this._DateTimeDraft != value))
-				{
-					this.OnDateTimeDraftChanging(value);
-					this.SendPropertyChanging();
-					this._DateTimeDraft = value;
-					this.SendPropertyChanged("DateTimeDraft");
-					this.OnDateTimeDraftChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeSent", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateTimeSent
-		{
-			get
-			{
-				return this._DateTimeSent;
-			}
-			set
-			{
-				if ((this._DateTimeSent != value))
-				{
-					this.OnDateTimeSentChanging(value);
-					this.SendPropertyChanging();
-					this._DateTimeSent = value;
-					this.SendPropertyChanged("DateTimeSent");
-					this.OnDateTimeSentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageTitle", DbType="VarChar(255)")]
-		public string MessageTitle
-		{
-			get
-			{
-				return this._MessageTitle;
-			}
-			set
-			{
-				if ((this._MessageTitle != value))
-				{
-					this.OnMessageTitleChanging(value);
-					this.SendPropertyChanging();
-					this._MessageTitle = value;
-					this.SendPropertyChanged("MessageTitle");
-					this.OnMessageTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageContent", DbType="VarChar(MAX)")]
-		public string MessageContent
-		{
-			get
-			{
-				return this._MessageContent;
-			}
-			set
-			{
-				if ((this._MessageContent != value))
-				{
-					this.OnMessageContentChanging(value);
-					this.SendPropertyChanging();
-					this._MessageContent = value;
-					this.SendPropertyChanged("MessageContent");
-					this.OnMessageContentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AllEmployee_Message", Storage="_AllEmployee", ThisKey="SenderID", OtherKey="EmployeeID", IsForeignKey=true)]
-		public AllEmployee AllEmployee
-		{
-			get
-			{
-				return this._AllEmployee.Entity;
-			}
-			set
-			{
-				AllEmployee previousValue = this._AllEmployee.Entity;
-				if (((previousValue != value) 
-							|| (this._AllEmployee.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._AllEmployee.Entity = null;
-						previousValue.Messages.Remove(this);
-					}
-					this._AllEmployee.Entity = value;
-					if ((value != null))
-					{
-						value.Messages.Add(this);
-						this._SenderID = value.EmployeeID;
-					}
-					else
-					{
-						this._SenderID = default(string);
-					}
-					this.SendPropertyChanged("AllEmployee");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SchedulersBelongingToProvider")]
 	public partial class SchedulersBelongingToProvider : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6814,6 +6516,349 @@ namespace Shifaa_EMR_System
 						this._ProviderID = default(string);
 					}
 					this.SendPropertyChanged("Physician_Login_Info");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Message")]
+	public partial class Message : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MessageIDNumber;
+		
+		private string _SenderName;
+		
+		private string _SenderID;
+		
+		private string _RecipientName;
+		
+		private string _RecipientID;
+		
+		private System.DateTime _DateTime;
+		
+		private string _Status;
+		
+		private string _MessageTitle;
+		
+		private string _MessageContent;
+		
+		private string _ReadOrNotRead;
+		
+		private string _ConversationID;
+		
+		private EntityRef<AllEmployee> _AllEmployee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMessageIDNumberChanging(int value);
+    partial void OnMessageIDNumberChanged();
+    partial void OnSenderNameChanging(string value);
+    partial void OnSenderNameChanged();
+    partial void OnSenderIDChanging(string value);
+    partial void OnSenderIDChanged();
+    partial void OnRecipientNameChanging(string value);
+    partial void OnRecipientNameChanged();
+    partial void OnRecipientIDChanging(string value);
+    partial void OnRecipientIDChanged();
+    partial void OnDateTimeChanging(System.DateTime value);
+    partial void OnDateTimeChanged();
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnMessageTitleChanging(string value);
+    partial void OnMessageTitleChanged();
+    partial void OnMessageContentChanging(string value);
+    partial void OnMessageContentChanged();
+    partial void OnReadOrNotReadChanging(string value);
+    partial void OnReadOrNotReadChanged();
+    partial void OnConversationIDChanging(string value);
+    partial void OnConversationIDChanged();
+    #endregion
+		
+		public Message()
+		{
+			this._AllEmployee = default(EntityRef<AllEmployee>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageIDNumber", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MessageIDNumber
+		{
+			get
+			{
+				return this._MessageIDNumber;
+			}
+			set
+			{
+				if ((this._MessageIDNumber != value))
+				{
+					this.OnMessageIDNumberChanging(value);
+					this.SendPropertyChanging();
+					this._MessageIDNumber = value;
+					this.SendPropertyChanged("MessageIDNumber");
+					this.OnMessageIDNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderName", DbType="VarChar(50)")]
+		public string SenderName
+		{
+			get
+			{
+				return this._SenderName;
+			}
+			set
+			{
+				if ((this._SenderName != value))
+				{
+					this.OnSenderNameChanging(value);
+					this.SendPropertyChanging();
+					this._SenderName = value;
+					this.SendPropertyChanged("SenderName");
+					this.OnSenderNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SenderID", DbType="VarChar(50)")]
+		public string SenderID
+		{
+			get
+			{
+				return this._SenderID;
+			}
+			set
+			{
+				if ((this._SenderID != value))
+				{
+					if (this._AllEmployee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSenderIDChanging(value);
+					this.SendPropertyChanging();
+					this._SenderID = value;
+					this.SendPropertyChanged("SenderID");
+					this.OnSenderIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipientName", DbType="VarChar(50)")]
+		public string RecipientName
+		{
+			get
+			{
+				return this._RecipientName;
+			}
+			set
+			{
+				if ((this._RecipientName != value))
+				{
+					this.OnRecipientNameChanging(value);
+					this.SendPropertyChanging();
+					this._RecipientName = value;
+					this.SendPropertyChanged("RecipientName");
+					this.OnRecipientNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecipientID", DbType="VarChar(50)")]
+		public string RecipientID
+		{
+			get
+			{
+				return this._RecipientID;
+			}
+			set
+			{
+				if ((this._RecipientID != value))
+				{
+					this.OnRecipientIDChanging(value);
+					this.SendPropertyChanging();
+					this._RecipientID = value;
+					this.SendPropertyChanged("RecipientID");
+					this.OnRecipientIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime DateTime
+		{
+			get
+			{
+				return this._DateTime;
+			}
+			set
+			{
+				if ((this._DateTime != value))
+				{
+					this.OnDateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._DateTime = value;
+					this.SendPropertyChanged("DateTime");
+					this.OnDateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageTitle", DbType="VarChar(255)")]
+		public string MessageTitle
+		{
+			get
+			{
+				return this._MessageTitle;
+			}
+			set
+			{
+				if ((this._MessageTitle != value))
+				{
+					this.OnMessageTitleChanging(value);
+					this.SendPropertyChanging();
+					this._MessageTitle = value;
+					this.SendPropertyChanged("MessageTitle");
+					this.OnMessageTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageContent", DbType="VarChar(MAX)")]
+		public string MessageContent
+		{
+			get
+			{
+				return this._MessageContent;
+			}
+			set
+			{
+				if ((this._MessageContent != value))
+				{
+					this.OnMessageContentChanging(value);
+					this.SendPropertyChanging();
+					this._MessageContent = value;
+					this.SendPropertyChanged("MessageContent");
+					this.OnMessageContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadOrNotRead", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string ReadOrNotRead
+		{
+			get
+			{
+				return this._ReadOrNotRead;
+			}
+			set
+			{
+				if ((this._ReadOrNotRead != value))
+				{
+					this.OnReadOrNotReadChanging(value);
+					this.SendPropertyChanging();
+					this._ReadOrNotRead = value;
+					this.SendPropertyChanged("ReadOrNotRead");
+					this.OnReadOrNotReadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConversationID", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string ConversationID
+		{
+			get
+			{
+				return this._ConversationID;
+			}
+			set
+			{
+				if ((this._ConversationID != value))
+				{
+					this.OnConversationIDChanging(value);
+					this.SendPropertyChanging();
+					this._ConversationID = value;
+					this.SendPropertyChanged("ConversationID");
+					this.OnConversationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AllEmployee_Message", Storage="_AllEmployee", ThisKey="SenderID", OtherKey="EmployeeID", IsForeignKey=true)]
+		public AllEmployee AllEmployee
+		{
+			get
+			{
+				return this._AllEmployee.Entity;
+			}
+			set
+			{
+				AllEmployee previousValue = this._AllEmployee.Entity;
+				if (((previousValue != value) 
+							|| (this._AllEmployee.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AllEmployee.Entity = null;
+						previousValue.Messages.Remove(this);
+					}
+					this._AllEmployee.Entity = value;
+					if ((value != null))
+					{
+						value.Messages.Add(this);
+						this._SenderID = value.EmployeeID;
+					}
+					else
+					{
+						this._SenderID = default(string);
+					}
+					this.SendPropertyChanged("AllEmployee");
 				}
 			}
 		}

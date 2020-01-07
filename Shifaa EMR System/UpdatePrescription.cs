@@ -13,12 +13,14 @@ namespace Shifaa_EMR_System
     public partial class UpdatePrescription : Form
     {
 
-        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
         readonly int thisPrescriptionID;
         readonly int thisPatientID;
         public UpdatePrescription(string prescriptionName, string amount, string strength , 
             string frequency , double? numberOfRefills, string route, int prescriptionID, int patientID)
         {
+            InitializeComponent();
 
             this.MedicationBox.Text = prescriptionName;
             this.AmountBox.Text = amount;
@@ -28,7 +30,7 @@ namespace Shifaa_EMR_System
             this.RouteBox.Text = route;
             this.thisPrescriptionID = prescriptionID;
             this.thisPatientID = patientID;
-            InitializeComponent();
+
 
             MedicationBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             MedicationBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -75,6 +77,7 @@ namespace Shifaa_EMR_System
 
                 DateTime? dateCompleted = null;
                 if (DateCompletedPicker.Visible) dateCompleted = DateCompletedPicker.Value;
+       
 
                 try
                 {
@@ -86,7 +89,7 @@ namespace Shifaa_EMR_System
                 }
                 catch
                 {
-                    MessageBox.Show("Error: the Medication Name cannot be empty");
+                    MessageBox.Show("Please pick a medication status");
                 }
             }
 

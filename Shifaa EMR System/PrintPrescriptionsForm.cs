@@ -19,7 +19,8 @@ namespace Shifaa_EMR_System
 
     public partial class PrintPrescriptionsForm : Form
     {
-        public SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(@"Data Source=shifaaserver.database.windows.net;Initial Catalog=EMRDatabase;Persist Security Info=True;User ID=shifaaAdmin;Password=qalbeefeemasr194!");
+        private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
+        private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
         readonly int thisPatientID;
         readonly string thisProviderID;
         private RichTextBoxEx report;

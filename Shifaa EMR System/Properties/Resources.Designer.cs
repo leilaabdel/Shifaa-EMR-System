@@ -63,6 +63,16 @@ namespace Shifaa_EMR_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ClosedLetter {
+            get {
+                object obj = ResourceManager.GetObject("ClosedLetter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditIcon {
             get {
                 object obj = ResourceManager.GetObject("EditIcon", resourceCulture);
@@ -86,6 +96,56 @@ namespace Shifaa_EMR_System.Properties {
         internal static System.Drawing.Bitmap EyeIcon1 {
             get {
                 object obj = ResourceManager.GetObject("EyeIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ForwardIcon {
+            get {
+                object obj = ResourceManager.GetObject("ForwardIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GarbageCan {
+            get {
+                object obj = ResourceManager.GetObject("GarbageCan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenLetter {
+            get {
+                object obj = ResourceManager.GetObject("OpenLetter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReplyButton {
+            get {
+                object obj = ResourceManager.GetObject("ReplyButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rubbish_bins_waste_paper_baskets_recycling_bin_computer_icons_trash_icon {
+            get {
+                object obj = ResourceManager.GetObject("rubbish-bins-waste-paper-baskets-recycling-bin-computer-icons-trash-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

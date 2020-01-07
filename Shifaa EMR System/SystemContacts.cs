@@ -34,5 +34,10 @@ namespace Shifaa_EMR_System
         {
             this.Close();
         }
+
+        private void AppointmentListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

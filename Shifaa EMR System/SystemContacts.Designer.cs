@@ -33,11 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
-            this.allEmployeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.Exit = new System.Windows.Forms.Button();
-            this.allEmployeesTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
-            this.searchBox = new System.Windows.Forms.TextBox();
             this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProviderOrScheduler = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +47,11 @@
             this.jobTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allEmployeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.Exit = new System.Windows.Forms.Button();
+            this.allEmployeesTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
+            this.searchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allEmployeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -116,46 +116,7 @@
             this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.AppointmentListView1.Size = new System.Drawing.Size(935, 921);
             this.AppointmentListView1.TabIndex = 27;
-            // 
-            // allEmployeesBindingSource
-            // 
-            this.allEmployeesBindingSource.DataMember = "AllEmployees";
-            this.allEmployeesBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // Exit
-            // 
-            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Exit.BackColor = System.Drawing.SystemColors.Control;
-            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Exit.FlatAppearance.BorderSize = 0;
-            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.Exit.Location = new System.Drawing.Point(903, 49);
-            this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(98, 35);
-            this.Exit.TabIndex = 52;
-            this.Exit.Text = "Cancel";
-            this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.Exit_Click);
-            // 
-            // allEmployeesTableAdapter
-            // 
-            this.allEmployeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // searchBox
-            // 
-            this.searchBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(442, 58);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(227, 23);
-            this.searchBox.TabIndex = 53;
-            this.searchBox.Text = "Search Contacts";
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.AppointmentListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentListView1_CellContentClick);
             // 
             // EmployeeID
             // 
@@ -263,6 +224,46 @@
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             this.emailDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // allEmployeesBindingSource
+            // 
+            this.allEmployeesBindingSource.DataMember = "AllEmployees";
+            this.allEmployeesBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // Exit
+            // 
+            this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Exit.BackColor = System.Drawing.SystemColors.Control;
+            this.Exit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Exit.FlatAppearance.BorderSize = 0;
+            this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Exit.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.Exit.Location = new System.Drawing.Point(903, 49);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(98, 35);
+            this.Exit.TabIndex = 52;
+            this.Exit.Text = "Cancel";
+            this.Exit.UseVisualStyleBackColor = false;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
+            // allEmployeesTableAdapter
+            // 
+            this.allEmployeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // searchBox
+            // 
+            this.searchBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(442, 58);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(227, 23);
+            this.searchBox.TabIndex = 53;
+            this.searchBox.Text = "Search Contacts";
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
             // SystemContacts
             // 

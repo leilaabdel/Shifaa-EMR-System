@@ -233,21 +233,6 @@
       <Association Name="AllEmployee_Message" Member="Messages" ThisKey="EmployeeID" OtherKey="SenderID" Type="Message" />
     </Type>
   </Table>
-  <Table Name="dbo.Message" Member="Messages">
-    <Type Name="Message">
-      <Column Name="MessageIDNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="SenderName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="SenderID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="RecipientName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="RecipientID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="DateTimeDraft" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DateTimeSent" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="MessageTitle" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="MessageContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="AllEmployee_Message" Member="AllEmployee" ThisKey="SenderID" OtherKey="EmployeeID" Type="AllEmployee" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SchedulersBelongingToProvider" Member="SchedulersBelongingToProviders">
     <Type Name="SchedulersBelongingToProvider">
       <Column Name="RowNum" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -290,6 +275,22 @@
       <Column Name="PatternColor" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Association Name="Patient_Appointment" Member="Patient" ThisKey="patientID" OtherKey="PatientID" Type="Patient" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Physician_Login_Info_Appointment" Member="Physician_Login_Info" ThisKey="ProviderID" OtherKey="USERNAME" Type="Physician_Login_Info" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Message" Member="Messages">
+    <Type Name="Message">
+      <Column Name="MessageIDNumber" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SenderName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SenderID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RecipientName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RecipientID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MessageTitle" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MessageContent" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadOrNotRead" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ConversationID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="AllEmployee_Message" Member="AllEmployee" ThisKey="SenderID" OtherKey="EmployeeID" Type="AllEmployee" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.getNewPatientVitals" Method="getNewPatientVitals">
@@ -403,18 +404,6 @@
       <Column Name="MaritalStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="PregnancyStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.updatePrescription" Method="updatePrescription">
-    <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MedicationName" Parameter="medicationName" Type="System.String" DbType="NVarChar(255)" />
-    <Parameter Name="Amount" Parameter="amount" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Strength" Parameter="strength" Type="System.String" DbType="NChar(10)" />
-    <Parameter Name="Route" Parameter="route" Type="System.String" DbType="NChar(30)" />
-    <Parameter Name="Frequency" Parameter="frequency" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Refills" Parameter="refills" Type="System.String" DbType="NChar(10)" />
-    <Parameter Name="DateStopped" Parameter="dateStopped" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.selectPrescriptionforPrint" Method="selectPrescriptionforPrint">
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
@@ -577,35 +566,12 @@
       <Column Name="EmployeeID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SendMessage" Method="SendMessage">
-    <Parameter Name="SenderID" Parameter="senderID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SenderName" Parameter="senderName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="MessageID" Parameter="messageID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.convertIDToName" Method="convertIDToName">
     <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="convertIDToNameResult">
       <Column Name="FirstName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.updateMessageDraft" Method="updateMessageDraft">
-    <Parameter Name="SenderID" Parameter="senderID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SenderName" Parameter="senderName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.createProviderSchedulerRelation" Method="createProviderSchedulerRelation">
     <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
@@ -735,6 +701,58 @@
   <Function Name="dbo.authenticateScheduler" Method="authenticateScheduler">
     <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Passcode" Parameter="passcode" Type="System.String" DbType="VarChar(32)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updatePrescription" Method="updatePrescription">
+    <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MedicationName" Parameter="medicationName" Type="System.String" DbType="NVarChar(255)" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Strength" Parameter="strength" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Route" Parameter="route" Type="System.String" DbType="NChar(30)" />
+    <Parameter Name="Frequency" Parameter="frequency" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Refills" Parameter="refills" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="DateStopped" Parameter="dateStopped" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateMessageReadOrNotRead" Method="updateMessageReadOrNotRead">
+    <Parameter Name="messageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ReadOrNotRead" Parameter="readOrNotRead" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateMessageDraft" Method="updateMessageDraft">
+    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MessageIDNumber" Parameter="messageIDNumber" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SendMessage" Method="SendMessage">
+    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MessageID" Parameter="messageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.createNewMessage" Method="createNewMessage">
+    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="SenderName" Parameter="senderName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SenderID" Parameter="senderID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ConversationID" Parameter="conversationID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteMessage" Method="deleteMessage">
+    <Parameter Name="MessageIDNumber" Parameter="messageIDNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
