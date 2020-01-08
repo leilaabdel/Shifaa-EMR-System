@@ -13,11 +13,25 @@ namespace Shifaa_EMR_System
     public partial class ConversationItem : UserControl
     {
 
-        public ConversationItem()
+        public ConversationItem(string conversationID , int messageID)
         {
             InitializeComponent();
             MessageContentBox.AutoSize = true;
             this.AutoSize = true;
+            this.ConversationID = conversationID;
+            this.MessageID = messageID;
+
+            EditDraftButton.Hide();
+
+            if(_status == "Draft")
+            {
+                ReplyButton.Hide();
+                ForwardButton.Hide();
+                MessageContentBox.ReadOnly = true;
+                EditDraftButton.Show();
+                EditDraftButton.Click += new EventHandler(this.EditDraftButtonClick);
+
+            }
 
         }
 
@@ -32,6 +46,10 @@ namespace Shifaa_EMR_System
         private string _senderName;
         private string _receiverName;
         private string _subject;
+        private string _readOrNotRead;
+        private string _status;
+        private string _senderID;
+    
 
         public Button GetReplyButton
         {
@@ -52,13 +70,18 @@ namespace Shifaa_EMR_System
         public DateTime Date
         {
             get { return _date; }
-            set { _date = value; }
+            set { _date = value; DateTimeSent.Text = value.ToString("dddd, d/MM/yyyy h:mm tt"); }
         }
 
         public string SenderName
         {
             get { return _senderName; }
             set { _senderName = value; }
+        }
+        public string SenderID
+        {
+            get { return _senderID; }
+            set { _senderID = value; }
         }
 
         public string ReceiverName
@@ -68,13 +91,33 @@ namespace Shifaa_EMR_System
         }
 
         public string Subject
-        {
+        { 
             get { return _subject; }
+            set { _subject = value; }
+        }
+
+        public string ReadOrNotRead
+        {
+            get { return _readOrNotRead; }
+            set { _readOrNotRead = value; }
+        }
+
+        public string Status
+        {
+            get { return _status; }
+            set { _status = value; }
         }
 
 
+
+        public string ConversationID { get; }
+
+        public int MessageID { get; }
+        public string ReceiverID { get; internal set; }
+
         #endregion
 
+        #region Functions
 
 
         private void ConversationItem_Load(object sender, EventArgs e)
@@ -84,6 +127,24 @@ namespace Shifaa_EMR_System
             this.ReceiverNameLabel.Text = _receiverName;
             this.DateTimeSent.Text = _date.ToString("dddd, d/MM/yyyy h:mm tt");
 
+
+        }
+
+        private void EditDraftButtonClick(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+
+        #endregion
+
+        private void MessageContentBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ReplyButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

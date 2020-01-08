@@ -114,7 +114,18 @@ namespace Shifaa_EMR_System
 
         private void MessagesToolStripItem_Click(object sender, EventArgs e)
         {
-          
+
+            if (Application.OpenForms["MessagesView"] as MessagesView == null)
+            {
+                MessagesView messagesView = new MessagesView(this.schedulerID)
+                {
+                    MdiParent = this
+
+                };
+                Center(messagesView);
+                messagesView.Show();
+
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e)

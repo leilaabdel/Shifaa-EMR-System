@@ -538,7 +538,7 @@ namespace Shifaa_EMR_System
                 item.Pattern = System.Drawing.Drawing2D.HatchStyle.ForwardDiagonal;
                 item.PatternColor = Color.Red;
 
-                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
+                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.Name.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
                 calendar1.Invalidate(item);
             }
         }
@@ -550,7 +550,7 @@ namespace Shifaa_EMR_System
                 item.Pattern = System.Drawing.Drawing2D.HatchStyle.Vertical;
                 item.PatternColor = Color.Red;
                 calendar1.Invalidate(item);
-                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
+                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.Name.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
 
             }
         }
@@ -563,7 +563,7 @@ namespace Shifaa_EMR_System
                 item.PatternColor = Color.Red;
                 calendar1.Invalidate(item);
                 Console.WriteLine("Click");
-                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
+                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.Name.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
             }
         }
 
@@ -574,7 +574,7 @@ namespace Shifaa_EMR_System
                 item.Pattern = System.Drawing.Drawing2D.HatchStyle.DiagonalCross;
                 item.PatternColor = Color.Red;
                 calendar1.Invalidate(item);
-                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
+                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.Name.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
 
 
 
@@ -588,7 +588,7 @@ namespace Shifaa_EMR_System
                 item.Pattern = System.Drawing.Drawing2D.HatchStyle.DiagonalCross;
                 item.PatternColor = Color.Empty;
                 calendar1.Invalidate(item);
-                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
+                doAction.updateAppointmentStatus(item.Status, item.AppointmentID, item.BackgroundColor.Name.ToString(), item.Pattern.ToString(), item.PatternColor.ToString());
 
             }
         }

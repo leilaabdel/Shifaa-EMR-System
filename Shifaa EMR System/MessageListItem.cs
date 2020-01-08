@@ -35,6 +35,7 @@ namespace Shifaa_EMR_System
         private string _readOrNotRead;
         private Color _messagePanelMainColor;
         private int _messageID;
+        private string _conversatioID;
         
 
 
@@ -82,6 +83,13 @@ namespace Shifaa_EMR_System
             get { return _messageID; }
             set { _messageID = value; }
         }
+
+        public string ConversationID
+        {
+            get { return _conversatioID; }
+            set { _conversatioID = value; }
+        }
+      
 
         #endregion
 

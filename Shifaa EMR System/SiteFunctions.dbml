@@ -755,4 +755,10 @@
     <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.getEmployeeNameByID" Method="getEmployeeNameByID">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="getEmployeeNameByIDResult">
+      <Column Name="EmployeeName" Type="System.String" DbType="VarChar(154)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

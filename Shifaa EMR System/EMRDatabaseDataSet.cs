@@ -7,9 +7,12 @@
     }
 }
 
-namespace Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters {
-    
-    
+namespace Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters
+{
+    partial class AllEmployeesTableAdapter
+    {
+    }
+
     public partial class MessageTableAdapter {
     }
 }

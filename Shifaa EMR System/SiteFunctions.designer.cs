@@ -671,6 +671,13 @@ namespace Shifaa_EMR_System
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), messageIDNumber, recipientID);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getEmployeeNameByID")]
+		public ISingleResult<getEmployeeNameByIDResult> getEmployeeNameByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="VarChar(50)")] string employeeID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID);
+			return ((ISingleResult<getEmployeeNameByIDResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Allergie")]
@@ -8573,6 +8580,32 @@ namespace Shifaa_EMR_System
 				if ((this._PatternColor != value))
 				{
 					this._PatternColor = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getEmployeeNameByIDResult
+	{
+		
+		private string _EmployeeName;
+		
+		public getEmployeeNameByIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeName", DbType="VarChar(154)")]
+		public string EmployeeName
+		{
+			get
+			{
+				return this._EmployeeName;
+			}
+			set
+			{
+				if ((this._EmployeeName != value))
+				{
+					this._EmployeeName = value;
 				}
 			}
 		}

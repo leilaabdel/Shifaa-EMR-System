@@ -131,12 +131,13 @@
             this.DiscardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DiscardButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.DiscardButton.ForeColor = System.Drawing.Color.Black;
-            this.DiscardButton.Location = new System.Drawing.Point(153, 9);
+            this.DiscardButton.Location = new System.Drawing.Point(128, 9);
             this.DiscardButton.Name = "DiscardButton";
             this.DiscardButton.Size = new System.Drawing.Size(81, 32);
             this.DiscardButton.TabIndex = 54;
             this.DiscardButton.Text = "Discard";
             this.DiscardButton.UseVisualStyleBackColor = false;
+            this.DiscardButton.Click += new System.EventHandler(this.DiscardButton_Click);
             // 
             // SendMessageButton
             // 
@@ -149,13 +150,13 @@
             this.SendMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SendMessageButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.SendMessageButton.ForeColor = System.Drawing.Color.White;
-            this.SendMessageButton.Location = new System.Drawing.Point(49, 9);
+            this.SendMessageButton.Location = new System.Drawing.Point(23, 9);
             this.SendMessageButton.Name = "SendMessageButton";
             this.SendMessageButton.Size = new System.Drawing.Size(81, 32);
             this.SendMessageButton.TabIndex = 53;
             this.SendMessageButton.Text = "Send";
             this.SendMessageButton.UseVisualStyleBackColor = false;
-            this.SendMessageButton.Click += new System.EventHandler(this.SendMessageButton_Click);
+            this.SendMessageButton.Click += new System.EventHandler(this.SendMessageButtonClick);
             // 
             // ReceiverComboBox
             // 

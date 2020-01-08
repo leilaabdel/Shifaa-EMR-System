@@ -56,7 +56,7 @@
         <elementListCompartment Id="ff628f4e-a84e-46a4-a77a-d3d6255d6f1d" absoluteBounds="3.765, 6.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.75 : 18.25); (1.75 : 14.8277498372396); (3.04166666666667 : 14.8277498372396 : JumpStart); (3.20833333333333 : 14.8277498372396 : JumpEnd); (3.5 : 14.8277498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.75 : 18.25); (1.75 : 14.8277498372396); (3.5 : 14.8277498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/AllergiesDatabase/AllergiesDatabase_Allergie" />
       <nodes>
         <classShapeMoniker Id="64646ac0-8c28-4c6b-a9b8-19a93639ad73" />
@@ -70,7 +70,7 @@
         <classShapeMoniker Id="13255aa9-765e-44a4-8a40-fe6817761cad" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 26.8469962565104); (6.32291666666667 : 26.8469962565104 : JumpStart); (6.48958333333333 : 26.8469962565104 : JumpEnd); (7.5 : 26.8469962565104); (7.5 : 20.5593082682292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 26.8469962565104); (6.32291666666667 : 26.8469962565104 : JumpStart); (6.48958333333333 : 26.8469962565104 : JumpEnd); (6.90104416666667 : 26.8469962565104 : JumpStart); (7.06771083333333 : 26.8469962565104 : JumpEnd); (7.5 : 26.8469962565104); (7.5 : 20.5593082682292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/DrugDatabase/DrugDatabase_Prescription" />
       <nodes>
         <classShapeMoniker Id="68350de1-a494-44ce-8640-77e35356208e" />
@@ -155,7 +155,7 @@
         <classShapeMoniker Id="8b98a571-2f04-4657-90f3-5c679da70bfa" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 18.9046541341146); (6.5 : 18.9046541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 18.9046541341146); (6.32291666666667 : 18.9046541341146 : JumpStart); (6.48958333333333 : 18.9046541341146 : JumpEnd); (6.5 : 18.9046541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Patient/Patient_Prescription" />
       <nodes>
         <classShapeMoniker Id="6be5e0d5-2b34-4025-8331-fb5486412132" />
@@ -268,7 +268,7 @@
         <classShapeMoniker Id="b09f8402-5782-4362-b02f-7e3aacc2619b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(20 : 24.5421033300781); (7.58333333333333 : 24.5421033300781 : JumpStart); (7.41666666666667 : 24.5421033300781 : JumpEnd); (6.9843775 : 24.5421033300781); (6.9843775 : 32.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(20 : 24.5421033300781); (6.9843775 : 24.5421033300781); (6.9843775 : 32.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Physician_Login_Info/Physician_Login_Info_PatientProviderRelation" />
       <nodes>
         <classShapeMoniker Id="ec6ea8d5-4551-4376-b9bc-9da04bfe7858" />
@@ -281,14 +281,14 @@
         <elementListCompartment Id="c59b1698-e86a-415f-bb50-7cbf1b6c01ab" absoluteBounds="12.39, 31.46, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.75 : 17.1406275); (6.32291666666667 : 17.1406275 : JumpStart); (6.48958333333333 : 17.1406275 : JumpEnd); (13.375 : 17.1406275); (13.375 : 31)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 17.1406275); (13.375 : 17.1406275); (13.375 : 31)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Patient/Patient_Appointment" />
       <nodes>
         <classShapeMoniker Id="6be5e0d5-2b34-4025-8331-fb5486412132" />
         <classShapeMoniker Id="e4905688-375c-4b65-ba94-dc3b64e467f9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(21.1718725 : 25.0978011067708); (21.1718725 : 32.46875); (14.375 : 32.46875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(21.1718725 : 25.0978011067708); (21.1718725 : 32.46875); (20.5208333333333 : 32.46875 : JumpStart); (20.3541666666667 : 32.46875 : JumpEnd); (14.375 : 32.46875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Physician_Login_Info/Physician_Login_Info_Appointment" />
       <nodes>
         <classShapeMoniker Id="ec6ea8d5-4551-4376-b9bc-9da04bfe7858" />

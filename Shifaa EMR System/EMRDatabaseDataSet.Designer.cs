@@ -20908,7 +20908,7 @@ SELECT MessageIDNumber, SenderName, SenderID, RecipientName, RecipientID, DateTi
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT MessageIDNumber, SenderName, SenderID, RecipientName, RecipientID,DateTime" +
@@ -20944,6 +20944,20 @@ SELECT MessageIDNumber, SenderName, SenderID, RecipientName, RecipientID, DateTi
                 ".Message WHERE ConversationID = @ConversationID";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ConversationID", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ConversationID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT MessageIDNumber, SenderName, SenderID, RecipientName, RecipientID,DateTime" +
+                " ,  Status, MessageTitle, ReadOrNotRead, MessageContent, ConversationID FROM dbo" +
+                ".Message WHERE SenderID = @SenderID AND Status = \'Draft\'";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SenderID", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "SenderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "SELECT MessageIDNumber, SenderName, SenderID, RecipientName, RecipientID,DateTime" +
+                " ,  Status, MessageTitle, ReadOrNotRead, MessageContent, ConversationID FROM dbo" +
+                ".Message WHERE MessageIDNumber = @MessageIDNumber";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MessageIDNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MessageIDNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21085,6 +21099,35 @@ SELECT MessageIDNumber, SenderName, SenderID, RecipientName, RecipientID, DateTi
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ConversationID));
             }
+            EMRDatabaseDataSet.MessageDataTable dataTable = new EMRDatabaseDataSet.MessageDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EMRDatabaseDataSet.MessageDataTable GetDataByDraft(string SenderID) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((SenderID == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(SenderID));
+            }
+            EMRDatabaseDataSet.MessageDataTable dataTable = new EMRDatabaseDataSet.MessageDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EMRDatabaseDataSet.MessageDataTable GetDataByMessageIDNumber(int MessageIDNumber) {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(MessageIDNumber));
             EMRDatabaseDataSet.MessageDataTable dataTable = new EMRDatabaseDataSet.MessageDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
