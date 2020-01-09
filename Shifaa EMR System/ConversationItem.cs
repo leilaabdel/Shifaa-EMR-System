@@ -122,6 +122,7 @@ namespace Shifaa_EMR_System
 
         private void ConversationItem_Load(object sender, EventArgs e)
         {
+            this.Anchor = (AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right);
             this.MessageContentBox.Text = _messageContent;
             this.SenderLabel.Text = _senderName;
             this.ReceiverNameLabel.Text = _receiverName;

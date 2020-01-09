@@ -138,6 +138,7 @@
             this.DeleteMessageButton.Text = " ";
             this.DeleteMessageButton.UseVisualStyleBackColor = false;
             this.DeleteMessageButton.Click += new System.EventHandler(this.DeleteMessageButton_Click);
+            this.DeleteMessageButton.Parent = this;
             // 
             // MessageListItem
             // 
@@ -164,8 +165,8 @@
         private System.Windows.Forms.Label SubjectLabel;
         private System.Windows.Forms.Label ContentLabel;
         private System.Windows.Forms.Panel MessageMainPanel;
-        private System.Windows.Forms.Button MarkAsReadButton;
-        private System.Windows.Forms.Button DeleteMessageButton;
-        private System.Windows.Forms.Button MarkAsNotReadButton;
+        public System.Windows.Forms.Button MarkAsReadButton;
+        public System.Windows.Forms.Button DeleteMessageButton;
+        public System.Windows.Forms.Button MarkAsNotReadButton;
     }
 }

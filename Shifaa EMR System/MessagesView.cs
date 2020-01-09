@@ -17,6 +17,7 @@ namespace Shifaa_EMR_System
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
         private DataTable _conversationTable;
         private string _conversationID;
+        private DataTable _employeeInfo;
 
         #region Properties
 
@@ -29,10 +30,13 @@ namespace Shifaa_EMR_System
         {
             InitializeComponent();
             RecipientID = recipientID;
+            Console.WriteLine(recipientID);
             _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID);
+            _employeeInfo = this.allEmployeesTableAdapter1.GetDataByEmployeeID(recipientID);
+            _employeeInfo.Columns.Add("EmployeeName", typeof(string), "FirstName + ' ' + LastName + ' | ' + JobType");
 
-            ISingleResult<getEmployeeNameByIDResult> result = doAction.getEmployeeNameByID(this.RecipientID);
-            foreach (getEmployeeNameByIDResult r in result) RecipientName = r.EmployeeName;
+            RecipientName = (String)_employeeInfo.Rows[0]["EmployeeName"];
+         
 
         }
 
@@ -54,7 +58,7 @@ namespace Shifaa_EMR_System
                     ConversationID = (String)input.Rows[i]["ConversationID"]
                 };
                 messageListItem.Click += new EventHandler(MessageListItemClick);
-               
+                messageListItem.DeleteMessageButton.Click += new EventHandler(ListItemDeleteButtonClick);
                 if (messageListFlowPanel.Controls.Count < 0)
                 {
                     messageListFlowPanel.Controls.Clear();
@@ -101,7 +105,23 @@ namespace Shifaa_EMR_System
             }
 
         }
-        
+        private void ListItemDeleteButtonClick(object sender, EventArgs e)
+        {
+            Button thisDeleteButton = (Button)sender;
+            MessageListItem listItem = (MessageListItem)thisDeleteButton.Parent;
+            string conversationID = listItem.ConversationID;
+            doAction.deleteConversation(conversationID);
+
+            foreach(ConversationItem item in ConversationFlowPanel.Controls)
+            {
+                if(item.ConversationID == conversationID)
+                {
+                    item.Hide();
+                    item.Dispose(); 
+                }
+            }
+        }
+
         private void ReplyButtonClick(object sender, EventArgs e)
         {
             Button replyButton = (Button)sender;
@@ -135,6 +155,9 @@ namespace Shifaa_EMR_System
             {
                 ReceiverName = priorMessage.SenderName,
                 ReceiverID = priorMessage.SenderID,
+                SenderID = this.RecipientID,
+                SenderName = this.RecipientName,
+
 
 
             };
@@ -177,8 +200,10 @@ namespace Shifaa_EMR_System
         private void MessageListItemClick(object sender, EventArgs e)
         {
           
+            
 
             MessageListItem thisMessageItem = (MessageListItem)sender;
+            thisMessageItem.BackColor = Color.Azure;
             _conversationID = thisMessageItem.ConversationID;
 
             PopulateMessageConversation(_conversationID);
@@ -195,44 +220,30 @@ namespace Shifaa_EMR_System
 
         }
 
-        private void InboxToolStripItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void InboxToolStripItem_Click_1(object sender, EventArgs e)
-        {
-            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID);
-            PopulateMessages(_messagesTable);
-        }
-
-        private void SentToolStripItem_Click(object sender, EventArgs e)
-        {
-            _messagesTable = this.messageTableAdapter.GetDataBySent(this.RecipientID);
-            PopulateMessages(_messagesTable);
-        }
-
-        private void DraftsToolStripItem_Click(object sender, EventArgs e)
-        {
-            _messagesTable = this.messageTableAdapter.GetDataByDraft(this.RecipientID);
-            PopulateMessages(_messagesTable);
-        }
-
-        private void JunkToolStripItem_Click(object sender, EventArgs e)
-        {
-            _messagesTable = this.messageTableAdapter.GetDataByJunk(this.RecipientID);
-            PopulateMessages(_messagesTable);
-        }
+     
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void MessageListFlowPanelClick(object sender, EventArgs e)
         {
 
         }
 
         private void NewMessageButton_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(RecipientName);
             ConversationFlowPanel.Controls.Clear();
-            NewMessageItem newMessage = new NewMessageItem();
+            NewMessageItem newMessage = new NewMessageItem()
+            {
+                SenderID = this.RecipientID,
+                SenderName = RecipientName
+            };
+
+
             ConversationFlowPanel.Controls.Add(newMessage);
             ConversationFlowPanel.ScrollControlIntoView(newMessage);
  
@@ -248,6 +259,35 @@ namespace Shifaa_EMR_System
         private void FilterButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void InboxButton_Click(object sender, EventArgs e)
+        {
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID);
+            PopulateMessages(_messagesTable);
+            TypeLabel.Text = "Inbox";
+        }
+
+        private void SentButton_Click(object sender, EventArgs e)
+        {
+            _messagesTable = this.messageTableAdapter.GetDataBySent(this.RecipientID);
+            PopulateMessages(_messagesTable);
+            TypeLabel.Text = "Sent";
+
+        }
+
+        private void DraftsButton_Click(object sender, EventArgs e)
+        {
+            _messagesTable = this.messageTableAdapter.GetDataByDraft(this.RecipientID);
+            PopulateMessages(_messagesTable);
+            TypeLabel.Text = "Drafts";
+        }
+
+        private void JunkButton_Click(object sender, EventArgs e)
+        {
+            _messagesTable = this.messageTableAdapter.GetDataByJunk(this.RecipientID);
+            PopulateMessages(_messagesTable);
+            TypeLabel.Text = "Junk";
         }
     }
 }

@@ -170,10 +170,10 @@ namespace Shifaa_EMR_System
           
          
            
-            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID);
+            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID , DateTime.Today);
             foreach (selectPrescriptionforPrintResult r in result)
             {
-
+                Console.WriteLine("0");
                 report.SelectionBullet = false;
                 report.SelectionIndent = 60;
                 Console.WriteLine(r.MedicationName);

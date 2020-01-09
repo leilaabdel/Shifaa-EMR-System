@@ -405,18 +405,6 @@
       <Column Name="PregnancyStatus" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.selectPrescriptionforPrint" Method="selectPrescriptionforPrint">
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="selectPrescriptionforPrintResult">
-      <Column Name="MedicationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Strength" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="Route" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
-      <Column Name="Frequency" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Refills" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.updateExistingNote" Method="updateExistingNote">
     <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
     <Parameter Name="NoteTitle" Parameter="noteTitle" Type="System.String" DbType="VarChar(50)" />
@@ -738,6 +726,25 @@
     <Parameter Name="MessageID" Parameter="messageID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.getEmployeeNameByID" Method="getEmployeeNameByID">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="getEmployeeNameByIDResult">
+      <Column Name="EmployeeName" Type="System.String" DbType="VarChar(154)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.selectPrescriptionforPrint" Method="selectPrescriptionforPrint">
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="PatientID" Parameter="patientID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="selectPrescriptionforPrintResult">
+      <Column Name="MedicationName" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Strength" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Route" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Frequency" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Refills" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.createNewMessage" Method="createNewMessage">
     <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
@@ -752,13 +759,10 @@
   </Function>
   <Function Name="dbo.deleteMessage" Method="deleteMessage">
     <Parameter Name="MessageIDNumber" Parameter="messageIDNumber" Type="System.Int32" DbType="Int" />
-    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.getEmployeeNameByID" Method="getEmployeeNameByID">
-    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="getEmployeeNameByIDResult">
-      <Column Name="EmployeeName" Type="System.String" DbType="VarChar(154)" CanBeNull="true" />
-    </ElementType>
+  <Function Name="dbo.deleteConversation" Method="deleteConversation">
+    <Parameter Name="ConversationID" Parameter="conversationID" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

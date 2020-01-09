@@ -87,49 +87,48 @@
             // 
             // ForwardButton
             // 
+            this.ForwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ForwardButton.BackColor = System.Drawing.Color.White;
             this.ForwardButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.ForwardIcon;
             this.ForwardButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ForwardButton.FlatAppearance.BorderSize = 0;
             this.ForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ForwardButton.Location = new System.Drawing.Point(593, 57);
+            this.ForwardButton.Location = new System.Drawing.Point(739, 57);
             this.ForwardButton.Name = "ForwardButton";
             this.ForwardButton.Size = new System.Drawing.Size(15, 15);
             this.ForwardButton.TabIndex = 7;
             this.ForwardButton.Text = " ";
-            this.ForwardButton.Parent = this;
             this.ForwardButton.UseVisualStyleBackColor = false;
             // 
             // ReplyButton
             // 
+            this.ReplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReplyButton.BackColor = System.Drawing.Color.White;
             this.ReplyButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.ReplyButton;
             this.ReplyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ReplyButton.FlatAppearance.BorderSize = 0;
             this.ReplyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReplyButton.Location = new System.Drawing.Point(558, 54);
+            this.ReplyButton.Location = new System.Drawing.Point(704, 54);
             this.ReplyButton.Name = "ReplyButton";
             this.ReplyButton.Size = new System.Drawing.Size(25, 20);
             this.ReplyButton.TabIndex = 4;
             this.ReplyButton.Text = " ";
             this.ReplyButton.UseVisualStyleBackColor = false;
-            this.ReplyButton.Parent = this;
             this.ReplyButton.Click += new System.EventHandler(this.ReplyButton_Click);
-
             // 
             // EditDraftButton
             // 
+            this.EditDraftButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditDraftButton.BackColor = System.Drawing.Color.White;
             this.EditDraftButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
             this.EditDraftButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditDraftButton.FlatAppearance.BorderSize = 0;
             this.EditDraftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditDraftButton.Location = new System.Drawing.Point(589, 54);
+            this.EditDraftButton.Location = new System.Drawing.Point(735, 54);
             this.EditDraftButton.Name = "EditDraftButton";
             this.EditDraftButton.Size = new System.Drawing.Size(25, 20);
             this.EditDraftButton.TabIndex = 8;
             this.EditDraftButton.Text = " ";
-            this.EditDraftButton.Parent = this;
             this.EditDraftButton.UseVisualStyleBackColor = false;
             // 
             // ConversationItem
@@ -146,7 +145,7 @@
             this.Controls.Add(this.SenderLabel);
             this.Controls.Add(this.EditDraftButton);
             this.Name = "ConversationItem";
-            this.Size = new System.Drawing.Size(654, 296);
+            this.Size = new System.Drawing.Size(800, 296);
             this.Load += new System.EventHandler(this.ConversationItem_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

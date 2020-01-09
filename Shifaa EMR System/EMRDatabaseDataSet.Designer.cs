@@ -19309,9 +19309,10 @@ SELECT EmployeeID, ProviderOrScheduler, FirstName, LastName, JobType, PhoneNumbe
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT EmployeeID, ( FirstName + \' \' + LastName + \' - \' + JobType) AS EmployeeNam" +
-                "e  FROM dbo.AllEmployees";
+            this._commandCollection[2].CommandText = "SELECT EmployeeID, ProviderOrScheduler, FirstName, LastName, JobType, PhoneNumber" +
+                ", Email FROM dbo.AllEmployees WHERE EmployeeID = @EmployeeID";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmployeeID", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "EmployeeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -19414,8 +19415,14 @@ SELECT EmployeeID, ProviderOrScheduler, FirstName, LastName, JobType, PhoneNumbe
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual EMRDatabaseDataSet.AllEmployeesDataTable GetEmployeeData() {
+        public virtual EMRDatabaseDataSet.AllEmployeesDataTable GetDataByEmployeeID(string EmployeeID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((EmployeeID == null)) {
+                throw new global::System.ArgumentNullException("EmployeeID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(EmployeeID));
+            }
             EMRDatabaseDataSet.AllEmployeesDataTable dataTable = new EMRDatabaseDataSet.AllEmployeesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
