@@ -72,11 +72,6 @@ namespace Shifaa_EMR_System
             set { _readOrNotRead = value; }
         }
 
-        public Color MessagePanelMainColor
-        {
-            get { return _messagePanelMainColor; }
-            set { _messagePanelMainColor = value; MessageMainPanel.BackColor = value; }
-        }
 
         public int MessageID
         {
@@ -95,48 +90,11 @@ namespace Shifaa_EMR_System
 
         #region Functions
 
-        private void MessageMainPanelClick(object sender, EventArgs e)
-        {
-            MessageMainPanel.BackColor = Color.LightBlue;
-            ReadPanel.BackColor = Color.DarkBlue;
-            
-            if(this.ReadOrNotRead == "Not_Read")
-            {
-                doAction.updateMessageReadOrNotRead(_messageID, "Read");
-                this._readOrNotRead = "Read";
-            }
+      
 
-           
+        
 
-
-        }
-
-        private void MessageMainPanelMouseHover(object sender, EventArgs e)
-        {
-            MessageMainPanel.BackColor = Color.Beige;
-            ContentLabel.BackColor = Color.Beige;
-            SenderLabel.BackColor = Color.Beige;
-            SubjectLabel.BackColor = Color.Beige;
-            DeleteMessageButton.BackColor = Color.Beige;
-            DeleteMessageButton.Show();
-
-            if(this.ReadOrNotRead == "Not_Read")
-            {
-                MarkAsNotReadButton.Hide();
-                MarkAsReadButton.BackColor = Color.Beige;
-                MarkAsReadButton.Show();
-            }
-            if(this.ReadOrNotRead == "Read")
-            {
-                MarkAsReadButton.Hide();
-                MarkAsNotReadButton.BackColor = Color.Beige;
-                MarkAsNotReadButton.Show();
-            }
-            
-
-            
-        }
-
+      
 
 
         #endregion
@@ -150,9 +108,10 @@ namespace Shifaa_EMR_System
             if (this.ReadOrNotRead == "Not_Read")
             {
                 SenderLabel.Font = new Font("Bahnschrift Bold", SenderLabel.Font.Size);
-                SubjectLabel.ForeColor = Color.DarkBlue;
+                SubjectLabel.ForeColor = Color.FromArgb(185, 209, 234);
                 SubjectLabel.Font = new Font("Bahnschrift Bold", SubjectLabel.Font.Size);
-                ReadPanel.BackColor = Color.DarkBlue;
+                SubjectLabel.Text = Subject;
+                ReadPanel.BackColor = Color.FromArgb(185, 209, 234);
                 MarkAsReadButton.Show();
                 MarkAsNotReadButton.Hide();
             }
@@ -166,8 +125,6 @@ namespace Shifaa_EMR_System
                 MarkAsReadButton.Hide();
 
             }
-            this.Click += new EventHandler(this.MessageMainPanelClick);
-            this.MouseHover += new EventHandler(this.MessageMainPanelMouseHover);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -196,11 +153,21 @@ namespace Shifaa_EMR_System
         {
             doAction.updateMessageReadOrNotRead(this._messageID, "Not_Read");
             SenderLabel.Font = new Font("Bahnschrift Bold", SenderLabel.Font.Size);
-            SubjectLabel.ForeColor = Color.DarkBlue;
+            SubjectLabel.ForeColor = Color.FromArgb(185, 209, 234);
             SubjectLabel.Font = new Font("Bahnschrift Bold", SubjectLabel.Font.Size);
-            ReadPanel.BackColor = Color.DarkBlue;
+            ReadPanel.BackColor = Color.FromArgb(185, 209, 234);
             MarkAsReadButton.Show();
             MarkAsNotReadButton.Hide();
+
+        }
+
+        private void ContentLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubjectLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -31,18 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.MessageTitleLabel = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.TypeLabel = new System.Windows.Forms.Label();
             this.NewMessageButton = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.ConversationFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.JunkButton = new System.Windows.Forms.Button();
             this.DraftsButton = new System.Windows.Forms.Button();
             this.SentButton = new System.Windows.Forms.Button();
             this.InboxButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.FilterButton = new System.Windows.Forms.Button();
-            this.TypeLabel = new System.Windows.Forms.Label();
             this.messageListFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,10 +50,11 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.allEmployeesTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.ConversationFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +62,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.CancelButton);
             this.panel2.Controls.Add(this.MessageTitleLabel);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.NewMessageButton);
@@ -80,10 +79,28 @@
             this.MessageTitleLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14F);
             this.MessageTitleLabel.Location = new System.Drawing.Point(521, 25);
             this.MessageTitleLabel.Name = "MessageTitleLabel";
-            this.MessageTitleLabel.Size = new System.Drawing.Size(173, 23);
+            this.MessageTitleLabel.Size = new System.Drawing.Size(0, 23);
             this.MessageTitleLabel.TabIndex = 0;
-            this.MessageTitleLabel.Text = "This Message Label";
             this.MessageTitleLabel.Click += new System.EventHandler(this.MessageTitleLabel_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.TypeLabel);
+            this.panel3.Location = new System.Drawing.Point(199, 17);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(273, 45);
+            this.panel3.TabIndex = 8;
+            // 
+            // TypeLabel
+            // 
+            this.TypeLabel.AutoSize = true;
+            this.TypeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14F);
+            this.TypeLabel.Location = new System.Drawing.Point(18, 10);
+            this.TypeLabel.Name = "TypeLabel";
+            this.TypeLabel.Size = new System.Drawing.Size(56, 23);
+            this.TypeLabel.TabIndex = 3;
+            this.TypeLabel.Text = "Inbox";
             // 
             // NewMessageButton
             // 
@@ -114,22 +131,9 @@
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
-            // ConversationFlowPanel
-            // 
-            this.ConversationFlowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ConversationFlowPanel.AutoScroll = true;
-            this.ConversationFlowPanel.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ConversationFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ConversationFlowPanel.Location = new System.Drawing.Point(482, 120);
-            this.ConversationFlowPanel.Name = "ConversationFlowPanel";
-            this.ConversationFlowPanel.Size = new System.Drawing.Size(831, 870);
-            this.ConversationFlowPanel.TabIndex = 6;
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.JunkButton);
             this.panel1.Controls.Add(this.DraftsButton);
             this.panel1.Controls.Add(this.SentButton);
             this.panel1.Controls.Add(this.InboxButton);
@@ -137,26 +141,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 119);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 871);
+            this.panel1.Size = new System.Drawing.Size(200, 863);
             this.panel1.TabIndex = 7;
-            // 
-            // JunkButton
-            // 
-            this.JunkButton.AutoSize = true;
-            this.JunkButton.BackColor = System.Drawing.Color.Azure;
-            this.JunkButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.JunkButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.JunkButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.JunkButton.FlatAppearance.BorderSize = 0;
-            this.JunkButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.JunkButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.JunkButton.Location = new System.Drawing.Point(0, 167);
-            this.JunkButton.Name = "JunkButton";
-            this.JunkButton.Size = new System.Drawing.Size(198, 35);
-            this.JunkButton.TabIndex = 56;
-            this.JunkButton.Text = "Junk";
-            this.JunkButton.UseVisualStyleBackColor = false;
-            this.JunkButton.Click += new System.EventHandler(this.JunkButton_Click);
             // 
             // DraftsButton
             // 
@@ -221,56 +207,17 @@
             this.panel4.Size = new System.Drawing.Size(198, 62);
             this.panel4.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.FilterButton);
-            this.panel3.Controls.Add(this.TypeLabel);
-            this.panel3.Location = new System.Drawing.Point(202, 17);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(286, 45);
-            this.panel3.TabIndex = 8;
-            // 
-            // FilterButton
-            // 
-            this.FilterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FilterButton.AutoSize = true;
-            this.FilterButton.BackColor = System.Drawing.SystemColors.Control;
-            this.FilterButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.FilterButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.FilterButton.FlatAppearance.BorderSize = 0;
-            this.FilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.FilterButton.ForeColor = System.Drawing.Color.SteelBlue;
-            this.FilterButton.Location = new System.Drawing.Point(200, 3);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(72, 35);
-            this.FilterButton.TabIndex = 53;
-            this.FilterButton.Text = "Filter v";
-            this.FilterButton.UseVisualStyleBackColor = false;
-            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
-            // 
-            // TypeLabel
-            // 
-            this.TypeLabel.AutoSize = true;
-            this.TypeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14F);
-            this.TypeLabel.Location = new System.Drawing.Point(18, 10);
-            this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(56, 23);
-            this.TypeLabel.TabIndex = 3;
-            this.TypeLabel.Text = "Inbox";
-            // 
             // messageListFlowPanel
             // 
-            this.messageListFlowPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.messageListFlowPanel.AutoScroll = true;
             this.messageListFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.messageListFlowPanel.Location = new System.Drawing.Point(203, 120);
+            this.messageListFlowPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.messageListFlowPanel.Location = new System.Drawing.Point(200, 119);
             this.messageListFlowPanel.Name = "messageListFlowPanel";
-            this.messageListFlowPanel.Size = new System.Drawing.Size(286, 870);
+            this.messageListFlowPanel.Size = new System.Drawing.Size(273, 863);
             this.messageListFlowPanel.TabIndex = 9;
             this.messageListFlowPanel.Click += new System.EventHandler(this.MessageListFlowPanelClick);
+            this.messageListFlowPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.messageListFlowPanel_Paint);
             // 
             // eMRDatabaseDataSet
             // 
@@ -325,24 +272,45 @@
             // 
             this.allEmployeesTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel5
+            // ConversationFlowPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.Azure;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(1316, 119);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(164, 871);
-            this.panel5.TabIndex = 10;
+            this.ConversationFlowPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.ConversationFlowPanel.AutoScroll = true;
+            this.ConversationFlowPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ConversationFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ConversationFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ConversationFlowPanel.Location = new System.Drawing.Point(473, 119);
+            this.ConversationFlowPanel.Name = "ConversationFlowPanel";
+            this.ConversationFlowPanel.Size = new System.Drawing.Size(1007, 863);
+            this.ConversationFlowPanel.TabIndex = 7;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton.AutoSize = true;
+            this.CancelButton.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelButton.FlatAppearance.BorderSize = 0;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.CancelButton.Location = new System.Drawing.Point(1322, 19);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(142, 35);
+            this.CancelButton.TabIndex = 53;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // MessagesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1480, 990);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.messageListFlowPanel);
+            this.ClientSize = new System.Drawing.Size(1480, 982);
+            this.ControlBox = false;
             this.Controls.Add(this.ConversationFlowPanel);
+            this.Controls.Add(this.messageListFlowPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.panel2);
@@ -351,12 +319,13 @@
             this.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.Text = "MessagesView";
             this.Load += new System.EventHandler(this.MessagesView_Load);
+            this.Resize += new System.EventHandler(this.FormResize);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -371,10 +340,8 @@
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource messageBindingSource;
         private EMRDatabaseDataSetTableAdapters.MessageTableAdapter messageTableAdapter;
-        private System.Windows.Forms.FlowLayoutPanel ConversationFlowPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.FlowLayoutPanel messageListFlowPanel;
         private System.Windows.Forms.ToolStripMenuItem ContactsToolStripItem;
@@ -383,11 +350,11 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button JunkButton;
         private System.Windows.Forms.Button DraftsButton;
         private System.Windows.Forms.Button SentButton;
         private System.Windows.Forms.Button InboxButton;
         private EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter allEmployeesTableAdapter1;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.FlowLayoutPanel ConversationFlowPanel;
+        private System.Windows.Forms.Button CancelButton;
     }
 }

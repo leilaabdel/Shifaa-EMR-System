@@ -15,58 +15,74 @@ namespace Shifaa_EMR_System
         private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
         bool isNewConversation;
-        public NewMessageItem()
+        public NewMessageItem(Label subjectLabel)
         {
             InitializeComponent();
-            
-      
+
+            parentLabel = subjectLabel;
             this.ConversationID = Guid.NewGuid().ToString("N");
             isNewConversation = true;
+            ReceiverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
         }
-        public NewMessageItem(string conversationID) 
+        public NewMessageItem(string conversationID , Label subjectLabel) 
         {
             InitializeComponent();
-           
+            parentLabel = subjectLabel;
             this.ConversationID = conversationID;
             isNewConversation = false;
+            ReceiverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
+        public bool isEditingDraft = false;
+
+        public NewMessageItem(string conversationID, int messageID , Label subjectLabel)
+        {
+            InitializeComponent();
+            parentLabel = subjectLabel;
+            isNewConversation = false;
+            ReceiverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            this._messageIDNumber = messageID;
+            this.ConversationID = conversationID;
+            isEditingDraft = true;
+
         }
 
 
 
         #region Properties
-
+        private Label parentLabel;
         private string _subject;
         private string _receiverName;
         private string _messageContent;
         private Timer _timer1;
         private string _senderName;
         private string _senderID;
-        private Dictionary<string, string> selectedEmployeeIDs = new Dictionary<string, string>();
-        private Dictionary<int, string> selectedMessageID = new Dictionary<int, string>();
         private string _conversationID;
-        private int _messageIDNumber = 0;
+        private int _messageIDNumber;
         private string _receiverID;
+        private DateTime _date;
 
 
 
         public string Subject
         {
             get { return _subject; }
-            set { _subject = value; SubjectBox.Text = value; }
+            set { _subject = value; }
         }
 
         public string ReceiverName
         {
             get { return _receiverName; }
-            set { _receiverName = value; ReceiverComboBox.Text = value; }
+            set { _receiverName = value; }
         }
 
         public string MessageContent
         {
             get { return _messageContent; }
-            set { _messageContent = value; MessageContentBox.Text = value; }
+            set { _messageContent = value;  }
         }
 
         public string SenderName
@@ -93,6 +109,11 @@ namespace Shifaa_EMR_System
             set { _receiverID = value; }
         }
 
+        public DateTime Date
+        {
+            get { return _date; }
+            set { _date = value; }
+        }
 
 
       
@@ -101,6 +122,12 @@ namespace Shifaa_EMR_System
         #endregion
 
         #region Functions
+        private void NewMessageVisibleChanged(object sender, EventArgs e)
+        {
+            _receiverName = ReceiverComboBox.Text;
+            doAction.updateMessageDraft(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, ReceiverComboBox.Text, (String)ReceiverComboBox.SelectedValue, _messageIDNumber);
+
+        }
 
         public void InitTime()
         {
@@ -108,38 +135,63 @@ namespace Shifaa_EMR_System
             _timer1.Tick += new EventHandler(Timer1_Tick);
             _timer1.Interval = 5000;
             _timer1.Start();
+            if(this.Visible == false)
+            {
+                _timer1.Stop();
+            }
         }
         private void Timer1_Tick(object sender, EventArgs e)
         {
 
+            if (this.Visible == false) return;
 
             string employeeID = ReceiverComboBox.SelectedValue.ToString();
             string employeeName = ReceiverComboBox.Text;
 
-               
+            Console.WriteLine("the update employyeeID is "
+          + employeeID);
+            Console.WriteLine("the update employeeName" + employeeName);
 
-                doAction.updateMessageDraft(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, employeeName,
-                    employeeID, _messageIDNumber);
+
+            doAction.updateMessageDraft(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, ReceiverComboBox.Text, (String)ReceiverComboBox.SelectedValue, _messageIDNumber);
 
         }
 
         private void SendMessageButtonClick(object sender, EventArgs e)
         {
+           
             string employeeID = ReceiverComboBox.SelectedValue.ToString();
             string employeeName = ReceiverComboBox.Text;
 
-            doAction.SendMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, employeeName,
-                    employeeID, _messageIDNumber);
-        
+            Console.WriteLine("the sent employyeeID is "
+                + employeeID);
+            Console.WriteLine("the send employeeName" + employeeName);
 
-            this.Hide();
-            this.Dispose();
+
+            try
+            {
+                doAction.SendMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, employeeName, (String)ReceiverComboBox.SelectedValue, _messageIDNumber);
+                this.Hide();
+                this.Dispose();
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+
+            
         }
 
     
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            
+            if (String.IsNullOrWhiteSpace(SubjectBox.Text)) parentLabel.Text = "No Subject";
+            else
+            {
+                parentLabel.Text = SubjectBox.Text;
+            }
+
         }
 
         private void SubjectBoxClick(object sender, EventArgs e)
@@ -154,28 +206,34 @@ namespace Shifaa_EMR_System
 
         private void NewMessageItem_Load(object sender, EventArgs e)
         {
-            this.Anchor = (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left);
-            if(isNewConversation)
-            ReceiverComboBox.Text = _receiverName;
-            SubjectBox.Text = _subject;
-            MessageContentBox.Text = _messageContent;
+            
+                ReceiverComboBox.SelectedText = _receiverName;
+                SubjectBox.Text = _subject;
+                MessageContentBox.Text = _messageContent;
+
+
+        
+
 
             MessageContentBox.AutoSize = true;
-            this.SendMessageButton.Click += new EventHandler(this.SendMessageButtonClick);
-            this.ReceiverComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.ReceiverComboBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            this.ReceiverComboBox.AutoCompleteCustomSource = AutoComplete.EmployeeNamesAutoCompete();
+            this.ReceiverComboBox.AutoCompleteMode = AutoCompleteMode.None;
+            this.ReceiverComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             DataTable source = allEmployeesTableAdapter.GetData();
             source.Columns.Add("EmployeeName", typeof(string), "Firstname + ' '+ LastName + ' | ' + JobType");
             this.ReceiverComboBox.DisplayMember = "EmployeeName";
             this.ReceiverComboBox.ValueMember = "EmployeeID";
             this.ReceiverComboBox.DataSource = source;
 
-            selectedEmployeeIDs.Add((String)ReceiverComboBox.SelectedValue, (String)ReceiverComboBox.SelectedText);
-            _messageIDNumber = doAction.createNewMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, SenderName, SenderID, ReceiverComboBox.Text, (String)ReceiverComboBox.SelectedValue,
-                    _conversationID, "Draft");
+            if (!isEditingDraft)
+            {
+                _messageIDNumber = doAction.createNewMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, SenderName, SenderID, ReceiverComboBox.Text, (String)ReceiverComboBox.SelectedValue,
+                        _conversationID, "Draft");
+            }
 
-            selectedMessageID.Add(_messageIDNumber, (String)ReceiverComboBox.SelectedValue);
+            Console.WriteLine("The message ID # is" + _messageIDNumber);
+
+            InitTime();
+
 
         }
 
@@ -191,7 +249,9 @@ namespace Shifaa_EMR_System
         private void ReceiverComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            Console.WriteLine("the sender ID is " + SenderID);
+            Console.WriteLine("the receiver ID is " + ReceiverComboBox.SelectedValue.ToString());
+            Console.WriteLine("the receiver Name is " + ReceiverComboBox.Text);
+
 
         }
 
@@ -199,6 +259,7 @@ namespace Shifaa_EMR_System
         {
             
             doAction.deleteMessage(_messageIDNumber);
+            
             this.Hide();
             this.Dispose();
           

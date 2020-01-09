@@ -32,21 +32,18 @@
             this.ReadPanel = new System.Windows.Forms.Panel();
             this.SubjectLabel = new System.Windows.Forms.Label();
             this.ContentLabel = new System.Windows.Forms.Label();
-            this.MessageMainPanel = new System.Windows.Forms.Panel();
             this.MarkAsNotReadButton = new System.Windows.Forms.Button();
             this.MarkAsReadButton = new System.Windows.Forms.Button();
             this.DeleteMessageButton = new System.Windows.Forms.Button();
-            this.MessageMainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SenderLabel
             // 
-            this.SenderLabel.AutoSize = true;
             this.SenderLabel.BackColor = System.Drawing.Color.White;
             this.SenderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SenderLabel.Location = new System.Drawing.Point(31, 10);
+            this.SenderLabel.Location = new System.Drawing.Point(19, 10);
             this.SenderLabel.Name = "SenderLabel";
-            this.SenderLabel.Size = new System.Drawing.Size(55, 17);
+            this.SenderLabel.Size = new System.Drawing.Size(146, 21);
             this.SenderLabel.TabIndex = 2;
             this.SenderLabel.Text = "Sender";
             // 
@@ -61,38 +58,26 @@
             // 
             // SubjectLabel
             // 
-            this.SubjectLabel.AutoSize = true;
             this.SubjectLabel.BackColor = System.Drawing.Color.White;
             this.SubjectLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubjectLabel.Location = new System.Drawing.Point(31, 32);
+            this.SubjectLabel.Location = new System.Drawing.Point(19, 32);
             this.SubjectLabel.Name = "SubjectLabel";
-            this.SubjectLabel.Size = new System.Drawing.Size(65, 17);
+            this.SubjectLabel.Size = new System.Drawing.Size(204, 23);
             this.SubjectLabel.TabIndex = 4;
             this.SubjectLabel.Text = "> Subejct";
+            this.SubjectLabel.Click += new System.EventHandler(this.SubjectLabel_Click);
             // 
             // ContentLabel
             // 
             this.ContentLabel.BackColor = System.Drawing.Color.White;
             this.ContentLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.ContentLabel.ForeColor = System.Drawing.Color.DimGray;
-            this.ContentLabel.Location = new System.Drawing.Point(31, 55);
+            this.ContentLabel.Location = new System.Drawing.Point(19, 55);
             this.ContentLabel.Name = "ContentLabel";
-            this.ContentLabel.Size = new System.Drawing.Size(68, 17);
+            this.ContentLabel.Size = new System.Drawing.Size(204, 20);
             this.ContentLabel.TabIndex = 5;
             this.ContentLabel.Text = "Content...";
-            // 
-            // MessageMainPanel
-            // 
-            this.MessageMainPanel.BackColor = System.Drawing.Color.White;
-            this.MessageMainPanel.Controls.Add(this.MarkAsNotReadButton);
-            this.MessageMainPanel.Controls.Add(this.MarkAsReadButton);
-            this.MessageMainPanel.Controls.Add(this.DeleteMessageButton);
-            this.MessageMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MessageMainPanel.Location = new System.Drawing.Point(0, 0);
-            this.MessageMainPanel.Name = "MessageMainPanel";
-            this.MessageMainPanel.Size = new System.Drawing.Size(286, 85);
-            this.MessageMainPanel.TabIndex = 6;
-            this.MessageMainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MessageMainPanel_Paint);
+            this.ContentLabel.Click += new System.EventHandler(this.ContentLabel_Click);
             // 
             // MarkAsNotReadButton
             // 
@@ -101,7 +86,7 @@
             this.MarkAsNotReadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MarkAsNotReadButton.FlatAppearance.BorderSize = 0;
             this.MarkAsNotReadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MarkAsNotReadButton.Location = new System.Drawing.Point(246, 12);
+            this.MarkAsNotReadButton.Location = new System.Drawing.Point(204, 14);
             this.MarkAsNotReadButton.Name = "MarkAsNotReadButton";
             this.MarkAsNotReadButton.Size = new System.Drawing.Size(19, 15);
             this.MarkAsNotReadButton.TabIndex = 3;
@@ -116,7 +101,7 @@
             this.MarkAsReadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MarkAsReadButton.FlatAppearance.BorderSize = 0;
             this.MarkAsReadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MarkAsReadButton.Location = new System.Drawing.Point(245, 6);
+            this.MarkAsReadButton.Location = new System.Drawing.Point(202, 7);
             this.MarkAsReadButton.Name = "MarkAsReadButton";
             this.MarkAsReadButton.Size = new System.Drawing.Size(24, 25);
             this.MarkAsReadButton.TabIndex = 2;
@@ -131,40 +116,39 @@
             this.DeleteMessageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DeleteMessageButton.FlatAppearance.BorderSize = 0;
             this.DeleteMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteMessageButton.Location = new System.Drawing.Point(225, 10);
+            this.DeleteMessageButton.Location = new System.Drawing.Point(183, 8);
             this.DeleteMessageButton.Name = "DeleteMessageButton";
-            this.DeleteMessageButton.Size = new System.Drawing.Size(15, 17);
+            this.DeleteMessageButton.Size = new System.Drawing.Size(17, 21);
             this.DeleteMessageButton.TabIndex = 0;
             this.DeleteMessageButton.Text = " ";
             this.DeleteMessageButton.UseVisualStyleBackColor = false;
             this.DeleteMessageButton.Click += new System.EventHandler(this.DeleteMessageButton_Click);
-            this.DeleteMessageButton.Parent = this;
             // 
             // MessageListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.ContentLabel);
             this.Controls.Add(this.SubjectLabel);
             this.Controls.Add(this.ReadPanel);
             this.Controls.Add(this.SenderLabel);
-            this.Controls.Add(this.MessageMainPanel);
+            this.Controls.Add(this.DeleteMessageButton);
+            this.Controls.Add(this.MarkAsNotReadButton);
+            this.Controls.Add(this.MarkAsReadButton);
             this.Name = "MessageListItem";
-            this.Size = new System.Drawing.Size(286, 85);
+            this.Size = new System.Drawing.Size(230, 85);
             this.Load += new System.EventHandler(this.MessageListItem_Load);
-            this.MessageMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label SenderLabel;
-        private System.Windows.Forms.Panel ReadPanel;
-        private System.Windows.Forms.Label SubjectLabel;
-        private System.Windows.Forms.Label ContentLabel;
-        private System.Windows.Forms.Panel MessageMainPanel;
+        public System.Windows.Forms.Label SenderLabel;
+        public System.Windows.Forms.Panel ReadPanel;
+        public System.Windows.Forms.Label SubjectLabel;
+        public System.Windows.Forms.Label ContentLabel;
         public System.Windows.Forms.Button MarkAsReadButton;
         public System.Windows.Forms.Button DeleteMessageButton;
         public System.Windows.Forms.Button MarkAsNotReadButton;

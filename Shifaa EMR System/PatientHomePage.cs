@@ -22,6 +22,7 @@ namespace Shifaa_EMR_System
         readonly SchedulingCalendar schedulingCalendar;
         readonly ToolStripMenuItem thisGenerateReport;
         readonly ToolStripMenuItem thisPrintPrescriptions;
+        readonly string thisProviderID;
         CalendarItem item;
 
 
@@ -33,7 +34,7 @@ namespace Shifaa_EMR_System
             this.PatientGenderLabel.Text = gender;
             this.PatientAgeLabel.Text = "Age: " + age;
             this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
-
+            this.thisProviderID = providerMain.GetProviderID();
             SetVitals(selectedPatientID);
 
             thisPatientID = selectedPatientID;
@@ -83,6 +84,8 @@ namespace Shifaa_EMR_System
             thisPrintPrescriptions.Click += new System.EventHandler(PrintPrescriptionsClick);
             thisProviderMain.menuStrip2.Items.Add(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Add(thisPrintPrescriptions);
+
+            this.thisProviderID = providerMain.GetProviderID();
 
             this.item = item;
 
@@ -383,7 +386,10 @@ namespace Shifaa_EMR_System
                     try
                     {
                         MedicationsListDataGridView.Rows.RemoveAt(currentRow);
-                        doAction.deletePatientPrescription(selectedPrescriptionID);
+                        if (doAction.deletePatientPrescription(selectedPrescriptionID, DateTime.Today, thisProviderID) == 1)
+                        {
+                            MessageBox.Show("Unable to delete prescription. You can only delete prescriptions that you have written today");
+                        }
                     }
                     catch
                     {
@@ -409,7 +415,11 @@ namespace Shifaa_EMR_System
                     try
                     {
                         AllergiesTable.Rows.RemoveAt(currentRow);
-                        doAction.deletePatientAllergy(selectedAllergyID);
+                        if((doAction.deletePatientAllergy(selectedAllergyID , DateTime.Today , thisProviderID) == 1))
+                        {
+                            MessageBox.Show("Unable to delete allergy. You can only delete allergies that you have written today");
+
+                        }
                     }
                     catch
                     {
@@ -429,7 +439,7 @@ namespace Shifaa_EMR_System
                 try
                 {
                     ScansTable.Rows.RemoveAt(currentRow);
-                    doAction.deletePatientScan(selectedScanID);
+                    doAction.deletePatientScan(selectedScanID , thisProviderID , DateTime.Today);
                 }
                 catch
                 {
@@ -451,7 +461,7 @@ namespace Shifaa_EMR_System
                     try
                     {
                         LabsTable.Rows.RemoveAt(currentRow);
-                        doAction.deletePatientLab(selectedLabID);
+                        doAction.deletePatientLab(selectedLabID , thisProviderID , DateTime.Today);
                     }
                     catch
                     {
@@ -486,7 +496,11 @@ namespace Shifaa_EMR_System
                     try
                     {
                         NoteHistoryTable.Rows.RemoveAt(currentRow);
-                        doAction.deletePatientNote(selectedNoteID);
+                        if (doAction.deletePatientNote(selectedNoteID, DateTime.Today , thisProviderID) == 1)
+                        {
+                            MessageBox.Show("Unable to delete note. You can only delete notes you have written on this date.");
+                        }
+                      
                     }
                     catch
                     {
@@ -509,7 +523,7 @@ namespace Shifaa_EMR_System
                     try
                     {
                         VitalHistoryTable.Rows.RemoveAt(currentRow);
-                        doAction.deleteVitalSigns(selectedVitalID);
+                        doAction.deleteVitalSigns(selectedVitalID , DateTime.Today);
                     }
                     catch
                     {
@@ -546,7 +560,13 @@ namespace Shifaa_EMR_System
                     try
                     {
                         ProblemListView.Rows.RemoveAt(currentRow);
-                        doAction.deleteProblem(selectedProblemID);
+
+                        if (doAction.deleteProblem(selectedProblemID, thisProviderID, DateTime.Today) == 1)
+                        {
+                            MessageBox.Show("Unable to delete problem. You can only delete problems that you have written today");
+
+                        }
+
                     }
                     catch
                     {
@@ -627,6 +647,16 @@ namespace Shifaa_EMR_System
 
 
         private void ProblemListView_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AddMedicationButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

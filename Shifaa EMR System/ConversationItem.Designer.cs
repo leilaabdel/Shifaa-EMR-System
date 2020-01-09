@@ -35,6 +35,8 @@
             this.ForwardButton = new System.Windows.Forms.Button();
             this.ReplyButton = new System.Windows.Forms.Button();
             this.EditDraftButton = new System.Windows.Forms.Button();
+            this.FromLabel = new System.Windows.Forms.Label();
+            this.ToLabel1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SenderLabel
@@ -42,7 +44,7 @@
             this.SenderLabel.AutoSize = true;
             this.SenderLabel.BackColor = System.Drawing.Color.White;
             this.SenderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SenderLabel.Location = new System.Drawing.Point(20, 14);
+            this.SenderLabel.Location = new System.Drawing.Point(63, 11);
             this.SenderLabel.Name = "SenderLabel";
             this.SenderLabel.Size = new System.Drawing.Size(55, 17);
             this.SenderLabel.TabIndex = 3;
@@ -53,7 +55,7 @@
             this.ReceiverNameLabel.AutoSize = true;
             this.ReceiverNameLabel.BackColor = System.Drawing.Color.White;
             this.ReceiverNameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9F);
-            this.ReceiverNameLabel.Location = new System.Drawing.Point(20, 60);
+            this.ReceiverNameLabel.Location = new System.Drawing.Point(48, 60);
             this.ReceiverNameLabel.Name = "ReceiverNameLabel";
             this.ReceiverNameLabel.Size = new System.Drawing.Size(53, 14);
             this.ReceiverNameLabel.TabIndex = 4;
@@ -75,7 +77,7 @@
             // 
             this.MessageContentBox.BackColor = System.Drawing.Color.White;
             this.MessageContentBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MessageContentBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.MessageContentBox.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.MessageContentBox.Location = new System.Drawing.Point(35, 98);
             this.MessageContentBox.Name = "MessageContentBox";
             this.MessageContentBox.ReadOnly = true;
@@ -131,12 +133,36 @@
             this.EditDraftButton.Text = " ";
             this.EditDraftButton.UseVisualStyleBackColor = false;
             // 
+            // FromLabel
+            // 
+            this.FromLabel.AutoSize = true;
+            this.FromLabel.BackColor = System.Drawing.Color.White;
+            this.FromLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.FromLabel.Location = new System.Drawing.Point(18, 11);
+            this.FromLabel.Name = "FromLabel";
+            this.FromLabel.Size = new System.Drawing.Size(45, 17);
+            this.FromLabel.TabIndex = 9;
+            this.FromLabel.Text = "From:";
+            // 
+            // ToLabel1
+            // 
+            this.ToLabel1.AutoSize = true;
+            this.ToLabel1.BackColor = System.Drawing.Color.White;
+            this.ToLabel1.Font = new System.Drawing.Font("Bahnschrift Light", 9F);
+            this.ToLabel1.Location = new System.Drawing.Point(20, 60);
+            this.ToLabel1.Name = "ToLabel1";
+            this.ToLabel1.Size = new System.Drawing.Size(22, 14);
+            this.ToLabel1.TabIndex = 10;
+            this.ToLabel1.Text = "To:";
+            // 
             // ConversationItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ToLabel1);
+            this.Controls.Add(this.FromLabel);
             this.Controls.Add(this.ForwardButton);
             this.Controls.Add(this.ReplyButton);
             this.Controls.Add(this.MessageContentBox);
@@ -161,6 +187,7 @@
         public System.Windows.Forms.Button ReplyButton;
         public System.Windows.Forms.Button ForwardButton;
         public System.Windows.Forms.Button EditDraftButton;
-   
+        private System.Windows.Forms.Label FromLabel;
+        private System.Windows.Forms.Label ToLabel1;
     }
 }

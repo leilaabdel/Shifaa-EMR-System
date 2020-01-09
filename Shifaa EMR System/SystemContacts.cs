@@ -19,6 +19,8 @@ namespace Shifaa_EMR_System
 
         private void SystemContacts_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterParent;
             // TODO: This line of code loads data into the 'eMRDatabaseDataSet.AllEmployees' table. You can move, or remove it, as needed.
             this.allEmployeesTableAdapter.Fill(this.eMRDatabaseDataSet.AllEmployees);
 

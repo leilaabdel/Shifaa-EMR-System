@@ -329,30 +329,6 @@
     <Parameter Name="AppointmentID" Parameter="appointmentID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.deletePatientAllergy" Method="deletePatientAllergy">
-    <Parameter Name="PatientAllergyID" Parameter="patientAllergyID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.deleteVitalSigns" Method="deleteVitalSigns">
-    <Parameter Name="VitalSignsID" Parameter="vitalSignsID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.deletePatientLab" Method="deletePatientLab">
-    <Parameter Name="PatientLabID" Parameter="patientLabID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.deletePatientPrescription" Method="deletePatientPrescription">
-    <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.deletePatientScan" Method="deletePatientScan">
-    <Parameter Name="ScanID" Parameter="scanID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.deleteProblem" Method="deleteProblem">
-    <Parameter Name="ProblemID" Parameter="problemID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.updateExistingProblem" Method="updateExistingProblem">
     <Parameter Name="ProblemID" Parameter="problemID" Type="System.Int32" DbType="Int" />
     <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(50)" />
@@ -410,10 +386,6 @@
     <Parameter Name="NoteTitle" Parameter="noteTitle" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
     <Parameter Name="NoteContent" Parameter="noteContent" Type="System.String" DbType="NVarChar(MAX)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.deletePatientNote" Method="deletePatientNote">
-    <Parameter Name="NoteID" Parameter="noteID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.authenticateProvider" Method="authenticateProvider">
@@ -708,24 +680,6 @@
     <Parameter Name="ReadOrNotRead" Parameter="readOrNotRead" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.updateMessageDraft" Method="updateMessageDraft">
-    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MessageIDNumber" Parameter="messageIDNumber" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.SendMessage" Method="SendMessage">
-    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MessageID" Parameter="messageID" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.getEmployeeNameByID" Method="getEmployeeNameByID">
     <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="getEmployeeNameByIDResult">
@@ -763,6 +717,65 @@
   </Function>
   <Function Name="dbo.deleteConversation" Method="deleteConversation">
     <Parameter Name="ConversationID" Parameter="conversationID" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SendMessage" Method="SendMessage">
+    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MessageID" Parameter="messageID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateMessageDraft" Method="updateMessageDraft">
+    <Parameter Name="MessageTitle" Parameter="messageTitle" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MessageContent" Parameter="messageContent" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DateTime" Parameter="dateTime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RecipientName" Parameter="recipientName" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="RecipientID" Parameter="recipientID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MessageIDNumber" Parameter="messageIDNumber" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteVitalSigns" Method="deleteVitalSigns">
+    <Parameter Name="VitalSignsID" Parameter="vitalSignsID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientLab" Method="deletePatientLab">
+    <Parameter Name="PatientLabID" Parameter="patientLabID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientNote" Method="deletePatientNote">
+    <Parameter Name="NoteID" Parameter="noteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientPrescription" Method="deletePatientPrescription">
+    <Parameter Name="PrescriptionID" Parameter="prescriptionID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientScan" Method="deletePatientScan">
+    <Parameter Name="ScanID" Parameter="scanID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteProblem" Method="deleteProblem">
+    <Parameter Name="ProblemID" Parameter="problemID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deletePatientAllergy" Method="deletePatientAllergy">
+    <Parameter Name="PatientAllergyID" Parameter="patientAllergyID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ProviderID" Parameter="providerID" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

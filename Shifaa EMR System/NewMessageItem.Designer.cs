@@ -64,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MessageContentBox.BackColor = System.Drawing.Color.White;
             this.MessageContentBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MessageContentBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.MessageContentBox.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.MessageContentBox.Location = new System.Drawing.Point(35, 98);
             this.MessageContentBox.Name = "MessageContentBox";
             this.MessageContentBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
@@ -98,9 +98,9 @@
             this.SubjectBox.Size = new System.Drawing.Size(592, 17);
             this.SubjectBox.TabIndex = 10;
             this.SubjectBox.Text = "Add a subject";
-            this.SubjectBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.SubjectBox.Click += new System.EventHandler(this.SubjectBoxClick);
-            this.SubjectBox.KeyDown += new System.EventHandler(this.SubjectKeyPress);
+            this.SubjectBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.SubjectBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SubjectKeyPress);
             // 
             // panel2
             // 
@@ -199,6 +199,7 @@
             this.Name = "NewMessageItem";
             this.Size = new System.Drawing.Size(800, 370);
             this.Load += new System.EventHandler(this.NewMessageItem_Load);
+            this.VisibleChanged += new System.EventHandler(this.NewMessageVisibleChanged);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();

@@ -68,19 +68,23 @@ namespace Shifaa_EMR_System
             this.westToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CancelButton2 = new System.Windows.Forms.Button();
             this.SelectProviderLabel = new System.Windows.Forms.Label();
             this.ProviderComboBox = new System.Windows.Forms.ComboBox();
             this.appointmentBox = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
             this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.schedulersBelongingToProviderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schedulersBelongingToProviderTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.CancelButton1 = new System.Windows.Forms.Button();
+            this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulersBelongingToProviderBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -330,21 +334,40 @@ namespace Shifaa_EMR_System
             // 
             this.splitter1.Location = new System.Drawing.Point(208, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(5, 1257);
+            this.splitter1.Size = new System.Drawing.Size(5, 1320);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.CancelButton2);
             this.panel1.Controls.Add(this.SelectProviderLabel);
             this.panel1.Controls.Add(this.ProviderComboBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(213, 1188);
+            this.panel1.Location = new System.Drawing.Point(213, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1183, 69);
+            this.panel1.Size = new System.Drawing.Size(1251, 69);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // CancelButton2
+            // 
+            this.CancelButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton2.AutoSize = true;
+            this.CancelButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelButton2.FlatAppearance.BorderSize = 0;
+            this.CancelButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.CancelButton2.Location = new System.Drawing.Point(1097, 16);
+            this.CancelButton2.Name = "CancelButton2";
+            this.CancelButton2.Size = new System.Drawing.Size(142, 35);
+            this.CancelButton2.TabIndex = 55;
+            this.CancelButton2.Text = "Cancel";
+            this.CancelButton2.UseVisualStyleBackColor = false;
+            this.CancelButton2.Click += new System.EventHandler(this.CancelButton2_Click);
             // 
             // SelectProviderLabel
             // 
@@ -376,50 +399,6 @@ namespace Shifaa_EMR_System
             this.appointmentBox.TabIndex = 0;
             this.appointmentBox.LostFocus += new System.EventHandler(this.appointmentBox_LostFocus);
             // 
-            // calendar1
-            // 
-            this.calendar1.AutoScroll = true;
-            this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
-            this.calendar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Sunday;
-            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("00:00:00");
-            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("00:00:00");
-            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
-            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
-            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
-            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
-            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Sunday;
-            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
-            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
-            this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
-        calendarHighlightRange1,
-        calendarHighlightRange2,
-        calendarHighlightRange3,
-        calendarHighlightRange4,
-        calendarHighlightRange5};
-            this.calendar1.Location = new System.Drawing.Point(213, 0);
-            this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(1183, 1188);
-            this.calendar1.TabIndex = 2;
-            this.calendar1.Text = "calendar1";
-            this.calendar1.TextBox = null;
-            this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems);
-            this.calendar1.DayHeaderClick += new System.Windows.Forms.Calendar.Calendar.CalendarDayEventHandler(this.calendar1_DayHeaderClick);
-            this.calendar1.ItemCreating += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreating);
-            this.calendar1.ItemCreated += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreated);
-            this.calendar1.ItemDeleted += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemDeleted);
-            this.calendar1.ItemDatesChanged += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_DateChanged);
-            this.calendar1.ItemClick += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemClick);
-            this.calendar1.ItemMouseHover += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemMouseHover);
-            this.calendar1.DragOver += new System.Windows.Forms.DragEventHandler(this.calender1_DragOver);
-            this.calendar1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.calendar1_MouseMove);
-            // 
             // monthView1
             // 
             this.monthView1.ArrowsColor = System.Drawing.SystemColors.Window;
@@ -438,7 +417,7 @@ namespace Shifaa_EMR_System
             this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(208, 1257);
+            this.monthView1.Size = new System.Drawing.Size(208, 1320);
             this.monthView1.TabIndex = 3;
             this.monthView1.Text = "monthView1";
             this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
@@ -458,14 +437,80 @@ namespace Shifaa_EMR_System
             // 
             this.schedulersBelongingToProviderTableAdapter.ClearBeforeFill = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.CancelButton1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(213, 69);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1251, 57);
+            this.panel2.TabIndex = 2;
+            // 
+            // CancelButton1
+            // 
+            this.CancelButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton1.AutoSize = true;
+            this.CancelButton1.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelButton1.FlatAppearance.BorderSize = 0;
+            this.CancelButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.CancelButton1.Location = new System.Drawing.Point(1097, 10);
+            this.CancelButton1.Name = "CancelButton1";
+            this.CancelButton1.Size = new System.Drawing.Size(142, 35);
+            this.CancelButton1.TabIndex = 54;
+            this.CancelButton1.Text = "Cancel";
+            this.CancelButton1.UseVisualStyleBackColor = false;
+            this.CancelButton1.Click += new System.EventHandler(this.CancelButton1_Click);
+            // 
+            // calendar1
+            // 
+            this.calendar1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
+            calendarHighlightRange1.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange1.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange2.DayOfWeek = System.DayOfWeek.Tuesday;
+            calendarHighlightRange2.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange2.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange3.DayOfWeek = System.DayOfWeek.Wednesday;
+            calendarHighlightRange3.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange3.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange4.DayOfWeek = System.DayOfWeek.Thursday;
+            calendarHighlightRange4.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange4.StartTime = System.TimeSpan.Parse("08:00:00");
+            calendarHighlightRange5.DayOfWeek = System.DayOfWeek.Friday;
+            calendarHighlightRange5.EndTime = System.TimeSpan.Parse("17:00:00");
+            calendarHighlightRange5.StartTime = System.TimeSpan.Parse("08:00:00");
+            this.calendar1.HighlightRanges = new System.Windows.Forms.Calendar.CalendarHighlightRange[] {
+        calendarHighlightRange1,
+        calendarHighlightRange2,
+        calendarHighlightRange3,
+        calendarHighlightRange4,
+        calendarHighlightRange5};
+            this.calendar1.Location = new System.Drawing.Point(213, 126);
+            this.calendar1.Name = "calendar1";
+            this.calendar1.Size = new System.Drawing.Size(1251, 1194);
+            this.calendar1.TabIndex = 6;
+            this.calendar1.Text = "calendar2";
+            this.calendar1.TextBox = null;
+            this.calendar1.LoadItems += new System.Windows.Forms.Calendar.Calendar.CalendarLoadEventHandler(this.calendar1_LoadItems_1);
+            this.calendar1.ItemCreating += new System.Windows.Forms.Calendar.Calendar.CalendarItemCancelEventHandler(this.calendar1_ItemCreating);
+            this.calendar1.ItemDatesChanged += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_DateChanged);
+            this.calendar1.ItemClick += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemClick);
+            this.calendar1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.calendar1_MouseMove);
+            // 
             // SchedulingCalendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1413, 620);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1481, 620);
+            this.ControlBox = false;
             this.Controls.Add(this.calendar1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.monthView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -479,13 +524,29 @@ namespace Shifaa_EMR_System
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulersBelongingToProviderBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
+        private void Calendar1_ItemDoubleClick(object sender, System.Windows.Forms.Calendar.CalendarItemEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void Calendar1_ItemCreating(object sender, System.Windows.Forms.Calendar.CalendarItemCancelEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void Calendar1_ItemDatesChanged(object sender, System.Windows.Forms.Calendar.CalendarItemEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
         private System.Windows.Forms.Label appointmentBox;
-        private System.Windows.Forms.Calendar.Calendar calendar1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem redTagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yellowTagToolStripMenuItem;
@@ -527,6 +588,10 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.BindingSource schedulersBelongingToProviderBindingSource;
         private EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter schedulersBelongingToProviderTableAdapter;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Calendar.Calendar calendar1;
+        private System.Windows.Forms.Button CancelButton2;
+        private System.Windows.Forms.Button CancelButton1;
     }
 }
 

@@ -49,7 +49,9 @@ namespace Shifaa_EMR_System
 
             ProviderComboBox.Hide();
             SelectProviderLabel.Hide();
+
             panel1.Hide();
+
             calendar1.Location = new Point(213, 0);
             calendar1.Dock = DockStyle.Top;
 
@@ -60,6 +62,7 @@ namespace Shifaa_EMR_System
             this.WindowState = FormWindowState.Maximized;
             Type = "Provider";
 
+            CancelButton2.Hide();
 
         }
 
@@ -81,10 +84,12 @@ namespace Shifaa_EMR_System
             ProviderComboBox.ValueMember = "ProviderID";
 
             ProviderComboBox.DataSource = providersForScheduler;
-
+            panel2.Hide();
+            CancelButton1.Hide();
             calendar1.Location = new Point(213, 75);
             calendar1.Dock = DockStyle.Bottom;
             panel1.Dock = DockStyle.Top;
+          
 
             calendar1.SetViewRange(DateTime.Today, DateTime.Today.Add(new TimeSpan(7, 0, 0, 0)));
 
@@ -112,11 +117,11 @@ namespace Shifaa_EMR_System
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            this.WindowState = FormWindowState.Maximized;
             _items.Clear();
 
             this.WindowState = FormWindowState.Maximized;
-            
+
+            ProviderComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             calendar1.Items.Clear();
 
@@ -217,21 +222,13 @@ namespace Shifaa_EMR_System
             return _items;
         }
 
-        public void SetCalendarItems(List<CalendarItem> items)
-        {
-            this._items = items;
-        }
-
 
         public int GetAppointmentID()
         {
             return selectedAppointmentID;
         }
 
-        private void calendar1_LoadItems(object sender, CalendarLoadEventArgs e)
-        {
-            PlaceItems(_items);
-        }
+      
 
         public void PlaceItems(List<CalendarItem> items)
         {
@@ -308,19 +305,7 @@ namespace Shifaa_EMR_System
 
 
         }
-        private void calendar1_ItemCreated(object sender, CalendarItemCancelEventArgs e)
-        {
-
-
-            //calendar1.ActivateEditMode(e.Item);
-
-
-
-
-
-
-
-        }
+     
         private void calendar1_MouseMove(object sender, MouseEventArgs e)
         {
             System.Windows.Forms.Calendar.CalendarItem i = calendar1.ItemAt(calendar1.PointToClient(Cursor.Position));
@@ -340,10 +325,6 @@ namespace Shifaa_EMR_System
             
         }
 
-        private void calendar1_ItemMouseHover(object sender, CalendarItemEventArgs e)
-        {
-            //toolTip1.Show(e.Item.Text, this, MousePosition.X, MousePosition.Y);
-        }
 
         private void calendar1_ItemClick(object sender, CalendarItemEventArgs e)
         {
@@ -519,12 +500,6 @@ namespace Shifaa_EMR_System
             }
         }
 
-        private void calendar1_ItemDeleted(object sender, CalendarItemEventArgs e)
-        {
-
-
-
-        }
 
         private void calendar1_DayHeaderClick(object sender, CalendarDayEventArgs e)
         {
@@ -641,7 +616,7 @@ namespace Shifaa_EMR_System
 
 
             string selectedProviderID = (String)ProviderComboBox.SelectedValue;
-            string selectedProividerName = (String)ProviderComboBox.SelectedText;
+            _ = (String)ProviderComboBox.Text;
             if (!providerIDList.Contains(selectedProviderID))
             {
                 providerIDList.Add(selectedProviderID);
@@ -729,6 +704,21 @@ namespace Shifaa_EMR_System
             {
                 _type = value;
             }
+        }
+
+        private void CancelButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void calendar1_LoadItems_1(object sender, CalendarLoadEventArgs e)
+        {
+            PlaceItems(_items);
+        }
+
+        private void CancelButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

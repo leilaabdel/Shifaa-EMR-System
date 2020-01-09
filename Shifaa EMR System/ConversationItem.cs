@@ -64,7 +64,7 @@ namespace Shifaa_EMR_System
         public string MessageContent
         {
             get { return _messageContent; }
-            set { _messageContent = value; }
+            set { _messageContent = value; MessageContentBox.Text = value; }
         }
 
         public DateTime Date
@@ -76,24 +76,24 @@ namespace Shifaa_EMR_System
         public string SenderName
         {
             get { return _senderName; }
-            set { _senderName = value; }
+            set { _senderName = value; SenderLabel.Text = value; }
         }
         public string SenderID
         {
             get { return _senderID; }
-            set { _senderID = value; }
+            set { _senderID = value;  }
         }
 
         public string ReceiverName
         {
             get { return _receiverName; }
-            set { _receiverName = value; }
+            set { _receiverName = value; ReceiverNameLabel.Text = value; }
         }
 
         public string Subject
         { 
             get { return _subject; }
-            set { _subject = value; }
+            set { _subject = value;  }
         }
 
         public string ReadOrNotRead

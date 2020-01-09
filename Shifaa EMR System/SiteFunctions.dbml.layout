@@ -155,21 +155,21 @@
         <classShapeMoniker Id="8b98a571-2f04-4657-90f3-5c679da70bfa" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 18.9046541341146); (6.32291666666667 : 18.9046541341146 : JumpStart); (6.48958333333333 : 18.9046541341146 : JumpEnd); (6.5 : 18.9046541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 18.9046541341146); (6.5 : 18.9046541341146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Patient/Patient_Prescription" />
       <nodes>
         <classShapeMoniker Id="6be5e0d5-2b34-4025-8331-fb5486412132" />
         <classShapeMoniker Id="2cc450ca-cab9-4975-8dd8-0df773eb2147" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.6875025 : 16.875); (5.6875025 : 13.3277498372396); (14.375 : 13.3277498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.6875025 : 16.875); (5.6875025 : 13.3277498372396); (7.41666666666667 : 13.3277498372396 : JumpStart); (7.58333333333333 : 13.3277498372396 : JumpEnd); (14.375 : 13.3277498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Patient/Patient_Problem" />
       <nodes>
         <classShapeMoniker Id="6be5e0d5-2b34-4025-8331-fb5486412132" />
         <classShapeMoniker Id="5eb8b770-c46c-4340-97ce-3ccdaccd207f" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 17.03125); (18.96875 : 17.03125); (18.96875 : 18.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 17.03125); (17.5104166666667 : 17.03125 : JumpStart); (17.6770833333333 : 17.03125 : JumpEnd); (18.96875 : 17.03125); (18.96875 : 18.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Patient/Patient_VitalSign" />
       <nodes>
         <classShapeMoniker Id="6be5e0d5-2b34-4025-8331-fb5486412132" />
@@ -208,7 +208,7 @@
         <classShapeMoniker Id="00bea91f-78c6-473a-baca-06483e8ac8db" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 2.44399251302083); (1.75 : 7.7334323844401); (27.125 : 7.7334323844401)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.75 : 2.44399251302083); (1.75 : 7.7334323844401); (7.41666666666667 : 7.7334323844401 : JumpStart); (7.58333333333333 : 7.7334323844401 : JumpEnd); (27.125 : 7.7334323844401)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/SchedulerHashTable1/SchedulerHashTable1_SchedulerInfo" />
       <nodes>
         <classShapeMoniker Id="acb0adb7-a005-4f39-b47f-1192e048c0c9" />
@@ -268,7 +268,7 @@
         <classShapeMoniker Id="b09f8402-5782-4362-b02f-7e3aacc2619b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(20 : 24.5421033300781); (6.9843775 : 24.5421033300781); (6.9843775 : 32.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(20 : 24.5421033300781); (13.4583333333333 : 24.5421033300781 : JumpStart); (13.2916666666667 : 24.5421033300781 : JumpEnd); (6.9843775 : 24.5421033300781); (6.9843775 : 32.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SiteFunctionsDataContext/Physician_Login_Info/Physician_Login_Info_PatientProviderRelation" />
       <nodes>
         <classShapeMoniker Id="ec6ea8d5-4551-4376-b9bc-9da04bfe7858" />
