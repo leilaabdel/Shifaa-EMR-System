@@ -125,7 +125,12 @@ namespace Shifaa_EMR_System
                 this.TemperatureValueLabel.Text = vital.Temperature + " °C";
                 this.WeightValueLabel.Text = vital.Weight + " Kg";
                 this.HeightValueLabel.Text = vital.Height + " cm";
-                Double BMI = Double.Parse(vital.BMI);
+                Double BMI = 0.0;
+                if(vital.BMI == "0")
+                {
+                    BMI = 0.0;
+                }
+                else BMI = Double.Parse(vital.BMI);
 
                 this.BMIValueLabel.Text = Math.Round(BMI, 2).ToString() + " Kg/m²";
              
@@ -187,6 +192,13 @@ namespace Shifaa_EMR_System
             this.problemTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Problem, thisPatientID);
             this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment, thisPatientID);
 
+            this.AutoScroll = false;
+
+            // disable horizontal scrollbar
+            this.HorizontalScroll.Enabled = false;
+
+            // restore AutoScroll
+            this.AutoScroll = true;
 
 
         }
@@ -296,7 +308,7 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["NewVital"] as NewVital == null)
             {
-                NewVital newVital = new NewVital(thisPatientID)
+                NewVital newVital = new NewVital(thisPatientID, this)
                 {
                     Owner = this
                 };

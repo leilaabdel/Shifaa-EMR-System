@@ -43,11 +43,11 @@
             // Button1
             // 
             this.Button1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button1.Location = new System.Drawing.Point(177, 366);
+            this.Button1.Location = new System.Drawing.Point(166, 305);
             this.Button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Button1.Name = "Button1";
             this.Button1.Size = new System.Drawing.Size(119, 47);
-            this.Button1.TabIndex = 14;
+            this.Button1.TabIndex = 5;
             this.Button1.Text = "Exit";
             this.Button1.UseVisualStyleBackColor = true;
             this.Button1.Click += new System.EventHandler(this.Button1_Click);
@@ -55,38 +55,39 @@
             // Login
             // 
             this.Login.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login.Location = new System.Drawing.Point(470, 366);
+            this.Login.Location = new System.Drawing.Point(459, 305);
             this.Login.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(119, 47);
-            this.Login.TabIndex = 13;
+            this.Login.TabIndex = 3;
             this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
             this.Login.Click += new System.EventHandler(this.Login_Click);
+            this.Login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterKeyPress);
             // 
             // PasscodeBox
             // 
             this.PasscodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasscodeBox.Location = new System.Drawing.Point(318, 262);
+            this.PasscodeBox.Location = new System.Drawing.Point(329, 220);
             this.PasscodeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PasscodeBox.Name = "PasscodeBox";
             this.PasscodeBox.Size = new System.Drawing.Size(189, 23);
-            this.PasscodeBox.TabIndex = 12;
+            this.PasscodeBox.TabIndex = 2;
             // 
             // UserNameBox
             // 
             this.UserNameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameBox.Location = new System.Drawing.Point(318, 217);
+            this.UserNameBox.Location = new System.Drawing.Point(329, 175);
             this.UserNameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UserNameBox.Name = "UserNameBox";
             this.UserNameBox.Size = new System.Drawing.Size(189, 23);
-            this.UserNameBox.TabIndex = 11;
+            this.UserNameBox.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(202, 258);
+            this.label3.Location = new System.Drawing.Point(213, 216);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 23);
             this.label3.TabIndex = 10;
@@ -96,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(195, 213);
+            this.label2.Location = new System.Drawing.Point(206, 171);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 9;
@@ -110,7 +111,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 47);
+            this.panel2.Size = new System.Drawing.Size(731, 47);
             this.panel2.TabIndex = 8;
             // 
             // label1
@@ -126,11 +127,11 @@
             // Back
             // 
             this.Back.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back.Location = new System.Drawing.Point(324, 366);
+            this.Back.Location = new System.Drawing.Point(313, 305);
             this.Back.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(119, 47);
-            this.Back.TabIndex = 15;
+            this.Back.TabIndex = 4;
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = true;
             this.Back.Click += new System.EventHandler(this.Back_Click);
@@ -139,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(731, 445);
             this.ControlBox = false;
             this.Controls.Add(this.Back);
             this.Controls.Add(this.Button1);
@@ -149,7 +150,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SchedulerLogin";
             this.Text = "Scheduler Login";
             this.Load += new System.EventHandler(this.SchedulerLogin_Load);

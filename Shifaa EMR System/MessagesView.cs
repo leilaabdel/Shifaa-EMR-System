@@ -31,7 +31,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
             RecipientID = recipientID;
             Console.WriteLine(recipientID);
-            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID);
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID , "Sent" , "In");
             _employeeInfo = this.allEmployeesTableAdapter1.GetDataByEmployeeID(recipientID);
             _employeeInfo.Columns.Add("EmployeeName", typeof(string), "FirstName + ' ' + LastName + ' | ' + JobType");
 
@@ -99,7 +99,7 @@ namespace Shifaa_EMR_System
 
             ConversationFlowPanel.Controls.Clear();
 
-            _conversationTable = messageTableAdapter.GetDataByConversationID(conversationID);
+            _conversationTable = messageTableAdapter.GetDataByConversationID(conversationID , RecipientID , "In");
           
             _conversationID = conversationID;
             Console.WriteLine("Populate message convo ID is" + _conversationID);
@@ -186,13 +186,25 @@ namespace Shifaa_EMR_System
             string conversationID = listItem.ConversationID;
             doAction.deleteConversation(conversationID);
 
-            foreach(ConversationItem item in ConversationFlowPanel.Controls)
+
+            for(int i = 0; i < ConversationFlowPanel.Controls.Count; i++)
             {
-                if(item.ConversationID == conversationID)
+               
+                if(ConversationFlowPanel.Controls[i].GetType() == typeof(ConversationItem))
                 {
+                    ConversationItem item = (ConversationItem)ConversationFlowPanel.Controls[i];
                     item.Hide();
-                    item.Dispose(); 
+                    item.Dispose();
+
                 }
+                else
+                {
+                    NewMessageItem item = (NewMessageItem)ConversationFlowPanel.Controls[i];
+                    item.Hide();
+                    item.Dispose();
+
+                }
+
             }
         }
 
@@ -252,12 +264,12 @@ namespace Shifaa_EMR_System
         {
             Button clickedButton = (Button)sender;
             ConversationItem item = (ConversationItem)clickedButton.Parent;
-            DataTable _messageForID = messageTableAdapter.GetDataByMessageIDNumber(item.MessageID);
+            DataTable _messageForID = messageTableAdapter.GetDataByMessageIDNumber(item.MessageID, "In");
 
 
 
 
-            NewMessageItem draftToEdit = new NewMessageItem(_conversationID , MessageTitleLabel)
+            NewMessageItem draftToEdit = new NewMessageItem(_conversationID, MessageTitleLabel)
             {
                 Subject = (String)_messageForID.Rows[0]["MessageTitle"],
                 SenderName = (String)_messageForID.Rows[0]["SenderName"],
@@ -265,12 +277,13 @@ namespace Shifaa_EMR_System
                 ReceiverName = (String)_messageForID.Rows[0]["RecipientName"],
                 ReceiverID = (String)_messageForID.Rows[0]["RecipientID"],
                 MessageContent = (String)_messageForID.Rows[0]["MessageContent"],
-                Width = ConversationFlowPanel.Width
+                Width = ConversationFlowPanel.Width - 10
 
 
             };
 
             ConversationFlowPanel.Controls.Add(draftToEdit);
+            draftToEdit.Width = ConversationFlowPanel.Width - 10;
 
   
 
@@ -318,7 +331,9 @@ namespace Shifaa_EMR_System
         private void MessagesView_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-           
+            this.ConversationFlowPanel.AutoScroll = false;
+            this.ConversationFlowPanel.HorizontalScroll.Enabled = false;
+            this.ConversationFlowPanel.AutoScroll = true;
             PopulateMessages(_messagesTable);
 
 
@@ -368,14 +383,14 @@ namespace Shifaa_EMR_System
 
         private void InboxButton_Click(object sender, EventArgs e)
         {
-            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID);
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID ,"Sent" , "In");
             PopulateMessages(_messagesTable);
             TypeLabel.Text = "Inbox";
         }
 
         private void SentButton_Click(object sender, EventArgs e)
         {
-            _messagesTable = this.messageTableAdapter.GetDataBySent(this.RecipientID);
+            _messagesTable = this.messageTableAdapter.GetDataBySent(this.RecipientID, "Sent" , "Out");
             PopulateMessages(_messagesTable);
             TypeLabel.Text = "Sent";
 

@@ -32,6 +32,11 @@ namespace Shifaa_EMR_System
                 searchBox.Text, searchBox.Text, searchBox.Text, searchBox.Text);
         }
 
+        private void SearchBoxClicked(object sender, EventArgs e)
+        {
+            if (searchBox.Text == "Search Contacts") searchBox.Text = null;
+        }
+
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();

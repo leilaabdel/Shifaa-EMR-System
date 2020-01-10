@@ -56,17 +56,29 @@ namespace Shifaa_EMR_System
             if (String.IsNullOrWhiteSpace(MedicationBox.Text)) MessageBox.Show("Please enter a valid medication name");
             else
             {
+                string type = "";
 
                 try
                 {
+                    if (HomeMedicationButton.Checked)
+                    {
+                        type = HomeMedicationButton.Text;
+                    }
+
+                    else if (NewRxButton.Checked)
+                    {
+                        type = NewRxButton.Text;
+                    }
+
                     doAction.createNewPrescription(MedicationBox.Text, AmountBox.Text, StrengthBox.Text,
-                    RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID, DateTime.Today);
+                    RouteBox.Text, FrequencyBox.Text, RefillsBox.Text, thisPatientID, thisProviderName, thisProviderID, type, DateTime.Today);
                     ((PatientHomePage)this.Owner).prescriptionTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Prescription, thisPatientID);
 
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Please enter the medication name");
+                    throw (ex);
+                    //MessageBox.Show("Please enter the medication name");
                 }
             }
        

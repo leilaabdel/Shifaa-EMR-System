@@ -48,7 +48,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(747, 47);
+            this.panel2.Size = new System.Drawing.Size(731, 47);
             this.panel2.TabIndex = 1;
             // 
             // label1
@@ -65,7 +65,7 @@
             // 
             this.UsernameLabel.AutoSize = true;
             this.UsernameLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.Location = new System.Drawing.Point(195, 213);
+            this.UsernameLabel.Location = new System.Drawing.Point(185, 177);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(100, 23);
             this.UsernameLabel.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             this.PassCodeLabel.AutoSize = true;
             this.PassCodeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassCodeLabel.Location = new System.Drawing.Point(202, 258);
+            this.PassCodeLabel.Location = new System.Drawing.Point(192, 222);
             this.PassCodeLabel.Name = "PassCodeLabel";
             this.PassCodeLabel.Size = new System.Drawing.Size(94, 23);
             this.PassCodeLabel.TabIndex = 3;
@@ -84,41 +84,42 @@
             // UsernameBox
             // 
             this.UsernameBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameBox.Location = new System.Drawing.Point(318, 217);
+            this.UsernameBox.Location = new System.Drawing.Point(308, 181);
             this.UsernameBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UsernameBox.Name = "UsernameBox";
             this.UsernameBox.Size = new System.Drawing.Size(189, 23);
-            this.UsernameBox.TabIndex = 4;
+            this.UsernameBox.TabIndex = 1;
             // 
             // PassCodeBox
             // 
             this.PassCodeBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassCodeBox.Location = new System.Drawing.Point(318, 262);
+            this.PassCodeBox.Location = new System.Drawing.Point(308, 226);
             this.PassCodeBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PassCodeBox.Name = "PassCodeBox";
             this.PassCodeBox.Size = new System.Drawing.Size(189, 23);
-            this.PassCodeBox.TabIndex = 5;
+            this.PassCodeBox.TabIndex = 2;
             // 
             // LoginButton
             // 
             this.LoginButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(470, 366);
+            this.LoginButton.Location = new System.Drawing.Point(460, 330);
             this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(119, 47);
-            this.LoginButton.TabIndex = 6;
+            this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.Login_Click);
+            this.LoginButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EnterKeyPress);
             // 
             // BackButton
             // 
             this.BackButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.Location = new System.Drawing.Point(324, 366);
+            this.BackButton.Location = new System.Drawing.Point(314, 330);
             this.BackButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(119, 47);
-            this.BackButton.TabIndex = 7;
+            this.BackButton.TabIndex = 4;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.Button1_Click);
@@ -126,11 +127,11 @@
             // ExitButton
             // 
             this.ExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitButton.Location = new System.Drawing.Point(177, 366);
+            this.ExitButton.Location = new System.Drawing.Point(167, 330);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(119, 47);
-            this.ExitButton.TabIndex = 8;
+            this.ExitButton.TabIndex = 5;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.Button2_Click);
@@ -139,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 484);
+            this.ClientSize = new System.Drawing.Size(731, 445);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.LoginButton);

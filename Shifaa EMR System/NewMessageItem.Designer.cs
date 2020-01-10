@@ -68,7 +68,7 @@
             this.MessageContentBox.Location = new System.Drawing.Point(35, 98);
             this.MessageContentBox.Name = "MessageContentBox";
             this.MessageContentBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.MessageContentBox.Size = new System.Drawing.Size(727, 204);
+            this.MessageContentBox.Size = new System.Drawing.Size(555, 207);
             this.MessageContentBox.TabIndex = 6;
             this.MessageContentBox.Text = "";
             this.MessageContentBox.TextChanged += new System.EventHandler(this.MessageContentBox_TextChanged);
@@ -85,17 +85,19 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Location = new System.Drawing.Point(0, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 2);
+            this.panel1.Size = new System.Drawing.Size(635, 2);
             this.panel1.TabIndex = 9;
             // 
             // SubjectBox
             // 
+            this.SubjectBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SubjectBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SubjectBox.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.SubjectBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.SubjectBox.Location = new System.Drawing.Point(23, 54);
             this.SubjectBox.Name = "SubjectBox";
-            this.SubjectBox.Size = new System.Drawing.Size(592, 17);
+            this.SubjectBox.Size = new System.Drawing.Size(492, 17);
             this.SubjectBox.TabIndex = 10;
             this.SubjectBox.Text = "Add a subject";
             this.SubjectBox.Click += new System.EventHandler(this.SubjectBoxClick);
@@ -109,7 +111,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Location = new System.Drawing.Point(0, 82);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 2);
+            this.panel2.Size = new System.Drawing.Size(635, 2);
             this.panel2.TabIndex = 10;
             // 
             // panel4
@@ -118,9 +120,9 @@
             this.panel4.Controls.Add(this.DiscardButton);
             this.panel4.Controls.Add(this.SendMessageButton);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 320);
+            this.panel4.Location = new System.Drawing.Point(0, 311);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 50);
+            this.panel4.Size = new System.Drawing.Size(635, 50);
             this.panel4.TabIndex = 12;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
@@ -161,11 +163,13 @@
             // 
             // ReceiverComboBox
             // 
+            this.ReceiverComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ReceiverComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ReceiverComboBox.FormattingEnabled = true;
             this.ReceiverComboBox.Location = new System.Drawing.Point(51, 12);
             this.ReceiverComboBox.Name = "ReceiverComboBox";
-            this.ReceiverComboBox.Size = new System.Drawing.Size(713, 21);
+            this.ReceiverComboBox.Size = new System.Drawing.Size(571, 21);
             this.ReceiverComboBox.TabIndex = 13;
             this.ReceiverComboBox.SelectedIndexChanged += new System.EventHandler(this.ReceiverComboBox_SelectedIndexChanged);
             // 
@@ -197,7 +201,7 @@
             this.Controls.Add(this.MessageContentBox);
             this.Controls.Add(this.ToLabel);
             this.Name = "NewMessageItem";
-            this.Size = new System.Drawing.Size(800, 370);
+            this.Size = new System.Drawing.Size(635, 361);
             this.Load += new System.EventHandler(this.NewMessageItem_Load);
             this.VisibleChanged += new System.EventHandler(this.NewMessageVisibleChanged);
             this.panel4.ResumeLayout(false);

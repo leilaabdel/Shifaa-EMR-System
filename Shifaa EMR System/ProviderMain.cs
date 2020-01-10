@@ -82,6 +82,13 @@ namespace Shifaa_EMR_System
 
         public void Button2_Click(object sender, EventArgs e)
         {
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
 
             if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
@@ -111,6 +118,13 @@ namespace Shifaa_EMR_System
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
 
             if (Application.OpenForms["NewPatient"] as NewPatient == null)
             {
@@ -150,6 +164,14 @@ namespace Shifaa_EMR_System
 
         private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
+
             if (e.KeyChar == (char)Keys.Return && Application.OpenForms["PatientListView"] as PatientListView == null )
 
             {
@@ -196,6 +218,14 @@ namespace Shifaa_EMR_System
 
         private void ContactsToolStripItem_Click(object sender, EventArgs e)
         {
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
+
             if (Application.OpenForms["SystemContacts"] as SystemContacts == null)
             {
                 SystemContacts systemContacts = new SystemContacts()
@@ -211,6 +241,14 @@ namespace Shifaa_EMR_System
 
         private void MessagesToolStripItem_Click(object sender, EventArgs e)
         {
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
+
             if (Application.OpenForms["MessagesView"] as MessagesView == null)
             {
                 MessagesView messagesView = new MessagesView(this.thisProviderID)

@@ -55,9 +55,9 @@ namespace Shifaa_EMR_System
                     ((PatientHomePage)this.Owner).allergieTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.Allergie, thispatientID);
                     this.Close();
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Please enter an allergy or close the current page");
+                    throw (ex);
                 }
             }
 

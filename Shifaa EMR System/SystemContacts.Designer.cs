@@ -264,6 +264,7 @@
             this.searchBox.TabIndex = 53;
             this.searchBox.Text = "Search Contacts";
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.searchBox.Click += new System.EventHandler(this.SearchBoxClicked);
             // 
             // SystemContacts
             // 

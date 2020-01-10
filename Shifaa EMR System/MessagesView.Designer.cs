@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.MessageTitleLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.TypeLabel = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.allEmployeesTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
             this.ConversationFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,9 +69,27 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1480, 69);
+            this.panel2.Size = new System.Drawing.Size(1088, 69);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelButton.AutoSize = true;
+            this.CancelButton.BackColor = System.Drawing.SystemColors.Control;
+            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CancelButton.FlatAppearance.BorderSize = 0;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
+            this.CancelButton.Location = new System.Drawing.Point(930, 19);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(142, 35);
+            this.CancelButton.TabIndex = 53;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // MessageTitleLabel
             // 
@@ -141,7 +159,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 119);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 863);
+            this.panel1.Size = new System.Drawing.Size(200, 801);
             this.panel1.TabIndex = 7;
             // 
             // DraftsButton
@@ -214,7 +232,7 @@
             this.messageListFlowPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.messageListFlowPanel.Location = new System.Drawing.Point(200, 119);
             this.messageListFlowPanel.Name = "messageListFlowPanel";
-            this.messageListFlowPanel.Size = new System.Drawing.Size(273, 863);
+            this.messageListFlowPanel.Size = new System.Drawing.Size(273, 801);
             this.messageListFlowPanel.TabIndex = 9;
             this.messageListFlowPanel.Click += new System.EventHandler(this.MessageListFlowPanelClick);
             this.messageListFlowPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.messageListFlowPanel_Paint);
@@ -275,39 +293,20 @@
             // ConversationFlowPanel
             // 
             this.ConversationFlowPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.ConversationFlowPanel.AutoScroll = true;
             this.ConversationFlowPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ConversationFlowPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ConversationFlowPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConversationFlowPanel.Location = new System.Drawing.Point(473, 119);
             this.ConversationFlowPanel.Name = "ConversationFlowPanel";
-            this.ConversationFlowPanel.Size = new System.Drawing.Size(1007, 863);
+            this.ConversationFlowPanel.Size = new System.Drawing.Size(615, 801);
             this.ConversationFlowPanel.TabIndex = 7;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.AutoSize = true;
-            this.CancelButton.BackColor = System.Drawing.SystemColors.Control;
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CancelButton.FlatAppearance.BorderSize = 0;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton.Location = new System.Drawing.Point(1322, 19);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(142, 35);
-            this.CancelButton.TabIndex = 53;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = false;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // MessagesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1480, 982);
+            this.ClientSize = new System.Drawing.Size(1088, 920);
             this.ControlBox = false;
             this.Controls.Add(this.ConversationFlowPanel);
             this.Controls.Add(this.messageListFlowPanel);

@@ -53,6 +53,10 @@
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.prescriptionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prescriptionTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter();
+            this.HomeMedicationButton = new System.Windows.Forms.RadioButton();
+            this.NewRxButton = new System.Windows.Forms.RadioButton();
+            this.TypeLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prescriptionBindingSource)).BeginInit();
@@ -91,9 +95,9 @@
             this.NewPrescriptionLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
             this.NewPrescriptionLabel.Location = new System.Drawing.Point(12, 9);
             this.NewPrescriptionLabel.Name = "NewPrescriptionLabel";
-            this.NewPrescriptionLabel.Size = new System.Drawing.Size(133, 19);
+            this.NewPrescriptionLabel.Size = new System.Drawing.Size(122, 19);
             this.NewPrescriptionLabel.TabIndex = 29;
-            this.NewPrescriptionLabel.Text = "New Prescription";
+            this.NewPrescriptionLabel.Text = "New Medication";
             // 
             // MedicationNameLabel
             // 
@@ -223,7 +227,7 @@
             this.SubmitButton.FlatAppearance.BorderSize = 0;
             this.SubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SubmitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SubmitButton.Location = new System.Drawing.Point(200, 302);
+            this.SubmitButton.Location = new System.Drawing.Point(204, 385);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(86, 33);
             this.SubmitButton.TabIndex = 45;
@@ -257,12 +261,57 @@
             // 
             this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
+            // HomeMedicationButton
+            // 
+            this.HomeMedicationButton.AutoSize = true;
+            this.HomeMedicationButton.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.HomeMedicationButton.Location = new System.Drawing.Point(204, 297);
+            this.HomeMedicationButton.Name = "HomeMedicationButton";
+            this.HomeMedicationButton.Size = new System.Drawing.Size(74, 20);
+            this.HomeMedicationButton.TabIndex = 48;
+            this.HomeMedicationButton.TabStop = true;
+            this.HomeMedicationButton.Text = "At Home";
+            this.HomeMedicationButton.UseVisualStyleBackColor = true;
+            // 
+            // NewRxButton
+            // 
+            this.NewRxButton.AutoSize = true;
+            this.NewRxButton.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F);
+            this.NewRxButton.Location = new System.Drawing.Point(322, 297);
+            this.NewRxButton.Name = "NewRxButton";
+            this.NewRxButton.Size = new System.Drawing.Size(69, 20);
+            this.NewRxButton.TabIndex = 49;
+            this.NewRxButton.TabStop = true;
+            this.NewRxButton.Text = "New Rx";
+            this.NewRxButton.UseVisualStyleBackColor = true;
+            // 
+            // TypeLabel
+            // 
+            this.TypeLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.Clock;
+            this.TypeLabel.AutoSize = true;
+            this.TypeLabel.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TypeLabel.Location = new System.Drawing.Point(15, 301);
+            this.TypeLabel.Name = "TypeLabel";
+            this.TypeLabel.Size = new System.Drawing.Size(34, 16);
+            this.TypeLabel.TabIndex = 50;
+            this.TypeLabel.Text = "Type";
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(185, 277);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(230, 72);
+            this.panel2.TabIndex = 51;
+            // 
             // NewPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 388);
+            this.ClientSize = new System.Drawing.Size(482, 441);
             this.ControlBox = false;
+            this.Controls.Add(this.TypeLabel);
+            this.Controls.Add(this.NewRxButton);
+            this.Controls.Add(this.HomeMedicationButton);
             this.Controls.Add(this.RouteLabel);
             this.Controls.Add(this.RouteBox);
             this.Controls.Add(this.SubmitButton);
@@ -277,11 +326,12 @@
             this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.MedicationNameLabel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewPrescriptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "New Prescription";
+            this.Text = "New Medication";
             this.Load += new System.EventHandler(this.NewPrescriptionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -318,5 +368,9 @@
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource prescriptionBindingSource;
         private EMRDatabaseDataSetTableAdapters.PrescriptionTableAdapter prescriptionTableAdapter;
+        private System.Windows.Forms.RadioButton HomeMedicationButton;
+        private System.Windows.Forms.RadioButton NewRxButton;
+        private System.Windows.Forms.Label TypeLabel;
+        private System.Windows.Forms.Panel panel2;
     }
 }

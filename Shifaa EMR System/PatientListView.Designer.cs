@@ -32,16 +32,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PatientListView1 = new System.Windows.Forms.DataGridView();
-            this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.patientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientTableAdapter();
             this.Exit = new System.Windows.Forms.Button();
+            this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PregnancyStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BMI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaritalStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatePatient = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -50,6 +57,7 @@
             // 
             // PatientListView1
             // 
+            this.PatientListView1.AllowUserToAddRows = false;
             this.PatientListView1.AllowUserToDeleteRows = false;
             this.PatientListView1.AutoGenerateColumns = false;
             this.PatientListView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -66,10 +74,17 @@
             this.PatientListView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PatientListView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PatientID,
+            this.PregnancyStatus,
+            this.Weight,
+            this.Height,
+            this.BMI,
+            this.Nationality,
+            this.MaritalStatus,
             this.FirstName,
             this.LastName,
             this.Age,
-            this.Gender});
+            this.Gender,
+            this.UpdatePatient});
             this.PatientListView1.DataSource = this.patientBindingSource1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -88,46 +103,8 @@
             this.PatientListView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PatientListView1.Size = new System.Drawing.Size(1070, 820);
             this.PatientListView1.TabIndex = 0;
-            this.PatientListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_CellContentClick);
             this.PatientListView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_RowClick);
-            // 
-            // PatientID
-            // 
-            this.PatientID.DataPropertyName = "PatientID";
-            this.PatientID.HeaderText = "Patient ID";
-            this.PatientID.Name = "PatientID";
-            this.PatientID.ReadOnly = true;
-            this.PatientID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "FirstName";
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "LastName";
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Age
-            // 
-            this.Age.DataPropertyName = "Age";
-            this.Age.HeaderText = "Age";
-            this.Age.Name = "Age";
-            this.Age.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.DataPropertyName = "Gender";
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
+            this.PatientListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientListView1_CellContentClick);
             // 
             // patientBindingSource1
             // 
@@ -164,9 +141,104 @@
             this.Exit.UseVisualStyleBackColor = false;
             this.Exit.Click += new System.EventHandler(this.Exit_Click_1);
             // 
+            // PatientID
+            // 
+            this.PatientID.DataPropertyName = "PatientID";
+            this.PatientID.HeaderText = "Patient ID";
+            this.PatientID.Name = "PatientID";
+            this.PatientID.ReadOnly = true;
+            this.PatientID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // PregnancyStatus
+            // 
+            this.PregnancyStatus.DataPropertyName = "PregnancyStatus";
+            this.PregnancyStatus.HeaderText = "PregnancyStatus";
+            this.PregnancyStatus.Name = "PregnancyStatus";
+            this.PregnancyStatus.ReadOnly = true;
+            this.PregnancyStatus.Visible = false;
+            // 
+            // Weight
+            // 
+            this.Weight.DataPropertyName = "Weight";
+            this.Weight.HeaderText = "Weight";
+            this.Weight.Name = "Weight";
+            this.Weight.ReadOnly = true;
+            this.Weight.Visible = false;
+            // 
+            // Height
+            // 
+            this.Height.DataPropertyName = "Height";
+            this.Height.HeaderText = "Height";
+            this.Height.Name = "Height";
+            this.Height.ReadOnly = true;
+            this.Height.Visible = false;
+            // 
+            // BMI
+            // 
+            this.BMI.DataPropertyName = "BMI";
+            this.BMI.HeaderText = "BMI";
+            this.BMI.Name = "BMI";
+            this.BMI.ReadOnly = true;
+            this.BMI.Visible = false;
+            // 
+            // Nationality
+            // 
+            this.Nationality.DataPropertyName = "Nationality";
+            this.Nationality.HeaderText = "Nationality";
+            this.Nationality.Name = "Nationality";
+            this.Nationality.ReadOnly = true;
+            this.Nationality.Visible = false;
+            // 
+            // MaritalStatus
+            // 
+            this.MaritalStatus.DataPropertyName = "MaritalStatus";
+            this.MaritalStatus.HeaderText = "MaritalStatus";
+            this.MaritalStatus.Name = "MaritalStatus";
+            this.MaritalStatus.ReadOnly = true;
+            this.MaritalStatus.Visible = false;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Age
+            // 
+            this.Age.DataPropertyName = "Age";
+            this.Age.HeaderText = "Age";
+            this.Age.Name = "Age";
+            this.Age.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.DataPropertyName = "Gender";
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // UpdatePatient
+            // 
+            this.UpdatePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdatePatient.HeaderText = "Update Info";
+            this.UpdatePatient.Name = "UpdatePatient";
+            this.UpdatePatient.ReadOnly = true;
+            this.UpdatePatient.Text = "Update Info";
+            // 
             // PatientListView
             // 
-            this.AutoScroll = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1130, 920);
             this.ControlBox = false;
@@ -179,6 +251,8 @@
             this.Padding = new System.Windows.Forms.Padding(30, 100, 30, 0);
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.PatientListView_Load_1);
+            this.GotFocus += new System.EventHandler(this.PatientListViewGotFocus);
+            this.LostFocus += new System.EventHandler(this.PatientListViewLostFocus);
             ((System.ComponentModel.ISupportInitialize)(this.PatientListView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
@@ -205,11 +279,18 @@
         private System.Windows.Forms.BindingSource patientBindingSource;
         private EMRDatabaseDataSetTableAdapters.PatientTableAdapter patientTableAdapter;
         private System.Windows.Forms.BindingSource patientBindingSource1;
+        private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PregnancyStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Height;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BMI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nationality;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaritalStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.DataGridViewButtonColumn UpdatePatient;
     }
 }

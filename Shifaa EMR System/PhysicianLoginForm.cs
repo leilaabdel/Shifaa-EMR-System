@@ -31,6 +31,36 @@ namespace Shifaa_EMR_System
 
         }
 
+        private void EnterKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (doAction.authenticateProvider(UsernameBox.Text, PassCodeBox.Text) == 0)
+            {
+                this.Hide();
+
+                ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(UsernameBox.Text);
+
+                foreach (getProviderInfoResult r in result)
+                {
+                    thisProviderFirstName = r.FirstName;
+                    thisProviderLastName = r.LastName;
+                    thisProviderID = r.USERNAME;
+                    thisProviderTitle = r.Title;
+
+                }
+
+                string ProviderFullName = thisProviderFirstName + " " + thisProviderLastName + " " + thisProviderTitle;
+
+                ProviderMain providerName = new ProviderMain(ProviderFullName, thisProviderID);
+
+                providerName.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Please Check Your Username and Password");
+            }
+        }
+
      
 
         private void Button1_Click(object sender, EventArgs e)

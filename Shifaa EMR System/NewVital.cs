@@ -15,12 +15,12 @@ namespace Shifaa_EMR_System
         private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
         readonly int thisPatientID;
- 
+        private PatientHomePage ParentPatientHome;
 
-        public NewVital(int patientID)
+        public NewVital(int patientID , PatientHomePage parent)
         {
             this.thisPatientID = patientID;
-   
+            this.ParentPatientHome = parent;
             InitializeComponent();
         }
 
@@ -70,6 +70,14 @@ namespace Shifaa_EMR_System
 
                 doAction.createNewVitalSign(thisPatientID, bpString, pulseString , tempString , heightString , weightString, BMIstring, DateTime.Today);
                 ((PatientHomePage)this.Owner).vitalSignsTableAdapter.FillByPatientID(((PatientHomePage)this.Owner).eMRDatabaseDataSet.VitalSigns, thisPatientID);
+
+                ParentPatientHome.BloodPressureValueLabel.Text = bpString;
+                ParentPatientHome.PulseValueLabel.Text = pulseString;
+                ParentPatientHome.TemperatureValueLabel.Text = tempString;
+                ParentPatientHome.HeightValueLabel.Text = heightString;
+                ParentPatientHome.WeightValueLabel.Text = weightString;
+                ParentPatientHome.BMIValueLabel.Text = BMIstring;
+                
 
                 this.Close();
                 doAction.Dispose();

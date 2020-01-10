@@ -24,10 +24,11 @@ namespace Shifaa_EMR_System
 
         private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
-        
+
         private ProviderMain providerMain;
         private SchedulerMain schedulerMain;
         private List<String> providerIDList = new List<String>();
+        private int PatientID = 0;
 
         public NewPatient(ProviderMain providerMain)
         {
@@ -39,7 +40,23 @@ namespace Shifaa_EMR_System
             ChooseProviderLabel.Hide();
             this.providerMain = providerMain;
             providerIDList.Add(providerMain.GetProviderID());
-           
+
+
+        }
+
+        public NewPatient(ProviderMain providerMain, int patientID)
+        {
+            InitializeComponent();
+            PregnantBox.Hide();
+            PregnantLabel.Hide();
+            NotPregnantBox.Hide();
+            ProviderList.Hide();
+            ChooseProviderLabel.Hide();
+            this.providerMain = providerMain;
+            providerIDList.Add(providerMain.GetProviderID());
+            this.PatientID = patientID;
+
+
         }
 
         public NewPatient(SchedulerMain schedulerMain)
@@ -50,9 +67,23 @@ namespace Shifaa_EMR_System
             NotPregnantBox.Hide();
             this.schedulerMain = schedulerMain;
             ProviderList.ValueMember = "ProviderID";
-            ProviderList.DisplayMember = "ProviderName";        
+            ProviderList.DisplayMember = "ProviderName";
             ProviderList.DataSource = schedulersBelongingToProviderTableAdapter1.GetDataBySchedulerID(schedulerMain.GetSchedulerID());
-           
+
+
+
+        }
+        public NewPatient(SchedulerMain schedulerMain, int patientID)
+        {
+            InitializeComponent();
+            PregnantBox.Hide();
+            PregnantLabel.Hide();
+            NotPregnantBox.Hide();
+            this.schedulerMain = schedulerMain;
+            ProviderList.ValueMember = "ProviderID";
+            ProviderList.DisplayMember = "ProviderName";
+            ProviderList.DataSource = schedulersBelongingToProviderTableAdapter1.GetDataBySchedulerID(schedulerMain.GetSchedulerID());
+            this.PatientID = patientID;
 
 
 
@@ -92,7 +123,7 @@ namespace Shifaa_EMR_System
 
         private void NewPatient_Load(object sender, EventArgs e)
         {
-            this.CenterToParent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.WindowState = FormWindowState.Normal;
             this.Focus();
         }
@@ -174,35 +205,40 @@ namespace Shifaa_EMR_System
         private void Save_Click(object sender, EventArgs e)
         {
 
-            if(MaleCheckBox.Checked && FemaleCheckBox.Checked)
+            if (MaleCheckBox.Checked && FemaleCheckBox.Checked)
             {
                 MessageBox.Show("Please choose either male or female. Not both");
                 return;
-              
-            } else if (SingleBox.Checked && MarriedBox.Checked)
+
+            }
+            else if (SingleBox.Checked && MarriedBox.Checked)
             {
                 MessageBox.Show("Please choose either single or married. Not both");
                 return;
-            
-            } else if (!MaleCheckBox.Checked && !FemaleCheckBox.Checked)
+
+            }
+            else if (!MaleCheckBox.Checked && !FemaleCheckBox.Checked)
             {
                 MessageBox.Show("Please choose a gender");
                 return;
-            } else if (!SingleBox.Checked && !MarriedBox.Checked)
+            }
+            else if (!SingleBox.Checked && !MarriedBox.Checked)
             {
                 MessageBox.Show("Please choose a marital status");
-            } else if (PregnantBox.Checked && NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
+            }
+            else if (PregnantBox.Checked && NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
             {
                 MessageBox.Show("Please choose either pregnant or not pregnant. Not both");
                 return;
 
-            } else if (!PregnantBox.Checked && !NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
+            }
+            else if (!PregnantBox.Checked && !NotPregnantBox.Checked && PregnantBox.Visible && NotPregnantBox.Visible)
             {
                 MessageBox.Show("Please choose a pregnancy status");
                 return;
             }
 
-        
+
 
             else if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
             {
@@ -223,78 +259,105 @@ namespace Shifaa_EMR_System
                 }
 
             }
-         
-                try
+
+            try
+            {
+
+                string Height = "-";
+                string Weight = "-";
+                string BMI = "-";
+
+                if (!String.IsNullOrWhiteSpace(HeightBox.Text)) Height = GetHeight().ToString();
+                if (!String.IsNullOrWhiteSpace(WeightBox.Text)) Weight = GetWeight().ToString();
+                if (!String.IsNullOrWhiteSpace(WeightBox.Text) && !String.IsNullOrWhiteSpace(HeightBox.Text)) BMI = Math.Round(GetBMI(), 2).ToString();
+                if(PatientID != 0)
                 {
+                    doAction.updatePatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus,
+                        pregnancyStatus, Weight, Height, BMI, NationalityBox.Text, DateTime.Today , PatientID);
 
-                    string Height = "-";
-                    string Weight = "-";
-                    string BMI = "-";
-
-                    if (!String.IsNullOrWhiteSpace(HeightBox.Text)) Height = GetHeight().ToString();
-                    if (!String.IsNullOrWhiteSpace(WeightBox.Text)) Weight = GetWeight().ToString();
-                    if (!String.IsNullOrWhiteSpace(WeightBox.Text) && !String.IsNullOrWhiteSpace(HeightBox.Text)) BMI = Math.Round(GetBMI() , 2).ToString();
-
-
-                    int newPatientActionResult = doAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus ,
-                        pregnancyStatus, Weight, Height, BMI , NationalityBox.Text , DateTime.Today);
-
-                if (newPatientActionResult == 1)
-                {
-                    MessageBox.Show("This patient already exists in the system.");
-                    return;
-                }
-
-                ISingleResult<getNewPatientVitalsResult> newPatientVitals = doAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
-
-                int selectedPatientID = 0;
-
-                foreach (getNewPatientVitalsResult result in newPatientVitals)
-                {
-                    selectedPatientID = result.PatientID;
-                    
-                }
-
-
-
-
-                Double BMiDouble = Math.Round(GetBMI(), 2);
-
-                doAction.createNewVitalSign(selectedPatientID, "-", "-", "-" , Height , Weight , BMI , DateTime.Today);
-
-                foreach (string provider in providerIDList)
-                {
-                    ISingleResult<getProviderInfoResult> providerInfo = doAction.getProviderInfo(provider);
-                    foreach (getProviderInfoResult providerResult in providerInfo)
+                    foreach (string provider in providerIDList)
                     {
-                        doAction.createPatientProviderRelation(selectedPatientID, FirstNameBox.Text, LastNameBox.Text, provider,
-                            providerResult.FirstName, providerResult.LastName, providerResult.Title, providerResult.JobRole);
-                        
+                        ISingleResult<getProviderInfoResult> providerInfo = doAction.getProviderInfo(provider);
+                        foreach (getProviderInfoResult providerResult in providerInfo)
+                        {
+                            doAction.createPatientProviderRelation(PatientID, FirstNameBox.Text, LastNameBox.Text, provider,
+                                providerResult.FirstName, providerResult.LastName, providerResult.Title, providerResult.JobRole);
+
+                        }
+
+
+
+
+                    }
+
+                    doAction.createNewVitalSign(PatientID, "-", "-", "-", Height, Weight, BMI, DateTime.Today);
+
+                    this.Close();
+                
+
+                }
+                if (PatientID == 0)
+                {
+                    int newPatientActionResult = doAction.createNewPatient(FirstNameBox.Text, LastNameBox.Text, PhoneNumberBox.Text, DOBPicker.Value, GetAge(), GetGender(), maritalStatus,
+                        pregnancyStatus, Weight, Height, BMI, NationalityBox.Text, DateTime.Today);
+
+
+                    if (newPatientActionResult == 1)
+                    {
+                        MessageBox.Show("This patient already exists in the system.");
+                        return;
+                    }
+
+                    ISingleResult<getNewPatientVitalsResult> newPatientVitals = doAction.getNewPatientVitals(FirstNameBox.Text, LastNameBox.Text, DOBPicker.Value);
+
+                    int selectedPatientID = 0;
+
+                    foreach (getNewPatientVitalsResult result in newPatientVitals)
+                    {
+                        selectedPatientID = result.PatientID;
+
                     }
 
 
 
-                    
-                }
-                        this.Close();
 
-                }
-                catch (Exception ex)
-                {
-                    System.Windows.Forms.MessageBox.Show("Please make sure at least first name, last name, date of birth and gender are filled.");
+                    Double BMiDouble = Math.Round(GetBMI(), 2);
 
-                    Exception ex2 = ex;
-                    while (ex2.InnerException != null)
+                    doAction.createNewVitalSign(selectedPatientID, "-", "-", "-", Height, Weight, BMI, DateTime.Today);
+
+                    foreach (string provider in providerIDList)
                     {
-                        ex2 = ex2.InnerException;
+                        ISingleResult<getProviderInfoResult> providerInfo = doAction.getProviderInfo(provider);
+                        foreach (getProviderInfoResult providerResult in providerInfo)
+                        {
+                            doAction.createPatientProviderRelation(selectedPatientID, FirstNameBox.Text, LastNameBox.Text, provider,
+                                providerResult.FirstName, providerResult.LastName, providerResult.Title, providerResult.JobRole);
+
+                        }
+
+
+
+
                     }
-                    Console.WriteLine(ex.InnerException);
-                    throw;
-
-
+                    this.Close();
                 }
-            
-          
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Please make sure at least first name, last name, date of birth and gender are filled.");
+
+                Exception ex2 = ex;
+                while (ex2.InnerException != null)
+                {
+                    ex2 = ex2.InnerException;
+                }
+                Console.WriteLine(ex.InnerException);
+                throw;
+
+
+            }
+
+
         }
 
 
@@ -372,21 +435,21 @@ namespace Shifaa_EMR_System
 
         }
 
- 
-   
+
+
 
         private void PhoneNumberBox_TextChanged(object sender, EventArgs e)
         {
 
 
 
-          
+
 
         }
 
         private void FemaleCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if(FemaleCheckBox.Checked && !MaleCheckBox.Checked)
+            if (FemaleCheckBox.Checked && !MaleCheckBox.Checked)
             {
                 PregnantLabel.Show();
                 PregnantBox.Show();
@@ -395,8 +458,8 @@ namespace Shifaa_EMR_System
                 WeightBox.Top = 382;
                 kgLabel.Top = 385;
                 HeightLabel.Top = 425;
-                HeightBox.Top =  425;
-                cmLabel.Top =  428;
+                HeightBox.Top = 425;
+                cmLabel.Top = 428;
                 NationalityLabel.Top = 465;
                 NationalityBox.Top = 465;
 
@@ -442,7 +505,8 @@ namespace Shifaa_EMR_System
             if (!SingleBox.Checked && MarriedBox.Checked) maritalStatus = "Married";
         }
 
-        private void ProviderList_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void ProviderList_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (!providerIDList.Contains((String)ProviderList.SelectedValue))
             {
@@ -452,8 +516,8 @@ namespace Shifaa_EMR_System
             else
             {
                 providerIDList.Remove((String)ProviderList.SelectedValue);
+                doAction.deletePatientProviderRelation(PatientID, ((String)ProviderList.SelectedValue));
             }
         }
-
     }
 }

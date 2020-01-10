@@ -58,9 +58,9 @@
             this.PregnantBox = new System.Windows.Forms.CheckBox();
             this.PregnantLabel = new System.Windows.Forms.Label();
             this.ChooseProviderLabel = new System.Windows.Forms.Label();
-            this.ProviderList = new System.Windows.Forms.ComboBox();
             this.emrDatabaseDataSet1 = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.schedulersBelongingToProviderTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter();
+            this.ProviderList = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.emrDatabaseDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +164,7 @@
             this.FirstNameBox.Location = new System.Drawing.Point(326, 88);
             this.FirstNameBox.Name = "FirstNameBox";
             this.FirstNameBox.Size = new System.Drawing.Size(164, 23);
-            this.FirstNameBox.TabIndex = 12;
+            this.FirstNameBox.TabIndex = 1;
             this.FirstNameBox.TextChanged += new System.EventHandler(this.FirstNameBox_TextChanged);
             // 
             // NationalityLabel
@@ -184,7 +184,7 @@
             this.LastNameBox.Location = new System.Drawing.Point(326, 125);
             this.LastNameBox.Name = "LastNameBox";
             this.LastNameBox.Size = new System.Drawing.Size(164, 23);
-            this.LastNameBox.TabIndex = 14;
+            this.LastNameBox.TabIndex = 2;
             this.LastNameBox.TextChanged += new System.EventHandler(this.LastNameBox_TextChanged);
             // 
             // DOBPicker
@@ -193,7 +193,7 @@
             this.DOBPicker.Location = new System.Drawing.Point(326, 202);
             this.DOBPicker.Name = "DOBPicker";
             this.DOBPicker.Size = new System.Drawing.Size(224, 23);
-            this.DOBPicker.TabIndex = 16;
+            this.DOBPicker.TabIndex = 4;
             this.DOBPicker.ValueChanged += new System.EventHandler(this.DOBPicker_ValueChanged);
             // 
             // WeightBox
@@ -202,7 +202,7 @@
             this.WeightBox.Location = new System.Drawing.Point(328, 339);
             this.WeightBox.Name = "WeightBox";
             this.WeightBox.Size = new System.Drawing.Size(164, 23);
-            this.WeightBox.TabIndex = 17;
+            this.WeightBox.TabIndex = 12;
             this.WeightBox.TextChanged += new System.EventHandler(this.WeightBox_TextChanged);
             // 
             // HeightBox
@@ -211,7 +211,7 @@
             this.HeightBox.Location = new System.Drawing.Point(328, 382);
             this.HeightBox.Name = "HeightBox";
             this.HeightBox.Size = new System.Drawing.Size(164, 23);
-            this.HeightBox.TabIndex = 18;
+            this.HeightBox.TabIndex = 13;
             this.HeightBox.TextChanged += new System.EventHandler(this.HeightBox_TextChanged);
             // 
             // NationalityBox
@@ -220,7 +220,7 @@
             this.NationalityBox.Location = new System.Drawing.Point(327, 422);
             this.NationalityBox.Name = "NationalityBox";
             this.NationalityBox.Size = new System.Drawing.Size(164, 23);
-            this.NationalityBox.TabIndex = 20;
+            this.NationalityBox.TabIndex = 14;
             this.NationalityBox.TextChanged += new System.EventHandler(this.NationalityBox_TextChanged);
             // 
             // FemaleCheckBox
@@ -231,7 +231,7 @@
             this.FemaleCheckBox.Location = new System.Drawing.Point(326, 296);
             this.FemaleCheckBox.Name = "FemaleCheckBox";
             this.FemaleCheckBox.Size = new System.Drawing.Size(70, 20);
-            this.FemaleCheckBox.TabIndex = 21;
+            this.FemaleCheckBox.TabIndex = 7;
             this.FemaleCheckBox.Text = "Female";
             this.FemaleCheckBox.UseVisualStyleBackColor = true;
             this.FemaleCheckBox.CheckedChanged += new System.EventHandler(this.FemaleCheckBox_CheckedChanged);
@@ -244,7 +244,7 @@
             this.MaleCheckBox.Location = new System.Drawing.Point(435, 296);
             this.MaleCheckBox.Name = "MaleCheckBox";
             this.MaleCheckBox.Size = new System.Drawing.Size(55, 20);
-            this.MaleCheckBox.TabIndex = 22;
+            this.MaleCheckBox.TabIndex = 9;
             this.MaleCheckBox.Text = "Male";
             this.MaleCheckBox.UseVisualStyleBackColor = true;
             this.MaleCheckBox.CheckedChanged += new System.EventHandler(this.MaleCheckBox_CheckedChanged);
@@ -256,10 +256,10 @@
             this.Save.FlatAppearance.BorderSize = 0;
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.Save.Location = new System.Drawing.Point(312, 532);
+            this.Save.Location = new System.Drawing.Point(310, 571);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(86, 33);
-            this.Save.TabIndex = 24;
+            this.Save.TabIndex = 16;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = false;
             this.Save.Click += new System.EventHandler(this.Save_Click);
@@ -305,7 +305,7 @@
             this.PhoneNumberBox.Location = new System.Drawing.Point(326, 162);
             this.PhoneNumberBox.Name = "PhoneNumberBox";
             this.PhoneNumberBox.Size = new System.Drawing.Size(164, 23);
-            this.PhoneNumberBox.TabIndex = 29;
+            this.PhoneNumberBox.TabIndex = 3;
             this.PhoneNumberBox.TextChanged += new System.EventHandler(this.PhoneNumberBox_TextChanged);
             // 
             // Label2
@@ -338,7 +338,7 @@
             this.MarriedBox.Location = new System.Drawing.Point(434, 249);
             this.MarriedBox.Name = "MarriedBox";
             this.MarriedBox.Size = new System.Drawing.Size(73, 20);
-            this.MarriedBox.TabIndex = 32;
+            this.MarriedBox.TabIndex = 6;
             this.MarriedBox.Text = "Married";
             this.MarriedBox.UseVisualStyleBackColor = true;
             this.MarriedBox.CheckedChanged += new System.EventHandler(this.MarriedBox_CheckedChanged);
@@ -351,7 +351,7 @@
             this.SingleBox.Location = new System.Drawing.Point(325, 249);
             this.SingleBox.Name = "SingleBox";
             this.SingleBox.Size = new System.Drawing.Size(63, 20);
-            this.SingleBox.TabIndex = 31;
+            this.SingleBox.TabIndex = 5;
             this.SingleBox.Text = "Single";
             this.SingleBox.UseVisualStyleBackColor = true;
             this.SingleBox.CheckedChanged += new System.EventHandler(this.SingleBox_CheckedChanged);
@@ -364,7 +364,7 @@
             this.NotPregnantBox.Location = new System.Drawing.Point(437, 335);
             this.NotPregnantBox.Name = "NotPregnantBox";
             this.NotPregnantBox.Size = new System.Drawing.Size(43, 20);
-            this.NotPregnantBox.TabIndex = 35;
+            this.NotPregnantBox.TabIndex = 11;
             this.NotPregnantBox.Text = "No";
             this.NotPregnantBox.UseVisualStyleBackColor = true;
             this.NotPregnantBox.CheckedChanged += new System.EventHandler(this.NotPregnantBox_CheckedChanged);
@@ -377,7 +377,7 @@
             this.PregnantBox.Location = new System.Drawing.Point(328, 335);
             this.PregnantBox.Name = "PregnantBox";
             this.PregnantBox.Size = new System.Drawing.Size(47, 20);
-            this.PregnantBox.TabIndex = 34;
+            this.PregnantBox.TabIndex = 10;
             this.PregnantBox.Text = "Yes";
             this.PregnantBox.UseVisualStyleBackColor = true;
             this.PregnantBox.CheckedChanged += new System.EventHandler(this.PregnantBox_CheckedChanged);
@@ -404,16 +404,6 @@
             this.ChooseProviderLabel.TabIndex = 36;
             this.ChooseProviderLabel.Text = "Choose the Provider(s)";
             // 
-            // ProviderList
-            // 
-            this.ProviderList.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.ProviderList.FormattingEnabled = true;
-            this.ProviderList.Location = new System.Drawing.Point(328, 467);
-            this.ProviderList.Name = "ProviderList";
-            this.ProviderList.Size = new System.Drawing.Size(163, 24);
-            this.ProviderList.TabIndex = 37;
-            this.ProviderList.SelectedIndexChanged += new System.EventHandler(this.ProviderList_SelectedIndexChanged);
-            // 
             // emrDatabaseDataSet1
             // 
             this.emrDatabaseDataSet1.DataSetName = "EMRDatabaseDataSet";
@@ -422,6 +412,18 @@
             // schedulersBelongingToProviderTableAdapter1
             // 
             this.schedulersBelongingToProviderTableAdapter1.ClearBeforeFill = true;
+            // 
+            // ProviderList
+            // 
+            this.ProviderList.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.ProviderList.FormattingEnabled = true;
+            this.ProviderList.ItemHeight = 16;
+            this.ProviderList.Location = new System.Drawing.Point(328, 462);
+            this.ProviderList.Name = "ProviderList";
+            this.ProviderList.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.ProviderList.Size = new System.Drawing.Size(164, 84);
+            this.ProviderList.TabIndex = 15;
+            this.ProviderList.SelectedIndexChanged += new System.EventHandler(this.ProviderList_SelectedIndexChanged_1);
             // 
             // NewPatient
             // 
@@ -487,30 +489,30 @@
         private System.Windows.Forms.Label Label6;
         private System.Windows.Forms.Label WeightLabel;
         private System.Windows.Forms.Label HeightLabel;
-        private System.Windows.Forms.TextBox FirstNameBox;
+        public System.Windows.Forms.TextBox FirstNameBox;
         private System.Windows.Forms.Label NationalityLabel;
-        private System.Windows.Forms.TextBox LastNameBox;
-        private System.Windows.Forms.DateTimePicker DOBPicker;
-        private System.Windows.Forms.TextBox WeightBox;
-        private System.Windows.Forms.TextBox HeightBox;
-        private System.Windows.Forms.TextBox NationalityBox;
-        private System.Windows.Forms.CheckBox FemaleCheckBox;
-        private System.Windows.Forms.CheckBox MaleCheckBox;
+        public System.Windows.Forms.TextBox LastNameBox;
+        public System.Windows.Forms.DateTimePicker DOBPicker;
+        public System.Windows.Forms.TextBox WeightBox;
+        public System.Windows.Forms.TextBox HeightBox;
+        public System.Windows.Forms.TextBox NationalityBox;
+        public System.Windows.Forms.CheckBox FemaleCheckBox;
+        public System.Windows.Forms.CheckBox MaleCheckBox;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Label kgLabel;
-        private System.Windows.Forms.Label cmLabel;
-        private System.Windows.Forms.TextBox PhoneNumberBox;
+        public System.Windows.Forms.Label kgLabel;
+        public System.Windows.Forms.Label cmLabel;
+        public System.Windows.Forms.TextBox PhoneNumberBox;
         private System.Windows.Forms.Label Label2;
         private System.Windows.Forms.Label MaritalStatusLabel;
-        private System.Windows.Forms.CheckBox MarriedBox;
-        private System.Windows.Forms.CheckBox SingleBox;
-        private System.Windows.Forms.CheckBox NotPregnantBox;
-        private System.Windows.Forms.CheckBox PregnantBox;
+        public System.Windows.Forms.CheckBox MarriedBox;
+        public System.Windows.Forms.CheckBox SingleBox;
+        public System.Windows.Forms.CheckBox NotPregnantBox;
+        public System.Windows.Forms.CheckBox PregnantBox;
         private System.Windows.Forms.Label PregnantLabel;
         private System.Windows.Forms.Label ChooseProviderLabel;
-        private System.Windows.Forms.ComboBox ProviderList;
         private EMRDatabaseDataSet emrDatabaseDataSet1;
         private EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter schedulersBelongingToProviderTableAdapter1;
+        private System.Windows.Forms.ListBox ProviderList;
     }
 }

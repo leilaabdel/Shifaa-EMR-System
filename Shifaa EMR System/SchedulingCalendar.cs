@@ -480,6 +480,13 @@ namespace Shifaa_EMR_System
         private void calendar1_ItemDoubleClick(object sender, CalendarItemEventArgs e)
         {
             selectedAppointmentID = e.Item.AppointmentID;
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i].Name != "ProviderMain" && Application.OpenForms[i].Name != "WelcomeHomePage")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
 
             if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
             {

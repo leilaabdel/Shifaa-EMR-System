@@ -21,6 +21,8 @@ namespace Shifaa_EMR_System
         readonly string thisProviderName;
         readonly string thisProviderID;
         readonly PatientHomePage thisPatientHome;
+        private int DraftNoteID;
+        private int ExistingNoteID;
 
         public NewNote(int patientID , string providerName , string providerID, PatientHomePage patientHomePage)
         {
@@ -31,6 +33,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
         }
 
+
         private void NewNote_Load(object sender, EventArgs e)
         {
      
@@ -39,6 +42,10 @@ namespace Shifaa_EMR_System
             this.NoteHistoryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.NoteHistoryTable.MultiSelect = false;
             this.NewNoteDateValue.Text = DateTime.Today.ToShortDateString();
+
+            string status = "Draft";
+            DraftNoteID = doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, "", "" , status, DateTime.Today);
+            this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
 
 
 
@@ -61,14 +68,17 @@ namespace Shifaa_EMR_System
         {
             DateTime existingNoteDate = (DateTime)NoteHistoryTable["Date", e.RowIndex].Value;
             String noteTitle = (String)NoteHistoryTable["NoteTitle", e.RowIndex].Value;
+            ExistingNoteID = (int)NoteHistoryTable["NoteID", e.RowIndex].Value;
             String noteContent = "";
             String providerName = "";
+            
             ISingleResult<getPatientNoteResult> result = doAction.getPatientNote(thisPatientID, existingNoteDate, noteTitle);
 
             foreach (getPatientNoteResult r in result){
 
                 noteContent = r.NoteContent;
                 providerName = r.ProviderName;
+                
 
             }
 
@@ -354,8 +364,8 @@ namespace Shifaa_EMR_System
 
             try
             {
-                doAction.updateExistingNote(thisPatientID, thisNoteTitleValueLabel.Text,
-                    Convert.ToDateTime(thisNoteValueDate.Text), thisOldNoteBox.Text);
+                doAction.updateNoteDraft(ExistingNoteID, thisNoteTitleValueLabel.Text, thisOldNoteBox.Text, "Signed",
+                    Convert.ToDateTime(thisNoteValueDate.Text));
                 this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 
@@ -413,10 +423,10 @@ namespace Shifaa_EMR_System
             {
 
                 string status = "Signed";
-                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status , DateTime.Today);
+                doAction.updateNoteDraft(ExistingNoteID , noteTitle , noteContent , status, DateTime.Now);
                 this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
-
+                this.Close();
             }
             catch
             {
@@ -483,10 +493,12 @@ namespace Shifaa_EMR_System
 
             try
             {
-
+                
                 string status = "Draft";
-                doAction.createNewPatientNote(thisPatientID, thisProviderName, thisProviderID, noteTitle, noteContent, status , DateTime.Today);
+                doAction.updateNoteDraft(DraftNoteID, noteTitle, noteContent, status, DateTime.Now);
                 this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+                thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
+
 
 
             }

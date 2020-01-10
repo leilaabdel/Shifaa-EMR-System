@@ -9,7 +9,9 @@ namespace Shifaa_EMR_System
 
     public partial class PatientListView : Form
     {
-      
+        private string parentType;
+        private ProviderMain providerMain;
+        private SchedulerMain schedulerMain;
 
         public PatientListView(ProviderMain providerMain)
         {
@@ -30,6 +32,9 @@ namespace Shifaa_EMR_System
 
 
                 this.PatientListView1.Columns.Insert(0, patientID);
+            parentType = "provider";
+            this.providerMain = providerMain;
+            
              
 
 
@@ -38,6 +43,8 @@ namespace Shifaa_EMR_System
         public PatientListView(SchedulerMain schedulerMain)
         {
             this.MdiParent = schedulerMain;
+            parentType = "scheduler";
+            this.schedulerMain = schedulerMain;
 
         }
 
@@ -48,10 +55,47 @@ namespace Shifaa_EMR_System
 
         private void PatientListView_Load_1(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterParent;
             this.PatientListView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.PatientListView1.MultiSelect = false;
+            this.AutoScroll = false;
 
+            // disable horizontal scrollbar
+            this.HorizontalScroll.Enabled = false;
+
+            // restore AutoScroll
+            this.AutoScroll = true;
+
+        }
+
+        private void PatientListViewGotFocus(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScroll = false;
+
+            // disable horizontal scrollbar
+            this.HorizontalScroll.Enabled = false;
+
+            // restore AutoScroll
+            this.AutoScroll = true;
+        }
+
+        private void PatientListViewLostFocus(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+       
+
+            this.AutoScroll = false;
+
+            // disable horizontal scrollbar
+            this.HorizontalScroll.Enabled = false;
+
+            // restore AutoScroll
+            this.AutoScroll = true;
         }
 
         public void ActivateSearch()
@@ -83,13 +127,13 @@ namespace Shifaa_EMR_System
             }
         }
 
-       
+
 
         private void PatientListView1_RowClick(object sender, DataGridViewCellEventArgs e)
         {
+           
 
-            
-                if (e.RowIndex >= 0 && PatientListView1[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
+            if (e.RowIndex >= 0 && PatientListView1[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell && e.ColumnIndex == 0)
                 {
                     this.PatientListView1.Rows[e.RowIndex].Selected = true;
 
@@ -106,7 +150,15 @@ namespace Shifaa_EMR_System
                     string age = (String)selectedPatient[0]["Age"];
                     DateTime DOB = (DateTime)selectedPatient[0]["DOB"];
 
-                    if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                {
+                    if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                    {
+                        Application.OpenForms[i].Close();
+                    }
+                }
+
+                if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
                     {
                         PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, DOB, selectedPatientID, (ProviderMain)this.MdiParent)
                         {
@@ -119,13 +171,102 @@ namespace Shifaa_EMR_System
 
                     Console.WriteLine("clicked");
                 }
-            
+            if (e.RowIndex >= 0 && PatientListView1[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell && e.ColumnIndex == 11)
+            {
+                this.PatientListView1.Rows[e.RowIndex].Selected = true;
+                int selectedPatientID = (int)this.PatientListView1["PatientID", e.RowIndex].Value;
+                EMRDatabaseDataSet.PatientDataTable selectedPatient = this.patientTableAdapter.GetDataByPatientID(selectedPatientID);
+
+                string firstName = (String)selectedPatient[0]["FirstName"]; 
+                string lastName = (String)selectedPatient[0]["LastName"];
+                string phoneNumber = (String)selectedPatient[0]["PhoneNumber"];
+                string gender = (String)selectedPatient[0]["Gender"];
+                string age = (String)selectedPatient[0]["Age"];
+                string pregnancyStatus = (String)selectedPatient[0]["PregnancyStatus"];
+                string maritalStatus = (String)selectedPatient[0]["MaritalStatus"];
+                string height = (String)selectedPatient[0]["Height"];
+                string weight = (String)selectedPatient[0]["Weight"];
+                string nationality = (String)selectedPatient[0]["Nationality"];
+                DateTime DOB = (DateTime)selectedPatient[0]["DOB"];
+
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                {
+                    if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                    {
+                        Application.OpenForms[i].Close();
+                    }
+                }
+
+                if (Application.OpenForms["NewPatient"] as NewPatient == null)
+                {
+                    if(parentType == "provider")
+                    {
+                        NewPatient update = new NewPatient(providerMain , selectedPatientID)
+                        {
+                            MdiParent = (ProviderMain)this.MdiParent,
+                        };
+
+                        update.FirstNameBox.Text = firstName;
+                        update.LastNameBox.Text = lastName;
+                        update.PhoneNumberBox.Text = phoneNumber;
+                        if (gender == "Male") update.MaleCheckBox.Checked = true;
+                        else
+                        {
+                            update.FemaleCheckBox.Checked = true;
+                            if (pregnancyStatus == "Pregnant") update.PregnantBox.Checked = true;
+                            else update.NotPregnantBox.Checked = true;
+
+                        }
+                        if (maritalStatus == "Single") update.SingleBox.Checked = true;
+                        else update.MarriedBox.Checked = true;
+                        update.HeightBox.Text = height;
+                        update.WeightBox.Text = weight;
+                        update.NationalityBox.Text = nationality;
+                        update.Focus();
+                        update.Show();
+                    }
+                    if(parentType == "scheduler")
+                    {
+                        NewPatient update = new NewPatient(schedulerMain, selectedPatientID)
+                        {
+                            MdiParent = (ProviderMain)this.MdiParent,
+                        };
+
+                        update.FirstNameBox.Text = firstName;
+                        update.LastNameBox.Text = lastName;
+                        update.PhoneNumberBox.Text = phoneNumber;
+                        if (gender == "Male") update.MaleCheckBox.Checked = true;
+                        else
+                        {
+                            update.FemaleCheckBox.Checked = true;
+                            if (pregnancyStatus == "Pregnant") update.PregnantBox.Checked = true;
+                            else update.NotPregnantBox.Checked = true;
+
+                        }
+                        if (maritalStatus == "Single") update.SingleBox.Checked = true;
+                        else update.MarriedBox.Checked = true;
+                        update.HeightBox.Text = height;
+                        update.WeightBox.Text = weight;
+                        update.NationalityBox.Text = nationality;
+                        update.Focus();
+                        update.Show();
+                    }
+
+                   
+
+
+                }
+
+
+            }
+
+
 
         }
 
-  
 
- 
+
+
 
         private void PatientListView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
