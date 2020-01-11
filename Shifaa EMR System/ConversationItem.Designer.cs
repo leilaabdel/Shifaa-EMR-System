@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConversationItem));
             this.SenderLabel = new System.Windows.Forms.Label();
             this.ReceiverNameLabel = new System.Windows.Forms.Label();
             this.DateTimeSent = new System.Windows.Forms.Label();
@@ -93,13 +94,13 @@
             // 
             this.ForwardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ForwardButton.BackColor = System.Drawing.Color.White;
-            this.ForwardButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.ForwardIcon;
+            this.ForwardButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ForwardButton.BackgroundImage")));
             this.ForwardButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ForwardButton.FlatAppearance.BorderSize = 0;
             this.ForwardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ForwardButton.Location = new System.Drawing.Point(609, 57);
+            this.ForwardButton.Location = new System.Drawing.Point(610, 61);
             this.ForwardButton.Name = "ForwardButton";
-            this.ForwardButton.Size = new System.Drawing.Size(15, 15);
+            this.ForwardButton.Size = new System.Drawing.Size(17, 15);
             this.ForwardButton.TabIndex = 7;
             this.ForwardButton.Text = " ";
             this.ForwardButton.UseVisualStyleBackColor = false;
@@ -108,11 +109,11 @@
             // 
             this.ReplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ReplyButton.BackColor = System.Drawing.Color.White;
-            this.ReplyButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.ReplyButton;
+            this.ReplyButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ReplyButton.BackgroundImage")));
             this.ReplyButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ReplyButton.FlatAppearance.BorderSize = 0;
             this.ReplyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReplyButton.Location = new System.Drawing.Point(574, 54);
+            this.ReplyButton.Location = new System.Drawing.Point(574, 60);
             this.ReplyButton.Name = "ReplyButton";
             this.ReplyButton.Size = new System.Drawing.Size(25, 20);
             this.ReplyButton.TabIndex = 4;
@@ -124,13 +125,13 @@
             // 
             this.EditDraftButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditDraftButton.BackColor = System.Drawing.Color.White;
-            this.EditDraftButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.EditIcon;
+            this.EditDraftButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditDraftButton.BackgroundImage")));
             this.EditDraftButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditDraftButton.FlatAppearance.BorderSize = 0;
             this.EditDraftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditDraftButton.Location = new System.Drawing.Point(605, 54);
+            this.EditDraftButton.Location = new System.Drawing.Point(580, 59);
             this.EditDraftButton.Name = "EditDraftButton";
-            this.EditDraftButton.Size = new System.Drawing.Size(25, 20);
+            this.EditDraftButton.Size = new System.Drawing.Size(19, 20);
             this.EditDraftButton.TabIndex = 8;
             this.EditDraftButton.Text = " ";
             this.EditDraftButton.UseVisualStyleBackColor = false;

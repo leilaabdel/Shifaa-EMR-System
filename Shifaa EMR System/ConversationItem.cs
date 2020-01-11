@@ -13,7 +13,7 @@ namespace Shifaa_EMR_System
     public partial class ConversationItem : UserControl
     {
 
-        public ConversationItem(string conversationID , int messageID)
+        public ConversationItem(string conversationID, int messageID)
         {
             InitializeComponent();
             MessageContentBox.AutoSize = true;
@@ -23,7 +23,7 @@ namespace Shifaa_EMR_System
 
             EditDraftButton.Hide();
 
-            if(_status == "Draft")
+            if (_status == "Draft")
             {
                 ReplyButton.Hide();
                 ForwardButton.Hide();
@@ -49,7 +49,7 @@ namespace Shifaa_EMR_System
         private string _readOrNotRead;
         private string _status;
         private string _senderID;
-    
+
 
         public Button GetReplyButton
         {
@@ -81,7 +81,7 @@ namespace Shifaa_EMR_System
         public string SenderID
         {
             get { return _senderID; }
-            set { _senderID = value;  }
+            set { _senderID = value; }
         }
 
         public string ReceiverName
@@ -91,9 +91,9 @@ namespace Shifaa_EMR_System
         }
 
         public string Subject
-        { 
+        {
             get { return _subject; }
-            set { _subject = value;  }
+            set { _subject = value; }
         }
 
         public string ReadOrNotRead

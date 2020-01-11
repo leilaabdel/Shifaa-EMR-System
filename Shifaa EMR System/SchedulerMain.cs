@@ -102,7 +102,7 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["SystemContacts"] as SystemContacts == null)
             {
-                SystemContacts systemContacts = new SystemContacts()
+                SystemContacts systemContacts = new SystemContacts(schedulerID)
                 {
                     MdiParent = this,
                     WindowState = FormWindowState.Maximized
@@ -154,7 +154,10 @@ namespace Shifaa_EMR_System
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-
+            if(globalPatientList != null)
+            {
+                globalPatientList.ActivateSearch();
+            }
         }
 
         private void SearchBoxClick(object sender, EventArgs e)
@@ -164,6 +167,14 @@ namespace Shifaa_EMR_System
 
         private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
+            for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+            {
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage"
+                     && Application.OpenForms[i].Name != "PatientListView")
+                {
+                    Application.OpenForms[i].Close();
+                }
+            }
             if (e.KeyChar == (char)Keys.Return && Application.OpenForms["PatientListView"] as PatientListView == null)
 
             {
@@ -181,6 +192,14 @@ namespace Shifaa_EMR_System
 
         }
 
+        private void ThisFormClosing(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

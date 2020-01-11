@@ -9,6 +9,10 @@
 
 namespace Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters
 {
+    partial class PatientTableAdapter
+    {
+    }
+
     partial class AllEmployeesTableAdapter
     {
     }

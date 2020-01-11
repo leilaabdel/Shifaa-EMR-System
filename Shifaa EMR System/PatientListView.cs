@@ -100,31 +100,36 @@ namespace Shifaa_EMR_System
 
         public void ActivateSearch()
         {
-            // TODO: This line of code loads data into the 'eMRDatabasePatients.Patient' table. You can move, or remove it, as needed.
-            string searchText = ((ProviderMain)this.MdiParent).GetSearchText();
-
-            Console.WriteLine(searchText);
-
-            this.WindowState = FormWindowState.Maximized;
-
-
-            if (!Int32.TryParse(searchText, out int searchID))
+            if (this.Visible == true)
             {
-                searchID = -1;
-            }
+                // TODO: This line of code loads data into the 'eMRDatabasePatients.Patient' table. You can move, or remove it, as needed.
+                string searchText = ((ProviderMain)this.MdiParent).GetSearchText();
 
-            try
-            {
-                Console.WriteLine("before");
-                this.patientTableAdapter.FillBySearch(this.eMRDatabaseDataSet.Patient, searchID, searchText, searchText);
-                Console.WriteLine("after");
-            }
-            catch(FieldAccessException ex)
-            {
+                Console.WriteLine(searchText);
 
-                Console.WriteLine(ex);
+                this.WindowState = FormWindowState.Maximized;
+
+
+                if (!Int32.TryParse(searchText, out int searchID))
+                {
+                    searchID = -1;
+                }
+
+                try
+                {
+                    Console.WriteLine("before");
+                    this.patientTableAdapter.FillBySearch(this.eMRDatabaseDataSet.Patient, searchID, searchText, searchText);
+                    Console.WriteLine("after");
+                }
+                catch (FieldAccessException ex)
+                {
+
+                    Console.WriteLine(ex);
+
+                }
 
             }
+    
         }
 
 
@@ -148,30 +153,36 @@ namespace Shifaa_EMR_System
                     string phoneNumber = (String)selectedPatient[0]["PhoneNumber"];
                     string gender = (String)selectedPatient[0]["Gender"];
                     string age = (String)selectedPatient[0]["Age"];
+                    string maritalStatus = (String)selectedPatient[0]["MaritalStatus"];    
                     DateTime DOB = (DateTime)selectedPatient[0]["DOB"];
 
-                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
-                {
-                    if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
-                    {
-                        Application.OpenForms[i].Close();
-                    }
-                }
+             
 
                 if (Application.OpenForms["PatientHomePage"] as PatientHomePage == null)
                     {
-                        PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, DOB, selectedPatientID, (ProviderMain)this.MdiParent)
+                        PatientHomePage patientHome = new PatientHomePage(name, phoneNumber, gender, age, maritalStatus, DOB, selectedPatientID, this.providerMain)
                         {
                             MdiParent = (ProviderMain)this.MdiParent
                         };
-                        patientHome.Show();
+
+                    for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                    {
+                        if (Application.OpenForms[i].Name != "ProviderMain" && Application.OpenForms[i].Name != "WelcomeHomePage" &&
+                            Application.OpenForms[i].Name != "SchedulerMain")
+                        {
+                            Application.OpenForms[i].Close();
+                        }
+                    }
+                    patientHome.Show();
                      
 
                     }
 
                     Console.WriteLine("clicked");
                 }
-            if (e.RowIndex >= 0 && PatientListView1[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell && e.ColumnIndex == 11)
+
+
+            else if (e.RowIndex >= 0 && PatientListView1[e.ColumnIndex, e.RowIndex] is DataGridViewButtonCell)
             {
                 this.PatientListView1.Rows[e.RowIndex].Selected = true;
                 int selectedPatientID = (int)this.PatientListView1["PatientID", e.RowIndex].Value;
@@ -179,10 +190,20 @@ namespace Shifaa_EMR_System
 
                 string firstName = (String)selectedPatient[0]["FirstName"]; 
                 string lastName = (String)selectedPatient[0]["LastName"];
-                string phoneNumber = (String)selectedPatient[0]["PhoneNumber"];
+                string phoneNumber = "";
+                if (selectedPatient[0]["PhoneNumber"].GetType() != typeof(DBNull))
+                {
+                    phoneNumber = (String)selectedPatient[0]["PhoneNumber"];
+                }
                 string gender = (String)selectedPatient[0]["Gender"];
                 string age = (String)selectedPatient[0]["Age"];
-                string pregnancyStatus = (String)selectedPatient[0]["PregnancyStatus"];
+                string pregnancyStatus = "";
+                if (selectedPatient[0]["PregnancyStatus"].GetType() != typeof(DBNull))
+                {
+                     pregnancyStatus = (String)selectedPatient[0]["PregnancyStatus"];
+                }
+               
+
                 string maritalStatus = (String)selectedPatient[0]["MaritalStatus"];
                 string height = (String)selectedPatient[0]["Height"];
                 string weight = (String)selectedPatient[0]["Weight"];
@@ -191,11 +212,13 @@ namespace Shifaa_EMR_System
 
                 for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
                 {
-                    if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                    if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage" &&
+                        Application.OpenForms[i].Name != "ProviderMain" && Application.OpenForms[i].Name != "SchedulerMain")
                     {
                         Application.OpenForms[i].Close();
                     }
                 }
+                this.Hide();
 
                 if (Application.OpenForms["NewPatient"] as NewPatient == null)
                 {
@@ -223,6 +246,8 @@ namespace Shifaa_EMR_System
                         update.WeightBox.Text = weight;
                         update.NationalityBox.Text = nationality;
                         update.Focus();
+                        this.Close();
+                        this.Dispose();
                         update.Show();
                     }
                     if(parentType == "scheduler")
@@ -231,7 +256,7 @@ namespace Shifaa_EMR_System
                         {
                             MdiParent = (ProviderMain)this.MdiParent,
                         };
-
+                        this.Hide();
                         update.FirstNameBox.Text = firstName;
                         update.LastNameBox.Text = lastName;
                         update.PhoneNumberBox.Text = phoneNumber;
@@ -249,6 +274,8 @@ namespace Shifaa_EMR_System
                         update.WeightBox.Text = weight;
                         update.NationalityBox.Text = nationality;
                         update.Focus();
+                        this.Close();
+                        this.Dispose();
                         update.Show();
                     }
 
@@ -276,6 +303,7 @@ namespace Shifaa_EMR_System
         private void Exit_Click_1(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
     }
 

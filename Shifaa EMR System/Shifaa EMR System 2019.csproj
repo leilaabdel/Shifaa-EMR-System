@@ -170,6 +170,11 @@
     <Compile Include="NewMessageItem.Designer.cs">
       <DependentUpon>NewMessageItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RichTextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -402,14 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SchedulingCalendar.resx">
       <DependentUpon>SchedulingCalendar.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -493,6 +493,7 @@
     <None Include="ClosedLetter.png" />
     <None Include="ReplyButton.png" />
     <None Include="ForwardIcon.png" />
+    <None Include="Resources\ShifaaLogo1 %281%291.bmp" />
     <Content Include="RxIcon.jpg" />
     <Content Include="RxIcon.png" />
   </ItemGroup>

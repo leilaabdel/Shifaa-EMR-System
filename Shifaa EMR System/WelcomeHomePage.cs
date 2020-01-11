@@ -44,7 +44,7 @@ namespace Shifaa_EMR_System
 
         private void WelcomeHomePage_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void NewSchedulerAccountButton_Click(object sender, EventArgs e)

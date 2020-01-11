@@ -224,7 +224,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button SendMessageButton;
         private System.Windows.Forms.Button DiscardButton;
-        private System.Windows.Forms.ComboBox ReceiverComboBox;
+        public System.Windows.Forms.ComboBox ReceiverComboBox;
         private System.Windows.Forms.BindingSource allEmployeesBindingSource;
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter allEmployeesTableAdapter;

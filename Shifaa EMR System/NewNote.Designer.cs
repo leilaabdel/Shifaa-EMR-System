@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.NewNotePanel = new System.Windows.Forms.Panel();
             this.CancelButton = new System.Windows.Forms.Button();
             this.NewNoteLabel = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.NewNoteTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DeleteMessageButton = new System.Windows.Forms.Button();
             this.SaveDraftButton = new System.Windows.Forms.Button();
             this.PlanBox = new System.Windows.Forms.TextBox();
             this.AssesmentBox = new System.Windows.Forms.TextBox();
@@ -60,6 +61,7 @@
             this.NoteContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoteDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +69,6 @@
             this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NewNotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
@@ -86,7 +87,7 @@
             this.NewNotePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.NewNotePanel.Location = new System.Drawing.Point(0, 0);
             this.NewNotePanel.Name = "NewNotePanel";
-            this.NewNotePanel.Size = new System.Drawing.Size(1145, 39);
+            this.NewNotePanel.Size = new System.Drawing.Size(1128, 39);
             this.NewNotePanel.TabIndex = 1;
             this.NewNotePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.NewNotePanel_Paint);
             // 
@@ -99,7 +100,7 @@
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
             this.CancelButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CancelButton.Location = new System.Drawing.Point(1048, 7);
+            this.CancelButton.Location = new System.Drawing.Point(1031, 7);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(94, 26);
             this.CancelButton.TabIndex = 46;
@@ -126,14 +127,14 @@
             this.NoteHistoryTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NoteHistoryTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.NoteHistoryTable.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteHistoryTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.NoteHistoryTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.NoteHistoryTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NoteID,
@@ -143,6 +144,7 @@
             this.NoteContent,
             this.ColumnNumber,
             this.Date,
+            this.NoteDate,
             this.Status,
             this.noteIDDataGridViewTextBoxColumn,
             this.patientIDDataGridViewTextBoxColumn,
@@ -150,30 +152,29 @@
             this.noteTitleDataGridViewTextBoxColumn,
             this.noteContentDataGridViewTextBoxColumn,
             this.columnNumberDataGridViewTextBoxColumn,
-            this.dateDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn});
             this.NoteHistoryTable.DataSource = this.patientNoteBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.NoteHistoryTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.NoteHistoryTable.DefaultCellStyle = dataGridViewCellStyle5;
             this.NoteHistoryTable.Dock = System.Windows.Forms.DockStyle.Left;
             this.NoteHistoryTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NoteHistoryTable.Location = new System.Drawing.Point(0, 0);
             this.NoteHistoryTable.Name = "NoteHistoryTable";
             this.NoteHistoryTable.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NoteHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NoteHistoryTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.NoteHistoryTable.RowHeadersVisible = false;
             this.NoteHistoryTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.NoteHistoryTable.Size = new System.Drawing.Size(364, 767);
@@ -199,7 +200,7 @@
             this.panel1.Controls.Add(this.NoteHistoryTable);
             this.panel1.Location = new System.Drawing.Point(0, 45);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1133, 767);
+            this.panel1.Size = new System.Drawing.Size(1099, 767);
             this.panel1.TabIndex = 47;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
@@ -211,11 +212,12 @@
             this.NewNoteTabControl.Location = new System.Drawing.Point(370, 0);
             this.NewNoteTabControl.Name = "NewNoteTabControl";
             this.NewNoteTabControl.SelectedIndex = 0;
-            this.NewNoteTabControl.Size = new System.Drawing.Size(760, 767);
+            this.NewNoteTabControl.Size = new System.Drawing.Size(726, 767);
             this.NewNoteTabControl.TabIndex = 47;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.DeleteMessageButton);
             this.tabPage1.Controls.Add(this.SaveDraftButton);
             this.tabPage1.Controls.Add(this.PlanBox);
             this.tabPage1.Controls.Add(this.AssesmentBox);
@@ -230,11 +232,26 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(752, 741);
+            this.tabPage1.Size = new System.Drawing.Size(718, 741);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Note";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.TabPage1_Click);
+            // 
+            // DeleteMessageButton
+            // 
+            this.DeleteMessageButton.BackColor = System.Drawing.Color.White;
+            this.DeleteMessageButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.GarbageCan;
+            this.DeleteMessageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteMessageButton.FlatAppearance.BorderSize = 0;
+            this.DeleteMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteMessageButton.Location = new System.Drawing.Point(673, 47);
+            this.DeleteMessageButton.Name = "DeleteMessageButton";
+            this.DeleteMessageButton.Size = new System.Drawing.Size(17, 21);
+            this.DeleteMessageButton.TabIndex = 50;
+            this.DeleteMessageButton.Text = " ";
+            this.DeleteMessageButton.UseVisualStyleBackColor = false;
+            this.DeleteMessageButton.Click += new System.EventHandler(this.DeleteMessageButton_Click);
             // 
             // SaveDraftButton
             // 
@@ -244,7 +261,7 @@
             this.SaveDraftButton.FlatAppearance.BorderSize = 0;
             this.SaveDraftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveDraftButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SaveDraftButton.Location = new System.Drawing.Point(514, 44);
+            this.SaveDraftButton.Location = new System.Drawing.Point(454, 44);
             this.SaveDraftButton.Name = "SaveDraftButton";
             this.SaveDraftButton.Size = new System.Drawing.Size(94, 26);
             this.SaveDraftButton.TabIndex = 49;
@@ -261,7 +278,7 @@
             this.PlanBox.Multiline = true;
             this.PlanBox.Name = "PlanBox";
             this.PlanBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PlanBox.Size = new System.Drawing.Size(740, 150);
+            this.PlanBox.Size = new System.Drawing.Size(706, 150);
             this.PlanBox.TabIndex = 48;
             this.PlanBox.Text = "Plan:";
             this.PlanBox.Click += new System.EventHandler(this.PlanBox_Click);
@@ -275,7 +292,7 @@
             this.AssesmentBox.Multiline = true;
             this.AssesmentBox.Name = "AssesmentBox";
             this.AssesmentBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AssesmentBox.Size = new System.Drawing.Size(740, 150);
+            this.AssesmentBox.Size = new System.Drawing.Size(706, 150);
             this.AssesmentBox.TabIndex = 47;
             this.AssesmentBox.Text = "Assessment:";
             this.AssesmentBox.Click += new System.EventHandler(this.AssesmentBox_Click);
@@ -289,7 +306,7 @@
             this.ObjectiveNoteBox.Multiline = true;
             this.ObjectiveNoteBox.Name = "ObjectiveNoteBox";
             this.ObjectiveNoteBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ObjectiveNoteBox.Size = new System.Drawing.Size(740, 150);
+            this.ObjectiveNoteBox.Size = new System.Drawing.Size(706, 150);
             this.ObjectiveNoteBox.TabIndex = 46;
             this.ObjectiveNoteBox.Text = "Objective:";
             this.ObjectiveNoteBox.Click += new System.EventHandler(this.ObjectiveNoteBox_Click);
@@ -303,7 +320,7 @@
             this.SignButton.FlatAppearance.BorderSize = 0;
             this.SignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SignButton.Location = new System.Drawing.Point(633, 44);
+            this.SignButton.Location = new System.Drawing.Point(567, 44);
             this.SignButton.Name = "SignButton";
             this.SignButton.Size = new System.Drawing.Size(94, 26);
             this.SignButton.TabIndex = 45;
@@ -331,7 +348,7 @@
             this.SubjectiveNoteBox.Multiline = true;
             this.SubjectiveNoteBox.Name = "SubjectiveNoteBox";
             this.SubjectiveNoteBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.SubjectiveNoteBox.Size = new System.Drawing.Size(738, 150);
+            this.SubjectiveNoteBox.Size = new System.Drawing.Size(704, 150);
             this.SubjectiveNoteBox.TabIndex = 43;
             this.SubjectiveNoteBox.Text = "Subjective:";
             this.SubjectiveNoteBox.Click += new System.EventHandler(this.SubjectiveBox_Click);
@@ -430,10 +447,18 @@
             // 
             // Date
             // 
-            this.Date.DataPropertyName = "Date";
+            this.Date.DataPropertyName = "DateTime";
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            // 
+            // NoteDate
+            // 
+            this.NoteDate.DataPropertyName = "Date";
+            this.NoteDate.HeaderText = "Date";
+            this.NoteDate.Name = "NoteDate";
+            this.NoteDate.ReadOnly = true;
+            this.NoteDate.Visible = false;
             // 
             // Status
             // 
@@ -490,14 +515,6 @@
             this.columnNumberDataGridViewTextBoxColumn.ReadOnly = true;
             this.columnNumberDataGridViewTextBoxColumn.Visible = false;
             // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateDataGridViewTextBoxColumn.Visible = false;
-            // 
             // statusDataGridViewTextBoxColumn
             // 
             this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
@@ -510,7 +527,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1145, 866);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1145, 763);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NewNotePanel);
@@ -557,6 +575,8 @@
         private EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource patientNoteBindingSource;
         private EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter patientNoteTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        public System.Windows.Forms.Button DeleteMessageButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoteID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PatientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProviderName;
@@ -564,6 +584,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NoteContent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoteDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn patientIDDataGridViewTextBoxColumn;
@@ -571,7 +592,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn noteTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noteContentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
     }
 }

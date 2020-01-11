@@ -15,6 +15,7 @@ namespace Shifaa_EMR_System
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new WelcomeHomePage());
             Application.Run(new WelcomeHomePage());
+          
         }
     }
 }

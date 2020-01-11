@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateNewProviderAccount));
             this.panel2 = new System.Windows.Forms.Panel();
             this.BackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -411,14 +411,6 @@
             this.emailDataGridViewTextBoxColumn,
             this.jobRoleDataGridViewTextBoxColumn});
             this.SchedulerTable.DataSource = this.schedulerInfoBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.SchedulerTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.SchedulerTable.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SchedulerTable.Location = new System.Drawing.Point(318, 404);
             this.SchedulerTable.Margin = new System.Windows.Forms.Padding(4);
@@ -530,6 +522,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Kristen ITC", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CreateNewProviderAccount";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 50);

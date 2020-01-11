@@ -83,6 +83,16 @@ namespace Shifaa_EMR_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditIcon1 {
+            get {
+                object obj = ResourceManager.GetObject("EditIcon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EyeIcon {
             get {
                 object obj = ResourceManager.GetObject("EyeIcon", resourceCulture);
@@ -156,6 +166,96 @@ namespace Shifaa_EMR_System.Properties {
         internal static System.Drawing.Bitmap RxSign {
             get {
                 object obj = ResourceManager.GetObject("RxSign", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shifaa_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Shifaa_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shifaa_Logo_Final {
+            get {
+                object obj = ResourceManager.GetObject("Shifaa_Logo_Final", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo1 {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo1__1_ {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo1 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo1__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo1 (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo11 {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo12 {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ShifaaLogo2 {
+            get {
+                object obj = ResourceManager.GetObject("ShifaaLogo2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

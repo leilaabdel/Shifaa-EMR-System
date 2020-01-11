@@ -26,7 +26,7 @@ namespace Shifaa_EMR_System
         CalendarItem item;
 
 
-        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain)
+        public PatientHomePage(string name, string number, string gender, string age, string maritalStatus,  DateTime DOB, int selectedPatientID, ProviderMain providerMain)
         {
             InitializeComponent();
             this.PatientNameLabel.Text = name;
@@ -34,6 +34,8 @@ namespace Shifaa_EMR_System
             this.PatientGenderLabel.Text = gender;
             this.PatientAgeLabel.Text = "Age: " + age;
             this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
+            this.MaritalStatusLabel.Text = "Marital Status:" + maritalStatus;
+
             this.thisProviderID = providerMain.GetProviderID();
             SetVitals(selectedPatientID);
 
@@ -53,7 +55,7 @@ namespace Shifaa_EMR_System
 
         }
 
-        public PatientHomePage(string name, string number, string gender, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  SchedulingCalendar schedulingCalendar, CalendarItem item)
+        public PatientHomePage(string name, string number, string gender, string maritalStatus, string age, DateTime DOB, int selectedPatientID, ProviderMain providerMain,  SchedulingCalendar schedulingCalendar, CalendarItem item)
         {
             InitializeComponent();
             this.PatientNameLabel.Text = name;
@@ -61,6 +63,7 @@ namespace Shifaa_EMR_System
             this.PatientGenderLabel.Text = gender;
             this.PatientAgeLabel.Text = "Age: " + age;
             this.DOBLabel.Text = "DOB: " + DOB.ToShortDateString();
+            this.MaritalStatusLabel.Text = "Marital Status: " + maritalStatus;
 
             SetVitals(selectedPatientID);
 
@@ -126,13 +129,20 @@ namespace Shifaa_EMR_System
                 this.WeightValueLabel.Text = vital.Weight + " Kg";
                 this.HeightValueLabel.Text = vital.Height + " cm";
                 Double BMI = 0.0;
-                if(vital.BMI == "0")
+                if (vital.BMI.Contains("-") || String.IsNullOrWhiteSpace(vital.BMI))
                 {
-                    BMI = 0.0;
+                    this.BMIValueLabel.Text = " - " + " Kg/m²";
                 }
-                else BMI = Double.Parse(vital.BMI);
+                else
+                {
+                    BMI = Double.Parse(vital.BMI);
 
-                this.BMIValueLabel.Text = Math.Round(BMI, 2).ToString() + " Kg/m²";
+                    this.BMIValueLabel.Text = Math.Round(BMI, 2).ToString() + " Kg/m²";
+
+                }
+                   
+
+
              
 
             }
@@ -505,12 +515,16 @@ namespace Shifaa_EMR_System
 
                 if (MessageBox.Show(string.Format("Are you sure you want to delete this note?"), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    int i = doAction.deletePatientNote(selectedNoteID, DateTime.Today, thisProviderID);
                     try
                     {
-                        NoteHistoryTable.Rows.RemoveAt(currentRow);
-                        if (doAction.deletePatientNote(selectedNoteID, DateTime.Today , thisProviderID) == 1)
+                        if (i == 1)
                         {
                             MessageBox.Show("Unable to delete note. You can only delete notes you have written on this date.");
+                        }
+                        else
+                        {
+                            NoteHistoryTable.Rows.RemoveAt(currentRow);
                         }
                       
                     }

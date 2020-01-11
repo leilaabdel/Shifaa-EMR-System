@@ -147,13 +147,14 @@ namespace Shifaa_EMR_System
         private string GetAge()
         {
 
-            DateTime now = DateTime.Today;
-            int age = now.Year - DOBPicker.Value.Year;
-            int monthsage = now.Month - DOBPicker.Value.Month;
-            if (DOBPicker.Value > now.AddYears(-age) && !(age-- < 0)) return (age--).ToString();
-            if (age < 1) return monthsage + " Months";
+            TimeSpan ts = DateTime.Now - Convert.ToDateTime(DOBPicker.Value);
+            int age = Convert.ToInt32(ts.Days) / 365;
+            if (age >= 1) return age.ToString();
 
-            return age.ToString();
+            int monthsage = DateTime.Now.Month - DOBPicker.Value.Month;
+
+            return monthsage +" Months";
+
         }
 
         private string GetGender()

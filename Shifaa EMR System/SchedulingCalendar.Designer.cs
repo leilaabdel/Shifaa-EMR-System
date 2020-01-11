@@ -332,11 +332,12 @@ namespace Shifaa_EMR_System
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(208, 0);
+            this.splitter1.Location = new System.Drawing.Point(208, 40);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(5, 1344);
+            this.splitter1.Size = new System.Drawing.Size(5, 1316);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
+            this.splitter1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitter1_SplitterMoved);
             // 
             // panel1
             // 
@@ -345,9 +346,10 @@ namespace Shifaa_EMR_System
             this.panel1.Controls.Add(this.SelectProviderLabel);
             this.panel1.Controls.Add(this.ProviderComboBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(213, 0);
+            this.panel1.Location = new System.Drawing.Point(213, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1214, 69);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.panel1.Size = new System.Drawing.Size(1180, 69);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -361,7 +363,7 @@ namespace Shifaa_EMR_System
             this.CancelButton2.FlatAppearance.BorderSize = 0;
             this.CancelButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton2.Location = new System.Drawing.Point(1060, 16);
+            this.CancelButton2.Location = new System.Drawing.Point(1032, 16);
             this.CancelButton2.Name = "CancelButton2";
             this.CancelButton2.Size = new System.Drawing.Size(142, 35);
             this.CancelButton2.TabIndex = 55;
@@ -373,7 +375,7 @@ namespace Shifaa_EMR_System
             // 
             this.SelectProviderLabel.AutoSize = true;
             this.SelectProviderLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectProviderLabel.Location = new System.Drawing.Point(435, 25);
+            this.SelectProviderLabel.Location = new System.Drawing.Point(428, 25);
             this.SelectProviderLabel.Name = "SelectProviderLabel";
             this.SelectProviderLabel.Size = new System.Drawing.Size(124, 19);
             this.SelectProviderLabel.TabIndex = 1;
@@ -384,7 +386,7 @@ namespace Shifaa_EMR_System
             this.ProviderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ProviderComboBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProviderComboBox.FormattingEnabled = true;
-            this.ProviderComboBox.Location = new System.Drawing.Point(579, 25);
+            this.ProviderComboBox.Location = new System.Drawing.Point(571, 23);
             this.ProviderComboBox.MaxDropDownItems = 20;
             this.ProviderComboBox.Name = "ProviderComboBox";
             this.ProviderComboBox.Size = new System.Drawing.Size(276, 24);
@@ -410,14 +412,14 @@ namespace Shifaa_EMR_System
             this.monthView1.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
             this.monthView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
-            this.monthView1.Location = new System.Drawing.Point(0, 0);
+            this.monthView1.Location = new System.Drawing.Point(0, 40);
             this.monthView1.MaxSelectionCount = 35;
             this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
             this.monthView1.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
             this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
             this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(208, 1344);
+            this.monthView1.Size = new System.Drawing.Size(208, 1316);
             this.monthView1.TabIndex = 3;
             this.monthView1.Text = "monthView1";
             this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
@@ -441,9 +443,10 @@ namespace Shifaa_EMR_System
             // 
             this.panel2.Controls.Add(this.CancelButton1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(213, 69);
+            this.panel2.Location = new System.Drawing.Point(213, 109);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1214, 57);
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(1180, 53);
             this.panel2.TabIndex = 2;
             // 
             // CancelButton1
@@ -456,7 +459,7 @@ namespace Shifaa_EMR_System
             this.CancelButton1.FlatAppearance.BorderSize = 0;
             this.CancelButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton1.Location = new System.Drawing.Point(1060, 10);
+            this.CancelButton1.Location = new System.Drawing.Point(1026, 7);
             this.CancelButton1.Name = "CancelButton1";
             this.CancelButton1.Size = new System.Drawing.Size(142, 35);
             this.CancelButton1.TabIndex = 54;
@@ -466,6 +469,7 @@ namespace Shifaa_EMR_System
             // 
             // calendar1
             // 
+            this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
             this.calendar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.calendar1.Font = new System.Drawing.Font("Segoe UI", 9F);
             calendarHighlightRange1.DayOfWeek = System.DayOfWeek.Monday;
@@ -489,10 +493,9 @@ namespace Shifaa_EMR_System
         calendarHighlightRange3,
         calendarHighlightRange4,
         calendarHighlightRange5};
-            this.calendar1.Location = new System.Drawing.Point(213, 126);
-            this.calendar1.ContextMenuStrip = this.contextMenuStrip1;
+            this.calendar1.Location = new System.Drawing.Point(213, 162);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(1214, 1194);
+            this.calendar1.Size = new System.Drawing.Size(1180, 1194);
             this.calendar1.TabIndex = 6;
             this.calendar1.Text = "SchedulingCalendar";
             this.calendar1.TextBox = null;
@@ -507,15 +510,16 @@ namespace Shifaa_EMR_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1444, 620);
+            this.ClientSize = new System.Drawing.Size(1410, 620);
             this.ControlBox = false;
             this.Controls.Add(this.calendar1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.monthView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SchedulingCalendar";
+            this.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
             this.Text = "Schedule";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DemoForm_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);

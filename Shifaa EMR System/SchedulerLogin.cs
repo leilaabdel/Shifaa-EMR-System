@@ -60,6 +60,7 @@ namespace Shifaa_EMR_System
         private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
 
         private void Back_Click(object sender, EventArgs e)

@@ -42,16 +42,16 @@
             this.InboxButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.messageListFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
-            this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.messageTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.MessageTableAdapter();
             this.ContactsToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessagesToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.allEmployeesTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
             this.ConversationFlowPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
+            this.messageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.MessageTableAdapter();
+            this.allEmployeesTableAdapter1 = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,9 +83,9 @@
             this.CancelButton.FlatAppearance.BorderSize = 0;
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton.Location = new System.Drawing.Point(930, 19);
+            this.CancelButton.Location = new System.Drawing.Point(989, 16);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(142, 35);
+            this.CancelButton.Size = new System.Drawing.Size(84, 35);
             this.CancelButton.TabIndex = 53;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = false;
@@ -237,20 +237,6 @@
             this.messageListFlowPanel.Click += new System.EventHandler(this.MessageListFlowPanelClick);
             this.messageListFlowPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.messageListFlowPanel_Paint);
             // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // messageBindingSource
-            // 
-            this.messageBindingSource.DataMember = "Message";
-            this.messageBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // messageTableAdapter
-            // 
-            this.messageTableAdapter.ClearBeforeFill = true;
-            // 
             // ContactsToolStripItem
             // 
             this.ContactsToolStripItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,10 +272,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(200, 24);
             this.menuStrip1.TabIndex = 0;
             // 
-            // allEmployeesTableAdapter1
-            // 
-            this.allEmployeesTableAdapter1.ClearBeforeFill = true;
-            // 
             // ConversationFlowPanel
             // 
             this.ConversationFlowPanel.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -300,6 +282,24 @@
             this.ConversationFlowPanel.Name = "ConversationFlowPanel";
             this.ConversationFlowPanel.Size = new System.Drawing.Size(615, 801);
             this.ConversationFlowPanel.TabIndex = 7;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // messageBindingSource
+            // 
+            this.messageBindingSource.DataMember = "Message";
+            this.messageBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // messageTableAdapter
+            // 
+            this.messageTableAdapter.ClearBeforeFill = true;
+            // 
+            // allEmployeesTableAdapter1
+            // 
+            this.allEmployeesTableAdapter1.ClearBeforeFill = true;
             // 
             // MessagesView
             // 

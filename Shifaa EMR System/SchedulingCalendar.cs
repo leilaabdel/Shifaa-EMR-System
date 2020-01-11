@@ -118,6 +118,7 @@ namespace Shifaa_EMR_System
         {
 
             _items.Clear();
+           
 
             this.WindowState = FormWindowState.Maximized;
 
@@ -496,8 +497,10 @@ namespace Shifaa_EMR_System
                 {
                     string name = r.FirstName + " " + r.LastName;
                     PatientHomePage patientHomePage = new PatientHomePage(name, r.PhoneNumber, r.Gender,
-                        r.Age, r.DOB, e.Item.PatientID, this.providerMain, this, e.Item);
-                    patientHomePage.MdiParent = providerMain;
+                         r.MaritalStatus, r.Age, r.DOB, e.Item.PatientID, this.providerMain, this, e.Item)
+                    {
+                        MdiParent = providerMain
+                    };
                     patientHomePage.Show();
                 }
 
@@ -726,6 +729,11 @@ namespace Shifaa_EMR_System
         private void CancelButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
         }
     }
 }

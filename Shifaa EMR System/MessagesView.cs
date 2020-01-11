@@ -31,7 +31,7 @@ namespace Shifaa_EMR_System
             InitializeComponent();
             RecipientID = recipientID;
             Console.WriteLine(recipientID);
-            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID , "Sent" , "In");
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID , "Sent" , RecipientID);
             _employeeInfo = this.allEmployeesTableAdapter1.GetDataByEmployeeID(recipientID);
             _employeeInfo.Columns.Add("EmployeeName", typeof(string), "FirstName + ' ' + LastName + ' | ' + JobType");
 
@@ -99,8 +99,8 @@ namespace Shifaa_EMR_System
 
             ConversationFlowPanel.Controls.Clear();
 
-            _conversationTable = messageTableAdapter.GetDataByConversationID(conversationID , RecipientID , "In");
-          
+            _conversationTable = messageTableAdapter.GetDataByConversationID(conversationID , RecipientID , RecipientID);
+            if (TypeLabel.Text == "Inbox") _conversationTable = messageTableAdapter.GetDataForInbox(conversationID, RecipientID, RecipientID);
             _conversationID = conversationID;
             Console.WriteLine("Populate message convo ID is" + _conversationID);
             for (int i = _conversationTable.Rows.Count - 1; i >= 0; i--)
@@ -108,7 +108,7 @@ namespace Shifaa_EMR_System
                 if ((String)_conversationTable.Rows[i]["Status"] == "Sent")
                 {
 
-
+                    Console.WriteLine(i);
                     ConversationItem conversationItem = new ConversationItem(conversationID, (int)_conversationTable.Rows[i]["MessageIDNumber"])
                     {
                        
@@ -126,20 +126,13 @@ namespace Shifaa_EMR_System
 
 
                     };
-                    if (TypeLabel.Text == "Inbox" || TypeLabel.Text == "Junk")
-                    {
-                        conversationItem.SenderName = (String)_conversationTable.Rows[i]["RecipientName"];
-                        conversationItem.SenderID = (String)_conversationTable.Rows[i]["RecipientID"];
-                        conversationItem.ReceiverName = (String)_conversationTable.Rows[i]["SenderName"];
-                        conversationItem.ReceiverID = (String)_conversationTable.Rows[i]["SenderID"];
-                    }
-                    if (TypeLabel.Text == "Drafts" || TypeLabel.Text == "Sent")
-                    {
-                        conversationItem.SenderName = (String)_conversationTable.Rows[i]["SenderName"];
-                        conversationItem.SenderID = (String)_conversationTable.Rows[i]["SenderID"];
-                        conversationItem.ReceiverName = (String)_conversationTable.Rows[i]["RecipientName"];
-                        conversationItem.ReceiverID = (String)_conversationTable.Rows[i]["RecipientID"];
-                    }
+
+                    conversationItem.SenderName = (String)_conversationTable.Rows[i]["SenderName"];
+                    conversationItem.SenderID = (String)_conversationTable.Rows[i]["SenderID"];
+                    conversationItem.ReceiverName = (String)_conversationTable.Rows[i]["RecipientName"];
+                    conversationItem.ReceiverID = (String)_conversationTable.Rows[i]["RecipientID"];
+
+                  
                     
                    
 
@@ -171,6 +164,7 @@ namespace Shifaa_EMR_System
                     };
 
                     ConversationFlowPanel.Controls.Add(newMessage);
+
                 }
         
             }
@@ -264,7 +258,7 @@ namespace Shifaa_EMR_System
         {
             Button clickedButton = (Button)sender;
             ConversationItem item = (ConversationItem)clickedButton.Parent;
-            DataTable _messageForID = messageTableAdapter.GetDataByMessageIDNumber(item.MessageID, "In");
+            DataTable _messageForID = messageTableAdapter.GetDataByMessageIDNumber(item.MessageID, RecipientID);
 
 
 
@@ -383,14 +377,14 @@ namespace Shifaa_EMR_System
 
         private void InboxButton_Click(object sender, EventArgs e)
         {
-            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID ,"Sent" , "In");
+            _messagesTable = this.messageTableAdapter.GetDataByRecipientID(this.RecipientID ,"Sent" , RecipientID);
             PopulateMessages(_messagesTable);
             TypeLabel.Text = "Inbox";
         }
 
         private void SentButton_Click(object sender, EventArgs e)
         {
-            _messagesTable = this.messageTableAdapter.GetDataBySent(this.RecipientID, "Sent" , "Out");
+            _messagesTable = this.messageTableAdapter.GetDataBySent(this.RecipientID, "Sent" , RecipientID);
             PopulateMessages(_messagesTable);
             TypeLabel.Text = "Sent";
 

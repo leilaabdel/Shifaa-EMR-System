@@ -229,7 +229,7 @@
             // 
             // UpdatePatient
             // 
-            this.UpdatePatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdatePatient.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.UpdatePatient.HeaderText = "Update Info";
             this.UpdatePatient.Name = "UpdatePatient";
             this.UpdatePatient.ReadOnly = true;

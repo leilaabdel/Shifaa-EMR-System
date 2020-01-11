@@ -106,6 +106,7 @@ namespace Shifaa_EMR_System
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
         }
     }
 }

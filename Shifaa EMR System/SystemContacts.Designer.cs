@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.AppointmentListView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.ContactListView = new System.Windows.Forms.DataGridView();
             this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProviderOrScheduler = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,31 +52,35 @@
             this.Exit = new System.Windows.Forms.Button();
             this.allEmployeesTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.AllEmployeesTableAdapter();
             this.searchBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.DiscardButton = new System.Windows.Forms.Button();
+            this.SendButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ContactListView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allEmployeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // AppointmentListView1
+            // ContactListView
             // 
-            this.AppointmentListView1.AllowUserToAddRows = false;
-            this.AppointmentListView1.AllowUserToDeleteRows = false;
-            this.AppointmentListView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ContactListView.AllowUserToAddRows = false;
+            this.ContactListView.AllowUserToDeleteRows = false;
+            this.ContactListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AppointmentListView1.AutoGenerateColumns = false;
-            this.AppointmentListView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.AppointmentListView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.AppointmentListView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppointmentListView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.AppointmentListView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppointmentListView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ContactListView.AutoGenerateColumns = false;
+            this.ContactListView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ContactListView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ContactListView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ContactListView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.ContactListView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ContactListView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmployeeID,
             this.ProviderOrScheduler,
             this.FirstName,
@@ -91,32 +95,33 @@
             this.jobTypeDataGridViewTextBoxColumn,
             this.phoneNumberDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn});
-            this.AppointmentListView1.DataSource = this.allEmployeesBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AppointmentListView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.AppointmentListView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AppointmentListView1.Location = new System.Drawing.Point(49, 103);
-            this.AppointmentListView1.Name = "AppointmentListView1";
-            this.AppointmentListView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppointmentListView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.AppointmentListView1.RowHeadersVisible = false;
-            this.AppointmentListView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AppointmentListView1.Size = new System.Drawing.Size(935, 921);
-            this.AppointmentListView1.TabIndex = 27;
-            this.AppointmentListView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentListView1_CellContentClick);
+            this.ContactListView.DataSource = this.allEmployeesBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ContactListView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ContactListView.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ContactListView.Location = new System.Drawing.Point(49, 103);
+            this.ContactListView.Name = "ContactListView";
+            this.ContactListView.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ContactListView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.ContactListView.RowHeadersVisible = false;
+            this.ContactListView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ContactListView.Size = new System.Drawing.Size(935, 921);
+            this.ContactListView.TabIndex = 27;
+            this.ContactListView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentListView1_CellContentClick);
+            this.ContactListView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ContactDoubleClick);
             // 
             // EmployeeID
             // 
@@ -263,17 +268,60 @@
             this.searchBox.Size = new System.Drawing.Size(227, 23);
             this.searchBox.TabIndex = 53;
             this.searchBox.Text = "Search Contacts";
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             this.searchBox.Click += new System.EventHandler(this.SearchBoxClicked);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.SendButton);
+            this.panel1.Controls.Add(this.DiscardButton);
+            this.panel1.Location = new System.Drawing.Point(220, 212);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(638, 309);
+            this.panel1.TabIndex = 54;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // DiscardButton
+            // 
+            this.DiscardButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DiscardButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DiscardButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.DiscardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DiscardButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.DiscardButton.Location = new System.Drawing.Point(140, 258);
+            this.DiscardButton.Name = "DiscardButton";
+            this.DiscardButton.Size = new System.Drawing.Size(83, 32);
+            this.DiscardButton.TabIndex = 53;
+            this.DiscardButton.Text = "Discard";
+            this.DiscardButton.UseVisualStyleBackColor = false;
+            this.DiscardButton.Click += new System.EventHandler(this.DiscardButton_Click);
+            // 
+            // SendButton
+            // 
+            this.SendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SendButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SendButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SendButton.FlatAppearance.BorderSize = 0;
+            this.SendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SendButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.SendButton.Location = new System.Drawing.Point(24, 258);
+            this.SendButton.Name = "SendButton";
+            this.SendButton.Size = new System.Drawing.Size(83, 32);
+            this.SendButton.TabIndex = 54;
+            this.SendButton.Text = "Send";
+            this.SendButton.UseVisualStyleBackColor = false;
+            this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
             // SystemContacts
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1034, 802);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.Exit);
-            this.Controls.Add(this.AppointmentListView1);
+            this.Controls.Add(this.ContactListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -282,9 +330,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.SystemContacts_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentListView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContactListView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allEmployeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,7 +342,7 @@
         #endregion
 
 
-        private System.Windows.Forms.DataGridView AppointmentListView1;
+        private System.Windows.Forms.DataGridView ContactListView;
         private System.Windows.Forms.Button Exit;
         public EMRDatabaseDataSet eMRDatabaseDataSet;
         private System.Windows.Forms.BindingSource allEmployeesBindingSource;
@@ -313,5 +362,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jobTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button SendButton;
+        private System.Windows.Forms.Button DiscardButton;
     }
 }

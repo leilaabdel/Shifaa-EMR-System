@@ -173,7 +173,7 @@ namespace Shifaa_EMR_System
                 //TODO: Fix the bug such that there are two seperate copies of the email in the two inboxes;
                 doAction.SendMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, employeeName, (String)ReceiverComboBox.SelectedValue, _messageIDNumber);
                 doAction.createNewMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, SenderName, SenderID, ReceiverComboBox.Text, (String)ReceiverComboBox.SelectedValue,
-                        _conversationID, "Sent", "Out");
+                        _conversationID, "Sent", (String)ReceiverComboBox.SelectedValue);
 
 
                 this.Hide();
@@ -232,7 +232,7 @@ namespace Shifaa_EMR_System
             if (!isEditingDraft)
             {
                 _messageIDNumber = doAction.createNewMessage(SubjectBox.Text, MessageContentBox.Text, DateTime.Now, SenderName, SenderID, ReceiverComboBox.Text, (String)ReceiverComboBox.SelectedValue,
-                        _conversationID, "Draft" , "In");
+                        _conversationID, "Draft" , SenderID);
             }
 
             Console.WriteLine("The message ID # is" + _messageIDNumber);

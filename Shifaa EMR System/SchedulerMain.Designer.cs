@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SchedulerMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.ContactsToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessagesToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.Button3 = new System.Windows.Forms.Button();
             this.ExistingAppointments = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,9 +47,6 @@
             this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.Button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -106,6 +107,38 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 341);
             this.panel3.TabIndex = 4;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            // 
+            // monthCalendar2
+            // 
+            this.monthCalendar2.Location = new System.Drawing.Point(24, 100);
+            this.monthCalendar2.Name = "monthCalendar2";
+            this.monthCalendar2.TabIndex = 8;
+            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar2_DateChanged);
+            // 
+            // searchBox
+            // 
+            this.searchBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBox.Location = new System.Drawing.Point(24, 26);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(227, 23);
+            this.searchBox.TabIndex = 10;
+            this.searchBox.Text = "Search Patient ID/Name";
+            this.searchBox.Click += new System.EventHandler(this.SearchBoxClick);
+            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
+            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
+            // 
+            // Button3
+            // 
+            this.Button3.AutoSize = true;
+            this.Button3.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
+            this.Button3.Location = new System.Drawing.Point(76, 55);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(121, 33);
+            this.Button3.TabIndex = 11;
+            this.Button3.Text = "New Patient";
+            this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // ExistingAppointments
             // 
@@ -190,48 +223,22 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // monthCalendar2
-            // 
-            this.monthCalendar2.Location = new System.Drawing.Point(24, 100);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 8;
-            this.monthCalendar2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar2_DateChanged);
-            // 
-            // searchBox
-            // 
-            this.searchBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBox.Location = new System.Drawing.Point(24, 26);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(227, 23);
-            this.searchBox.TabIndex = 10;
-            this.searchBox.Text = "Search Patient ID/Name";
-            this.searchBox.Click += new System.EventHandler(this.SearchBoxClick);
-            this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
-            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
-            // 
-            // Button3
-            // 
-            this.Button3.AutoSize = true;
-            this.Button3.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
-            this.Button3.Location = new System.Drawing.Point(76, 55);
-            this.Button3.Name = "Button3";
-            this.Button3.Size = new System.Drawing.Size(121, 33);
-            this.Button3.TabIndex = 11;
-            this.Button3.Text = "New Patient";
-            this.Button3.UseVisualStyleBackColor = true;
-            this.Button3.Click += new System.EventHandler(this.Button3_Click);
-            // 
             // SchedulerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1343, 763);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "SchedulerMain";
-            this.Text = "Form1";
+            this.Text = "Scheduler";
             this.Load += new System.EventHandler(this.SchedulerMain_Load);
             this.panel1.ResumeLayout(false);
             this.menuStrip2.ResumeLayout(false);
@@ -244,6 +251,7 @@
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThisFormClosing);
 
         }
 

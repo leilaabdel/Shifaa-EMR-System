@@ -78,7 +78,10 @@ namespace Shifaa_EMR_System
         }
 
 
-
+        private void ThisFormClosing(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
         public void Button2_Click(object sender, EventArgs e)
         {
@@ -166,7 +169,8 @@ namespace Shifaa_EMR_System
         {
             for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
             {
-                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
+                if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage"
+                     && Application.OpenForms[i].Name != "PatientListView")
                 {
                     Application.OpenForms[i].Close();
                 }
@@ -228,7 +232,7 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["SystemContacts"] as SystemContacts == null)
             {
-                SystemContacts systemContacts = new SystemContacts()
+                SystemContacts systemContacts = new SystemContacts(thisProviderID)
                 {
                     MdiParent = this,
                     WindowState = FormWindowState.Maximized
@@ -263,7 +267,13 @@ namespace Shifaa_EMR_System
 
         private void searchBox_TextChanged(object sender, EventArgs e)
         {
-
+            
+            if(globalPatientList != null)
+            {
+                globalPatientList.ActivateSearch();
+            }
+                
+           
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

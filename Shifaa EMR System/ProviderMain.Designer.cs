@@ -31,6 +31,7 @@ namespace Shifaa_EMR_System
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProviderMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,8 +45,6 @@ namespace Shifaa_EMR_System
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.ContactsToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MessagesToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proceduresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.Button3 = new System.Windows.Forms.Button();
@@ -151,13 +150,11 @@ namespace Shifaa_EMR_System
             this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ContactsToolStripItem,
-            this.MessagesToolStripItem,
-            this.proceduresToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.MessagesToolStripItem});
             this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.menuStrip2.Location = new System.Drawing.Point(-1, 330);
+            this.menuStrip2.Location = new System.Drawing.Point(-1, 325);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(266, 175);
+            this.menuStrip2.Size = new System.Drawing.Size(266, 163);
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -177,27 +174,13 @@ namespace Shifaa_EMR_System
             this.MessagesToolStripItem.Text = "Messages";
             this.MessagesToolStripItem.Click += new System.EventHandler(this.MessagesToolStripItem_Click);
             // 
-            // proceduresToolStripMenuItem
-            // 
-            this.proceduresToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
-            this.proceduresToolStripMenuItem.Name = "proceduresToolStripMenuItem";
-            this.proceduresToolStripMenuItem.Size = new System.Drawing.Size(262, 27);
-            this.proceduresToolStripMenuItem.Text = "Fees";
-            // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Bahnschrift", 14.25F);
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(262, 27);
-            this.reportsToolStripMenuItem.Text = "Reports";
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.searchBox);
             this.panel3.Controls.Add(this.Button3);
             this.panel3.Controls.Add(this.Button2);
             this.panel3.Controls.Add(this.monthCalendar1);
-            this.panel3.Location = new System.Drawing.Point(-2, 17);
+            this.panel3.Location = new System.Drawing.Point(-2, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 326);
             this.panel3.TabIndex = 4;
@@ -256,14 +239,20 @@ namespace Shifaa_EMR_System
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.ShifaaLogo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1376, 763);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "ProviderMain";
-            this.Text = "Main Portal ";
+            this.Text = "Provider";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ProviderMain_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -277,13 +266,17 @@ namespace Shifaa_EMR_System
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThisFormClosing);
+            
+
+          
 
         }
 
-        private void Label2_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+      
+
+
+    
 
         #endregion
 
@@ -302,8 +295,6 @@ namespace Shifaa_EMR_System
         private System.Windows.Forms.Button Button2;
         private System.Windows.Forms.ToolStripMenuItem ContactsToolStripItem;
         private System.Windows.Forms.ToolStripMenuItem MessagesToolStripItem;
-        private System.Windows.Forms.ToolStripMenuItem proceduresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button Button3;
         private System.Windows.Forms.TextBox searchBox;
