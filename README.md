@@ -26,7 +26,7 @@ patient messaging is ongoing.
 
 
 ## Feedback.
-We are in beta, so any user feedback is appreciated. Please fill out this short [form]: https://forms.gle/MheFRmWuSN8JpAy4A
+We are in beta, so any user feedback is appreciated. Please fill out this short [form](https://forms.gle/MheFRmWuSN8JpAy4A)
 
 
 ### The Home Page
