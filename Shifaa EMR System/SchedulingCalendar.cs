@@ -26,6 +26,7 @@ namespace Shifaa_EMR_System
         private List<String> providerIDList = new List<String>();
         private string _type;
         private List<CalendarItem> providerCalendarItems = new List<CalendarItem>();
+        private PatientHomePage patientHome;
 
 
         SchedulerMain schedulerMain;
@@ -33,6 +34,7 @@ namespace Shifaa_EMR_System
         {
             InitializeComponent();
             this.thisProviderID = providerID;
+            this.MdiParent = providerMain;
 
             providerIDList.Add(thisProviderID);
 
@@ -74,7 +76,7 @@ namespace Shifaa_EMR_System
             monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
             monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
             monthView1.DaySelectedTextColor = monthView1.ForeColor;
-
+            this.MdiParent = schedulerMain;
             this.schedulerMain = schedulerMain ?? new SchedulerMain("123");
             this.WindowState = FormWindowState.Maximized;
 
@@ -98,16 +100,22 @@ namespace Shifaa_EMR_System
             Type = "Scheduler";
         }
 
-        public SchedulingCalendar(int patientID)
+        public SchedulingCalendar(int patientID, ProviderMain providerMain , PatientHomePage patientHome)
         {
             InitializeComponent();
             monthView1.MonthTitleColor = monthView1.MonthTitleColorInactive = CalendarColorTable.FromHex("#C2DAFC");
             monthView1.ArrowsColor = CalendarColorTable.FromHex("#77A1D3");
             monthView1.DaySelectedBackgroundColor = CalendarColorTable.FromHex("#F4CC52");
             monthView1.DaySelectedTextColor = monthView1.ForeColor;
-
-            thisPatientID = patientID;
+            this.MdiParent = providerMain;
+            this.thisPatientID = patientID;
             this.WindowState = FormWindowState.Maximized;
+            ProviderComboBox.Hide();
+            SelectProviderLabel.Hide();
+            this.thisProviderID = providerMain.GetProviderID();
+            panel1.Hide();
+            this.patientHome = patientHome;
+
             Type = "Provider";
 
 
@@ -118,6 +126,8 @@ namespace Shifaa_EMR_System
         {
 
             _items.Clear();
+
+            calendar1.TimeUnitsOffset = 6 * (60 / 30) * -1;
            
 
             this.WindowState = FormWindowState.Maximized;
@@ -152,12 +162,13 @@ namespace Shifaa_EMR_System
 
                         Color c = Color.FromName(r.Color);
                         cal.BackgroundColor = c;
-                        if (r.Pattern != "None" && r.PatternColor != "Color [Empty]")
+                        if (r.Pattern != "None" && r.Pattern != "none"  && r.PatternColor != "Color [Empty]")
                         {
                             cal.Pattern = (System.Drawing.Drawing2D.HatchStyle)Enum.Parse(typeof(System.Drawing.Drawing2D.HatchStyle), r.Pattern);
                             cal.PatternColor = Color.Red;
 
                         }
+                    
                       
 
                         _items.Add(cal);
@@ -178,24 +189,27 @@ namespace Shifaa_EMR_System
 
                     string patientName = r.FirstName + " " + r.LastName;
                     int patientID = r.patientID;
-
-
-
-                    string itemText = patientName + "\n" + GetProviderName(r.ProviderID) + "\n" + r.Details;
+                     string itemText = patientName + "\n" + GetProviderName(r.ProviderID) + "\n" + r.Details;
                     CalendarItem cal = new CalendarItem(calendar1, startDateTime, endDateTime, itemText, r.FirstName, r.LastName, r.appointmentID,
                         r.patientID, r.ProviderID, r.Status);
 
                     Color c = Color.FromName(r.Color);
                     cal.BackgroundColor = c;
-                    cal.Pattern = (System.Drawing.Drawing2D.HatchStyle)Enum.Parse(typeof(System.Drawing.Drawing2D.HatchStyle), r.Pattern);
-                    cal.PatternColor = Color.Red;
 
+                    if (r.Pattern != "None" && r.Pattern != "none" && r.PatternColor != "Color [Empty]")
+                    {
+                        cal.Pattern = (System.Drawing.Drawing2D.HatchStyle)Enum.Parse(typeof(System.Drawing.Drawing2D.HatchStyle), r.Pattern);
+                        cal.PatternColor = Color.Red;
+
+                    }
                     _items.Add(cal);
                 }
 
                 PlaceItems(_items);
             }
         }
+
+       
 
         private void GainedFocus(object sender, EventArgs e)
         {
@@ -275,7 +289,7 @@ namespace Shifaa_EMR_System
 
             if (Application.OpenForms["NewAppointmentFromPatientView"] as NewAppointmentFromPatientView == null && thisPatientID != 0)
             {
-                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderID, e.Item, calendar1, _items, this);
+                NewAppointmentFromPatientView newAppointment = new NewAppointmentFromPatientView(thisPatientID, thisProviderID, e.Item, calendar1, _items, this , this.patientHome);
                 newAppointment.Show();
 
 
@@ -290,8 +304,7 @@ namespace Shifaa_EMR_System
         private void deleteItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            List<CalendarItem> list = (List<CalendarItem>)calendar1.GetSelectedItems();
-            Console.WriteLine(list.Count);
+            IEnumerable<CalendarItem> list = calendar1.GetSelectedItems();
             foreach (CalendarItem i in list)
             {
                 Console.WriteLine(i.AppointmentID.ToString());
@@ -728,6 +741,10 @@ namespace Shifaa_EMR_System
 
         private void CancelButton1_Click(object sender, EventArgs e)
         {
+            if(thisPatientID != 0)
+            {
+                InvokeGotFocus(patientHome, e);
+            }
             this.Close();
         }
 

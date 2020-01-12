@@ -154,7 +154,7 @@ namespace Shifaa_EMR_System
             this.menuStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.menuStrip2.Location = new System.Drawing.Point(-1, 325);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(266, 163);
+            this.menuStrip2.Size = new System.Drawing.Size(266, 319);
             this.menuStrip2.TabIndex = 4;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -250,10 +250,10 @@ namespace Shifaa_EMR_System
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "ProviderMain";
             this.Text = "Provider";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThisFormClosing);
             this.Load += new System.EventHandler(this.ProviderMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -266,10 +266,6 @@ namespace Shifaa_EMR_System
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThisFormClosing);
-            
-
-          
 
         }
 

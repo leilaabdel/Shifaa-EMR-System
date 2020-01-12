@@ -48,7 +48,10 @@ namespace Shifaa_EMR_System
         private void ProviderMain_Load(object sender, EventArgs e)
         {
             MdiClient providerMain;
-            
+            this.MaximizeBox = false;
+
+
+
             foreach (Control ctl in this.Controls)
             {
                 try

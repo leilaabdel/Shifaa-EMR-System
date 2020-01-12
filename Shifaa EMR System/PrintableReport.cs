@@ -30,6 +30,7 @@ namespace Shifaa_EMR_System
             _printDocument.BeginPrint += PrintDocument_BeginPrint;
             _printDocument.PrintPage += PrintDocument_PrintPage;
             report = new RichTextBoxEx();
+            
   
         }
 
@@ -58,10 +59,8 @@ namespace Shifaa_EMR_System
 
         private void PrintableReport_Load(object sender, EventArgs e)
         {
-            SetPatientInformation();
-            SetProviderInformation();
-            SetPatientVitals();
-
+           
+            dateTimePicker1.Value = DateTime.Today;
             foreach (Control con in Controls)
             {
                 con.Hide();
@@ -71,7 +70,147 @@ namespace Shifaa_EMR_System
             CancelButton.Show();
             panel1.Show();
 
+            this.Controls.Add(report);
+            report.BringToFront();
+            report.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left;
 
+
+        }
+
+        private void SetPatientInformation()
+        {
+            ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(thisPatientID);
+            foreach ( getPatientByIDResult r in result)
+            {
+                string firstName = r.FirstName;
+                string lastName = r.LastName;
+
+                PatientNameLabel.Text = firstName + " " + lastName;
+                PhoneNumberLabel.Text = "Phone Number: " + r.PhoneNumber;
+                PatientGenderLabel.Text = r.Gender;
+                MaritalStatusLabel.Text = "Marital Status: " + r.MaritalStatus;
+                if (r.Gender == "Male") PregnantLabel.Hide();
+                PregnantLabel.Text = "Pregnancy Status: " + r.PregnancyStatus;
+                PatientAgeLabel.Text = r.Age + " Years Old";
+                DOBLabel.Text = "DOB: " + r.DOB.ToShortDateString();
+
+            }
+        }
+
+        private void SetProviderInformation()
+        {
+            ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(thisProviderID);
+            foreach (getProviderInfoResult r in result)
+            {
+                AttendingPhysicianLabel.Text = r.FirstName + " " + r.LastName + " " + r.Title;
+                PhysicianNumberLabel.Text = "Phone Number: " + r.PhoneNumber;
+            }
+        }
+
+        private void SetPatientVitals()
+        {
+            ISingleResult<getLatestPatientVitalsResult> result = doAction.getLatestPatientVitals(thisPatientID);
+            foreach(getLatestPatientVitalsResult r in result)
+            {
+                BloodPressureValueLabel.Text = r.BloodPressure + " mm Hg";
+                PulseValueLabel.Text = r.Pulse + " bpm";
+                TemperatureValueLabel.Text = r.Temperature.ToString() + " °C";
+                HeightValueLabel.Text = r.Height.ToString() + " cm";
+                WeightValueLabel.Text = r.Weight.ToString() + " kg";
+                BMIValueLabel.Text = r.BMI.ToString() + " kg/m²";
+            }
+        }
+
+        private void SetProblems(RichTextBoxEx report)
+        {
+
+            report.SelectionBullet = true;
+            report.BulletIndent = 5;
+            ISingleResult<selectProblemsForReportResult> result = doAction.selectProblemsForReport("Ongoing", thisPatientID);
+            foreach( selectProblemsForReportResult r in result)
+            {
+                report.SelectionIndent = 60;
+                report.SelectionFont = new Font("Bahnschrift Light" , 13);
+                report.SelectedText = r.DateDiagnosed.ToShortDateString() + ": " + r.ProblemName + "\n";
+            }
+
+            report.SelectionBullet = false;
+        }
+
+        private void SetNotes(RichTextBoxEx report)
+        {
+            ISingleResult<selectNotesForReportResult> result = doAction.selectNotesForReport(thisPatientID, "Signed", dateTimePicker1.Value);
+            foreach(selectNotesForReportResult r in result)
+            {
+                report.SelectionFont = new Font("Bahnschrift Bold", 12);
+                report.SelectedText = r.NoteTitle + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = r.NoteContent + "\n\n";
+
+            }
+        }
+
+        private void SetMedications(RichTextBoxEx report)
+        {
+
+
+
+
+            ISingleResult<selectMedicationForReportResult> result = doAction.selectMedicationForReport("Ongoing", thisPatientID);
+            foreach (selectMedicationForReportResult r in result)
+            {
+
+                report.SelectionBullet = false;
+                report.SelectionIndent = 60;
+                Console.WriteLine(r.MedicationName);
+                report.SelectionFont = new Font("Bahnschrift Bold", 12);
+                report.SelectedText = r.MedicationName  + "\n";
+
+                report.SelectionBullet = true;
+                report.SelectionIndent = 90;
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Strength: " + r.Strength + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Frequency: " + r.Frequency + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Route: " + r.Route + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+                report.SelectedText = "     Refills: " + r.Refills.ToString()  + "\n";
+                report.SelectionFont = new Font("Bahnschrift Light", 12);
+
+
+                report.SelectionBullet = false;
+                report.SelectedText = "\n\n";
+
+
+                //report.SelectionIndent = 5;
+
+            }
+        }
+       
+
+     
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+       
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            PrintPreviewDialog printDialog = new PrintPreviewDialog();
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                _printDocument.Print();
+        }
+
+        private void NoteBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
             Font header = new Font("Bahnschrift Bold", 15);
             Font smallheader = new Font("Bahnschrift Bold", 14);
             Font smallheadernonbold = new Font("Bahnschrift Light", 14);
@@ -79,12 +218,18 @@ namespace Shifaa_EMR_System
             Font content = new Font("Bahnschrift Light", 12);
             Font nonBoldHeader = new Font("Bahnschrift Light", 15);
 
+            report.Clear();
 
+            report.SelectedText = "Date: " + dateTimePicker1.Value.ToShortDateString() + "\n\n";
+
+            SetProviderInformation();
+            SetPatientInformation();
 
             report.BorderStyle = BorderStyle.None;
             report.Multiline = true;
             report.ScrollBars = RichTextBoxScrollBars.Vertical;
 
+            report.SelectionFont = smallheadernonbold;
             report.SelectionFont = header;
             report.SelectedText = (PatientNameLabel.Text + "\n");
             report.SelectionFont = nonBoldHeader;
@@ -99,7 +244,7 @@ namespace Shifaa_EMR_System
             report.SelectedText = PhysicianNumberLabel.Text + "\n\n";
 
             //Add background info
-           
+
             report.SelectionAlignment = HorizontalAlignment.Center;
             report.SelectedText = "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
             report.SelectionAlignment = HorizontalAlignment.Left;
@@ -107,7 +252,7 @@ namespace Shifaa_EMR_System
             report.SelectionFont = smallheader;
             report.SelectionIndent = 30;
             report.SelectedText = "Patient Background Information" + "\n";
-            
+
             report.SelectionIndent = 60;
             report.SelectionFont = smallheadernonbold;
             report.SelectedText = PatientGenderLabel.Text + "\n";
@@ -179,142 +324,13 @@ namespace Shifaa_EMR_System
             report.SelectedText = "Medication List" + "\n";
             SetMedications(report);
 
+            report.SelectedText = "\n";
+
+
 
             report.Size = new Size(738, 1377);
             report.Location = new Point(14, 64);
 
-            this.Controls.Add(report);
-            report.Show();
-
-            //Print
-
         }
-
-        private void SetPatientInformation()
-        {
-            ISingleResult<getPatientByIDResult> result = doAction.getPatientByID(thisPatientID);
-            foreach ( getPatientByIDResult r in result)
-            {
-                string firstName = r.FirstName;
-                string lastName = r.LastName;
-
-                PatientNameLabel.Text = firstName + " " + lastName;
-                PhoneNumberLabel.Text = "Phone Number: " + r.PhoneNumber;
-                PatientGenderLabel.Text = r.Gender;
-                MaritalStatusLabel.Text = "Marital Status: " + r.MaritalStatus;
-                if (r.Gender == "Male") PregnantLabel.Hide();
-                PregnantLabel.Text = "Pregnancy Status: " + r.PregnancyStatus;
-                PatientAgeLabel.Text = r.Age + " Years Old";
-                DOBLabel.Text = "DOB: " + r.DOB.ToShortDateString();
-
-            }
-        }
-
-        private void SetProviderInformation()
-        {
-            ISingleResult<getProviderInfoResult> result = doAction.getProviderInfo(thisProviderID);
-            foreach (getProviderInfoResult r in result)
-            {
-                AttendingPhysicianLabel.Text = r.FirstName + " " + r.LastName + " " + r.Title;
-                PhysicianNumberLabel.Text = "Phone Number: " + r.PhoneNumber;
-            }
-        }
-
-        private void SetPatientVitals()
-        {
-            ISingleResult<getLatestPatientVitalsResult> result = doAction.getLatestPatientVitals(thisPatientID);
-            foreach(getLatestPatientVitalsResult r in result)
-            {
-                BloodPressureValueLabel.Text = r.BloodPressure + " mm Hg";
-                PulseValueLabel.Text = r.Pulse + " bpm";
-                TemperatureValueLabel.Text = r.Temperature.ToString() + " °C";
-                HeightValueLabel.Text = r.Height.ToString() + " cm";
-                WeightValueLabel.Text = r.Weight.ToString() + " kg";
-                BMIValueLabel.Text = r.BMI.ToString() + " kg/m²";
-            }
-        }
-
-        private void SetProblems(RichTextBoxEx report)
-        {
-
-            report.SelectionBullet = true;
-            report.BulletIndent = 5;
-            ISingleResult<selectProblemsForReportResult> result = doAction.selectProblemsForReport("Ongoing", thisPatientID);
-            foreach( selectProblemsForReportResult r in result)
-            {
-                report.SelectionIndent = 60;
-                report.SelectionFont = new Font("Bahnschrift Light" , 13);
-                report.SelectedText = r.DateDiagnosed.ToShortDateString() + ": " + r.ProblemName + "\n";
-            }
-
-            report.SelectionBullet = false;
-        }
-
-        private void SetNotes(RichTextBoxEx report)
-        {
-            ISingleResult<selectNotesForReportResult> result = doAction.selectNotesForReport(thisPatientID, "Signed", DateTime.Today);
-            foreach(selectNotesForReportResult r in result)
-            {
-                report.SelectionFont = new Font("Bahnschrift Bold", 12);
-                report.SelectedText = r.NoteTitle + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 12);
-                report.SelectedText = r.NoteContent + "\n\n";
-
-            }
-        }
-
-        private void SetMedications(RichTextBoxEx report)
-        {
-
-
-
-
-            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID , DateTime.Today);
-            foreach (selectPrescriptionforPrintResult r in result)
-            {
-
-                report.SelectionBullet = false;
-                report.SelectionIndent = 60;
-                Console.WriteLine(r.MedicationName);
-                report.SelectionFont = new Font("Bahnschrift Bold", 12);
-                report.SelectedText = r.MedicationName + "\n";
-
-                report.SelectionBullet = true;
-                report.SelectionIndent = 90;
-                report.SelectionFont = new Font("Bahnschrift Light", 12);
-                report.SelectedText = "     Strength: " + r.Strength + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 12);
-                report.SelectedText = "     Frequency: " + r.Frequency + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 12);
-                report.SelectedText = "     Route: " + r.Route + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 12);
-                report.SelectedText = "     Refills: " + r.Refills + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 12);
-
-
-                report.SelectionBullet = false;
-                report.SelectedText = "\n\n";
-
-
-                //report.SelectionIndent = 5;
-
-            }
-        }
-       
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
-       
-        private void PrintButton_Click(object sender, EventArgs e)
-        {
-            PrintPreviewDialog printDialog = new PrintPreviewDialog();
-            if (printDialog.ShowDialog() == DialogResult.OK)
-                _printDocument.Print();
-        }
-
-
     }
 }

@@ -65,6 +65,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.PrintButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -128,7 +129,7 @@
             this.AttendingPhysicianLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AttendingPhysicianLabel.AutoSize = true;
             this.AttendingPhysicianLabel.Font = new System.Drawing.Font("Bahnschrift Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AttendingPhysicianLabel.Location = new System.Drawing.Point(447, 64);
+            this.AttendingPhysicianLabel.Location = new System.Drawing.Point(413, 64);
             this.AttendingPhysicianLabel.Name = "AttendingPhysicianLabel";
             this.AttendingPhysicianLabel.Size = new System.Drawing.Size(160, 25);
             this.AttendingPhysicianLabel.TabIndex = 38;
@@ -139,7 +140,7 @@
             this.PhysicianNumberLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PhysicianNumberLabel.AutoSize = true;
             this.PhysicianNumberLabel.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.PhysicianNumberLabel.Location = new System.Drawing.Point(439, 100);
+            this.PhysicianNumberLabel.Location = new System.Drawing.Point(405, 100);
             this.PhysicianNumberLabel.Name = "PhysicianNumberLabel";
             this.PhysicianNumberLabel.Size = new System.Drawing.Size(168, 19);
             this.PhysicianNumberLabel.TabIndex = 39;
@@ -186,6 +187,7 @@
             this.NoteBox.Size = new System.Drawing.Size(738, 1377);
             this.NoteBox.TabIndex = 51;
             this.NoteBox.Text = "";
+            this.NoteBox.TextChanged += new System.EventHandler(this.NoteBox_TextChanged);
             // 
             // panel2
             // 
@@ -396,6 +398,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Azure;
+            this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.PrintButton);
             this.panel1.Controls.Add(this.CancelButton);
             this.panel1.Location = new System.Drawing.Point(0, -5);
@@ -435,13 +438,22 @@
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(284, 15);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 24);
+            this.dateTimePicker1.TabIndex = 68;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // PrintableReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(803, 725);
+            this.ClientSize = new System.Drawing.Size(803, 822);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Seperator);
@@ -522,5 +534,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

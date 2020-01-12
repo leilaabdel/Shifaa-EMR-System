@@ -17,18 +17,19 @@ namespace Shifaa_EMR_System
 {
 
 
-    public partial class PrintPrescriptionsForm : Form
+    public partial class PrintLabs : Form
     {
         private static readonly IDbConnection con = new System.Data.SqlClient.SqlConnection(Properties.Settings.Default.EMRDatabaseConnectionString);
         private readonly SiteFunctionsDataContext doAction = new SiteFunctionsDataContext(con);
         readonly int thisPatientID;
         readonly string thisProviderID;
         private RichTextBoxEx report;
-        public PrintPrescriptionsForm(int patientID , string providerID)
+
+        public PrintLabs(int patientID, string providerID)
         {
             InitializeComponent();
 
-          
+
             this.thisPatientID = patientID;
             this.thisProviderID = providerID;
             _printDocument.BeginPrint += PrintDocument_BeginPrint;
@@ -49,27 +50,8 @@ namespace Shifaa_EMR_System
             };
 
 
-
-
         }
 
-        private void PrintPrescriptionsForm_Load(object sender, EventArgs e)
-        {
-            dateTimePicker1.Value = DateTime.Today;
-            foreach (Control con in Controls)
-            {
-                con.Hide();
-            }
-
-            PrintButton.Show();
-            CancelButton.Show();
-            panel1.Show();
-
-            this.Controls.Add(report);
-
-
-
-        }
 
         private readonly PrintDocument _printDocument = new PrintDocument();
         private int _checkPrint;
@@ -92,48 +74,31 @@ namespace Shifaa_EMR_System
         }
 
 
-        public static Image ResizeImage(Image imgToResize, Size size)
-        {
-            return (Image)(new Bitmap(imgToResize, size));
-        }
 
-      
 
-        private void SetMedications(RichTextBoxEx report)
+        private void SetLabs(RichTextBoxEx report , DateTime date)
         {
 
-          
-         
-           
-            ISingleResult<selectPrescriptionforPrintResult> result = doAction.selectPrescriptionforPrint("Ongoing", thisPatientID , dateTimePicker1.Value);
-            foreach (selectPrescriptionforPrintResult r in result)
+
+
+
+            ISingleResult<getScheduledLabResult> result = doAction.getScheduledLab(thisPatientID, date);
+            foreach (getScheduledLabResult r in result)
             {
+                report.SelectionAlignment = HorizontalAlignment.Left;
                 Console.WriteLine("0");
-                report.SelectionBullet = false;
-                report.SelectionIndent = 60;
-                Console.WriteLine(r.MedicationName);
-                report.SelectionFont = new Font("Bahnschrift Bold", 14);
-                report.SelectedText = r.MedicationName + "\n";
-
                 report.SelectionBullet = true;
-                report.SelectionIndent = 90;
-                report.SelectionFont = new Font("Bahnschrift Light", 14);
-                report.SelectedText = "     Strength: " + r.Strength + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 14);
-                report.SelectedText = "     Frequency: " + r.Frequency + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 14);
-                report.SelectedText = "     Route: " + r.Route + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 14);
-                report.SelectedText = "     Refills: " + r.Refills + "\n";
-                report.SelectionFont = new Font("Bahnschrift Light", 14);
+                report.SelectionIndent = 60;
+                Console.WriteLine(r.LabTestName);
+                report.SelectionFont = new Font("Bahnschrift Bold", 14);
+                report.SelectedText = r.LabTestName + "\n";
 
 
-                report.SelectionBullet = false;
-                report.SelectedText = "\n\n";
-                
-               
-              
             }
+
+            report.SelectionBullet = false;
+            report.SelectedText = "\n\n";
+
         }
 
         private void SetPatientInformation()
@@ -160,7 +125,7 @@ namespace Shifaa_EMR_System
             }
         }
 
-     
+
 
 
 
@@ -182,10 +147,28 @@ namespace Shifaa_EMR_System
 
         }
 
+        private void PrintLabs_Load(object sender, EventArgs e)
+        {
+            dateTimePicker1.Value = DateTime.Today;
+            foreach (Control con in Controls)
+            {
+                con.Hide();
+            }
+
+            PrintButton.Show();
+            CancelButton.Show();
+            panel1.Show();
+
+            this.Controls.Add(report);
+
+
+
+
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-       
-            report.Clear();
+
             SetProviderInformation();
             SetPatientInformation();
 
@@ -195,13 +178,15 @@ namespace Shifaa_EMR_System
             _ = new Font("Bahnschrift Light", 12);
             Font nonBoldHeader = new Font("Bahnschrift Light", 15);
 
-            //Add Attending info            
-            report.SelectionAlignment = HorizontalAlignment.Center;
-            report.SelectionFont = smallheadernonbold;
-            report.SelectedText = "Date: " + dateTimePicker1.Value.ToShortDateString() + "\n";
-            report.SelectionFont = header;
-            report.SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n";
+            report.Clear();
 
+            report.SelectionFont = smallheadernonbold;
+            report.SelectionAlignment = HorizontalAlignment.Left;
+            report.SelectedText = "Date: " + dateTimePicker1.Value.ToShortDateString() + "\n\n";
+
+            report.SelectionAlignment = HorizontalAlignment.Center;
+            report.SelectionFont = header;
+            report.SelectedText = "Attending: " + AttendingPhysicianLabel.Text + "\n"; 
             report.SelectionFont = nonBoldHeader;
             report.SelectedText = PhysicianNumberLabel.Text + "\n\n";
 
@@ -222,38 +207,10 @@ namespace Shifaa_EMR_System
 
 
             report.SelectedText = "----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" + "\n";
-            report.SelectedText = "\n\n         ";
-
-            Clipboard.Clear();
-
-            DataFormats.Format df = DataFormats.GetFormat(DataFormats.Bitmap);
-
-            Image img;
-
-            WebClient wc = new WebClient();
-            byte[] bytes = wc.DownloadData("https://i.etsystatic.com/13221305/r/il/62d971/1484186367/il_1588xN.1484186367_7h0c.jpg");
-            MemoryStream ms = new MemoryStream(bytes);
-            img = System.Drawing.Image.FromStream(ms);
-
-
-            //FromFile("C:/Users/coder/Source/Repos/lxa215/Shifaa-EMR-System/Shifaa EMR System/RxIcon.png");
-
-            report.SelectionAlignment = HorizontalAlignment.Left;
-
-            img = ResizeImage(img, new Size(104, 91));
-            Clipboard.SetImage(img);
-            report.Paste(df);
-
-            Clipboard.Clear();
-
-
-
-
             report.SelectedText = "\n\n";
 
 
-            SetMedications(report);
-
+            SetLabs(report, dateTimePicker1.Value);
 
             report.Size = new Size(738, 1377);
             report.Location = new Point(14, 64);
@@ -261,6 +218,7 @@ namespace Shifaa_EMR_System
 
 
             report.BorderStyle = BorderStyle.None;
+
 
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Shifaa_EMR_System
 {
-    partial class PrintPrescriptionsForm
+    partial class PrintScanProcedure
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.PrintButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.PhysicianNumberLabel = new System.Windows.Forms.Label();
             this.AttendingPhysicianLabel = new System.Windows.Forms.Label();
             this.PhoneNumberValueLabel = new System.Windows.Forms.Label();
@@ -70,7 +69,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 24);
             this.dateTimePicker1.TabIndex = 67;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged_1);
             // 
             // PrintButton
             // 
@@ -103,15 +102,6 @@
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.RxSign;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(30, 276);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(94, 81);
-            this.panel2.TabIndex = 65;
             // 
             // PhysicianNumberLabel
             // 
@@ -224,7 +214,7 @@
             // 
             this.prescriptionTableAdapter.ClearBeforeFill = true;
             // 
-            // PrintPrescriptionsForm
+            // PrintScanProcedure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -242,10 +232,9 @@
             this.Controls.Add(this.PatientNameValueLabel);
             this.Controls.Add(this.PhysicianNumberLabel);
             this.Controls.Add(this.AttendingPhysicianLabel);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "PrintPrescriptionsForm";
+            this.Name = "PrintScanProcedure";
             this.Text = "Print Prescriptions";
             this.Load += new System.EventHandler(this.PrintPrescriptionsForm_Load);
             this.panel1.ResumeLayout(false);
@@ -263,7 +252,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button PrintButton;
         private new System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label PhysicianNumberLabel;
         private System.Windows.Forms.Label AttendingPhysicianLabel;
         private System.Windows.Forms.Label PhoneNumberValueLabel;

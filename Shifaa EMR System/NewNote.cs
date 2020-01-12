@@ -68,27 +68,37 @@ namespace Shifaa_EMR_System
         {
             if(NoteHistoryTable.Rows.Count > 0)
             {
-                DateTime existingNoteDate = (DateTime)NoteHistoryTable["NoteDate", e.RowIndex].Value;
-                String noteTitle = (String)NoteHistoryTable["NoteTitle", e.RowIndex].Value;
-                ExistingNoteID = (int)NoteHistoryTable["ColumnNumber", e.RowIndex].Value;
-                String noteContent = "";
-                String providerName = "";
-
-                String date = existingNoteDate.ToShortDateString();
-                existingNoteDate = Convert.ToDateTime(date);
-                ISingleResult<getPatientNoteResult> result = doAction.getPatientNote(thisPatientID, ExistingNoteID , existingNoteDate);
-
-                foreach (getPatientNoteResult r in result)
+                try
                 {
-                    Console.WriteLine("Result");
-                    noteContent = r.NoteContent;
-                    providerName = r.ProviderName;
+                    DateTime existingNoteDate = (DateTime)NoteHistoryTable["NoteDate", e.RowIndex].Value;
+                    String noteTitle = (String)NoteHistoryTable["NoteTitle", e.RowIndex].Value;
+                    ExistingNoteID = (int)NoteHistoryTable["ColumnNumber", e.RowIndex].Value;
+                    String noteContent = "";
+                    String providerName = "";
+                    String noteHeader = "";
 
-                    if(r.Status == "Signed") AddExistingNoteTab(existingNoteDate, noteTitle, noteContent, providerName);
-                    if (r.Status == "Draft") AddNoteDraft(noteTitle, noteContent, thisProviderName, ExistingNoteID);
+                    String date = existingNoteDate.ToShortDateString();
+                    existingNoteDate = Convert.ToDateTime(date);
+                    ISingleResult<getPatientNoteResult> result = doAction.getPatientNote(thisPatientID, ExistingNoteID, existingNoteDate);
+
+                    foreach (getPatientNoteResult r in result)
+                    {
+                        Console.WriteLine("Result");
+                        noteContent = r.NoteContent;
+                        providerName = r.ProviderName;
+                        noteHeader = r.NoteHeader;
+
+                        if (r.Status == "Signed") AddExistingNoteTab(existingNoteDate, noteTitle, noteContent, providerName, noteHeader);
+                        if (r.Status == "Draft") AddNoteDraft(noteTitle, noteContent, noteHeader, thisProviderName, ExistingNoteID);
 
 
+                    }
                 }
+                catch(Exception ex)
+                {
+                    
+                }
+               
 
 
 
@@ -101,20 +111,20 @@ namespace Shifaa_EMR_System
         }
 
 
-        private void AddNoteDraft(String noteTitle, String noteContent, String providerName , int noteDraftID)
+        private void AddNoteDraft(String noteTitle, String noteContent, String noteheader,  String providerName , int noteDraftID)
         {
             Console.WriteLine(noteContent);
-            string[] soapNoteContent = noteContent.Split(':');
+            string[] soapNoteContent = noteContent.Split(';');
             this.tabPage1.Text = noteTitle;
-            this.SubjectiveNoteBox.Text = "Subjective: " + soapNoteContent[1].Replace("Objective", "");
-            this.ObjectiveNoteBox.Text = "Objective: " + soapNoteContent[2].Replace("Assessment", "");
-            this.AssesmentBox.Text = "Assessment: " + soapNoteContent[3].Replace("Plan", "");
-            this.PlanBox.Text = "Plan: " + soapNoteContent[4];
+            this.SubjectiveNoteBox.Text = soapNoteContent[0];
+            this.ObjectiveNoteBox.Text = soapNoteContent[1];
+            this.AssesmentBox.Text = soapNoteContent[2];
+            this.PlanBox.Text = soapNoteContent[3];
             this.DraftNoteID = noteDraftID;
 
         }
 
-        private void AddExistingNoteTab(DateTime date, String noteTitle, String noteContent, String providerName)
+        private void AddExistingNoteTab(DateTime date, String noteTitle, String noteContent, String providerName , String noteheader)
         {
             TabPage newTab = new TabPage();
 
@@ -138,7 +148,7 @@ namespace Shifaa_EMR_System
             newSignButton.FlatAppearance.BorderSize = 0;
             newSignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newSignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newSignButton.Location = new System.Drawing.Point(487, 49);
+            newSignButton.Location = new System.Drawing.Point(437, 49);
             newSignButton.Name = "newSignButton";
             newSignButton.Size = new System.Drawing.Size(94, 26);
             newSignButton.TabIndex = 66;
@@ -191,7 +201,7 @@ namespace Shifaa_EMR_System
             newAddendumButton.FlatAppearance.BorderSize = 0;
             newAddendumButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newAddendumButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newAddendumButton.Location = new System.Drawing.Point(487, 49);
+            newAddendumButton.Location = new System.Drawing.Point(437, 49);
             newAddendumButton.Name = "newAddendumButton";
             newAddendumButton.Size = new System.Drawing.Size(94, 26);
             newAddendumButton.TabIndex = 52;
@@ -217,7 +227,15 @@ namespace Shifaa_EMR_System
             newNoteBox.Location = new System.Drawing.Point(6, 100);
             newNoteBox.Multiline = true;
             newNoteBox.Name = "newNoteBox";
-            newNoteBox.Text = providerName + " wrote on " + date + ": " + "\n" + noteContent + "\n";
+            if(noteContent.Contains("wrote on: "))
+            {
+                newNoteBox.Text = noteContent;
+            }
+            else
+            {
+                newNoteBox.Text = noteheader + "\n" + noteContent.Replace(noteheader, "") + "\n";
+
+            }
             newNoteBox.Size = new System.Drawing.Size(738, 623);
             newNoteBox.TabIndex = 50;
             newNoteBox.ScrollBars = RichTextBoxScrollBars.Vertical;
@@ -268,7 +286,7 @@ namespace Shifaa_EMR_System
             newExitButton.FlatAppearance.BorderSize = 0;
             newExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             newExitButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            newExitButton.Location = new System.Drawing.Point(600, 49);
+            newExitButton.Location = new System.Drawing.Point(550, 49);
             newExitButton.Name = "ExitButton";
             newExitButton.Size = new System.Drawing.Size(94, 26);
             newExitButton.TabIndex = 52;
@@ -351,9 +369,8 @@ namespace Shifaa_EMR_System
             thisOldNoteBox.ScrollBars = RichTextBoxScrollBars.Vertical;
             String currentDate = DateTime.Now.ToString();
             thisOldNoteBox.AppendText("\n\n");
-            thisOldNoteBox.Font = new Font("Bahnschrift Bold", 10F, FontStyle.Bold);
-            thisOldNoteBox.AppendText(thisProviderName + " wrote on " + currentDate + "\n");
             thisOldNoteBox.Font = new Font("Bahnschrift Light", 10F, FontStyle.Regular);
+            thisOldNoteBox.AppendText(thisProviderName + " wrote on: " + DateTime.Now.ToString() + "\n");
             thisOldNoteBox.AppendText(addendumText);
 
 
@@ -383,11 +400,12 @@ namespace Shifaa_EMR_System
             Label thisNoteTitleValueLabel = (Label)NewNoteTabControl.SelectedTab.Controls.Find("newTitleValueNameLabel", false)[0];
             Label thisNoteValueDate = (Label)NewNoteTabControl.SelectedTab.Controls.Find("newDateValueLabel", false)[0];
 
+            string noteheader = thisProviderName + " wrote on " + currentDate + "\n";
 
             try
             {
                 doAction.updateNoteDraft(ExistingNoteID, thisNoteTitleValueLabel.Text, thisOldNoteBox.Text, "Signed",
-                    DateTime.Today , DateTime.Now);
+                    DateTime.Today , DateTime.Now , noteheader);
                 this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 
@@ -443,17 +461,18 @@ namespace Shifaa_EMR_System
             string noteTitle = NewNoteTitleBox.Text;
 
 
-            String noteContent = "Subjective: " + SubjectiveNoteBox.Text + 
-                "\n" + "Objective: " +  ObjectiveNoteBox.Text +
-                "\n" + "Assessment: " + AssesmentBox.Text +
-                "\n" + "Plan: " + PlanBox.Text;
+            String noteContent ="Subjective: " +  SubjectiveNoteBox.Text + 
+                "\n"  + "Objective: " +  ObjectiveNoteBox.Text +
+                "\n" +"Assessment: " +  AssesmentBox.Text +
+                "\n"  + "Plan: " +  PlanBox.Text;
 
 
             try
             {
 
                 string status = "Signed";
-                doAction.updateNoteDraft(DraftNoteID , noteTitle , noteContent , status, DateTime.Today , DateTime.Now);
+                string noteHeader = thisProviderName + " wrote on: " + DateTime.Now.ToString(); 
+                doAction.updateNoteDraft(DraftNoteID , noteTitle , noteContent , status, DateTime.Today , DateTime.Now , noteHeader);
                 this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 
@@ -518,17 +537,17 @@ namespace Shifaa_EMR_System
             Console.WriteLine("NoteTItel:" + noteTitle);
 
 
-            String noteContent = "Subjective: " + SubjectiveNoteBox.Text +
-                "\n" + "Objective: " + ObjectiveNoteBox.Text +
-                "\n" + "Assessment: " + AssesmentBox.Text +
-                "\n" + "Plan: " + PlanBox.Text + "\n";
+            String noteContent = SubjectiveNoteBox.Text +
+                ";" + ObjectiveNoteBox.Text +
+                ";" + AssesmentBox.Text +
+                ";" + PlanBox.Text + ";";
 
 
             try
             {
-                
+                string noteheader = thisProviderName + " wrote on: " + DateTime.Now.ToString();
                 string status = "Draft";
-                doAction.updateNoteDraft(DraftNoteID, noteTitle, noteContent, status, DateTime.Today , DateTime.Now);
+                doAction.updateNoteDraft(DraftNoteID, noteTitle, noteContent, status, DateTime.Today , DateTime.Now , noteheader);
                 this.patientNoteTableAdapter.FillByPatientIDIgnoreStatus(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
                 thisPatientHome.patientNoteTableAdapter.FillByPatientID(thisPatientHome.eMRDatabaseDataSet.PatientNote, thisPatientID);
 

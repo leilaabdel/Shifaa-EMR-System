@@ -22,6 +22,8 @@ namespace Shifaa_EMR_System
         readonly SchedulingCalendar schedulingCalendar;
         readonly ToolStripMenuItem thisGenerateReport;
         readonly ToolStripMenuItem thisPrintPrescriptions;
+        readonly ToolStripMenuItem thisPrintScansProcedures;
+        readonly ToolStripMenuItem thisPrintLabs;
         readonly string thisProviderID;
         CalendarItem item;
 
@@ -43,14 +45,20 @@ namespace Shifaa_EMR_System
             this.thisProviderMain = providerMain;
             this.FinishVisitButton.Hide();
 
-
             thisGenerateReport = new ToolStripMenuItem("Generate Report");
-
             thisGenerateReport.Click += new System.EventHandler(GenerateReportClick);
             thisPrintPrescriptions = new ToolStripMenuItem("Print Prescriptions");
             thisPrintPrescriptions.Click += new System.EventHandler(PrintPrescriptionsClick);
+            thisPrintLabs = new ToolStripMenuItem("Print Lab Orders");
+            thisPrintLabs.Click += new System.EventHandler(PrintLabs);
+            thisPrintScansProcedures = new ToolStripMenuItem("Print Procedure Orders");
+            thisPrintScansProcedures.Click += new System.EventHandler(PrintScansProcedures);
+
+
             thisProviderMain.menuStrip2.Items.Add(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Add(thisPrintPrescriptions);
+            thisProviderMain.menuStrip2.Items.Add(thisPrintLabs);
+            thisProviderMain.menuStrip2.Items.Add(thisPrintScansProcedures);
 
 
         }
@@ -81,12 +89,19 @@ namespace Shifaa_EMR_System
             this.MedicationsListDataGridView.AutoGenerateColumns = false;
 
             thisGenerateReport = new ToolStripMenuItem("Generate Report");
-
             thisGenerateReport.Click += new System.EventHandler(GenerateReportClick);
             thisPrintPrescriptions = new ToolStripMenuItem("Print Prescriptions");
             thisPrintPrescriptions.Click += new System.EventHandler(PrintPrescriptionsClick);
+            thisPrintLabs = new ToolStripMenuItem("Print Lab Orders");
+            thisPrintLabs.Click += new System.EventHandler(PrintLabs);
+            thisPrintScansProcedures = new ToolStripMenuItem("Print Procedure Orders");
+            thisPrintScansProcedures.Click += new System.EventHandler(PrintScansProcedures);
+
+
             thisProviderMain.menuStrip2.Items.Add(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Add(thisPrintPrescriptions);
+            thisProviderMain.menuStrip2.Items.Add(thisPrintLabs);
+            thisProviderMain.menuStrip2.Items.Add(thisPrintScansProcedures);
 
             this.thisProviderID = providerMain.GetProviderID();
 
@@ -116,6 +131,30 @@ namespace Shifaa_EMR_System
                 printPrescriptions.Show();
             }
        }
+
+        private void PrintLabs(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["PrintLabs"] as PrintLabs == null)
+            {
+                PrintLabs printLabs = new PrintLabs(thisPatientID, thisProviderMain.GetProviderID());
+                Center(printLabs);
+                printLabs.Show();
+            }
+        }
+
+        private void PrintScansProcedures(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["PrintScanProcedures"] as PrintScanProcedure == null)
+            {
+                PrintScanProcedure printScan = new PrintScanProcedure(thisPatientID, thisProviderMain.GetProviderID());
+                Center(printScan);
+                printScan.Show();
+            }
+        }
+
+
+
+
 
             private void SetVitals(int selectedPatientID)
         {
@@ -210,6 +249,20 @@ namespace Shifaa_EMR_System
             // restore AutoScroll
             this.AutoScroll = true;
 
+
+        }
+
+        private void FormGotFocused(object sender, EventArgs e)
+        {
+            Console.WriteLine("hi im focused");
+            this.patientNoteTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientNote, thisPatientID);
+            this.vitalSignsTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.VitalSigns, thisPatientID);
+            this.allergieTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Allergie, thisPatientID);
+            this.patientLabTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientLab, thisPatientID);
+            this.prescriptionTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Prescription, thisPatientID);
+            this.patientScanTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.PatientScan, thisPatientID);
+            this.problemTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Problem, thisPatientID);
+            this.appointmentTableAdapter.FillByPatientID(this.eMRDatabaseDataSet.Appointment, thisPatientID);
 
         }
 
@@ -337,30 +390,26 @@ namespace Shifaa_EMR_System
         {
             if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)
             {
-                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisPatientID)
+                SchedulingCalendar schedulingCalendar = new SchedulingCalendar(thisPatientID , (ProviderMain)this.MdiParent , this)
                 {
-                    Owner = this
+                  
                 };
                 schedulingCalendar.WindowState = FormWindowState.Normal;
                 Center(schedulingCalendar);
                 schedulingCalendar.Show();
             }
+
+            InvokeLostFocus(this, e);
         }
 
-        private void PatientClientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VitalHistoryLabel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             thisProviderMain.menuStrip2.Items.Remove(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Remove(thisPrintPrescriptions);
+            thisProviderMain.menuStrip2.Items.Remove(thisPrintScansProcedures);
+            thisProviderMain.menuStrip2.Items.Remove(thisPrintLabs);
             thisProviderMain.AutoScroll = false;
             this.Close();
         }
@@ -633,6 +682,8 @@ namespace Shifaa_EMR_System
             item.BackgroundColor = Color.Green;
             thisProviderMain.menuStrip2.Items.Remove(thisGenerateReport);
             thisProviderMain.menuStrip2.Items.Remove(thisPrintPrescriptions);
+            thisProviderMain.menuStrip2.Items.Remove(thisPrintLabs);
+            thisProviderMain.menuStrip2.Items.Remove(thisPrintScansProcedures);
             thisProviderMain.AutoScroll = false;
             this.Close();
 
@@ -683,6 +734,11 @@ namespace Shifaa_EMR_System
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VitalHistoryTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

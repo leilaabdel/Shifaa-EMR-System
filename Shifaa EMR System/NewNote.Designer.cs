@@ -36,6 +36,22 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.NewNoteLabel = new System.Windows.Forms.Label();
             this.NoteHistoryTable = new System.Windows.Forms.DataGridView();
+            this.NoteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoteTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoteContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoteDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.providerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientNoteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,22 +70,6 @@
             this.DateLabel = new System.Windows.Forms.Label();
             this.NoteTitleLabel = new System.Windows.Forms.Label();
             this.patientNoteTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.PatientNoteTableAdapter();
-            this.NoteID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoteTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoteContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoteDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noteContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NewNotePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NoteHistoryTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientNoteBindingSource)).BeginInit();
@@ -181,223 +181,6 @@
             this.NoteHistoryTable.TabIndex = 46;
             this.NoteHistoryTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteHistoryTable_CellContentClick);
             this.NoteHistoryTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NoteHistoryTable_DoubleClick);
-            // 
-            // patientNoteBindingSource
-            // 
-            this.patientNoteBindingSource.DataMember = "PatientNote";
-            this.patientNoteBindingSource.DataSource = this.eMRDatabaseDataSet;
-            // 
-            // eMRDatabaseDataSet
-            // 
-            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
-            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.NewNoteTabControl);
-            this.panel1.Controls.Add(this.NoteHistoryTable);
-            this.panel1.Location = new System.Drawing.Point(0, 45);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1099, 767);
-            this.panel1.TabIndex = 47;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
-            // 
-            // NewNoteTabControl
-            // 
-            this.NewNoteTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NewNoteTabControl.Controls.Add(this.tabPage1);
-            this.NewNoteTabControl.Location = new System.Drawing.Point(370, 0);
-            this.NewNoteTabControl.Name = "NewNoteTabControl";
-            this.NewNoteTabControl.SelectedIndex = 0;
-            this.NewNoteTabControl.Size = new System.Drawing.Size(726, 767);
-            this.NewNoteTabControl.TabIndex = 47;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.DeleteMessageButton);
-            this.tabPage1.Controls.Add(this.SaveDraftButton);
-            this.tabPage1.Controls.Add(this.PlanBox);
-            this.tabPage1.Controls.Add(this.AssesmentBox);
-            this.tabPage1.Controls.Add(this.ObjectiveNoteBox);
-            this.tabPage1.Controls.Add(this.SignButton);
-            this.tabPage1.Controls.Add(this.NoteLabel);
-            this.tabPage1.Controls.Add(this.SubjectiveNoteBox);
-            this.tabPage1.Controls.Add(this.NewNoteDateValue);
-            this.tabPage1.Controls.Add(this.NewNoteTitleBox);
-            this.tabPage1.Controls.Add(this.DateLabel);
-            this.tabPage1.Controls.Add(this.NoteTitleLabel);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(718, 741);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "New Note";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.TabPage1_Click);
-            // 
-            // DeleteMessageButton
-            // 
-            this.DeleteMessageButton.BackColor = System.Drawing.Color.White;
-            this.DeleteMessageButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.GarbageCan;
-            this.DeleteMessageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DeleteMessageButton.FlatAppearance.BorderSize = 0;
-            this.DeleteMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteMessageButton.Location = new System.Drawing.Point(673, 47);
-            this.DeleteMessageButton.Name = "DeleteMessageButton";
-            this.DeleteMessageButton.Size = new System.Drawing.Size(17, 21);
-            this.DeleteMessageButton.TabIndex = 50;
-            this.DeleteMessageButton.Text = " ";
-            this.DeleteMessageButton.UseVisualStyleBackColor = false;
-            this.DeleteMessageButton.Click += new System.EventHandler(this.DeleteMessageButton_Click);
-            // 
-            // SaveDraftButton
-            // 
-            this.SaveDraftButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveDraftButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SaveDraftButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.SaveDraftButton.FlatAppearance.BorderSize = 0;
-            this.SaveDraftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveDraftButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SaveDraftButton.Location = new System.Drawing.Point(454, 44);
-            this.SaveDraftButton.Name = "SaveDraftButton";
-            this.SaveDraftButton.Size = new System.Drawing.Size(94, 26);
-            this.SaveDraftButton.TabIndex = 49;
-            this.SaveDraftButton.Text = "Save Draft";
-            this.SaveDraftButton.UseVisualStyleBackColor = false;
-            this.SaveDraftButton.Click += new System.EventHandler(this.SaveDraftButton_Click);
-            // 
-            // PlanBox
-            // 
-            this.PlanBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PlanBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlanBox.Location = new System.Drawing.Point(6, 563);
-            this.PlanBox.Multiline = true;
-            this.PlanBox.Name = "PlanBox";
-            this.PlanBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PlanBox.Size = new System.Drawing.Size(706, 150);
-            this.PlanBox.TabIndex = 48;
-            this.PlanBox.Text = "Plan:";
-            this.PlanBox.Click += new System.EventHandler(this.PlanBox_Click);
-            // 
-            // AssesmentBox
-            // 
-            this.AssesmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AssesmentBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AssesmentBox.Location = new System.Drawing.Point(6, 407);
-            this.AssesmentBox.Multiline = true;
-            this.AssesmentBox.Name = "AssesmentBox";
-            this.AssesmentBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.AssesmentBox.Size = new System.Drawing.Size(706, 150);
-            this.AssesmentBox.TabIndex = 47;
-            this.AssesmentBox.Text = "Assessment:";
-            this.AssesmentBox.Click += new System.EventHandler(this.AssesmentBox_Click);
-            // 
-            // ObjectiveNoteBox
-            // 
-            this.ObjectiveNoteBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ObjectiveNoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ObjectiveNoteBox.Location = new System.Drawing.Point(6, 251);
-            this.ObjectiveNoteBox.Multiline = true;
-            this.ObjectiveNoteBox.Name = "ObjectiveNoteBox";
-            this.ObjectiveNoteBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ObjectiveNoteBox.Size = new System.Drawing.Size(706, 150);
-            this.ObjectiveNoteBox.TabIndex = 46;
-            this.ObjectiveNoteBox.Text = "Objective:";
-            this.ObjectiveNoteBox.Click += new System.EventHandler(this.ObjectiveNoteBox_Click);
-            this.ObjectiveNoteBox.TextChanged += new System.EventHandler(this.ObjectiveNoteBox_TextChanged);
-            // 
-            // SignButton
-            // 
-            this.SignButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SignButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SignButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.SignButton.FlatAppearance.BorderSize = 0;
-            this.SignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.SignButton.Location = new System.Drawing.Point(567, 44);
-            this.SignButton.Name = "SignButton";
-            this.SignButton.Size = new System.Drawing.Size(94, 26);
-            this.SignButton.TabIndex = 45;
-            this.SignButton.Text = "Sign";
-            this.SignButton.UseVisualStyleBackColor = false;
-            this.SignButton.Click += new System.EventHandler(this.SignButton_Click);
-            // 
-            // NoteLabel
-            // 
-            this.NoteLabel.AutoSize = true;
-            this.NoteLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.NoteLabel.Location = new System.Drawing.Point(25, 70);
-            this.NoteLabel.Name = "NoteLabel";
-            this.NoteLabel.Size = new System.Drawing.Size(42, 17);
-            this.NoteLabel.TabIndex = 44;
-            this.NoteLabel.Text = "Note:";
-            this.NoteLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // SubjectiveNoteBox
-            // 
-            this.SubjectiveNoteBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubjectiveNoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubjectiveNoteBox.Location = new System.Drawing.Point(6, 95);
-            this.SubjectiveNoteBox.Multiline = true;
-            this.SubjectiveNoteBox.Name = "SubjectiveNoteBox";
-            this.SubjectiveNoteBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.SubjectiveNoteBox.Size = new System.Drawing.Size(704, 150);
-            this.SubjectiveNoteBox.TabIndex = 43;
-            this.SubjectiveNoteBox.Text = "Subjective:";
-            this.SubjectiveNoteBox.Click += new System.EventHandler(this.SubjectiveBox_Click);
-            this.SubjectiveNoteBox.TextChanged += new System.EventHandler(this.NoteContentBox_TextChanged);
-            // 
-            // NewNoteDateValue
-            // 
-            this.NewNoteDateValue.AutoSize = true;
-            this.NewNoteDateValue.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.NewNoteDateValue.Location = new System.Drawing.Point(100, 18);
-            this.NewNoteDateValue.Name = "NewNoteDateValue";
-            this.NewNoteDateValue.Size = new System.Drawing.Size(82, 17);
-            this.NewNoteDateValue.TabIndex = 42;
-            this.NewNoteDateValue.Text = "XX/XX/XXXX";
-            this.NewNoteDateValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // NewNoteTitleBox
-            // 
-            this.NewNoteTitleBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewNoteTitleBox.Location = new System.Drawing.Point(103, 44);
-            this.NewNoteTitleBox.Name = "NewNoteTitleBox";
-            this.NewNoteTitleBox.Size = new System.Drawing.Size(268, 23);
-            this.NewNoteTitleBox.TabIndex = 41;
-            // 
-            // DateLabel
-            // 
-            this.DateLabel.AutoSize = true;
-            this.DateLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.DateLabel.Location = new System.Drawing.Point(25, 18);
-            this.DateLabel.Name = "DateLabel";
-            this.DateLabel.Size = new System.Drawing.Size(40, 17);
-            this.DateLabel.TabIndex = 31;
-            this.DateLabel.Text = "Date:";
-            this.DateLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // NoteTitleLabel
-            // 
-            this.NoteTitleLabel.AutoSize = true;
-            this.NoteTitleLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
-            this.NoteTitleLabel.Location = new System.Drawing.Point(25, 44);
-            this.NoteTitleLabel.Name = "NoteTitleLabel";
-            this.NoteTitleLabel.Size = new System.Drawing.Size(72, 17);
-            this.NoteTitleLabel.TabIndex = 30;
-            this.NoteTitleLabel.Text = "Note Title:";
-            this.NoteTitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // patientNoteTableAdapter
-            // 
-            this.patientNoteTableAdapter.ClearBeforeFill = true;
             // 
             // NoteID
             // 
@@ -522,6 +305,223 @@
             this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             this.statusDataGridViewTextBoxColumn.ReadOnly = true;
             this.statusDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // patientNoteBindingSource
+            // 
+            this.patientNoteBindingSource.DataMember = "PatientNote";
+            this.patientNoteBindingSource.DataSource = this.eMRDatabaseDataSet;
+            // 
+            // eMRDatabaseDataSet
+            // 
+            this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
+            this.eMRDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.NewNoteTabControl);
+            this.panel1.Controls.Add(this.NoteHistoryTable);
+            this.panel1.Location = new System.Drawing.Point(0, 45);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1082, 767);
+            this.panel1.TabIndex = 47;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+            // 
+            // NewNoteTabControl
+            // 
+            this.NewNoteTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewNoteTabControl.Controls.Add(this.tabPage1);
+            this.NewNoteTabControl.Location = new System.Drawing.Point(370, 0);
+            this.NewNoteTabControl.Name = "NewNoteTabControl";
+            this.NewNoteTabControl.SelectedIndex = 0;
+            this.NewNoteTabControl.Size = new System.Drawing.Size(709, 767);
+            this.NewNoteTabControl.TabIndex = 47;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.DeleteMessageButton);
+            this.tabPage1.Controls.Add(this.SaveDraftButton);
+            this.tabPage1.Controls.Add(this.PlanBox);
+            this.tabPage1.Controls.Add(this.AssesmentBox);
+            this.tabPage1.Controls.Add(this.ObjectiveNoteBox);
+            this.tabPage1.Controls.Add(this.SignButton);
+            this.tabPage1.Controls.Add(this.NoteLabel);
+            this.tabPage1.Controls.Add(this.SubjectiveNoteBox);
+            this.tabPage1.Controls.Add(this.NewNoteDateValue);
+            this.tabPage1.Controls.Add(this.NewNoteTitleBox);
+            this.tabPage1.Controls.Add(this.DateLabel);
+            this.tabPage1.Controls.Add(this.NoteTitleLabel);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(701, 741);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "New Note";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.TabPage1_Click);
+            // 
+            // DeleteMessageButton
+            // 
+            this.DeleteMessageButton.BackColor = System.Drawing.Color.White;
+            this.DeleteMessageButton.BackgroundImage = global::Shifaa_EMR_System.Properties.Resources.GarbageCan;
+            this.DeleteMessageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DeleteMessageButton.FlatAppearance.BorderSize = 0;
+            this.DeleteMessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteMessageButton.Location = new System.Drawing.Point(660, 47);
+            this.DeleteMessageButton.Name = "DeleteMessageButton";
+            this.DeleteMessageButton.Size = new System.Drawing.Size(17, 21);
+            this.DeleteMessageButton.TabIndex = 50;
+            this.DeleteMessageButton.Text = " ";
+            this.DeleteMessageButton.UseVisualStyleBackColor = false;
+            this.DeleteMessageButton.Click += new System.EventHandler(this.DeleteMessageButton_Click);
+            // 
+            // SaveDraftButton
+            // 
+            this.SaveDraftButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveDraftButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SaveDraftButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SaveDraftButton.FlatAppearance.BorderSize = 0;
+            this.SaveDraftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveDraftButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.SaveDraftButton.Location = new System.Drawing.Point(437, 44);
+            this.SaveDraftButton.Name = "SaveDraftButton";
+            this.SaveDraftButton.Size = new System.Drawing.Size(94, 26);
+            this.SaveDraftButton.TabIndex = 49;
+            this.SaveDraftButton.Text = "Save Draft";
+            this.SaveDraftButton.UseVisualStyleBackColor = false;
+            this.SaveDraftButton.Click += new System.EventHandler(this.SaveDraftButton_Click);
+            // 
+            // PlanBox
+            // 
+            this.PlanBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlanBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanBox.Location = new System.Drawing.Point(6, 563);
+            this.PlanBox.Multiline = true;
+            this.PlanBox.Name = "PlanBox";
+            this.PlanBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.PlanBox.Size = new System.Drawing.Size(689, 150);
+            this.PlanBox.TabIndex = 48;
+            this.PlanBox.Text = "Plan:";
+            this.PlanBox.Click += new System.EventHandler(this.PlanBox_Click);
+            // 
+            // AssesmentBox
+            // 
+            this.AssesmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AssesmentBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AssesmentBox.Location = new System.Drawing.Point(6, 407);
+            this.AssesmentBox.Multiline = true;
+            this.AssesmentBox.Name = "AssesmentBox";
+            this.AssesmentBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.AssesmentBox.Size = new System.Drawing.Size(689, 150);
+            this.AssesmentBox.TabIndex = 47;
+            this.AssesmentBox.Text = "Assessment:";
+            this.AssesmentBox.Click += new System.EventHandler(this.AssesmentBox_Click);
+            // 
+            // ObjectiveNoteBox
+            // 
+            this.ObjectiveNoteBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ObjectiveNoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ObjectiveNoteBox.Location = new System.Drawing.Point(6, 251);
+            this.ObjectiveNoteBox.Multiline = true;
+            this.ObjectiveNoteBox.Name = "ObjectiveNoteBox";
+            this.ObjectiveNoteBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ObjectiveNoteBox.Size = new System.Drawing.Size(689, 150);
+            this.ObjectiveNoteBox.TabIndex = 46;
+            this.ObjectiveNoteBox.Text = "Objective:";
+            this.ObjectiveNoteBox.Click += new System.EventHandler(this.ObjectiveNoteBox_Click);
+            this.ObjectiveNoteBox.TextChanged += new System.EventHandler(this.ObjectiveNoteBox_TextChanged);
+            // 
+            // SignButton
+            // 
+            this.SignButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SignButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SignButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SignButton.FlatAppearance.BorderSize = 0;
+            this.SignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignButton.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.SignButton.Location = new System.Drawing.Point(550, 44);
+            this.SignButton.Name = "SignButton";
+            this.SignButton.Size = new System.Drawing.Size(94, 26);
+            this.SignButton.TabIndex = 45;
+            this.SignButton.Text = "Sign";
+            this.SignButton.UseVisualStyleBackColor = false;
+            this.SignButton.Click += new System.EventHandler(this.SignButton_Click);
+            // 
+            // NoteLabel
+            // 
+            this.NoteLabel.AutoSize = true;
+            this.NoteLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.NoteLabel.Location = new System.Drawing.Point(25, 70);
+            this.NoteLabel.Name = "NoteLabel";
+            this.NoteLabel.Size = new System.Drawing.Size(42, 17);
+            this.NoteLabel.TabIndex = 44;
+            this.NoteLabel.Text = "Note:";
+            this.NoteLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // SubjectiveNoteBox
+            // 
+            this.SubjectiveNoteBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubjectiveNoteBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubjectiveNoteBox.Location = new System.Drawing.Point(6, 95);
+            this.SubjectiveNoteBox.Multiline = true;
+            this.SubjectiveNoteBox.Name = "SubjectiveNoteBox";
+            this.SubjectiveNoteBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.SubjectiveNoteBox.Size = new System.Drawing.Size(687, 150);
+            this.SubjectiveNoteBox.TabIndex = 43;
+            this.SubjectiveNoteBox.Text = "Subjective:";
+            this.SubjectiveNoteBox.Click += new System.EventHandler(this.SubjectiveBox_Click);
+            this.SubjectiveNoteBox.TextChanged += new System.EventHandler(this.NoteContentBox_TextChanged);
+            // 
+            // NewNoteDateValue
+            // 
+            this.NewNoteDateValue.AutoSize = true;
+            this.NewNoteDateValue.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.NewNoteDateValue.Location = new System.Drawing.Point(100, 18);
+            this.NewNoteDateValue.Name = "NewNoteDateValue";
+            this.NewNoteDateValue.Size = new System.Drawing.Size(82, 17);
+            this.NewNoteDateValue.TabIndex = 42;
+            this.NewNoteDateValue.Text = "XX/XX/XXXX";
+            this.NewNoteDateValue.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // NewNoteTitleBox
+            // 
+            this.NewNoteTitleBox.Font = new System.Drawing.Font("Bahnschrift Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewNoteTitleBox.Location = new System.Drawing.Point(103, 44);
+            this.NewNoteTitleBox.Name = "NewNoteTitleBox";
+            this.NewNoteTitleBox.Size = new System.Drawing.Size(268, 23);
+            this.NewNoteTitleBox.TabIndex = 41;
+            // 
+            // DateLabel
+            // 
+            this.DateLabel.AutoSize = true;
+            this.DateLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.DateLabel.Location = new System.Drawing.Point(25, 18);
+            this.DateLabel.Name = "DateLabel";
+            this.DateLabel.Size = new System.Drawing.Size(40, 17);
+            this.DateLabel.TabIndex = 31;
+            this.DateLabel.Text = "Date:";
+            this.DateLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // NoteTitleLabel
+            // 
+            this.NoteTitleLabel.AutoSize = true;
+            this.NoteTitleLabel.Font = new System.Drawing.Font("Bahnschrift Light", 10F);
+            this.NoteTitleLabel.Location = new System.Drawing.Point(25, 44);
+            this.NoteTitleLabel.Name = "NoteTitleLabel";
+            this.NoteTitleLabel.Size = new System.Drawing.Size(72, 17);
+            this.NoteTitleLabel.TabIndex = 30;
+            this.NoteTitleLabel.Text = "Note Title:";
+            this.NoteTitleLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // patientNoteTableAdapter
+            // 
+            this.patientNoteTableAdapter.ClearBeforeFill = true;
             // 
             // NewNote
             // 

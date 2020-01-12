@@ -42,6 +42,7 @@ namespace Shifaa_EMR_System
 
         public PatientListView(SchedulerMain schedulerMain)
         {
+            InitializeComponent();
             this.MdiParent = schedulerMain;
             parentType = "scheduler";
             this.schedulerMain = schedulerMain;
@@ -55,6 +56,8 @@ namespace Shifaa_EMR_System
 
         private void PatientListView_Load_1(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eMRDatabaseDataSet.Patient' table. You can move, or remove it, as needed.
+            this.patientTableAdapter.Fill(this.eMRDatabaseDataSet.Patient);
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterParent;
             this.PatientListView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -102,8 +105,21 @@ namespace Shifaa_EMR_System
         {
             if (this.Visible == true)
             {
+
+
                 // TODO: This line of code loads data into the 'eMRDatabasePatients.Patient' table. You can move, or remove it, as needed.
-                string searchText = ((ProviderMain)this.MdiParent).GetSearchText();
+
+                string searchText = "";
+                if(this.parentType == "provider")
+                {
+                     searchText = ((ProviderMain)this.MdiParent).GetSearchText();
+                }
+
+                if(this.parentType == "scheduler")
+                {
+                     searchText = ((SchedulerMain)this.MdiParent).GetSearchText();
+
+                }
 
                 Console.WriteLine(searchText);
 
@@ -117,6 +133,7 @@ namespace Shifaa_EMR_System
 
                 try
                 {
+               
                     Console.WriteLine("before");
                     this.patientTableAdapter.FillBySearch(this.eMRDatabaseDataSet.Patient, searchID, searchText, searchText);
                     Console.WriteLine("after");

@@ -349,7 +349,7 @@ namespace Shifaa_EMR_System
             this.panel1.Location = new System.Drawing.Point(213, 40);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(1180, 69);
+            this.panel1.Size = new System.Drawing.Size(1197, 69);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -363,7 +363,7 @@ namespace Shifaa_EMR_System
             this.CancelButton2.FlatAppearance.BorderSize = 0;
             this.CancelButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton2.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton2.Location = new System.Drawing.Point(1032, 16);
+            this.CancelButton2.Location = new System.Drawing.Point(1049, 16);
             this.CancelButton2.Name = "CancelButton2";
             this.CancelButton2.Size = new System.Drawing.Size(142, 35);
             this.CancelButton2.TabIndex = 55;
@@ -446,7 +446,7 @@ namespace Shifaa_EMR_System
             this.panel2.Location = new System.Drawing.Point(213, 109);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(1180, 53);
+            this.panel2.Size = new System.Drawing.Size(1197, 53);
             this.panel2.TabIndex = 2;
             // 
             // CancelButton1
@@ -459,7 +459,7 @@ namespace Shifaa_EMR_System
             this.CancelButton1.FlatAppearance.BorderSize = 0;
             this.CancelButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton1.Font = new System.Drawing.Font("Bahnschrift Light", 14.25F);
-            this.CancelButton1.Location = new System.Drawing.Point(1026, 7);
+            this.CancelButton1.Location = new System.Drawing.Point(1043, 7);
             this.CancelButton1.Name = "CancelButton1";
             this.CancelButton1.Size = new System.Drawing.Size(142, 35);
             this.CancelButton1.TabIndex = 54;
@@ -495,7 +495,7 @@ namespace Shifaa_EMR_System
         calendarHighlightRange5};
             this.calendar1.Location = new System.Drawing.Point(213, 162);
             this.calendar1.Name = "calendar1";
-            this.calendar1.Size = new System.Drawing.Size(1180, 1194);
+            this.calendar1.Size = new System.Drawing.Size(1197, 1194);
             this.calendar1.TabIndex = 6;
             this.calendar1.Text = "SchedulingCalendar";
             this.calendar1.TextBox = null;
@@ -510,7 +510,7 @@ namespace Shifaa_EMR_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1410, 620);
+            this.ClientSize = new System.Drawing.Size(1427, 620);
             this.ControlBox = false;
             this.Controls.Add(this.calendar1);
             this.Controls.Add(this.panel2);

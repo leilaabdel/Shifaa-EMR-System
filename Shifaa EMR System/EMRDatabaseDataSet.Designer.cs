@@ -19678,9 +19678,10 @@ SELECT appointmentID, FirstName, LastName, Details, StartDateTime, EndDateTime, 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT appointmentID, FirstName, LastName, Details, StartDateTime, EndDateTime, S" +
-                "tatus, Created, patientID, ProviderID, Color, Pattern, PatternColor FROM dbo.App" +
-                "ointment WHERE PatientID = @PatientID";
+            this._commandCollection[1].CommandText = "SELECT        appointmentID, FirstName, LastName, Details, StartDateTime, EndDate" +
+                "Time, Status, Created, patientID, ProviderID, Color, Pattern, PatternColor\r\nFROM" +
+                "            Appointment\r\nWHERE        (patientID = @PatientID)\r\nORDER BY StartDa" +
+                "teTime DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PatientID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "patientID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

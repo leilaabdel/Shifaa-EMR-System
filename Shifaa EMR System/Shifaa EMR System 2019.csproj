@@ -151,6 +151,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EMRDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PrintLabs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintLabs.Designer.cs">
+      <DependentUpon>PrintLabs.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemInfo.cs" />
     <Compile Include="MessageListItem.cs">
       <SubType>UserControl</SubType>
@@ -169,6 +175,12 @@
     </Compile>
     <Compile Include="NewMessageItem.Designer.cs">
       <DependentUpon>NewMessageItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintScanProcedure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintScanProcedure.Designer.cs">
+      <DependentUpon>PrintScanProcedure.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -342,6 +354,9 @@
     <EmbeddedResource Include="CredentialVerification.resx">
       <DependentUpon>CredentialVerification.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintLabs.resx">
+      <DependentUpon>PrintLabs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MessageListItem.resx">
       <DependentUpon>MessageListItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrintPrescriptionsForm.resx">
       <DependentUpon>PrintPrescriptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintScanProcedure.resx">
+      <DependentUpon>PrintScanProcedure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SchedulerMain.resx">
       <DependentUpon>SchedulerMain.cs</DependentUpon>

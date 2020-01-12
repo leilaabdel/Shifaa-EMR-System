@@ -23,8 +23,9 @@ namespace Shifaa_EMR_System
         Calendar calendar1;
         List<CalendarItem> items;
         private SchedulingCalendar schedulingCalendar;
+        private PatientHomePage patientHome;
 
-        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem  , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar schedulingCalendar)
+        public NewAppointmentFromPatientView(int patientID , string providerID , CalendarItem calendarItem  , Calendar calendar1 , List<CalendarItem> items , SchedulingCalendar schedulingCalendar, PatientHomePage patientHome)
         {
             InitializeComponent();
  
@@ -34,6 +35,7 @@ namespace Shifaa_EMR_System
             this.calendar1 = calendar1;
             this.items = items;
             this.schedulingCalendar = schedulingCalendar;
+            this.patientHome = patientHome;
 
 
 
@@ -78,7 +80,8 @@ namespace Shifaa_EMR_System
                 }
 
                 doAction.CreateAppointment(patientFirstName, patientLastName, AppointmentDetails.Text, dateTimePicker1.Value, dateTimePicker2.Value, thisPatientID, System.DateTime.Now,
-                    providerID);
+                    this.providerID);
+
 
                 calendarItem.StartDate = dateTimePicker1.Value;
                 calendarItem.EndDate = dateTimePicker2.Value;
@@ -99,7 +102,7 @@ namespace Shifaa_EMR_System
 
                 CalendarItem cal = new CalendarItem(calendar1, dateTimePicker1.Value,
                     dateTimePicker2.Value, apptText, patientFirstName , patientLastName , 
-                    apptID, thisPatientID, providerID, "Scheduled");
+                    apptID, thisPatientID, this.providerID, "Scheduled");
                 cal.BackgroundColor = Color.Blue;
 
                 schedulingCalendar.GetCalendarItems().Add(cal);
@@ -107,15 +110,19 @@ namespace Shifaa_EMR_System
                 schedulingCalendar.PlaceItems(items);
 
 
+                this.Close();
+
             }
-            catch
+            catch(Exception ex)
             {
+          
                 MessageBox.Show("Please enter valid dates and times");
             }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 

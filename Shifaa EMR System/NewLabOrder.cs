@@ -47,9 +47,10 @@ namespace Shifaa_EMR_System
                     this.Close();
 
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Please enter a lab order or close the page");
+                    throw ex;
+                    //MessageBox.Show("Please enter a lab order or close the page");
                 }
             }
           

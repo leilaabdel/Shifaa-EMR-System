@@ -151,9 +151,9 @@ namespace Shifaa_EMR_System
             int age = Convert.ToInt32(ts.Days) / 365;
             if (age >= 1) return age.ToString();
 
-            int monthsage = DateTime.Now.Month - DOBPicker.Value.Month;
+            int monthsAge =  Math.Abs((DOBPicker.Value.Month - DateTime.Today.Month) + 12 * (DOBPicker.Value.Year - DateTime.Today.Year));
 
-            return monthsage +" Months";
+            return monthsAge.ToString() +" Months";
 
         }
 
@@ -205,7 +205,11 @@ namespace Shifaa_EMR_System
 
         private void Save_Click(object sender, EventArgs e)
         {
-
+            if (String.IsNullOrWhiteSpace(FirstNameBox.Text) || String.IsNullOrWhiteSpace(LastNameBox.Text))
+            {
+                MessageBox.Show("The first and last name fields are required");
+                return;
+            }
             if (MaleCheckBox.Checked && FemaleCheckBox.Checked)
             {
                 MessageBox.Show("Please choose either male or female. Not both");
@@ -347,13 +351,7 @@ namespace Shifaa_EMR_System
             {
                 System.Windows.Forms.MessageBox.Show("Please make sure at least first name, last name, date of birth and gender are filled.");
 
-                Exception ex2 = ex;
-                while (ex2.InnerException != null)
-                {
-                    ex2 = ex2.InnerException;
-                }
-                Console.WriteLine(ex.InnerException);
-                throw;
+                
 
 
             }

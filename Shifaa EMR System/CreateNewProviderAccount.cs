@@ -67,6 +67,13 @@ namespace Shifaa_EMR_System
                     }
                 }
 
+                if(PassCodeBox.Text.Length < 8)
+                {
+                    MessageBox.Show("Passcodes must be longer than 8 characters");
+                    PassCodeBox.Text = null;
+                    return;
+                }
+
                 //TODO: Configure for email validation.
                 if(!EmailBox.Text.Contains("@") || !EmailBox.Text.Contains("."))
                 {

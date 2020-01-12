@@ -62,7 +62,23 @@ namespace Shifaa_EMR_System
 
         private void SchedulerMain_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+            MdiClient schedulerMain;
+
+            this.MaximizeBox = false;
+            foreach (Control ctl in this.Controls)
+            {
+                try
+                {
+                    schedulerMain = (MdiClient)ctl;
+                    schedulerMain.BackColor = this.BackColor;
+
+                }
+                catch (InvalidCastException exc)
+                {
+
+                }
+
+            }
         }
 
         PatientListView globalPatientList;
@@ -175,6 +191,7 @@ namespace Shifaa_EMR_System
                     Application.OpenForms[i].Close();
                 }
             }
+
             if (e.KeyChar == (char)Keys.Return && Application.OpenForms["PatientListView"] as PatientListView == null)
 
             {
@@ -201,5 +218,11 @@ namespace Shifaa_EMR_System
         {
 
         }
+
+        public string GetSearchText()
+        {
+            return searchBox.Text;
+        }
+
     }
 }
