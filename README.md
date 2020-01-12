@@ -7,6 +7,11 @@ The goal of this project is to provide an affordable electronic medical record f
 Middle East. 
 
 
+## How to Download
+
+Just click the green download button at the top as a zip file. Extract the zip file and run the Shifaa EMR System.Application File. 
+
+
 ## Services
 
 - Patient records are stored in a secure way in the Microsoft Azure Cloud, so they can be accessed by both patients
@@ -19,6 +24,9 @@ patient messaging is ongoing.
 - Autocomplete helps providers to easily prescribe drugs and write diagnoses. 
 - Integration of lab report uploads to the system ensures they are always digitally accessible. 
 
+
+## Feedback.
+We are in beta, so any user feedback is appreciated. Please fill out this short [form]: https://forms.gle/MheFRmWuSN8JpAy4A
 
 
 ### The Home Page
