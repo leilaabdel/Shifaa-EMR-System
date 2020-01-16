@@ -93,7 +93,9 @@ namespace Shifaa_EMR_System
                 if (Application.OpenForms[i] != this && Application.OpenForms[i].Name != "WelcomeHomePage")
                 {
                     Application.OpenForms[i].Close();
+                    
                 }
+         
             }
 
             if (Application.OpenForms["SchedulingCalendar"] as SchedulingCalendar == null)

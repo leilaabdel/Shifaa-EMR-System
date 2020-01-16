@@ -111,6 +111,15 @@ namespace Shifaa_EMR_System
            
         }
 
+        private void IsNotVisible(object sender , FormClosedEventArgs e)
+        {
+          
+                thisProviderMain.menuStrip2.Items.Remove(thisGenerateReport);
+                thisProviderMain.menuStrip2.Items.Remove(thisPrintPrescriptions);
+                thisProviderMain.menuStrip2.Items.Remove(thisPrintScansProcedures);
+                thisProviderMain.menuStrip2.Items.Remove(thisPrintLabs);
+            
+        }
 
         private void GenerateReportClick(object sender, EventArgs e)
         {
