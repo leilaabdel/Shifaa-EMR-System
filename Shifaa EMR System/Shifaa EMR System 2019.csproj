@@ -69,6 +69,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ShifaaLogo1 %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
@@ -522,6 +525,7 @@
     <None Include="RxSign.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ShifaaLogo1 %281%29.ico" />
     <None Include="Resources\rubbish-bins-waste-paper-baskets-recycling-bin-computer-icons-trash-icon.bmp" />
     <None Include="GarbageCan.png" />
     <None Include="OpenLetter.png" />
