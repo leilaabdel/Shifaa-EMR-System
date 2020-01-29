@@ -73,13 +73,13 @@ namespace Shifaa_EMR_System
             this.ProviderComboBox = new System.Windows.Forms.ComboBox();
             this.appointmentBox = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
             this.eMRDatabaseDataSet = new Shifaa_EMR_System.EMRDatabaseDataSet();
             this.schedulersBelongingToProviderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.schedulersBelongingToProviderTableAdapter = new Shifaa_EMR_System.EMRDatabaseDataSetTableAdapters.SchedulersBelongingToProviderTableAdapter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CancelButton1 = new System.Windows.Forms.Button();
             this.calendar1 = new System.Windows.Forms.Calendar.Calendar();
+            this.monthView1 = new System.Windows.Forms.Calendar.MonthView();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eMRDatabaseDataSet)).BeginInit();
@@ -401,30 +401,6 @@ namespace Shifaa_EMR_System
             this.appointmentBox.TabIndex = 0;
             this.appointmentBox.LostFocus += new System.EventHandler(this.appointmentBox_LostFocus);
             // 
-            // monthView1
-            // 
-            this.monthView1.ArrowsColor = System.Drawing.SystemColors.Window;
-            this.monthView1.ArrowsSelectedColor = System.Drawing.Color.Gold;
-            this.monthView1.DayBackgroundColor = System.Drawing.Color.Empty;
-            this.monthView1.DayGrayedText = System.Drawing.SystemColors.GrayText;
-            this.monthView1.DaySelectedBackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.monthView1.DaySelectedColor = System.Drawing.SystemColors.WindowText;
-            this.monthView1.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
-            this.monthView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
-            this.monthView1.Location = new System.Drawing.Point(20, 40);
-            this.monthView1.MaxSelectionCount = 35;
-            this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
-            this.monthView1.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
-            this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
-            this.monthView1.Name = "monthView1";
-            this.monthView1.Size = new System.Drawing.Size(208, 1316);
-            this.monthView1.TabIndex = 3;
-            this.monthView1.Text = "monthView1";
-            this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
-            this.monthView1.SelectionChanged += new System.EventHandler(this.monthView1_SelectionChanged);
-            // 
             // eMRDatabaseDataSet
             // 
             this.eMRDatabaseDataSet.DataSetName = "EMRDatabaseDataSet";
@@ -504,6 +480,30 @@ namespace Shifaa_EMR_System
             this.calendar1.ItemDatesChanged += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_DateChanged);
             this.calendar1.ItemClick += new System.Windows.Forms.Calendar.Calendar.CalendarItemEventHandler(this.calendar1_ItemClick);
             this.calendar1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.calendar1_MouseMove);
+            // 
+            // monthView1
+            // 
+            this.monthView1.ArrowsColor = System.Drawing.SystemColors.Window;
+            this.monthView1.ArrowsSelectedColor = System.Drawing.Color.Gold;
+            this.monthView1.DayBackgroundColor = System.Drawing.Color.Empty;
+            this.monthView1.DayGrayedText = System.Drawing.SystemColors.GrayText;
+            this.monthView1.DaySelectedBackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.monthView1.DaySelectedColor = System.Drawing.SystemColors.WindowText;
+            this.monthView1.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
+            this.monthView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.monthView1.ItemPadding = new System.Windows.Forms.Padding(2);
+            this.monthView1.Location = new System.Drawing.Point(20, 40);
+            this.monthView1.MaxSelectionCount = 35;
+            this.monthView1.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
+            this.monthView1.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
+            this.monthView1.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.monthView1.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
+            this.monthView1.Name = "monthView1";
+            this.monthView1.Size = new System.Drawing.Size(208, 1316);
+            this.monthView1.TabIndex = 3;
+            this.monthView1.Text = "monthView1";
+            this.monthView1.TodayBorderColor = System.Drawing.Color.Maroon;
+            this.monthView1.SelectionChanged += new System.EventHandler(this.monthView1_SelectionChanged);
             // 
             // SchedulingCalendar
             // 

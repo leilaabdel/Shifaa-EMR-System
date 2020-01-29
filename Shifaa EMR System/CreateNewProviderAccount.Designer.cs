@@ -84,7 +84,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(746, 47);
+            this.panel2.Size = new System.Drawing.Size(729, 47);
             this.panel2.TabIndex = 1;
             // 
             // BackButton
@@ -160,7 +160,7 @@
             this.UsernameBox.Location = new System.Drawing.Point(322, 637);
             this.UsernameBox.Margin = new System.Windows.Forms.Padding(4);
             this.UsernameBox.Name = "UsernameBox";
-            this.UsernameBox.Size = new System.Drawing.Size(179, 23);
+            this.UsernameBox.Size = new System.Drawing.Size(145, 23);
             this.UsernameBox.TabIndex = 22;
             // 
             // PassCodeBox
@@ -171,7 +171,7 @@
             this.PassCodeBox.Location = new System.Drawing.Point(322, 688);
             this.PassCodeBox.Margin = new System.Windows.Forms.Padding(4);
             this.PassCodeBox.Name = "PassCodeBox";
-            this.PassCodeBox.Size = new System.Drawing.Size(179, 23);
+            this.PassCodeBox.Size = new System.Drawing.Size(145, 23);
             this.PassCodeBox.TabIndex = 23;
             this.PassCodeBox.TextChanged += new System.EventHandler(this.PassCodeBox_TextChanged);
             // 
@@ -179,7 +179,7 @@
             // 
             this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LoginButton.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
-            this.LoginButton.Location = new System.Drawing.Point(314, 793);
+            this.LoginButton.Location = new System.Drawing.Point(296, 793);
             this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(164, 48);
@@ -196,7 +196,7 @@
             this.ReenterPasscodeBox.Location = new System.Drawing.Point(322, 739);
             this.ReenterPasscodeBox.Margin = new System.Windows.Forms.Padding(4);
             this.ReenterPasscodeBox.Name = "ReenterPasscodeBox";
-            this.ReenterPasscodeBox.Size = new System.Drawing.Size(179, 23);
+            this.ReenterPasscodeBox.Size = new System.Drawing.Size(145, 23);
             this.ReenterPasscodeBox.TabIndex = 24;
             // 
             // label2
@@ -218,7 +218,7 @@
             this.TitleBox.Location = new System.Drawing.Point(322, 201);
             this.TitleBox.Margin = new System.Windows.Forms.Padding(4);
             this.TitleBox.Name = "TitleBox";
-            this.TitleBox.Size = new System.Drawing.Size(179, 23);
+            this.TitleBox.Size = new System.Drawing.Size(145, 23);
             this.TitleBox.TabIndex = 15;
             // 
             // Title
@@ -240,7 +240,7 @@
             this.LastNameBox.Location = new System.Drawing.Point(322, 150);
             this.LastNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.LastNameBox.Name = "LastNameBox";
-            this.LastNameBox.Size = new System.Drawing.Size(179, 23);
+            this.LastNameBox.Size = new System.Drawing.Size(145, 23);
             this.LastNameBox.TabIndex = 14;
             // 
             // FirstNameBox
@@ -251,7 +251,7 @@
             this.FirstNameBox.Location = new System.Drawing.Point(322, 100);
             this.FirstNameBox.Margin = new System.Windows.Forms.Padding(4);
             this.FirstNameBox.Name = "FirstNameBox";
-            this.FirstNameBox.Size = new System.Drawing.Size(179, 23);
+            this.FirstNameBox.Size = new System.Drawing.Size(145, 23);
             this.FirstNameBox.TabIndex = 13;
             // 
             // LastNameLabel
@@ -284,7 +284,7 @@
             this.PhoneNumberBox.Location = new System.Drawing.Point(322, 299);
             this.PhoneNumberBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumberBox.Name = "PhoneNumberBox";
-            this.PhoneNumberBox.Size = new System.Drawing.Size(179, 23);
+            this.PhoneNumberBox.Size = new System.Drawing.Size(145, 23);
             this.PhoneNumberBox.TabIndex = 17;
             this.PhoneNumberBox.TextChanged += new System.EventHandler(this.PhoneNumberBox_TextChanged);
             // 
@@ -346,7 +346,7 @@
             this.EmailBox.Location = new System.Drawing.Point(322, 357);
             this.EmailBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailBox.Name = "EmailBox";
-            this.EmailBox.Size = new System.Drawing.Size(179, 23);
+            this.EmailBox.Size = new System.Drawing.Size(145, 23);
             this.EmailBox.TabIndex = 18;
             // 
             // EmailLabel
@@ -368,7 +368,7 @@
             this.JobTypeBox.Location = new System.Drawing.Point(322, 251);
             this.JobTypeBox.Margin = new System.Windows.Forms.Padding(4);
             this.JobTypeBox.Name = "JobTypeBox";
-            this.JobTypeBox.Size = new System.Drawing.Size(179, 23);
+            this.JobTypeBox.Size = new System.Drawing.Size(145, 23);
             this.JobTypeBox.TabIndex = 16;
             // 
             // JobTypeLabel
@@ -494,7 +494,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(746, 881);
+            this.ClientSize = new System.Drawing.Size(746, 763);
             this.Controls.Add(this.SchedulerTable);
             this.Controls.Add(this.ChooseSchedulerLabel);
             this.Controls.Add(this.JobTypeBox);
