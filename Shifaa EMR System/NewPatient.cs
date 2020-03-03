@@ -247,7 +247,7 @@ namespace Shifaa_EMR_System
 
             else if (!String.IsNullOrWhiteSpace(PhoneNumberBox.Text))
             {
-                var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
+                PhoneNumbers.PhoneNumberUtil phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
 
                 try
                 {

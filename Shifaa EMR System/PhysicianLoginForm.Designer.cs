@@ -152,7 +152,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Kristen ITC", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            //this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PhysicianLoginForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

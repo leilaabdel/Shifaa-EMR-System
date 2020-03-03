@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1.0" />
+    <PackageReference Include="Mindbox.Data.Linq" Version="2.1.5" />
+    <PackageReference Include="MetroModernUI" Version="1.4.0" />
+    <PackageReference Include="libphonenumber-csharp" Version="8.11.4" />
+    <Compile Include="..\Shifaa EMR System\**\*.cs" />
+    <Compile Include="..\System.Windows.Forms.Calendar\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Compile Remove="..\Shifaa EMR System\AppointmentListView.cs" />
+    <Compile Remove="..\Shifaa EMR System\AppointmentListView.Designer.cs" />
+    <Compile Remove="..\Shifaa EMR System\Properties\AssemblyInfo.cs" />
+    <Compile Remove="..\Shifaa EMR System\Properties\Resources.Designer.cs" />
+    <Compile Remove="..\Shifaa EMR System\WelcomeHomePage.cs" />
+    <Compile Remove="..\Shifaa EMR System\WelcomeHomePage.Designer.cs" />
+    <Compile Remove="..\Shifaa EMR System\Welcome_Page.cs" />
+    <Compile Remove="..\Shifaa EMR System\Welcome_Page.Designer.cs" />
+    <Compile Remove="..\System.Windows.Forms.Calendar\AutoComplete1.cs" />
+    <Compile Remove="..\System.Windows.Forms.Calendar\Properties\AssemblyInfo.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Remove="RxIcon.jpg" />
+    <None Remove="RxIcon.png" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Content Include="RxIcon.jpg" />
+    <Content Include="RxIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shifaa EMR System\Shifaa EMR System 2019.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+    
+</Project>

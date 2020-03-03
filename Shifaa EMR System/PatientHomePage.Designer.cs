@@ -1260,7 +1260,7 @@
             this.EditMedicationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EditMedicationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.EditMedicationButton.BackColor = System.Drawing.Color.Azure;
-            this.EditMedicationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditMedicationButton.BackgroundImage")));
+            //this.EditMedicationButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditMedicationButton.BackgroundImage")));
             this.EditMedicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EditMedicationButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.EditMedicationButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -1746,7 +1746,7 @@
             // 
             this.OpenLabButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OpenLabButton.BackColor = System.Drawing.Color.Azure;
-            this.OpenLabButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OpenLabButton.BackgroundImage")));
+            //this.OpenLabButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("OpenLabButton.BackgroundImage")));
             this.OpenLabButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.OpenLabButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.OpenLabButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2303,7 +2303,7 @@
             // 
             this.Button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Button1.BackColor = System.Drawing.Color.Azure;
-            this.Button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button1.BackgroundImage")));
+            //this.Button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Button1.BackgroundImage")));
             this.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Button1.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
@@ -2612,7 +2612,7 @@
             this.UpdateProblemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateProblemButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.UpdateProblemButton.BackColor = System.Drawing.Color.Azure;
-            this.UpdateProblemButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpdateProblemButton.BackgroundImage")));
+            //this.UpdateProblemButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpdateProblemButton.BackgroundImage")));
             this.UpdateProblemButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UpdateProblemButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
             this.UpdateProblemButton.FlatAppearance.BorderColor = System.Drawing.Color.Azure;
